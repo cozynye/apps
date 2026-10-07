@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nuni new entry sheet</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Be Vietnam Pro",system-ui,sans-serif;color:#1f1f24;}
+button{font-family:inherit;cursor:pointer;}
+.mood{display:flex;flex-direction:column;align-items:center;gap:6px;background:transparent;border:0;padding:6px;border-radius:14px;}
+.mood span{font-size:11px;font-weight:500;color:#66656e;}
+.tag{height:36px;padding:0 12px;border-radius:999px;border:0;background:#eeede8;font-size:13px;color:#1f1f24;display:flex;align-items:center;gap:6px;}
+.tag.on{background:#e3f0fc;color:#3b6fa3;font-weight:600;}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #f7f6f3; position: relative; overflow: hidden;">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <symbol id="c" viewBox="0 0 1024 1024"><circle cx="390" cy="560" r="160"/><circle cx="540" cy="470" r="200"/><circle cx="690" cy="570" r="150"/><rect x="230" y="560" width="610" height="160" rx="80"/></symbol>
+    <symbol id="m1" viewBox="0 0 1024 1024"><use href="#c" fill="#7d8aa0"/><g fill="#1f1f24" stroke="#1f1f24" stroke-width="34" stroke-linecap="round"><path d="M440 512 L500 490" fill="none"/><path d="M630 512 L570 490" fill="none"/><circle cx="470" cy="545" r="30" stroke="none"/><circle cx="600" cy="545" r="30" stroke="none"/><path d="M485 640 Q535 600 585 640" fill="none"/></g></symbol>
+    <symbol id="m2" viewBox="0 0 1024 1024"><use href="#c" fill="#aec1dc"/><g fill="#1f1f24" stroke="#1f1f24" stroke-width="34" stroke-linecap="round"><circle cx="470" cy="525" r="30" stroke="none"/><circle cx="600" cy="525" r="30" stroke="none"/><path d="M488 608 L582 608" fill="none"/></g></symbol>
+    <symbol id="m3" viewBox="0 0 1024 1024"><use href="#c" fill="#f1e4b2"/><g fill="#1f1f24" stroke="#1f1f24" stroke-width="34" stroke-linecap="round"><circle cx="470" cy="525" r="30" stroke="none"/><circle cx="600" cy="525" r="30" stroke="none"/><path d="M498 596 Q535 622 572 596" fill="none"/></g></symbol>
+    <symbol id="m4" viewBox="0 0 1024 1024"><use href="#c" fill="#ffc95c"/><g fill="#1f1f24" stroke="#1f1f24" stroke-width="34" stroke-linecap="round"><circle cx="470" cy="525" r="30" stroke="none"/><circle cx="600" cy="525" r="30" stroke="none"/><path d="M485 590 Q535 640 585 590" fill="none"/></g></symbol>
+    <symbol id="m5" viewBox="0 0 1024 1024"><use href="#c" fill="#ff9f4a"/><g fill="#1f1f24" stroke="#1f1f24" stroke-width="34" stroke-linecap="round"><path d="M440 538 Q470 505 500 538" fill="none"/><path d="M570 538 Q600 505 630 538" fill="none"/><path d="M475 585 H595 A60 60 0 0 1 475 585 Z" stroke="none"/></g></symbol>
+  </defs></svg>
+
+  <!-- dimmed home behind -->
+  <div style="padding: 62px 16px 0 16px; opacity: 0.5;">
+    <h1 style="margin: 0; font-size: 24px; font-weight: 700; letter-spacing: -0.3px;">October 2026</h1>
+    <div style="margin-top: 20px; height: 300px; background: #ffffff; border: 1px solid #e3e1db; border-radius: 14px;"></div>
+  </div>
+  <div style="position: absolute; inset: 0; background: rgba(31,31,36,0.4);"></div>
+
+  <!-- bottom sheet -->
+  <div style="position: absolute; left: 0; right: 0; bottom: 0; background: #ffffff; border-radius: 24px 24px 0 0; padding: 8px 16px 34px 16px; display: flex; flex-direction: column; gap: 20px;">
+    <div style="width: 36px; height: 4px; border-radius: 2px; background: #e3e1db; align-self: center;"></div>
+
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+      <div>
+        <div style="font-size: 18px; font-weight: 600;">Today</div>
+        <button style="border: 0; background: transparent; padding: 0; margin-top: 2px; font: inherit; font-size: 13px; color: #3b6fa3; font-weight: 600; display: flex; align-items: center; gap: 4px;">Tue, Oct 20 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#3b6fa3" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+      </div>
+      <button aria-label="Close" style="width: 44px; height: 44px; border: 0; background: #f7f6f3; border-radius: 999px; display: flex; align-items: center; justify-content: center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1f1f24" stroke-width="1.75" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+
+    <!-- step 1 mood -->
+    <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px;">
+      <button class="mood"><svg width="52" height="52" viewBox="0 0 1024 1024" aria-hidden="true"><use href="#m1"/></svg><span>Rough</span></button>
+      <button class="mood"><svg width="52" height="52" viewBox="0 0 1024 1024" aria-hidden="true"><use href="#m2"/></svg><span>Low</span></button>
+      <button class="mood"><svg width="52" height="52" viewBox="0 0 1024 1024" aria-hidden="true"><use href="#m3"/></svg><span>Okay</span></button>
+      <button class="mood" aria-pressed="true" style="background: #e3f0fc;"><svg width="60" height="60" viewBox="0 0 1024 1024" aria-hidden="true"><use href="#m4"/></svg><span style="color:#3b6fa3;font-weight:600;">Good</span></button>
+      <button class="mood"><svg width="52" height="52" viewBox="0 0 1024 1024" aria-hidden="true"><use href="#m5"/></svg><span>Great</span></button>
+    </div>
+
+    <!-- step 2 tags -->
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline;">
+        <div style="font-size: 13px; font-weight: 500; color: #66656e; ">What did you do?</div>
+        <button style="border: 0; background: transparent; font-size: 13px; color: #3b6fa3; font-weight: 600; padding: 0;">Show all tags</button>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <button class="tag">Sleep</button><button class="tag on">Work</button><button class="tag">Exercise</button><button class="tag on">Friends</button><button class="tag">Family</button><button class="tag">Partner</button><button class="tag on">Food</button><button class="tag">Café</button><button class="tag">Shopping</button><button class="tag">Travel</button><button class="tag">Games</button><button class="tag">Movies</button><button class="tag">Music</button><button class="tag">Reading</button><button class="tag">Weather</button>
+      </div>
+    </div>
+
+    <!-- step 3 note + photo -->
+    <div style="display: flex; gap: 10px; align-items: stretch;">
+      <label style="flex-grow: 1; display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-size: 13px; font-weight: 500; color: #66656e; ">A line about today</span>
+        <input type="text" placeholder="Optional · 0/200" style="height: 48px; border: 1px solid #e3e1db; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 15px; background: #ffffff; color: #1f1f24;">
+      </label>
+      <button aria-label="Add photo" style="width: 48px; height: 48px; align-self: flex-end; border: 1px solid #e3e1db; border-radius: 8px; background: #ffffff; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1f1f24" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/><path d="M8 5l1-2h6l1 2"/></svg></button>
+    </div>
+
+    <button style="height: 52px; border: 0; border-radius: 14px; background: #8fbff0; color: #1f1f24; font-size: 15px; font-weight: 600;">Save</button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic { renderVals() { return {}; } }
+</script>
+</body>
+</html>

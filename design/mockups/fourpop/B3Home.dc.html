@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fourpop home</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Be Vietnam Pro",system-ui,sans-serif;color:#1f1f24;}
+button{font-family:inherit;cursor:pointer;}
+.chip{height:36px;padding:0 14px;border-radius:999px;border:0;background:#eeede8;font-size:13px;color:#1f1f24;display:flex;align-items:center;gap:6px;}
+.chip.on{background:#ffe6e3;color:#c94c43;font-weight:600;}
+.frame{position:relative;border:1.5px solid #e3e1db;border-radius:12px;background:#ffffff;padding:8px 4px;display:flex;flex-direction:column;align-items:center;gap:8px;}
+.frame.on{border:2px solid #ff8a80;background:#ffe6e3;}
+.lock{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:999px;background:#1f1f24;display:flex;align-items:center;justify-content:center;}
+.fname{font-size:11px;font-weight:500;color:#66656e;}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #f7f6f3; position: relative; overflow: hidden; display: flex; flex-direction: column;">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <!-- a strip thumbnail: 4 slots -->
+    <symbol id="strip" viewBox="0 0 60 180"><rect width="60" height="180" rx="6" fill="currentColor"/><g fill="#eeede8"><rect x="7" y="7" width="46" height="36" rx="3"/><rect x="7" y="49" width="46" height="36" rx="3"/><rect x="7" y="91" width="46" height="36" rx="3"/><rect x="7" y="133" width="46" height="36" rx="3"/></g></symbol>
+  </defs></svg>
+
+  <!-- header -->
+  <div style="padding: 62px 16px 0 16px; display: flex; align-items: center; justify-content: space-between;">
+    <div style="font-size: 24px; font-weight: 700; letter-spacing: -0.5px;">Fourpop</div>
+    <a href="B3Home.dc.html" aria-label="Settings" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #1f1f24;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg></a>
+  </div>
+
+  <!-- season banner -->
+  <a href="B3Home.dc.html" style="margin: 16px 16px 0 16px; padding: 14px 16px; border-radius: 14px; background: #ffe6e3; display: flex; align-items: center; gap: 12px; text-decoration: none; color: #1f1f24;">
+    <svg width="40" height="40" viewBox="0 0 1024 1024" aria-hidden="true"><path d="M512 120 l80 200 l200 80 l-200 80 l-80 200 l-80 -200 l-200 -80 l200 -80 z" fill="#ff8a80"/><circle cx="800" cy="260" r="48" fill="#9fe1cb"/></svg>
+    <div style="flex-grow: 1;"><div style="font-size: 15px; font-weight: 600;">New season pack</div><div style="font-size: 13px; color: #66656e; margin-top: 2px;">8 frames · 25,000₫ · or free with Premium</div></div>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c94c43" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+  </a>
+
+  <!-- frames -->
+  <div style="padding: 24px 16px 0 16px; display: flex; flex-direction: column; gap: 10px; flex-grow: 1; overflow: hidden;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+      <div style="font-size: 13px; font-weight: 500; color: #66656e; ">Frame</div>
+      <a href="B3Home.dc.html" style="font-size: 13px; color: #c94c43; font-weight: 600; text-decoration: none;">All frames</a>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px;">
+      <button class="frame on" aria-pressed="true"><svg width="40" height="120" viewBox="0 0 60 180" style="color:#ffffff;" aria-hidden="true"><use href="#strip"/></svg><span class="fname" style="color:#c94c43;">Classic</span></button>
+      <button class="frame"><svg width="40" height="120" viewBox="0 0 60 180" style="color:#1f1f24;" aria-hidden="true"><use href="#strip"/></svg><span class="fname">Noir</span></button>
+      <button class="frame"><svg width="40" height="120" viewBox="0 0 60 180" style="color:#ff8a80;" aria-hidden="true"><use href="#strip"/></svg><span class="fname">Coral</span></button>
+      <button class="frame"><svg width="40" height="120" viewBox="0 0 60 180" style="color:#9fe1cb;" aria-hidden="true"><use href="#strip"/></svg><span class="fname">Mint</span></button>
+      <button class="frame"><svg width="40" height="120" viewBox="0 0 60 180" style="color:#ffd0b5;" aria-hidden="true"><use href="#strip"/></svg><span class="fname">Peach</span></button>
+      <button class="frame"><svg width="40" height="120" viewBox="0 0 60 180" style="color:#ffc95c;" aria-hidden="true"><use href="#strip"/></svg><span class="fname">Sunny</span></button>
+      <button class="frame"><svg width="40" height="120" viewBox="0 0 60 180" style="color:#fff4d6;" aria-hidden="true"><use href="#strip"/><g fill="#1f1f24" opacity="0.25"><circle cx="12" cy="3" r="1.2"/><circle cx="30" cy="3" r="1.2"/><circle cx="48" cy="3" r="1.2"/><circle cx="12" cy="176" r="1.2"/><circle cx="30" cy="176" r="1.2"/><circle cx="48" cy="176" r="1.2"/></g></svg><span class="fname">Dots</span></button>
+      <button class="frame"><svg width="40" height="120" viewBox="0 0 60 180" style="color:#f7a8a0;" aria-hidden="true"><use href="#strip"/><g stroke="#ffffff" stroke-width="1.5" opacity="0.7"><path d="M0 172h60M0 176h60"/></g></svg><span class="fname">Stripes</span></button>
+      <button class="frame"><svg width="40" height="120" viewBox="0 0 60 180" style="color:#2a2a2f;" aria-hidden="true"><use href="#strip"/><g fill="#ffffff" opacity="0.8"><rect x="1.5" y="2" width="3" height="4" rx="0.8"/><rect x="1.5" y="10" width="3" height="4" rx="0.8"/><rect x="55.5" y="2" width="3" height="4" rx="0.8"/><rect x="55.5" y="10" width="3" height="4" rx="0.8"/></g></svg><span class="fname">Film</span></button>
+      <button class="frame"><svg width="40" height="120" viewBox="0 0 60 180" style="color:#ffb3ad;" aria-hidden="true"><use href="#strip"/><path d="M30 177 l-3 -3 a1.8 1.8 0 0 1 3 -2 a1.8 1.8 0 0 1 3 2 z" fill="#ffffff" opacity="0.9"/></svg><span class="fname">Hearts</span></button>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="padding: 0 16px 100px 16px; display: flex; gap: 10px;">
+    <a href="B5Capture.dc.html" style="flex-basis: 60%; flex-grow: 1; height: 52px; display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 14px; background: #ff8a80; color: #1f1f24; font-size: 15px; font-weight: 600; text-decoration: none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/><path d="M8 5l1-2h6l1 2"/></svg>Start shooting</a>
+    <a href="B7Decorate.dc.html" style="flex-basis: 40%; height: 52px; display: flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid #e3e1db; border-radius: 14px; background: #ffffff; color: #1f1f24; font-size: 15px; font-weight: 600; text-decoration: none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1f1f24" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>From album</a>
+  </div>
+
+  <nav style="position: absolute; left: 0; right: 0; bottom: 0; height: 84px; padding-bottom: 22px; box-sizing: border-box; background: #ffffff; border-top: 1px solid #e3e1db; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));">
+    <a href="B3Home.dc.html" aria-current="page" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; color: #c94c43; font-size: 11px; font-weight: 500;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/><path d="M8 5l1-2h6l1 2"/></svg>Booth</a>
+    <a href="B8Result.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; color: #66656e; font-size: 11px; font-weight: 500;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>Gallery</a>
+    <a href="B3Home.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; color: #66656e; font-size: 11px; font-weight: 500;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l1 13H5z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>Shop</a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic { renderVals() { return {}; } }
+</script>
+</body>
+</html>

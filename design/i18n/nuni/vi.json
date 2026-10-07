@@ -1,0 +1,171 @@
+{
+  "app": {
+    "name": "Nuni",
+    "tagline": "Mỗi ngày một đám mây cảm xúc"
+  },
+  "onboarding": {
+    "1": {
+      "title": "Ghi lại một ngày trong 10 giây",
+      "body": "Chọn một đám mây, chạm vài thẻ. Thế là xong."
+    },
+    "2": {
+      "title": "Xem điều gì làm bạn vui",
+      "body": "Nuni cho bạn thấy những ngày và hoạt động khiến bạn thấy tốt nhất."
+    },
+    "3": {
+      "title": "Nhắc nhẹ nhàng, không làm phiền",
+      "body": "Một lời nhắc mỗi ngày, vào giờ bạn chọn."
+    },
+    "reminderTime": "Nhắc tôi lúc",
+    "enableReminder": "Bật lời nhắc"
+  },
+  "mood": {
+    "1": "Tệ lắm",
+    "2": "Không ổn",
+    "3": "Bình thường",
+    "4": "Tốt",
+    "5": "Tuyệt vời"
+  },
+  "home": {
+    "streak_one": "{{count}} ngày",
+    "streak_other": "{{count}} ngày",
+    "todayPrompt": "Hôm nay thế nào?",
+    "todayHint": "Chạm để ghi cảm xúc trong 10 giây",
+    "yesterday": "Hôm qua",
+    "emptyMonth": "Tháng này chưa có ghi chép nào",
+    "weekdays": [
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T7",
+      "CN"
+    ],
+    "streakLabel_one": "Chuỗi {{count}} ngày",
+    "streakLabel_other": "Chuỗi {{count}} ngày",
+    "firstCloud": "Đám mây đầu tiên của bạn sẽ ở đây",
+    "todayLogged": "Hôm nay: {{mood}} · {{count}} thẻ",
+    "editEntry": "Sửa"
+  },
+  "entry": {
+    "title": "Hôm nay thế nào?",
+    "whatDidYouDo": "Bạn đã làm gì?",
+    "editTags": "Sửa thẻ",
+    "noteLabel": "Một dòng về hôm nay",
+    "notePlaceholder": "Không bắt buộc, tối đa {{max}} ký tự",
+    "addPhoto": "Thêm ảnh",
+    "saved": "Đã lưu",
+    "deleteConfirm": "Xóa ghi chép này?",
+    "multiple": "{{count}} ghi chép hôm nay",
+    "titleFor": "{{day}} thế nào?",
+    "today": "Hôm nay",
+    "yesterday": "Hôm qua",
+    "addAnother": "Thêm ghi chép khác",
+    "pickMood": "Chọn một đám mây trước nhé",
+    "discardConfirm": "Bỏ ghi chép này?",
+    "keepEditing": "Tiếp tục sửa",
+    "discard": "Bỏ",
+    "showAllTags": "Hiện tất cả thẻ"
+  },
+  "tags": {
+    "sleep": "Ngủ",
+    "exercise": "Tập luyện",
+    "study": "Học",
+    "work": "Làm việc",
+    "friends": "Bạn bè",
+    "family": "Gia đình",
+    "partner": "Người yêu",
+    "food": "Ăn uống",
+    "cafe": "Cà phê",
+    "shopping": "Mua sắm",
+    "travel": "Du lịch",
+    "games": "Game",
+    "movies": "Phim",
+    "music": "Nhạc",
+    "reading": "Đọc sách",
+    "weather": "Thời tiết",
+    "photos": "Chụp ảnh",
+    "chores": "Việc nhà",
+    "health": "Sức khỏe",
+    "pray": "Cầu nguyện",
+    "custom": "Thẻ mới",
+    "customPlaceholder": "Tên thẻ"
+  },
+  "stats": {
+    "title": "Thống kê",
+    "week": "Tuần",
+    "month": "Tháng",
+    "year": "Năm",
+    "daysLogged_one": "Đã ghi {{count}} ngày",
+    "daysLogged_other": "Đã ghi {{count}} ngày",
+    "currentStreak": "Chuỗi hiện tại",
+    "bestStreak": "Chuỗi dài nhất",
+    "liftsTitle": "Điều gì nâng tâm trạng bạn",
+    "liftsLocked": "Xem hoạt động nào giúp bạn vui hơn",
+    "yearTitle": "Một năm qua những đám mây",
+    "tryPremium": "Dùng thử Premium miễn phí",
+    "yearLocked": "Xem theo năm là tính năng Premium",
+    "share": "Chia sẻ tháng này"
+  },
+  "share": {
+    "title": "Thẻ chia sẻ",
+    "monthly": "Tháng này",
+    "yearly": "Năm nay",
+    "saveImage": "Lưu ảnh",
+    "watermarkHint": "Gỡ watermark với Premium"
+  },
+  "shop": {
+    "title": "Giao diện",
+    "owned": "Đã có",
+    "apply": "Áp dụng",
+    "includedInPremium": "Có trong Premium"
+  },
+  "paywall": {
+    "title": "Nuni Premium",
+    "subtitle": "Hiểu rõ nhịp cảm xúc, giữ trọn mọi kỷ niệm.",
+    "perk1": "Phân tích hoạt động và cảm xúc, xu hướng cả năm",
+    "perk2": "Sao lưu và khôi phục qua iCloud",
+    "perk3": "Toàn bộ widget, giao diện và ảnh không giới hạn"
+  },
+  "backup": {
+    "title": "Sao lưu iCloud",
+    "lastBackup": "Sao lưu gần nhất {{date}}",
+    "backupNow": "Sao lưu ngay",
+    "restore": "Khôi phục từ iCloud",
+    "restoreConfirm": "Thao tác này thay thế các ghi chép trên thiết bị bằng bản sao lưu iCloud.",
+    "never": "Chưa sao lưu lần nào"
+  },
+  "widget": {
+    "todayTitle": "Hôm nay",
+    "weekTitle": "Tuần này",
+    "tapToLog": "Chạm để ghi",
+    "locked": "Mở khóa với Nuni Premium",
+    "hidden": "Đã khóa · mở Nuni"
+  },
+  "notification": {
+    "reminderTitle": "Hôm nay thế nào?",
+    "reminderBody": "Chỉ mất 10 giây. Nuni đang đợi bạn.",
+    "action1": "Không ổn",
+    "action3": "Bình thường",
+    "action4": "Tốt"
+  },
+  "tabs": {
+    "home": "Trang chủ",
+    "stats": "Thống kê",
+    "settings": "Cài đặt"
+  },
+  "streak": {
+    "celebrateTitle": "{{count}} ngày liên tiếp!",
+    "celebrateBody": "Nuni đang dần hiểu bạn rồi.",
+    "seePatterns": "Xem nhịp cảm xúc của bạn"
+  },
+  "reminder": {
+    "title": "Muốn được nhắc vào ngày mai?",
+    "body": "Một thông báo mỗi ngày, vào giờ bạn chọn."
+  },
+  "export": {
+    "title": "Lưu một bản sao",
+    "hint": "Chữ + ảnh trong một file zip bạn giữ ở đâu cũng được."
+  }
+}

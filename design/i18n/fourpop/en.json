@@ -1,0 +1,157 @@
+{
+  "app": {
+    "name": "Fourpop",
+    "tagline": "Your photo booth, in your pocket"
+  },
+  "onboarding": {
+    "1": {
+      "title": "Shoot like a real booth",
+      "body": "Countdown, 8 shots, pick your best 4."
+    },
+    "2": {
+      "title": "Frames for every season",
+      "body": "Decorate, then share to Zalo, LINE or Instagram in a tap."
+    }
+  },
+  "home": {
+    "layout": "Layout",
+    "strip4": "Strip 1×4",
+    "grid4": "Grid 2×2",
+    "strip3": "1×3",
+    "frame": "Frame",
+    "allFrames": "All frames",
+    "startShooting": "Let's shoot",
+    "newPack": "New: {{name}}",
+    "packMeta_one": "{{count}} frame · {{price}}",
+    "packMeta_other": "{{count}} frames · {{price}}",
+    "fromAlbum": "From album",
+    "lockedHint": "Shoot now, unlock to save"
+  },
+  "tabs": {
+    "booth": "Booth",
+    "gallery": "Gallery",
+    "shop": "Shop"
+  },
+  "capture": {
+    "shotOf": "Shot {{current}} of {{total}}",
+    "timer": "Timer",
+    "seconds": "{{count}}s",
+    "pose": "Pose: {{name}}",
+    "poses": [
+      "peace sign",
+      "finger heart",
+      "hands on cheeks",
+      "big laugh",
+      "point at camera",
+      "chin rest",
+      "wink",
+      "freestyle"
+    ],
+    "flashOn": "Flash on",
+    "flashOff": "Flash off",
+    "flip": "Flip camera",
+    "mirror": "Mirror selfie",
+    "shutter": "Shutter",
+    "retake": "Retake",
+    "start": "Start",
+    "pause": "Pause",
+    "resume": "Resume",
+    "stopConfirm": "Stop shooting? Your {{count}} shots will be lost."
+  },
+  "pick": {
+    "title": "Pick your best {{count}}",
+    "picked": "{{picked}} of {{count}} picked",
+    "retakeAll": "Retake all",
+    "retakeOne": "Retake this shot"
+  },
+  "decorate": {
+    "title": "Decorate",
+    "filter": "Filter",
+    "stickers": "Stickers",
+    "draw": "Draw",
+    "text": "Text",
+    "date": "Date",
+    "filters": {
+      "original": "Original",
+      "mono": "Mono",
+      "warm": "Warm",
+      "film": "Film",
+      "fade": "Fade",
+      "night": "Night"
+    },
+    "textPlaceholder": "Type something",
+    "stickerPacks": "Sticker packs",
+    "lockedFilter": "Premium filter",
+    "undo": "Undo",
+    "deleteItem": "Remove",
+    "dateFormats": [
+      "20/10/2026",
+      "20.10.26",
+      "Oct 20, 2026"
+    ]
+  },
+  "result": {
+    "title": "Your strip",
+    "standard": "Standard · {{size}}",
+    "hdUpsell": "HD, no watermark",
+    "save": "Save",
+    "gif": "GIF",
+    "more": "More",
+    "shootAnother": "One more!",
+    "savedToGallery": "Saved to your Fourpop gallery",
+    "savedToPhotos": "Saved to Photos",
+    "gifLocked": "GIF export is a Premium feature",
+    "saveToPhotos": "Save to Photos",
+    "saved": "Saved",
+    "instagram": "Instagram",
+    "zalo": "Zalo",
+    "line": "LINE",
+    "messenger": "Messenger",
+    "share": "Share",
+    "inGallery": "Also kept in your Gallery tab",
+    "unlockToSave": "Unlock this frame to save without blur",
+    "useFreeFrame": "Use a free frame instead"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "empty": "Your strips will show up here",
+    "deleteConfirm": "Delete this strip?",
+    "emptyCta": "Make your first strip"
+  },
+  "shop": {
+    "title": "Shop",
+    "framePacks": "Frame packs",
+    "stickerPacks": "Sticker packs",
+    "owned": "Owned",
+    "free": "Free",
+    "unlock": "Unlock for {{price}}",
+    "includedInPremium": "Included in Premium",
+    "seasonEnds": "Available until {{date}}",
+    "offline": "Offline — showing saved packs",
+    "updateApp": "Update the app to get new packs"
+  },
+  "paywall": {
+    "title": "Fourpop Premium",
+    "subtitle": "Every frame, HD strips, GIFs — no watermark.",
+    "perk1": "All frame and sticker packs, including seasonal",
+    "perk2": "HD export without watermark",
+    "perk3": "GIF and all filters"
+  },
+  "frameNames": {
+    "classic": "Classic",
+    "noir": "Noir",
+    "coral": "Coral",
+    "mint": "Mint",
+    "sunny": "Sunny",
+    "dots": "Dots",
+    "stripes": "Stripes",
+    "film": "Film",
+    "hearts": "Hearts",
+    "peach": "Peach"
+  },
+  "settings": {
+    "saveQuality": "Save quality",
+    "shutterSound": "Shutter sound",
+    "mirrorSelfie": "Mirror selfies"
+  }
+}

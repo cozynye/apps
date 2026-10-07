@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nuni home calendar</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"Be Vietnam Pro",system-ui,sans-serif;color:#1f1f24;}
+button{font-family:inherit;cursor:pointer;}
+.cell{display:flex;flex-direction:column;align-items:center;gap:4px;height:58px;}
+.day{font-size:11px;font-weight:500;color:#66656e;}
+.empty{width:36px;height:36px;border-radius:999px;border:1.5px dashed #e3e1db;box-sizing:border-box;}
+.future{width:36px;height:36px;}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #f7f6f3; display: flex; flex-direction: column; position: relative; overflow: hidden;">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <symbol id="c" viewBox="0 0 1024 1024"><circle cx="390" cy="560" r="160"/><circle cx="540" cy="470" r="200"/><circle cx="690" cy="570" r="150"/><rect x="230" y="560" width="610" height="160" rx="80"/></symbol>
+    <symbol id="m1" viewBox="0 0 1024 1024"><use href="#c" fill="#7d8aa0"/><g fill="#1f1f24" stroke="#1f1f24" stroke-width="40" stroke-linecap="round"><circle cx="470" cy="545" r="34" stroke="none"/><circle cx="600" cy="545" r="34" stroke="none"/><path d="M480 650 Q535 600 590 650" fill="none"/></g></symbol>
+    <symbol id="m2" viewBox="0 0 1024 1024"><use href="#c" fill="#aec1dc"/><g fill="#1f1f24" stroke="#1f1f24" stroke-width="40" stroke-linecap="round"><circle cx="470" cy="525" r="34" stroke="none"/><circle cx="600" cy="525" r="34" stroke="none"/><path d="M485 610 L585 610" fill="none"/></g></symbol>
+    <symbol id="m3" viewBox="0 0 1024 1024"><use href="#c" fill="#f1e4b2"/><g fill="#1f1f24" stroke="#1f1f24" stroke-width="40" stroke-linecap="round"><circle cx="470" cy="525" r="34" stroke="none"/><circle cx="600" cy="525" r="34" stroke="none"/><path d="M495 596 Q535 625 575 596" fill="none"/></g></symbol>
+    <symbol id="m4" viewBox="0 0 1024 1024"><use href="#c" fill="#ffc95c"/><g fill="#1f1f24" stroke="#1f1f24" stroke-width="40" stroke-linecap="round"><circle cx="470" cy="525" r="34" stroke="none"/><circle cx="600" cy="525" r="34" stroke="none"/><path d="M480 590 Q535 645 590 590" fill="none"/></g></symbol>
+    <symbol id="m5" viewBox="0 0 1024 1024"><use href="#c" fill="#ff9f4a"/><g fill="#1f1f24" stroke="#1f1f24" stroke-width="40" stroke-linecap="round"><path d="M435 540 Q470 500 505 540" fill="none"/><path d="M565 540 Q600 500 635 540" fill="none"/><path d="M470 585 H600 A65 65 0 0 1 470 585 Z" stroke="none"/></g></symbol>
+  </defs></svg>
+
+  <!-- header -->
+  <div style="padding: 62px 16px 0 16px; display: flex; align-items: center; justify-content: space-between;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <button aria-label="Previous month" style="width: 44px; height: 44px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1f1f24" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <h1 style="margin: 0; font-size: 24px; font-weight: 700; letter-spacing: -0.3px;">October 2026</h1>
+      <button aria-label="Next month" style="width: 44px; height: 44px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a3a2aa" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+    <div style="display: flex; align-items: center; gap: 6px; height: 36px; padding: 0 12px; border-radius: 999px; background: #e3f0fc; color: #3b6fa3; font-size: 13px; font-weight: 600;">
+      <svg width="18" height="18" viewBox="0 0 1024 1024" aria-hidden="true"><use href="#c" fill="#8fbff0"/></svg>7 days
+    </div>
+  </div>
+
+  <!-- calendar -->
+  <div style="margin: 20px 16px 0 16px; padding: 16px 8px 8px 8px; background: #ffffff; border: 1px solid #e3e1db; border-radius: 14px;">
+    <div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0 0; margin-bottom: 8px;">
+      <div class="day" style="text-align:center;">Mon</div><div class="day" style="text-align:center;">Tue</div><div class="day" style="text-align:center;">Wed</div><div class="day" style="text-align:center;">Thu</div><div class="day" style="text-align:center;">Fri</div><div class="day" style="text-align:center;">Sat</div><div class="day" style="text-align:center;">Sun</div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 2px 0;">
+      <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+      <div class="cell"><div class="future"></div><span class="day">1</span></div>
+      <div class="cell"><div class="future"></div><span class="day">2</span></div>
+      <div class="cell"><svg width="36" height="36" viewBox="0 0 1024 1024" aria-label="Oct 3, great"><use href="#m5"/></svg><span class="day">3</span></div>
+      <div class="cell"><svg width="36" height="36" viewBox="0 0 1024 1024" aria-label="Oct 4, good"><use href="#m4"/></svg><span class="day">4</span></div>
+
+      <div class="cell"><svg width="36" height="36" viewBox="0 0 1024 1024" aria-label="Oct 5, low"><use href="#m2"/></svg><span class="day">5</span></div>
+      <div class="cell"><svg width="36" height="36" viewBox="0 0 1024 1024" aria-label="Oct 6, rough"><use href="#m1"/></svg><span class="day">6</span></div>
+      <div class="cell"><svg width="36" height="36" viewBox="0 0 1024 1024" aria-label="Oct 7, okay"><use href="#m3"/></svg><span class="day">7</span></div>
+      <div class="cell"><svg width="36" height="36" viewBox="0 0 1024 1024" aria-label="Oct 8, good"><use href="#m4"/></svg><span class="day">8</span></div>
+      <div class="cell"><svg width="36" height="36" viewBox="0 0 1024 1024" aria-label="Oct 9, good"><use href="#m4"/></svg><span class="day">9</span></div>
+      <div class="cell"><svg width="36" height="36" viewBox="0 0 1024 1024" aria-label="Oct 10, great"><use href="#m5"/></svg><span class="day">10</span></div>
+      <div class="cell"><svg width="36" height="36" viewBox="0 0 1024 1024" aria-label="Oct 11, okay"><use href="#m3"/></svg><span class="day">11</span></div>
+
+      <div class="cell"><div class="empty"></div><span class="day">12</span></div>
+      <div class="cell"><svg width="36" height="36" viewBox="0 0 1024 1024" aria-label="Oct 13, good"><use href="#m4"/></svg><span class="day">13</span></div>
+      <div class="cell"><svg width="36" height="36" viewBox="0 0 1024 1024" aria-label="Oct 14, good"><use href="#m4"/></svg><span class="day">14</span></div>
+      <div class="cell"><svg width="36" height="36" viewBox="0 0 1024 1024" aria-label="Oct 15, low"><use href="#m2"/></svg><span class="day">15</span></div>
+      <div class="cell"><svg width="36" height="36" viewBox="0 0 1024 1024" aria-label="Oct 16, okay"><use href="#m3"/></svg><span class="day">16</span></div>
+      <div class="cell"><svg width="36" height="36" viewBox="0 0 1024 1024" aria-label="Oct 17, great"><use href="#m5"/></svg><span class="day">17</span></div>
+      <div class="cell"><svg width="36" height="36" viewBox="0 0 1024 1024" aria-label="Oct 18, great"><use href="#m5"/></svg><span class="day">18</span></div>
+
+      <div class="cell"><svg width="36" height="36" viewBox="0 0 1024 1024" aria-label="Oct 19, good"><use href="#m4"/></svg><span class="day">19</span></div>
+      <div class="cell" style="background:#e3f0fc;border-radius:12px;"><div class="empty" style="border-color:#8fbff0;"></div><span class="day" style="color:#3b6fa3;font-weight:600;">20</span></div>
+      <div class="cell"><div class="future"></div><span class="day" style="color:#a3a2aa;">21</span></div>
+      <div class="cell"><div class="future"></div><span class="day" style="color:#a3a2aa;">22</span></div>
+      <div class="cell"><div class="future"></div><span class="day" style="color:#a3a2aa;">23</span></div>
+      <div class="cell"><div class="future"></div><span class="day" style="color:#a3a2aa;">24</span></div>
+      <div class="cell"><div class="future"></div><span class="day" style="color:#a3a2aa;">25</span></div>
+
+      <div class="cell"><div class="future"></div><span class="day" style="color:#a3a2aa;">26</span></div>
+      <div class="cell"><div class="future"></div><span class="day" style="color:#a3a2aa;">27</span></div>
+      <div class="cell"><div class="future"></div><span class="day" style="color:#a3a2aa;">28</span></div>
+      <div class="cell"><div class="future"></div><span class="day" style="color:#a3a2aa;">29</span></div>
+      <div class="cell"><div class="future"></div><span class="day" style="color:#a3a2aa;">30</span></div>
+      <div class="cell"><div class="future"></div><span class="day" style="color:#a3a2aa;">31</span></div>
+      <div class="cell"></div>
+    </div>
+  </div>
+
+  <!-- today -->
+  <div style="margin: 20px 16px 0 16px; padding: 16px; background: #ffffff; border: 1px solid #e3e1db; border-radius: 14px; display: flex; align-items: center; gap: 12px;">
+    <svg width="44" height="44" viewBox="0 0 1024 1024" aria-hidden="true"><use href="#c" fill="#e3f0fc"/></svg>
+    <div style="flex-grow: 1;">
+      <div style="font-size: 15px; font-weight: 600;">How was today?</div>
+      <div style="font-size: 13px; color: #66656e; margin-top: 2px;">Tap to log your mood in 10 seconds</div>
+    </div>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a3a2aa" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+  </div>
+
+  <!-- recent -->
+  <div style="margin: 24px 16px 0 16px; display: flex; flex-direction: column; gap: 12px;">
+    <div style="font-size: 13px; font-weight: 500; color: #66656e; ">Yesterday</div>
+    <div style="display: flex; gap: 12px; align-items: flex-start;">
+      <svg width="36" height="36" viewBox="0 0 1024 1024" aria-hidden="true"><use href="#m4"/></svg>
+      <div style="flex-grow: 1;">
+        <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+          <span style="font-size: 13px; padding: 4px 10px; border-radius: 999px; background: #eeede8;">Friends</span>
+          <span style="font-size: 13px; padding: 4px 10px; border-radius: 999px; background: #eeede8;">Café</span>
+          <span style="font-size: 13px; padding: 4px 10px; border-radius: 999px; background: #eeede8;">Music</span>
+        </div>
+        <div style="font-size: 15px; line-height: 22px; margin-top: 8px;">Long chat with Linh after work. Felt lighter.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- fab -->
+  <button aria-label="New entry" style="position: absolute; right: 20px; bottom: 104px; width: 56px; height: 56px; border-radius: 999px; border: 0; background: #8fbff0; box-shadow: 0 4px 16px rgba(31,31,36,0.08); display: flex; align-items: center; justify-content: center;">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1f1f24" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+  </button>
+
+  <!-- tab bar -->
+  <nav style="position: absolute; left: 0; right: 0; bottom: 0; height: 84px; padding-bottom: 22px; box-sizing: border-box; background: #ffffff; border-top: 1px solid #e3e1db; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));">
+    <a href="A3Home.dc.html" aria-current="page" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; color: #3b6fa3; font-size: 11px; font-weight: 500;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>Home</a>
+    <a href="A6Stats.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; color: #66656e; font-size: 11px; font-weight: 500;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Stats</a>
+    <a href="A3Home.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; color: #66656e; font-size: 11px; font-weight: 500;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>Settings</a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic { renderVals() { return {}; } }
+</script>
+</body>
+</html>

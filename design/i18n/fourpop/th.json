@@ -1,0 +1,157 @@
+{
+  "app": {
+    "name": "Fourpop",
+    "tagline": "โฟโต้บูธในกระเป๋าคุณ"
+  },
+  "onboarding": {
+    "1": {
+      "title": "ถ่ายเหมือนอยู่ในบูธจริง",
+      "body": "นับถอยหลัง ถ่าย 8 ช็อต เลือก 4 ช็อตที่ดีที่สุด"
+    },
+    "2": {
+      "title": "กรอบสำหรับทุกเทศกาล",
+      "body": "ตกแต่งแล้วแชร์ลง LINE หรือ Instagram ได้ในแตะเดียว"
+    }
+  },
+  "home": {
+    "layout": "เลย์เอาต์",
+    "strip4": "แถว 1×4",
+    "grid4": "ตาราง 2×2",
+    "strip3": "1×3",
+    "frame": "กรอบ",
+    "allFrames": "กรอบทั้งหมด",
+    "startShooting": "ถ่ายกันเลย",
+    "newPack": "ใหม่: {{name}}",
+    "packMeta_one": "{{count}} กรอบ · {{price}}",
+    "packMeta_other": "{{count}} กรอบ · {{price}}",
+    "fromAlbum": "จากอัลบั้ม",
+    "lockedHint": "ถ่ายได้เลย ปลดล็อกเพื่อบันทึก"
+  },
+  "tabs": {
+    "booth": "บูธ",
+    "gallery": "แกลเลอรี",
+    "shop": "ร้านค้า"
+  },
+  "capture": {
+    "shotOf": "ช็อต {{current}} / {{total}}",
+    "timer": "ตั้งเวลา",
+    "seconds": "{{count}} วิ",
+    "pose": "ท่า: {{name}}",
+    "poses": [
+      "ชูสองนิ้ว",
+      "มินิฮาร์ต",
+      "เอามือแตะแก้ม",
+      "หัวเราะดัง ๆ",
+      "ชี้ที่กล้อง",
+      "เท้าคาง",
+      "ขยิบตา",
+      "ตามใจ"
+    ],
+    "flashOn": "เปิดแฟลช",
+    "flashOff": "ปิดแฟลช",
+    "flip": "สลับกล้อง",
+    "mirror": "กลับด้านเซลฟี่",
+    "shutter": "ถ่าย",
+    "retake": "ถ่ายใหม่",
+    "start": "เริ่ม",
+    "pause": "หยุดชั่วคราว",
+    "resume": "ถ่ายต่อ",
+    "stopConfirm": "หยุดถ่าย? {{count}} ช็อตที่ถ่ายไว้จะหายไป"
+  },
+  "pick": {
+    "title": "เลือก {{count}} ช็อตที่ดีที่สุด",
+    "picked": "เลือกแล้ว {{picked}} / {{count}}",
+    "retakeAll": "ถ่ายใหม่ทั้งหมด",
+    "retakeOne": "ถ่ายช็อตนี้ใหม่"
+  },
+  "decorate": {
+    "title": "ตกแต่ง",
+    "filter": "ฟิลเตอร์",
+    "stickers": "สติกเกอร์",
+    "draw": "วาด",
+    "text": "ข้อความ",
+    "date": "วันที่",
+    "filters": {
+      "original": "ต้นฉบับ",
+      "mono": "ขาวดำ",
+      "warm": "โทนอุ่น",
+      "film": "ฟิล์ม",
+      "fade": "เฟด",
+      "night": "กลางคืน"
+    },
+    "textPlaceholder": "พิมพ์อะไรสักอย่าง",
+    "stickerPacks": "ชุดสติกเกอร์",
+    "lockedFilter": "ฟิลเตอร์ Premium",
+    "undo": "เลิกทำ",
+    "deleteItem": "ลบ",
+    "dateFormats": [
+      "20/10/2026",
+      "20.10.26",
+      "20 ต.ค. 2026"
+    ]
+  },
+  "result": {
+    "title": "แถบรูปของคุณ",
+    "standard": "มาตรฐาน · {{size}}",
+    "hdUpsell": "HD ไม่มีลายน้ำ",
+    "save": "บันทึก",
+    "gif": "GIF",
+    "more": "เพิ่มเติม",
+    "shootAnother": "อีกชุด!",
+    "savedToGallery": "บันทึกลงแกลเลอรี Fourpop แล้ว",
+    "savedToPhotos": "บันทึกลงรูปภาพแล้ว",
+    "gifLocked": "การส่งออก GIF เป็นฟีเจอร์ Premium",
+    "saveToPhotos": "บันทึกลงรูปภาพ",
+    "saved": "บันทึกแล้ว",
+    "instagram": "Instagram",
+    "zalo": "Zalo",
+    "line": "LINE",
+    "messenger": "Messenger",
+    "share": "แชร์",
+    "inGallery": "เก็บไว้ในแท็บแกลเลอรีด้วย",
+    "unlockToSave": "ปลดล็อกกรอบนี้เพื่อบันทึกแบบไม่เบลอ",
+    "useFreeFrame": "ใช้กรอบฟรีแทน"
+  },
+  "gallery": {
+    "title": "แกลเลอรี",
+    "empty": "แถบรูปของคุณจะแสดงที่นี่",
+    "deleteConfirm": "ลบแถบรูปนี้?",
+    "emptyCta": "ทำแถบรูปแรกของคุณ"
+  },
+  "shop": {
+    "title": "ร้านค้า",
+    "framePacks": "ชุดกรอบ",
+    "stickerPacks": "ชุดสติกเกอร์",
+    "owned": "มีแล้ว",
+    "free": "ฟรี",
+    "unlock": "ปลดล็อกในราคา {{price}}",
+    "includedInPremium": "รวมอยู่ใน Premium",
+    "seasonEnds": "มีถึง {{date}}",
+    "offline": "ออฟไลน์ — แสดงเฉพาะชุดที่บันทึกไว้",
+    "updateApp": "อัปเดตแอปเพื่อรับชุดใหม่"
+  },
+  "paywall": {
+    "title": "Fourpop Premium",
+    "subtitle": "ทุกกรอบ แถบรูป HD และ GIF — ไม่มีลายน้ำ",
+    "perk1": "ชุดกรอบและสติกเกอร์ทั้งหมด รวมถึงตามเทศกาล",
+    "perk2": "ส่งออก HD ไม่มีลายน้ำ",
+    "perk3": "GIF และฟิลเตอร์ทั้งหมด"
+  },
+  "frameNames": {
+    "classic": "คลาสสิก",
+    "noir": "ดำ",
+    "coral": "คอรัล",
+    "mint": "มินต์",
+    "sunny": "แดดจ้า",
+    "dots": "ลายจุด",
+    "stripes": "ลายทาง",
+    "film": "ฟิล์ม",
+    "hearts": "หัวใจ",
+    "peach": "พีช"
+  },
+  "settings": {
+    "saveQuality": "คุณภาพการบันทึก",
+    "shutterSound": "เสียงชัตเตอร์",
+    "mirrorSelfie": "กลับด้านเซลฟี่"
+  }
+}
