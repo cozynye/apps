@@ -9,6 +9,8 @@ import { join } from 'node:path';
 
 import MarkdownIt from 'markdown-it';
 
+import { legalMarkdown } from '../../scripts/legal';
+
 const ROOT = join(import.meta.dirname, '../..');
 const OUT = join(import.meta.dirname, 'public');
 const md = new MarkdownIt({ html: false, linkify: true, typographer: false });
@@ -81,7 +83,7 @@ See the [Privacy Policy](privacy.html).
 mkdirSync(OUT, { recursive: true });
 writeFileSync(join(OUT, 'index.html'), page('Support', md.render(support)));
 for (const doc of ['privacy', 'terms'] as const) {
-  const source = readFileSync(join(ROOT, 'design/legal', `${doc}-en.md`), 'utf8');
+  const source = legalMarkdown(doc);
   const title = doc === 'privacy' ? 'Privacy Policy' : 'Terms of Use';
   writeFileSync(join(OUT, `${doc}.html`), page(title, md.render(source)));
 }

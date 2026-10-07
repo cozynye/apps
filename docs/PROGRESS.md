@@ -42,16 +42,18 @@ S1 공통 패키지 — 진행 중 (결제 완료 조건만 Cozy의 RevenueCat �
 - `web/legal`: support / privacy / terms 정적 페이지 (`pnpm legal:build`, 미배포)
 - CI 워크플로(.github/workflows/ci.yml), Maestro 플로우 5개(`apps/nuni/.maestro/s1-*`) + `pnpm e2e nuni "<시뮬레이터>" 's1-*'` (Metro 실행 필요: `pnpm nuni start`)
 
+## 완료한 일 (2026-10-08)
+
+- 자정 넘김 날짜 규칙(시트 연 시점), 권한 팝업 문구 초안(`packages/i18n/permissions`, Nuni `app.config.ts` 연결), 약관 4절 수정(legal-patches), Copy ID를 S2·S4 범위에 추가 — DECISIONS 2026-10-08
+
 ## 다음 할 일
 
 1. Cozy의 RevenueCat 설정 후 `s1-purchase-restore` 재실행 → S1 완료 처리
 2. S2 시작: A1 스플래시(SVG → PNG), 탭 레이아웃 + 탭 바 컴포넌트, A2 온보딩부터
-3. P18 plist 수령 시 Firebase transport 연결
+3. P18 plist 수령 시 Firebase transport 연결 + 설정 Privacy의 Copy ID 행
 
 ## 막힌 것 / Cozy에게 필요한 것
 
 - RevenueCat 대시보드: Test Store에 상품 `mood_premium_monthly`, `mood_premium_yearly`(7일 무료체험), 권한 `mood_premium`(두 상품 연결), Offering `default`(Monthly·Annual 패키지, current). 현재는 기본값(`yearly`/`monthly`, 권한 `nooni_pro`)
-- (S2 전) PLAN 충돌 4번(자정 넘김 시 기록 날짜), 권한 팝업 문구 초안 승인 방식
-- (법률 검토 시) 약관 4절 “theme or frame packs”는 MVP에 Nuni 테마가 없음 / 개인정보 6절의 “Settings › Privacy › Copy ID” 기능은 PLAN A10에 없음 → S2에서 Copy ID 행을 추가할지 결정 필요
 - (S4 전) PLAN 충돌 5번(HD 해상도 1200×3600 vs 2400×7200)
 - P18 Firebase plist, P19 R2 URL, P22 리포, 도메인 — 배포 전까지

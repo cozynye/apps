@@ -57,6 +57,23 @@ for (const ns of NAMESPACES) {
   console.log(`${ns}: ${en.size} keys`);
 }
 
+// Info.plist permission strings: same keys in en/vi/th per app, no empty values.
+const PERMISSIONS = join(import.meta.dirname, '../permissions');
+for (const app of ['nuni', 'fourpop']) {
+  const files = Object.fromEntries(
+    LANGS.map((lang) => [
+      lang,
+      JSON.parse(readFileSync(join(PERMISSIONS, app, `${lang}.json`), 'utf8')) as Record<string, string>,
+    ]),
+  ) as Record<(typeof LANGS)[number], Record<string, string>>;
+  const keys = Object.keys(files.en).sort().join(',');
+  for (const lang of LANGS) {
+    if (Object.keys(files[lang]).sort().join(',') !== keys) errors.push(`permissions/${app}/${lang}: keys differ from en`);
+    for (const [k, v] of Object.entries(files[lang])) if (!v.trim()) errors.push(`permissions/${app}/${lang}: empty ${k}`);
+  }
+  console.log(`permissions/${app}: ${Object.keys(files.en).length} keys`);
+}
+
 if (errors.length > 0) {
   console.error(errors.join('\n'));
   console.error(`i18n check failed: ${errors.length} problem(s)`);

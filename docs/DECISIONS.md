@@ -50,3 +50,8 @@
 - 2026-10-07 — A13: en Markdown + `legal.englishOnly` 안내 키 추가, 라이선스 문서는 design-sync가 폰트 OFL 2개 + Phosphor MIT 원문으로 생성
 - 2026-10-07 — E2E: Maestro(JDK 17 keg-only, `scripts/e2e.sh`). dev client 플로팅 Tools 버튼은 우상단 닫기 버튼을 가려 Info.plist `EXDevMenuShowFloatingActionButton=false` (dev 빌드에만 의미)
 - 2026-10-07 — ESLint: eslint-config-expo flat config를 루트에서 실행
+- 2026-10-08 — (Cozy 결정) 기록 시트를 연 채 자정을 넘기면 **시트를 연 시점의 날짜**로 저장 — PLAN 예외 표 기준. 구현 명세의 “저장 시점 날짜” 문장은 이 결정으로 대체
+- 2026-10-08 — (Cozy 위임) 권한 팝업 문구 vi/th/en 초안 작성: Nuni = Face ID, 사진 추가(공유 카드 저장) / Fourpop = 카메라, 사진 추가. 마이크·알림·사진 읽기 문구는 쓰지 않음(영상 없음, 알림은 plist 문구 없음, PHPicker). 위치 `packages/i18n/permissions/`, 앱은 `app.config.ts`로 Info.plist(en 기본) + `locales`에 연결. S2에서 expo-local-authentication 플러그인에는 같은 문구를 `faceIDPermission`으로 넘겨 기본 문구가 덮지 않게 한다. Fourpop은 expo-camera 플러그인 `microphonePermission: false`
+- 2026-10-08 — (Cozy 결정) 약관 4절 “one-time purchases (theme or frame packs)” → “Each App offers an auto-renewing subscription. Fourpop also offers one-time purchases (frame and sticker packs).” — design/legal은 읽기 전용이라 `scripts/legal-patches.json`으로 앱(A13·B13)과 web/legal에 같이 적용
+- 2026-10-08 — (Cozy 결정) 개인정보처리방침 6절의 “Settings › Privacy › Copy ID”를 구현한다: A10·B12 Privacy 섹션에 익명 설치 ID(Firebase app instance ID) 복사 행 추가. Firebase(P18) 연결 후 S2/S4에서 구현, 문구 키는 그때 en·vi·th로 추가
+- 2026-10-08 — (Cozy 확인) `nuni.paywall.perk3` 수정 유지(“Up to 10 photos, longer notes, medium widget”)

@@ -1,0 +1,11 @@
+{
+  "_comment": "Corrections applied on top of design/legal/*.md (read-only input) by scripts/legal.ts. Each `find` must match exactly once.",
+  "terms": [
+    {
+      "reason": "MVP: Nuni has no one-time purchases (no themes); only Fourpop sells packs (DECISIONS 2026-10-08)",
+      "find": "Each App offers an auto-renewing subscription (\"Premium\") and one-time purchases (theme or frame packs).",
+      "replace": "Each App offers an auto-renewing subscription (\"Premium\"). Fourpop also offers one-time purchases (frame and sticker packs)."
+    }
+  ],
+  "privacy": []
+}
