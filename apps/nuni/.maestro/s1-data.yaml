@@ -1,0 +1,19 @@
+# S1: DB migrations, CHECK constraint, FK cascade, pragmas; bundled manifest catalog.
+appId: app.nuni.mood
+---
+- runFlow: common/launch-dev.yaml
+- tapOn:
+    id: dev.data
+- tapOn:
+    id: dev.data.db
+- extendedWaitUntil:
+    visible: 'pragma: .*'
+    timeout: 20000
+- assertVisible: 'migrate: ok v1'
+- assertVisible: 'CHECK mood 9: rejected (ok)'
+- assertVisible: 'cascade: photos 0, entry_tags 0 (expect 0, 0)'
+- assertVisible: 'pragma: foreign_keys=1 journal_mode=wal'
+- tapOn:
+    id: dev.data.content
+- assertVisible: 'manifest: none, packs base\(10\), stickers-base\(22\)'
+- takeScreenshot: data

@@ -8,6 +8,9 @@ export default function DevMenu() {
     <Screen>
       <View style={styles.stack}>
         <Button testID="dev.stories" label="Component stories" onPress={() => router.push('/dev/stories')} />
+        <Button testID="dev.purchases" label="Purchases" onPress={() => router.push('/dev/purchases')} />
+        <Button testID="dev.data" label="DB & content" onPress={() => router.push('/dev/data')} />
+        <Button testID="dev.legal" variant="secondary" label="Licenses (A13)" onPress={() => router.push('/a13-legal/licenses')} />
       </View>
     </Screen>
   );

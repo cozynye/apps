@@ -1,0 +1,27 @@
+# S1: component stories render; language and appearance switch at runtime.
+appId: app.nuni.mood
+---
+- runFlow: common/launch-dev.yaml
+- tapOn:
+    id: dev.stories
+- assertVisible:
+    id: story.info
+- takeScreenshot: stories-en-light
+- tapOn:
+    id: story.language.th
+- assertVisible: ไทย
+- assertVisible: เริ่มต้น
+- takeScreenshot: stories-th-light
+- tapOn:
+    id: story.language.vi
+- assertVisible: Bắt đầu
+- tapOn:
+    id: story.appearance.dark
+- takeScreenshot: stories-vi-dark
+# scrollUntilVisible is unreliable on this long ScrollView; scroll to the end instead.
+- scroll
+- scroll
+- scroll
+- assertVisible:
+    id: story.planMonthly
+- takeScreenshot: stories-vi-dark-2

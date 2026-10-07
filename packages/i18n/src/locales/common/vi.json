@@ -94,7 +94,8 @@
   "legal": {
     "termsTitle": "Điều khoản sử dụng",
     "privacyTitle": "Chính sách quyền riêng tư",
-    "effective": "Có hiệu lực từ {{date}}"
+    "effective": "Có hiệu lực từ {{date}}",
+    "englishOnly": "Chỉ có bản tiếng Anh."
   },
   "lock": {
     "title": "Mở khóa",

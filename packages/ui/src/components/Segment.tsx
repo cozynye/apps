@@ -51,8 +51,15 @@ export function Segment<T extends string>({ options, value, onChange, testID }: 
 }
 
 const styles = StyleSheet.create({
-  track: { flexDirection: 'row', borderRadius: radius.pill, padding: 2, alignSelf: 'flex-start' },
+  track: {
+    flexDirection: 'row',
+    borderRadius: radius.pill,
+    padding: 2,
+    alignSelf: 'flex-start',
+    maxWidth: '100%',
+  },
   item: {
+    flexShrink: 1,
     minHeight: 36,
     paddingHorizontal: space[4],
     borderRadius: radius.pill,

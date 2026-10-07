@@ -40,3 +40,13 @@
 - 2026-10-07 — uuid v7은 `uuidv7` 패키지(PLAN 명시). crypto.getRandomValues가 없으면 Math.random 폴백 — 기기 로컬 id로 충분
 - 2026-10-07 — 매니페스트: 번들 팩 id는 CDN이 덮어쓰지 못함, 루트 `minAppVersion` 미달이면 CDN 팩 전체 무시 + updateRequired, 시즌 배너 ‘최신’ = `availableFrom`이 가장 늦은 팩
 - 2026-10-07 — zod v4 사용 — PLAN ‘manifest 타입(zod)’
+- 2026-10-07 — 분석: `@nf/analytics`는 타입 이벤트·동의·공통 파라미터·금지 키 검사까지. Firebase 전송은 P18(`GoogleService-Info.plist`) 수령 후 `@react-native-firebase` + transport로 연결 — plist 없이는 config plugin 빌드가 불가. 그 전에는 dev 로그만
+- 2026-10-07 — 결제 상태: 앱 실행 중 CustomerInfo를 받았으면 RevenueCat active 목록을 그대로 신뢰(billing retry 포함), CustomerInfo 없이 MMKV 미러만 있을 때만 `expiresAt + 3일` 유예 적용
+- 2026-10-07 — 페이월 공용 컴포넌트 `Paywall`(@nf/purchases)로 A9·B11 공유. 연간 기본 선택, CTA: 체험 가능 연간=`startTrial`, 연간=`subscribe`, 월간=`monthlyCta`. 할인율 = 1 − 연간가/(월간가×12) 반올림
+- 2026-10-07 — 오프라인 판정은 `expo-network`(Expo 공식 모듈) `isConnected === false || isInternetReachable === false`
+- 2026-10-07 — 앱 버전은 `expo-application` `nativeApplicationVersion` (PLAN의 expo-constants 필드는 SDK 57에 없음)
+- 2026-10-07 — 토스트는 react-native-screens `FullWindowOverlay` 안에 렌더 — 네이티브 모달(페이월) 위에서도 보이게
+- 2026-10-07 — StoreKit Configuration 파일 대신 RevenueCat Test Store로 S1 결제 검증 — Cozy가 Test Store 키를 줌. 실제 StoreKit(체험 자격·Sandbox)은 P15·P16 뒤 Sandbox로 검증
+- 2026-10-07 — A13: en Markdown + `legal.englishOnly` 안내 키 추가, 라이선스 문서는 design-sync가 폰트 OFL 2개 + Phosphor MIT 원문으로 생성
+- 2026-10-07 — E2E: Maestro(JDK 17 keg-only, `scripts/e2e.sh`). dev client 플로팅 Tools 버튼은 우상단 닫기 버튼을 가려 Info.plist `EXDevMenuShowFloatingActionButton=false` (dev 빌드에만 의미)
+- 2026-10-07 — ESLint: eslint-config-expo flat config를 루트에서 실행

@@ -1,0 +1,22 @@
+# S1: paywall shows RevenueCat prices; a Test Store purchase unlocks mood_premium.
+appId: app.nuni.mood
+---
+- runFlow: common/launch-dev.yaml
+- tapOn:
+    id: dev.purchases
+- assertVisible: 'mood_premium: locked'
+- tapOn:
+    id: dev.purchases.paywall
+- extendedWaitUntil:
+    visible:
+      id: a9.cta
+    timeout: 30000
+- takeScreenshot: paywall
+- tapOn:
+    id: a9.planMonthly
+- takeScreenshot: paywall-monthly
+- tapOn:
+    id: a9.planYearly
+- tapOn:
+    id: a9.cta
+- takeScreenshot: purchase-sheet

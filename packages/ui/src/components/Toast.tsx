@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { AccessibilityInfo, Animated, StyleSheet, View } from 'react-native';
+import { FullWindowOverlay } from 'react-native-screens';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { motion, radius, space } from '../generated/tokens';
@@ -33,7 +34,12 @@ export function ToastProvider({ children }: { children: ReactNode }) {
   return (
     <ToastContext.Provider value={show}>
       {children}
-      {toast ? <ToastView key={toast.id} toast={toast} onDone={() => setToast(null)} /> : null}
+      {toast ? (
+        // FullWindowOverlay keeps toasts above native modals (paywall, sheets).
+        <FullWindowOverlay>
+          <ToastView key={toast.id} toast={toast} onDone={() => setToast(null)} />
+        </FullWindowOverlay>
+      ) : null}
     </ToastContext.Provider>
   );
 }
@@ -41,7 +47,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
 function ToastView({ toast, onDone }: { toast: ToastState; onDone: () => void }) {
   const { colors } = useTheme();
   const insets = useSafeAreaInsets();
-  const progress = useRef(new Animated.Value(0)).current;
+  const [progress] = useState(() => new Animated.Value(0));
   const [reduceMotion, setReduceMotion] = useState(false);
 
   useEffect(() => {

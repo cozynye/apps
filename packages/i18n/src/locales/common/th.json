@@ -94,7 +94,8 @@
   "legal": {
     "termsTitle": "ข้อกำหนดการใช้งาน",
     "privacyTitle": "นโยบายความเป็นส่วนตัว",
-    "effective": "มีผลตั้งแต่ {{date}}"
+    "effective": "มีผลตั้งแต่ {{date}}",
+    "englishOnly": "มีเฉพาะภาษาอังกฤษ"
   },
   "lock": {
     "title": "ปลดล็อก",

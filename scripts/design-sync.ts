@@ -211,8 +211,7 @@ function syncContent() {
     .map((p) => `  '${p}': require('../../assets/${p}'),`);
   write(
     join(contentRoot, 'src/generated/bundledAssets.ts'),
-    `${HEADER}/* eslint-disable @typescript-eslint/no-require-imports */
-/** Manifest image path (relative to design/assets) → bundled asset module. */
+    `${HEADER}/** Manifest image path (relative to design/assets) → bundled asset module. */
 export const bundledAssets: Record<string, number> = {
 ${lines.join('\n')}
 };
@@ -223,6 +222,15 @@ ${lines.join('\n')}
     const md = readFileSync(join(DESIGN, 'legal', `${doc}-en.md`), 'utf8');
     return `export const ${doc}En = ${JSON.stringify(md)};`;
   });
+  // Open-source notices (A13/B13 licenses): bundled fonts (OFL) and Phosphor icons (MIT).
+  const notices = [
+    ['Be Vietnam Pro', join(ROOT, 'packages/ui/fonts/OFL-BeVietnamPro.txt')],
+    ['Prompt', join(ROOT, 'packages/ui/fonts/OFL-Prompt.txt')],
+    ['Phosphor Icons', join(ROOT, 'node_modules/phosphor-react-native/LICENSE')],
+  ]
+    .map(([name, file]) => `## ${name}\n\n\`\`\`\n${readFileSync(file!, 'utf8').trim()}\n\`\`\``)
+    .join('\n\n');
+  legal.push(`export const licensesEn = ${JSON.stringify(`# Open source licenses\n\n${notices}\n`)};`);
   write(join(contentRoot, 'src/generated/legal.ts'), `${HEADER}\n${legal.join('\n\n')}\n`);
 }
 

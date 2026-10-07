@@ -1,0 +1,31 @@
+# S1: A13 renders bundled Markdown (licenses, terms from the paywall link).
+appId: app.nuni.mood
+---
+- runFlow: common/launch-dev.yaml
+- tapOn:
+    id: dev.legal
+- assertVisible: 'Open source licenses'
+- assertVisible: 'Available in English only.'
+- assertVisible: 'Be Vietnam Pro'
+- tapOn:
+    id: a13.close
+- extendedWaitUntil:
+    visible:
+      id: dev.purchases
+    timeout: 10000
+- tapOn:
+    id: dev.purchases
+- tapOn:
+    id: dev.purchases.paywall
+- extendedWaitUntil:
+    visible:
+      id: a9.cta
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: a9.termsLink
+    direction: DOWN
+- tapOn:
+    id: a9.termsLink
+- assertVisible: 'Terms of Use'
+- takeScreenshot: terms

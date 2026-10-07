@@ -4,7 +4,6 @@
     "slug": "nuni",
     "scheme": "nuni",
     "version": "1.0.0",
-    "orientation": "default",
     "userInterfaceStyle": "automatic",
     "icon": "./assets/icon/light.png",
     "ios": {
@@ -21,14 +20,21 @@
       },
       "infoPlist": {
         "CFBundleDevelopmentRegion": "en",
-        "CFBundleLocalizations": ["en", "vi", "th"],
-        "UISupportedInterfaceOrientations": ["UIInterfaceOrientationPortrait"],
+        "CFBundleLocalizations": [
+          "en",
+          "vi",
+          "th"
+        ],
+        "UISupportedInterfaceOrientations": [
+          "UIInterfaceOrientationPortrait"
+        ],
         "UISupportedInterfaceOrientations~ipad": [
           "UIInterfaceOrientationPortrait",
           "UIInterfaceOrientationPortraitUpsideDown",
           "UIInterfaceOrientationLandscapeLeft",
           "UIInterfaceOrientationLandscapeRight"
-        ]
+        ],
+        "EXDevMenuShowFloatingActionButton": false
       }
     },
     "plugins": [

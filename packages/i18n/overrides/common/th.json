@@ -2,5 +2,8 @@
   "paywall": {
     "periodYear": "ปี",
     "periodMonth": "เดือน"
+  },
+  "legal": {
+    "englishOnly": "มีเฉพาะภาษาอังกฤษ"
   }
 }

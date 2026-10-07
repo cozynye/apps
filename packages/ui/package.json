@@ -20,7 +20,10 @@
     "zustand": "*",
     "expo-localization": "*",
     "expo-status-bar": "*",
-    "react-i18next": "*"
+    "react-i18next": "*",
+    "expo-network": "*",
+    "react-native-markdown-display": "*",
+    "react-native-screens": "*"
   },
   "devDependencies": {
     "@types/react": "~19.2.2"

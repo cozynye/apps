@@ -94,7 +94,8 @@
   "legal": {
     "termsTitle": "Terms of Use",
     "privacyTitle": "Privacy Policy",
-    "effective": "Effective {{date}}"
+    "effective": "Effective {{date}}",
+    "englishOnly": "Available in English only."
   },
   "lock": {
     "title": "Unlock",

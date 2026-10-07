@@ -4,29 +4,52 @@ Claude Code가 작업 단위가 끝날 때마다 갱신한다. 새 세션은 이
 
 ## 현재 단계
 
-S1 공통 패키지 — 시작 전
+S1 공통 패키지 — 진행 중 (결제 완료 조건만 Cozy의 RevenueCat 설정 대기)
 
 ## 단계 현황
 
 | 단계 | 상태 | 메모 |
 | --- | --- | --- |
-| S0 준비 | 완료 (개발 차단 항목 없음) | P15·P16 보류 → StoreKit Configuration으로 대체. 미확정 사항은 배포 전 해결 (RELEASE_CHECKLIST) |
-| S1 공통 패키지 | 대기 | |
+| S0 준비 | 완료 (개발 차단 항목 없음) | P15·P16 보류 → RevenueCat Test Store로 대체. 미확정 사항은 배포 전 해결 (RELEASE_CHECKLIST) |
+| S1 공통 패키지 | 진행 중 | 아래 완료 조건 표 |
 | S2 Nuni 개발 | 대기 | |
 | S3 Nuni 출시 | 대기 — 릴리스 게이트 적용 | |
 | S4 Fourpop 개발 | 대기 | |
 | S5 Fourpop 출시 | 대기 — 릴리스 게이트 적용 | |
 
+## S1 완료 조건 확인 (2026-10-07)
+
+| 조건 | 결과 | 확인 방법 |
+| --- | --- | --- |
+| 언어 전환 (vi/th/en) | 통과 (iPhone 17 Pro, iPad Pro 13") | Maestro `s1-stories` |
+| 페이월 표시 (RevenueCat 가격) | 통과 (iPhone, iPad) | Maestro `s1-paywall` |
+| 결제·취소·실패·복원 | 흐름 통과, **권한 이름 불일치로 `mood_premium` 미해제** | Maestro `s1-purchase-restore` — Test Store가 기본 상품 `yearly`/`monthly`, 권한 `nooni_pro`를 줌. Cozy가 대시보드에 상품·권한·Offering 설정 필요 |
+| 컴포넌트 스토리 iPhone·iPad 렌더 | 통과 (라이트·다크, en/th/vi) | Maestro `s1-stories` 스크린샷 |
+| DB (마이그레이션, CHECK, FK cascade, WAL) | 통과 (iPhone, iPad) | Maestro `s1-data` |
+| typecheck / lint / Jest / i18n 패리티 | 통과 (Jest 33개, lint 오류 0·경고 2) | `pnpm typecheck && pnpm lint && pnpm test && pnpm i18n:check` |
+
 ## 완료한 일
 
-- (아직 없음)
+- 모노레포 (pnpm hoisted, Expo SDK 57), `scripts/design-sync.ts` (토큰·SVG·i18n·매니페스트·에셋·약관·라이선스)
+- `@nf/i18n`: i18next, 언어 결정(강제 → 설정 → 기기 → en), 날짜 포맷(태국 서기), 패리티 검사, overrides
+- `@nf/ui`: 테마(라이트/다크/시스템), 타이포(태국어 치환), 설정 스토어(MMKV), Button·Chip·Segment·Card·Toast·EmptyState·PlanCard·Mascot·Illustration·Screen·MarkdownDocument, 스토리 화면
+- `@nf/db`: Drizzle 스키마(Nuni·Fourpop), 번들 마이그레이션 + 사전 백업 + 실패 시 읽기 전용
+- `@nf/content`: zod 매니페스트, 카탈로그 병합·상점·시즌 배너, ETag 로더
+- `@nf/purchases`: RevenueCat 래퍼, 권한 스토어 + MMKV 미러(3일 유예), 공용 Paywall
+- `@nf/analytics`: 타입 이벤트, 동의, 금지 키 검사 (Firebase 전송은 P18 후)
+- Nuni 더미 앱: dev 메뉴, A9 페이월, A13 약관·개인정보·라이선스
+- `web/legal`: support / privacy / terms 정적 페이지 (`pnpm legal:build`, 미배포)
+- CI 워크플로(.github/workflows/ci.yml), Maestro 플로우 5개 + `scripts/e2e.sh`
 
 ## 다음 할 일
 
-1. 모노레포 스캐폴드 (pnpm, apps/nuni, apps/fourpop, packages/*)
-2. `scripts/design-sync` — tokens / i18n / assets를 design/에서 packages로 복사·변환
-3. `packages/ui` 토큰·테마·기본 컴포넌트 + 스토리 화면 (iPhone·iPad)
+1. Cozy의 RevenueCat 설정 후 `s1-purchase-restore` 재실행 → S1 완료 처리
+2. S2 시작: A1 스플래시(SVG → PNG), 탭 레이아웃 + 탭 바 컴포넌트, A2 온보딩부터
+3. P18 plist 수령 시 Firebase transport 연결
 
 ## 막힌 것 / Cozy에게 필요한 것
 
-- (없음)
+- RevenueCat 대시보드: Test Store에 상품 `mood_premium_monthly`, `mood_premium_yearly`(7일 무료체험), 권한 `mood_premium`(두 상품 연결), Offering `default`(Monthly·Annual 패키지, current). 현재는 기본값(`yearly`/`monthly`, 권한 `nooni_pro`)
+- (S2 전) PLAN 충돌 4번(자정 넘김 시 기록 날짜), 권한 팝업 문구 초안 승인 방식
+- (S4 전) PLAN 충돌 5번(HD 해상도 1200×3600 vs 2400×7200)
+- P18 Firebase plist, P19 R2 URL, P22 리포, 도메인 — 배포 전까지
