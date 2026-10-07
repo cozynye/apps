@@ -25,6 +25,7 @@ S1 공통 패키지 — 진행 중 (결제 완료 조건만 Cozy의 RevenueCat �
 | 페이월 표시 (RevenueCat 가격) | 통과 (iPhone, iPad) | Maestro `s1-paywall` |
 | 결제·취소·실패·복원 | 흐름 통과, **권한 이름 불일치로 `mood_premium` 미해제** | Maestro `s1-purchase-restore` — Test Store가 기본 상품 `yearly`/`monthly`, 권한 `nooni_pro`를 줌. Cozy가 대시보드에 상품·권한·Offering 설정 필요 |
 | 컴포넌트 스토리 iPhone·iPad 렌더 | 통과 (라이트·다크, en/th/vi) | Maestro `s1-stories` 스크린샷 |
+| A13 약관·라이선스, 페이월 → Terms 링크 | 통과 (iPhone, iPad) | Maestro `s1-legal` |
 | DB (마이그레이션, CHECK, FK cascade, WAL) | 통과 (iPhone, iPad) | Maestro `s1-data` |
 | typecheck / lint / Jest / i18n 패리티 | 통과 (Jest 33개, lint 오류 0·경고 2) | `pnpm typecheck && pnpm lint && pnpm test && pnpm i18n:check` |
 
@@ -39,7 +40,7 @@ S1 공통 패키지 — 진행 중 (결제 완료 조건만 Cozy의 RevenueCat �
 - `@nf/analytics`: 타입 이벤트, 동의, 금지 키 검사 (Firebase 전송은 P18 후)
 - Nuni 더미 앱: dev 메뉴, A9 페이월, A13 약관·개인정보·라이선스
 - `web/legal`: support / privacy / terms 정적 페이지 (`pnpm legal:build`, 미배포)
-- CI 워크플로(.github/workflows/ci.yml), Maestro 플로우 5개 + `scripts/e2e.sh`
+- CI 워크플로(.github/workflows/ci.yml), Maestro 플로우 5개(`apps/nuni/.maestro/s1-*`) + `pnpm e2e nuni "<시뮬레이터>" 's1-*'` (Metro 실행 필요: `pnpm nuni start`)
 
 ## 다음 할 일
 
@@ -51,5 +52,6 @@ S1 공통 패키지 — 진행 중 (결제 완료 조건만 Cozy의 RevenueCat �
 
 - RevenueCat 대시보드: Test Store에 상품 `mood_premium_monthly`, `mood_premium_yearly`(7일 무료체험), 권한 `mood_premium`(두 상품 연결), Offering `default`(Monthly·Annual 패키지, current). 현재는 기본값(`yearly`/`monthly`, 권한 `nooni_pro`)
 - (S2 전) PLAN 충돌 4번(자정 넘김 시 기록 날짜), 권한 팝업 문구 초안 승인 방식
+- (법률 검토 시) 약관 4절 “theme or frame packs”는 MVP에 Nuni 테마가 없음 / 개인정보 6절의 “Settings › Privacy › Copy ID” 기능은 PLAN A10에 없음 → S2에서 Copy ID 행을 추가할지 결정 필요
 - (S4 전) PLAN 충돌 5번(HD 해상도 1200×3600 vs 2400×7200)
 - P18 Firebase plist, P19 R2 URL, P22 리포, 도메인 — 배포 전까지
