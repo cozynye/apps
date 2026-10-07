@@ -1,0 +1,56 @@
+{
+  "expo": {
+    "name": "Nuni",
+    "slug": "nuni",
+    "scheme": "nuni",
+    "version": "1.0.0",
+    "orientation": "default",
+    "userInterfaceStyle": "automatic",
+    "icon": "./assets/icon/light.png",
+    "ios": {
+      "bundleIdentifier": "app.nuni.mood",
+      "supportsTablet": true,
+      "requireFullScreen": true,
+      "icon": {
+        "light": "./assets/icon/light.png",
+        "dark": "./assets/icon/dark.png",
+        "tinted": "./assets/icon/tinted.png"
+      },
+      "config": {
+        "usesNonExemptEncryption": false
+      },
+      "infoPlist": {
+        "CFBundleDevelopmentRegion": "en",
+        "CFBundleLocalizations": ["en", "vi", "th"],
+        "UISupportedInterfaceOrientations": ["UIInterfaceOrientationPortrait"],
+        "UISupportedInterfaceOrientations~ipad": [
+          "UIInterfaceOrientationPortrait",
+          "UIInterfaceOrientationPortraitUpsideDown",
+          "UIInterfaceOrientationLandscapeLeft",
+          "UIInterfaceOrientationLandscapeRight"
+        ]
+      }
+    },
+    "plugins": [
+      "expo-router",
+      "expo-localization",
+      "expo-sqlite",
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "../../packages/ui/fonts/BeVietnamPro-Regular.ttf",
+            "../../packages/ui/fonts/BeVietnamPro-SemiBold.ttf",
+            "../../packages/ui/fonts/BeVietnamPro-Bold.ttf",
+            "../../packages/ui/fonts/Prompt-Regular.ttf",
+            "../../packages/ui/fonts/Prompt-SemiBold.ttf",
+            "../../packages/ui/fonts/Prompt-Bold.ttf"
+          ]
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

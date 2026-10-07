@@ -1,0 +1,26 @@
+{
+  "name": "nuni-fourpop",
+  "private": true,
+  "packageManager": "pnpm@10.26.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "nuni": "pnpm --filter nuni run",
+    "typecheck": "tsc --noEmit -p . && pnpm -r --parallel run typecheck",
+    "test": "jest",
+    "lint": "pnpm -r --parallel run lint",
+    "i18n:check": "tsx packages/i18n/scripts/check.ts",
+    "design:sync": "tsx scripts/design-sync.ts",
+    "fourpop": "pnpm --filter fourpop run"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.20.5",
+    "drizzle-kit": "^0.31.11",
+    "jest": "^29.7.0",
+    "jest-expo": "~57.0.5",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.3"
+  }
+}

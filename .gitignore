@@ -19,3 +19,5 @@ apps/*/android/
 # misc
 .DS_Store
 *.log
+expo-env.d.ts
+packages/db/drizzle/*/migrations.js

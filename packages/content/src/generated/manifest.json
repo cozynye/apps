@@ -1,0 +1,719 @@
+{
+  "schemaVersion": 1,
+  "version": 2,
+  "minAppVersion": "1.0.0",
+  "packs": [
+    {
+      "id": "base",
+      "type": "frame",
+      "productId": null,
+      "free": true,
+      "bundled": true,
+      "title": {
+        "en": "Basics",
+        "vi": "Cơ bản",
+        "th": "พื้นฐาน"
+      },
+      "items": [
+        {
+          "id": "base-classic",
+          "title": {
+            "en": "Classic",
+            "vi": "Classic",
+            "th": "Classic"
+          },
+          "layout": "strip4",
+          "image": "frames/base/classic.png",
+          "thumbnail": "frames/base/classic-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "base-noir",
+          "title": {
+            "en": "Noir",
+            "vi": "Noir",
+            "th": "Noir"
+          },
+          "layout": "strip4",
+          "image": "frames/base/noir.png",
+          "thumbnail": "frames/base/noir-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "base-coral",
+          "title": {
+            "en": "Coral",
+            "vi": "Coral",
+            "th": "Coral"
+          },
+          "layout": "strip4",
+          "image": "frames/base/coral.png",
+          "thumbnail": "frames/base/coral-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "base-mint",
+          "title": {
+            "en": "Mint",
+            "vi": "Mint",
+            "th": "Mint"
+          },
+          "layout": "strip4",
+          "image": "frames/base/mint.png",
+          "thumbnail": "frames/base/mint-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "base-peach",
+          "title": {
+            "en": "Peach",
+            "vi": "Peach",
+            "th": "Peach"
+          },
+          "layout": "strip4",
+          "image": "frames/base/peach.png",
+          "thumbnail": "frames/base/peach-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "base-sunny",
+          "title": {
+            "en": "Sunny",
+            "vi": "Sunny",
+            "th": "Sunny"
+          },
+          "layout": "strip4",
+          "image": "frames/base/sunny.png",
+          "thumbnail": "frames/base/sunny-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "base-dots",
+          "title": {
+            "en": "Dots",
+            "vi": "Dots",
+            "th": "Dots"
+          },
+          "layout": "strip4",
+          "image": "frames/base/dots.png",
+          "thumbnail": "frames/base/dots-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "base-stripes",
+          "title": {
+            "en": "Stripes",
+            "vi": "Stripes",
+            "th": "Stripes"
+          },
+          "layout": "strip4",
+          "image": "frames/base/stripes.png",
+          "thumbnail": "frames/base/stripes-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "base-film",
+          "title": {
+            "en": "Film",
+            "vi": "Film",
+            "th": "Film"
+          },
+          "layout": "strip4",
+          "image": "frames/base/film.png",
+          "thumbnail": "frames/base/film-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "base-hearts",
+          "title": {
+            "en": "Hearts",
+            "vi": "Hearts",
+            "th": "Hearts"
+          },
+          "layout": "strip4",
+          "image": "frames/base/hearts.png",
+          "thumbnail": "frames/base/hearts-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        }
+      ],
+      "entitlementId": null,
+      "category": "basic",
+      "minAppVersion": "1.0.0"
+    },
+    {
+      "id": "stickers-base",
+      "type": "sticker",
+      "productId": null,
+      "entitlementId": null,
+      "free": true,
+      "bundled": true,
+      "title": {
+        "en": "Basics",
+        "vi": "Cơ bản",
+        "th": "พื้นฐาน"
+      },
+      "items": [
+        {
+          "id": "base-star",
+          "image": "stickers/base/star.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "base-heart",
+          "image": "stickers/base/heart.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "base-heart-mint",
+          "image": "stickers/base/heart-mint.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "base-sparkle",
+          "image": "stickers/base/sparkle.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "base-bff",
+          "image": "stickers/base/bff.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "base-love",
+          "image": "stickers/base/love.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "base-lol",
+          "image": "stickers/base/lol.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "base-smile",
+          "image": "stickers/base/smile.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "base-wink",
+          "image": "stickers/base/wink.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "base-heart-eyes",
+          "image": "stickers/base/heart-eyes.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "base-crown",
+          "image": "stickers/base/crown.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "base-flower",
+          "image": "stickers/base/flower.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "base-cloud",
+          "image": "stickers/base/cloud.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "base-bolt",
+          "image": "stickers/base/bolt.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "base-rainbow",
+          "image": "stickers/base/rainbow.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "base-sun",
+          "image": "stickers/base/sun.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "base-moon",
+          "image": "stickers/base/moon.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "base-note",
+          "image": "stickers/base/note.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "base-cherry",
+          "image": "stickers/base/cherry.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "base-camera",
+          "image": "stickers/base/camera.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "base-ribbon-today",
+          "image": "stickers/base/ribbon-today.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "base-lollipop",
+          "image": "stickers/base/lollipop.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        }
+      ],
+      "minAppVersion": "1.0.0",
+      "category": "basic"
+    }
+  ]
+}

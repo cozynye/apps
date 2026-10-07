@@ -1,0 +1,157 @@
+{
+  "app": {
+    "name": "Fourpop",
+    "tagline": "Photobooth trong túi bạn"
+  },
+  "onboarding": {
+    "1": {
+      "title": "Chụp như ở booth thật",
+      "body": "Đếm ngược, 8 tấm, chọn 4 tấm đẹp nhất."
+    },
+    "2": {
+      "title": "Khung ảnh cho mọi mùa",
+      "body": "Trang trí rồi chia sẻ lên Zalo, Messenger hay Instagram chỉ với một chạm."
+    }
+  },
+  "home": {
+    "layout": "Bố cục",
+    "strip4": "Dải 1×4",
+    "grid4": "Lưới 2×2",
+    "strip3": "1×3",
+    "frame": "Khung",
+    "allFrames": "Tất cả khung",
+    "startShooting": "Chụp thôi",
+    "newPack": "Mới: {{name}}",
+    "packMeta_one": "{{count}} khung · {{price}}",
+    "packMeta_other": "{{count}} khung · {{price}}",
+    "fromAlbum": "Từ album",
+    "lockedHint": "Chụp ngay, mở khóa để lưu"
+  },
+  "tabs": {
+    "booth": "Booth",
+    "gallery": "Bộ sưu tập",
+    "shop": "Cửa hàng"
+  },
+  "capture": {
+    "shotOf": "Tấm {{current}} / {{total}}",
+    "timer": "Hẹn giờ",
+    "seconds": "{{count}}s",
+    "pose": "Tạo dáng: {{name}}",
+    "poses": [
+      "giơ tay chữ V",
+      "trái tim ngón tay",
+      "chống tay lên má",
+      "cười thật to",
+      "chỉ vào camera",
+      "tựa cằm",
+      "nháy mắt",
+      "tự do"
+    ],
+    "flashOn": "Bật flash",
+    "flashOff": "Tắt flash",
+    "flip": "Đổi camera",
+    "mirror": "Lật ảnh selfie",
+    "shutter": "Chụp",
+    "retake": "Chụp lại",
+    "start": "Bắt đầu",
+    "pause": "Tạm dừng",
+    "resume": "Tiếp tục",
+    "stopConfirm": "Dừng chụp? {{count}} tấm đã chụp sẽ mất."
+  },
+  "pick": {
+    "title": "Chọn {{count}} tấm đẹp nhất",
+    "picked": "Đã chọn {{picked}} / {{count}}",
+    "retakeAll": "Chụp lại tất cả",
+    "retakeOne": "Chụp lại tấm này"
+  },
+  "decorate": {
+    "title": "Trang trí",
+    "filter": "Bộ lọc",
+    "stickers": "Sticker",
+    "draw": "Vẽ",
+    "text": "Chữ",
+    "date": "Ngày",
+    "filters": {
+      "original": "Gốc",
+      "mono": "Đen trắng",
+      "warm": "Ấm",
+      "film": "Film",
+      "fade": "Nhạt",
+      "night": "Đêm"
+    },
+    "textPlaceholder": "Nhập gì đó",
+    "stickerPacks": "Bộ sticker",
+    "lockedFilter": "Bộ lọc Premium",
+    "undo": "Hoàn tác",
+    "deleteItem": "Xóa",
+    "dateFormats": [
+      "20/10/2026",
+      "20.10.26",
+      "20 Th10 2026"
+    ]
+  },
+  "result": {
+    "title": "Dải ảnh của bạn",
+    "standard": "Tiêu chuẩn · {{size}}",
+    "hdUpsell": "HD, không watermark",
+    "save": "Lưu",
+    "gif": "GIF",
+    "more": "Thêm",
+    "shootAnother": "Thêm tấm nữa!",
+    "savedToGallery": "Đã lưu vào bộ sưu tập Fourpop",
+    "savedToPhotos": "Đã lưu vào Ảnh",
+    "gifLocked": "Xuất GIF là tính năng Premium",
+    "saveToPhotos": "Lưu vào Ảnh",
+    "saved": "Đã lưu",
+    "instagram": "Instagram",
+    "zalo": "Zalo",
+    "line": "LINE",
+    "messenger": "Messenger",
+    "share": "Chia sẻ",
+    "inGallery": "Cũng được giữ trong tab Bộ sưu tập",
+    "unlockToSave": "Mở khóa khung này để lưu không mờ",
+    "useFreeFrame": "Dùng khung miễn phí thay thế"
+  },
+  "gallery": {
+    "title": "Bộ sưu tập",
+    "empty": "Dải ảnh của bạn sẽ hiện ở đây",
+    "deleteConfirm": "Xóa dải ảnh này?",
+    "emptyCta": "Tạo dải ảnh đầu tiên"
+  },
+  "shop": {
+    "title": "Cửa hàng",
+    "framePacks": "Bộ khung",
+    "stickerPacks": "Bộ sticker",
+    "owned": "Đã có",
+    "free": "Miễn phí",
+    "unlock": "Mở khóa với {{price}}",
+    "includedInPremium": "Có trong Premium",
+    "seasonEnds": "Có đến {{date}}",
+    "offline": "Ngoại tuyến — đang hiện các bộ đã lưu",
+    "updateApp": "Cập nhật ứng dụng để nhận bộ mới"
+  },
+  "paywall": {
+    "title": "Fourpop Premium",
+    "subtitle": "Mọi khung, dải ảnh HD, GIF — không watermark.",
+    "perk1": "Tất cả bộ khung và sticker, kể cả theo mùa",
+    "perk2": "Xuất HD không watermark",
+    "perk3": "GIF và toàn bộ bộ lọc"
+  },
+  "frameNames": {
+    "classic": "Cổ điển",
+    "noir": "Đen",
+    "coral": "San hô",
+    "mint": "Bạc hà",
+    "sunny": "Nắng",
+    "dots": "Chấm bi",
+    "stripes": "Kẻ sọc",
+    "film": "Film",
+    "hearts": "Trái tim",
+    "peach": "Đào"
+  },
+  "settings": {
+    "saveQuality": "Chất lượng lưu",
+    "shutterSound": "Tiếng chụp",
+    "mirrorSelfie": "Lật ảnh selfie"
+  }
+}

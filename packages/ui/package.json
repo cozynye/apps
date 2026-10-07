@@ -1,0 +1,28 @@
+{
+  "name": "@nf/ui",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@nf/i18n": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*",
+    "react-native-svg": "*",
+    "react-native-mmkv": "*",
+    "react-native-safe-area-context": "*",
+    "phosphor-react-native": "*",
+    "zustand": "*",
+    "expo-localization": "*",
+    "expo-status-bar": "*",
+    "react-i18next": "*"
+  },
+  "devDependencies": {
+    "@types/react": "~19.2.2"
+  }
+}

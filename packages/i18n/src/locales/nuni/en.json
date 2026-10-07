@@ -1,0 +1,171 @@
+{
+  "app": {
+    "name": "Nuni",
+    "tagline": "Your mood, one cloud a day"
+  },
+  "onboarding": {
+    "1": {
+      "title": "Log your day in 10 seconds",
+      "body": "Pick a cloud, tap a few tags. That's it."
+    },
+    "2": {
+      "title": "See what lifts you",
+      "body": "Nuni shows which days and activities feel best."
+    },
+    "3": {
+      "title": "A gentle nudge, never a nag",
+      "body": "One reminder a day, at the time you choose."
+    },
+    "reminderTime": "Remind me at",
+    "enableReminder": "Turn on reminder"
+  },
+  "mood": {
+    "1": "Rough",
+    "2": "Low",
+    "3": "Okay",
+    "4": "Good",
+    "5": "Great"
+  },
+  "home": {
+    "streak_one": "{{count}} day",
+    "streak_other": "{{count}} days",
+    "todayPrompt": "How was today?",
+    "todayHint": "Tap to log your mood in 10 seconds",
+    "yesterday": "Yesterday",
+    "emptyMonth": "No entries this month yet",
+    "weekdays": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ],
+    "streakLabel_one": "{{count}}-day streak",
+    "streakLabel_other": "{{count}}-day streak",
+    "firstCloud": "Your first cloud goes here",
+    "todayLogged": "Today: {{mood}} · {{count}} tags",
+    "editEntry": "Edit"
+  },
+  "entry": {
+    "title": "How was today?",
+    "whatDidYouDo": "What did you do?",
+    "editTags": "Edit tags",
+    "noteLabel": "A line about today",
+    "notePlaceholder": "Optional, {{max}} characters",
+    "addPhoto": "Add photo",
+    "saved": "Saved",
+    "deleteConfirm": "Delete this entry?",
+    "multiple": "{{count}} entries today",
+    "titleFor": "How was {{day}}?",
+    "today": "today",
+    "yesterday": "yesterday",
+    "addAnother": "Add another entry",
+    "pickMood": "Pick a cloud first",
+    "discardConfirm": "Discard this entry?",
+    "keepEditing": "Keep editing",
+    "discard": "Discard",
+    "showAllTags": "Show all tags"
+  },
+  "tags": {
+    "sleep": "Sleep",
+    "exercise": "Exercise",
+    "study": "Study",
+    "work": "Work",
+    "friends": "Friends",
+    "family": "Family",
+    "partner": "Partner",
+    "food": "Food",
+    "cafe": "Café",
+    "shopping": "Shopping",
+    "travel": "Travel",
+    "games": "Games",
+    "movies": "Movies",
+    "music": "Music",
+    "reading": "Reading",
+    "weather": "Weather",
+    "photos": "Photos",
+    "chores": "Chores",
+    "health": "Health",
+    "pray": "Prayer",
+    "custom": "New tag",
+    "customPlaceholder": "Tag name"
+  },
+  "stats": {
+    "title": "Stats",
+    "week": "Week",
+    "month": "Month",
+    "year": "Year",
+    "daysLogged_one": "{{count}} day logged",
+    "daysLogged_other": "{{count}} days logged",
+    "currentStreak": "Current streak",
+    "bestStreak": "Best streak",
+    "liftsTitle": "What lifts your mood",
+    "liftsLocked": "See which activities lift your mood",
+    "yearTitle": "Your year in clouds",
+    "tryPremium": "Try Premium free",
+    "yearLocked": "Yearly view is part of Premium",
+    "share": "Share this month"
+  },
+  "share": {
+    "title": "Share card",
+    "monthly": "This month",
+    "yearly": "This year",
+    "saveImage": "Save image",
+    "watermarkHint": "Remove the watermark with Premium"
+  },
+  "shop": {
+    "title": "Themes",
+    "owned": "Owned",
+    "apply": "Apply",
+    "includedInPremium": "Included in Premium"
+  },
+  "paywall": {
+    "title": "Nuni Premium",
+    "subtitle": "Understand your patterns, keep every memory safe.",
+    "perk1": "Activity and mood insights, yearly trends",
+    "perk2": "iCloud backup and restore",
+    "perk3": "Up to 10 photos, longer notes, medium widget"
+  },
+  "backup": {
+    "title": "iCloud backup",
+    "lastBackup": "Last backup {{date}}",
+    "backupNow": "Back up now",
+    "restore": "Restore from iCloud",
+    "restoreConfirm": "This replaces the entries on this device with your iCloud backup.",
+    "never": "Never backed up"
+  },
+  "widget": {
+    "todayTitle": "Today",
+    "weekTitle": "This week",
+    "tapToLog": "Tap to log",
+    "locked": "Unlock in Nuni Premium",
+    "hidden": "Locked · open Nuni"
+  },
+  "notification": {
+    "reminderTitle": "How was today?",
+    "reminderBody": "Takes 10 seconds. Nuni is waiting.",
+    "action1": "Low",
+    "action3": "Okay",
+    "action4": "Good"
+  },
+  "tabs": {
+    "home": "Home",
+    "stats": "Stats",
+    "settings": "Settings"
+  },
+  "streak": {
+    "celebrateTitle": "{{count}} days in a row!",
+    "celebrateBody": "Nuni's getting to know you.",
+    "seePatterns": "See your patterns"
+  },
+  "reminder": {
+    "title": "Want a nudge tomorrow?",
+    "body": "One notification a day, at a time you pick."
+  },
+  "export": {
+    "title": "Save a copy",
+    "hint": "Text + photos as a zip you can keep anywhere."
+  }
+}

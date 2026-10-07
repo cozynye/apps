@@ -1,0 +1,21 @@
+{
+  "name": "@nf/i18n",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "i18next": "^26.4.2",
+    "react-i18next": "^17.0.16"
+  },
+  "devDependencies": {
+    "@types/react": "~19.2.18"
+  },
+  "peerDependencies": {
+    "expo-localization": "*",
+    "react": "*"
+  }
+}

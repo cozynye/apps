@@ -1,0 +1,171 @@
+{
+  "app": {
+    "name": "Nuni",
+    "tagline": "อารมณ์ของคุณ วันละหนึ่งก้อนเมฆ"
+  },
+  "onboarding": {
+    "1": {
+      "title": "บันทึกวันนี้ใน 10 วินาที",
+      "body": "เลือกก้อนเมฆ แตะแท็กสักสองสามอัน แค่นั้นเอง"
+    },
+    "2": {
+      "title": "ดูว่าอะไรทำให้คุณใจฟู",
+      "body": "Nuni บอกได้ว่าวันไหนและกิจกรรมอะไรที่ทำให้คุณรู้สึกดีที่สุด"
+    },
+    "3": {
+      "title": "เตือนเบา ๆ ไม่จุกจิก",
+      "body": "เตือนวันละครั้ง ในเวลาที่คุณเลือกเอง"
+    },
+    "reminderTime": "เตือนฉันเวลา",
+    "enableReminder": "เปิดการเตือน"
+  },
+  "mood": {
+    "1": "แย่มาก",
+    "2": "ไม่ค่อยดี",
+    "3": "เฉย ๆ",
+    "4": "ดี",
+    "5": "ดีมาก"
+  },
+  "home": {
+    "streak_one": "{{count}} วัน",
+    "streak_other": "{{count}} วัน",
+    "todayPrompt": "วันนี้เป็นยังไงบ้าง?",
+    "todayHint": "แตะเพื่อบันทึกอารมณ์ใน 10 วินาที",
+    "yesterday": "เมื่อวาน",
+    "emptyMonth": "เดือนนี้ยังไม่มีบันทึก",
+    "weekdays": [
+      "จ.",
+      "อ.",
+      "พ.",
+      "พฤ.",
+      "ศ.",
+      "ส.",
+      "อา."
+    ],
+    "streakLabel_one": "ต่อเนื่อง {{count}} วัน",
+    "streakLabel_other": "ต่อเนื่อง {{count}} วัน",
+    "firstCloud": "ก้อนเมฆแรกของคุณจะอยู่ตรงนี้",
+    "todayLogged": "วันนี้: {{mood}} · {{count}} แท็ก",
+    "editEntry": "แก้ไข"
+  },
+  "entry": {
+    "title": "วันนี้เป็นยังไงบ้าง?",
+    "whatDidYouDo": "วันนี้ทำอะไรบ้าง?",
+    "editTags": "แก้ไขแท็ก",
+    "noteLabel": "หนึ่งบรรทัดเกี่ยวกับวันนี้",
+    "notePlaceholder": "ไม่บังคับ ไม่เกิน {{max}} ตัวอักษร",
+    "addPhoto": "เพิ่มรูป",
+    "saved": "บันทึกแล้ว",
+    "deleteConfirm": "ลบบันทึกนี้?",
+    "multiple": "วันนี้มี {{count}} บันทึก",
+    "titleFor": "{{day}} เป็นยังไงบ้าง?",
+    "today": "วันนี้",
+    "yesterday": "เมื่อวาน",
+    "addAnother": "เพิ่มอีกบันทึก",
+    "pickMood": "เลือกก้อนเมฆก่อนนะ",
+    "discardConfirm": "ทิ้งบันทึกนี้?",
+    "keepEditing": "แก้ไขต่อ",
+    "discard": "ทิ้ง",
+    "showAllTags": "แสดงแท็กทั้งหมด"
+  },
+  "tags": {
+    "sleep": "นอน",
+    "exercise": "ออกกำลังกาย",
+    "study": "เรียน",
+    "work": "ทำงาน",
+    "friends": "เพื่อน",
+    "family": "ครอบครัว",
+    "partner": "แฟน",
+    "food": "กิน",
+    "cafe": "คาเฟ่",
+    "shopping": "ช้อปปิ้ง",
+    "travel": "เที่ยว",
+    "games": "เกม",
+    "movies": "หนัง",
+    "music": "เพลง",
+    "reading": "อ่านหนังสือ",
+    "weather": "อากาศ",
+    "photos": "ถ่ายรูป",
+    "chores": "งานบ้าน",
+    "health": "สุขภาพ",
+    "pray": "ทำบุญ",
+    "custom": "แท็กใหม่",
+    "customPlaceholder": "ชื่อแท็ก"
+  },
+  "stats": {
+    "title": "สถิติ",
+    "week": "สัปดาห์",
+    "month": "เดือน",
+    "year": "ปี",
+    "daysLogged_one": "บันทึกแล้ว {{count}} วัน",
+    "daysLogged_other": "บันทึกแล้ว {{count}} วัน",
+    "currentStreak": "ต่อเนื่องตอนนี้",
+    "bestStreak": "ต่อเนื่องสูงสุด",
+    "liftsTitle": "อะไรทำให้อารมณ์ดีขึ้น",
+    "liftsLocked": "ดูว่ากิจกรรมไหนทำให้คุณอารมณ์ดีขึ้น",
+    "yearTitle": "หนึ่งปีในก้อนเมฆ",
+    "tryPremium": "ทดลอง Premium ฟรี",
+    "yearLocked": "มุมมองรายปีเป็นส่วนหนึ่งของ Premium",
+    "share": "แชร์เดือนนี้"
+  },
+  "share": {
+    "title": "การ์ดแชร์",
+    "monthly": "เดือนนี้",
+    "yearly": "ปีนี้",
+    "saveImage": "บันทึกรูป",
+    "watermarkHint": "ลบลายน้ำด้วย Premium"
+  },
+  "shop": {
+    "title": "ธีม",
+    "owned": "มีแล้ว",
+    "apply": "ใช้ธีมนี้",
+    "includedInPremium": "รวมอยู่ใน Premium"
+  },
+  "paywall": {
+    "title": "Nuni Premium",
+    "subtitle": "เข้าใจรูปแบบอารมณ์ของคุณ เก็บทุกความทรงจำไว้อย่างปลอดภัย",
+    "perk1": "วิเคราะห์กิจกรรมกับอารมณ์ และแนวโน้มรายปี",
+    "perk2": "สำรองและกู้คืนผ่าน iCloud",
+    "perk3": "รูปสูงสุด 10 รูป โน้ตยาวขึ้น และวิดเจ็ตขนาดกลาง"
+  },
+  "backup": {
+    "title": "สำรองข้อมูล iCloud",
+    "lastBackup": "สำรองล่าสุด {{date}}",
+    "backupNow": "สำรองตอนนี้",
+    "restore": "กู้คืนจาก iCloud",
+    "restoreConfirm": "การดำเนินการนี้จะแทนที่บันทึกในอุปกรณ์นี้ด้วยข้อมูลสำรองจาก iCloud",
+    "never": "ยังไม่เคยสำรอง"
+  },
+  "widget": {
+    "todayTitle": "วันนี้",
+    "weekTitle": "สัปดาห์นี้",
+    "tapToLog": "แตะเพื่อบันทึก",
+    "locked": "ปลดล็อกใน Nuni Premium",
+    "hidden": "ล็อกอยู่ · เปิด Nuni"
+  },
+  "notification": {
+    "reminderTitle": "วันนี้เป็นยังไงบ้าง?",
+    "reminderBody": "ใช้เวลาแค่ 10 วินาที Nuni รออยู่นะ",
+    "action1": "ไม่ค่อยดี",
+    "action3": "เฉย ๆ",
+    "action4": "ดี"
+  },
+  "tabs": {
+    "home": "หน้าหลัก",
+    "stats": "สถิติ",
+    "settings": "ตั้งค่า"
+  },
+  "streak": {
+    "celebrateTitle": "{{count}} วันติดกัน!",
+    "celebrateBody": "Nuni เริ่มรู้จักคุณแล้ว",
+    "seePatterns": "ดูรูปแบบอารมณ์ของคุณ"
+  },
+  "reminder": {
+    "title": "อยากให้เตือนพรุ่งนี้ไหม?",
+    "body": "แจ้งเตือนวันละครั้ง ในเวลาที่คุณเลือก"
+  },
+  "export": {
+    "title": "บันทึกสำเนา",
+    "hint": "ข้อความ + รูปในไฟล์ zip เก็บไว้ที่ไหนก็ได้"
+  }
+}
