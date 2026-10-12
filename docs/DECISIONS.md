@@ -94,3 +94,5 @@
 - 2026-10-12 — 내보내기: `export.json`(entries, tags, entryTags, photos 행) + `photos/` → `react-native-zip-archive`(PLAN 스택) → 공유 시트. 무료
 - 2026-10-12 — i18n 키 추가: `backup.signInHint`, `backup.done`, `backup.restoredRestart`, `backup.premiumHint` — en·vi·th
 - 2026-10-12 — `SettingsRow`의 보조 문구를 `accessibilityHint`로도 노출(VoiceOver가 안내를 읽도록)
+- 2026-10-12 — 위젯: PLAN의 expo-apple-targets = npm `@bacons/apple-targets`(`apps/nuni/targets/widget`, SwiftUI, iOS 17+ `containerBackground`). 색은 `expo-target.config.js`가 `design/tokens.json`에서 읽고, 마스코트는 design-sync가 `-sm` SVG를 PNG로 렌더. 위젯 문구는 앱이 현재 언어로 `widget.json.strings`에 넣어 전달(위젯 자체 번역 없음). 위젯 갤러리 표시 이름은 브랜드명 “Nuni”, 설명 없음
+- 2026-10-12 — 앱 → 위젯: 로컬 Expo Module `widget-bridge`(App Group `group.app.nuni.mood`에 `widget.json` 쓰기 + `reloadAllTimelines`). 기록 변경·언어·잠금 토글·프리미엄 변경·포그라운드 때 갱신, 타임라인은 지금 + 다음 자정

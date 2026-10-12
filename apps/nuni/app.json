@@ -35,6 +35,11 @@
           "UIInterfaceOrientationLandscapeRight"
         ],
         "EXDevMenuShowFloatingActionButton": false
+      },
+      "entitlements": {
+        "com.apple.security.application-groups": [
+          "group.app.nuni.mood"
+        ]
       }
     },
     "plugins": [
@@ -67,7 +72,8 @@
             "../../packages/ui/fonts/Prompt-Bold.ttf"
           ]
         }
-      ]
+      ],
+      "@bacons/apple-targets"
     ],
     "experiments": {
       "typedRoutes": true

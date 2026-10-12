@@ -259,6 +259,14 @@ function syncAppIcons() {
       writeFileSync(join(appDir, 'assets/splash', `logo-${variant}.png`), png);
     }
   }
+  // Nuni home widget: SwiftUI cannot draw the SVG mascots, so ship the -sm faces as PNGs.
+  const widgetImages = join(ROOT, 'apps/nuni/targets/widget/images');
+  mkdirSync(widgetImages, { recursive: true });
+  for (let mood = 1; mood <= 5; mood++) {
+    const svg = readFileSync(join(DESIGN, 'assets/mascot', `nuni-mood-${mood}-sm.svg`), 'utf8');
+    const png = new Resvg(svg, { fitTo: { mode: 'width', value: 256 } }).render().asPng();
+    writeFileSync(join(widgetImages, `mood-${mood}.png`), png);
+  }
 }
 
 const tokens = JSON.parse(readFileSync(join(DESIGN, 'tokens.json'), 'utf8')) as Tokens;

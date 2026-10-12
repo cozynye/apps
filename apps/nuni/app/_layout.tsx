@@ -13,6 +13,7 @@ import { LockOverlay } from '../src/components/LockOverlay';
 import { RestartOverlay } from '../src/components/RestartOverlay';
 import { useAppLockLifecycle } from '../src/lock';
 import { useReminderSync } from '../src/reminders';
+import { useWidgetSync } from '../src/widget';
 
 configurePurchases(process.env.EXPO_PUBLIC_RC_IOS_KEY_NUNI);
 configureAnalytics({
@@ -72,6 +73,7 @@ function ReadyStack() {
   useReminderSync();
   useAppLockLifecycle();
   useAutoBackup();
+  useWidgetSync();
   return (
     <>
       <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: colors.surface1 } }}>
