@@ -4,6 +4,7 @@ import type { Icon } from 'phosphor-react-native';
 // Phosphor Regular (MIT), loaded per icon so the full set is not bundled. The per-icon entry points
 // ship as .tsx source, so they are required (typed via the public `Icon` type) rather than imported,
 // which would make tsc typecheck the library's own source.
+export const BackspaceIcon: Icon = require('phosphor-react-native/src/icons/Backspace').BackspaceIcon;
 export const CalendarBlankIcon: Icon = require('phosphor-react-native/src/icons/CalendarBlank').CalendarBlankIcon;
 export const CameraIcon: Icon = require('phosphor-react-native/src/icons/Camera').CameraIcon;
 export const CaretDownIcon: Icon = require('phosphor-react-native/src/icons/CaretDown').CaretDownIcon;

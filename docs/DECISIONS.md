@@ -85,3 +85,7 @@
 - 2026-10-12 — pnpm 10이 의존성 install 스크립트를 막아 Skia 바이너리가 없었음 → `pnpm-workspace.yaml` `onlyBuiltDependencies`에 `@shopify/react-native-skia`
 - 2026-10-12 — A10: 언어는 iOS 액션 시트(시스템 따르기 + 자국어 이름 3개), 외관은 세그먼트, 리마인더는 토글 + 시간(@expo/ui compact 피커) + 권한 꺼짐 시 `permission.notificationsOff` + 설정 열기. 구독 관리 = RevenueCat `showManageSubscriptions`(실패 시 App Store 구독 페이지), 무료 사용자에게 ‘Nuni Premium’ 행 → A9(`settings`). 평가 = `expo-store-review` `requestReview`(App Store ID 없이 가능). 문의 = mailto
 - 2026-10-12 — 전체 삭제: 사진 파일 + 기록(태그 연결·사진 행 cascade) + 커스텀 태그. 기본 태그·설정·구매·온보딩 완료는 유지, A12/3일 축하 플래그는 초기화. 리마인더는 DB 변경 감지로 재예약
+- 2026-10-12 — A11: 라우트(`app/a11-lock.tsx`)가 아니라 루트의 `FullWindowOverlay` 컴포넌트로 구현 — 열린 시트·모달 위까지 덮어야 하고, 내비게이션 스택과 얽히지 않게. 잠금이 켜져 있으면 앱 시작 시와 백그라운드 복귀 시 잠김, inactive/background 동안 가림 화면(앱 전환기 스냅샷 보호)
+- 2026-10-12 — 패스코드: 4자리, `salt:SHA-256(salt:code)`를 SecureStore(`WHEN_UNLOCKED_THIS_DEVICE_ONLY`)에 저장(`expo-crypto`). 생체 인증은 등록돼 있으면 자동 시도, 기기 암호 폴백은 끔(앱 패스코드가 폴백). “Face ID”/“Touch ID”는 Apple 제품명이라 번역하지 않음. 잠금 끄기·패스코드 변경은 현재 패스코드 확인 필요
+- 2026-10-12 — i18n 키 추가: `settings.passcodeNoRecovery`(분실 시 복구 불가 안내, PLAN 예외 표) — en·vi·th. Face ID 문구는 `expo-local-authentication` 플러그인에도 같은 문구를 넘김
+- 2026-10-12 — Metro: `apps/nuni/metro.config.js`에서 `.claude/worktrees/`를 blockList — QA 에이전트 worktree(전체 체크아웃 + node_modules)가 파일 감시를 멈추게 했음

@@ -1,0 +1,12 @@
+# Types the 4-digit ${CODE} on the passcode pad whose testIDs start with ${PAD} (a11 or lock).
+appId: app.nuni.mood
+---
+- evalScript: ${output.digits = String(CODE).split('')}
+- tapOn:
+    id: ${PAD}.key.${output.digits[0]}
+- tapOn:
+    id: ${PAD}.key.${output.digits[1]}
+- tapOn:
+    id: ${PAD}.key.${output.digits[2]}
+- tapOn:
+    id: ${PAD}.key.${output.digits[3]}

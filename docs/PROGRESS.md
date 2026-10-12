@@ -12,7 +12,7 @@ S2 Nuni 개발 — 진행 중 (S1 완료 2026-10-12)
 | --- | --- | --- |
 | S0 준비 | 완료 (개발 차단 항목 없음) | P15·P16 보류 → RevenueCat Test Store로 대체. 미확정 사항은 배포 전 해결 (RELEASE_CHECKLIST) |
 | S1 공통 패키지 | 완료 (2026-10-12) | 아래 완료 조건 표 |
-| S2 Nuni 개발 | 진행 중 | A1–A7·A10·A12·탭, 리마인더 |
+| S2 Nuni 개발 | 진행 중 | A1–A7·A10–A12·탭, 리마인더 |
 | S3 Nuni 출시 | 대기 — 릴리스 게이트 적용 | |
 | S4 Fourpop 개발 | 대기 | |
 | S5 Fourpop 출시 | 대기 — 릴리스 게이트 적용 | |
@@ -79,10 +79,13 @@ S2 Nuni 개발 — 진행 중 (S1 완료 2026-10-12)
 - Maestro `settings` (iPhone 통과)
 - QA 서브에이전트: 커밋마다 별도 worktree·Metro 8082·iOS 26.2 시뮬레이터에서 회귀 + 탐색 QA
 
+## 완료한 일 (2026-10-12, S2 6단계)
+
+- A11 잠금(Face ID/Touch ID 자동 → 4자리 패스코드), `settings/lock`(설정·변경·끄기), 백그라운드 가림. Maestro `lock` (iPhone 통과)
+
 ## 다음 할 일
 
-1. A11 잠금 + `settings/lock`, 백그라운드 가림
-2. 백업(iCloud, 커스텀 Expo Module)·내보내기(zip)
+1. 백업(iCloud, 커스텀 Expo Module)·내보내기(zip)
 3. A10 설정(언어·외관·리마인더 행·잠금 A11·백업·내보내기·구독·약관·전체 삭제)
 3. P18 plist 수령 시 Firebase transport 연결 + 설정 Privacy의 Copy ID 행
 

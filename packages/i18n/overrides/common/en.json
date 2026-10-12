@@ -5,5 +5,8 @@
   },
   "legal": {
     "englishOnly": "Available in English only."
+  },
+  "settings": {
+    "passcodeNoRecovery": "A forgotten passcode cannot be recovered."
   }
 }

@@ -40,5 +40,10 @@ export default ({ config }: ConfigContext): ExpoConfig =>
       vi: `${PERMISSIONS}/vi.json`,
       th: `${PERMISSIONS}/th.json`,
     },
-    plugins: [...(config.plugins ?? []), ['expo-splash-screen', splash]],
+    plugins: [
+      ...(config.plugins ?? []),
+      ['expo-splash-screen', splash],
+      // Same Face ID string as Info.plist so the plugin's default text never replaces it (DECISIONS 2026-10-08).
+      ['expo-local-authentication', { faceIDPermission: en.NSFaceIDUsageDescription }],
+    ],
   } as ExpoConfig);

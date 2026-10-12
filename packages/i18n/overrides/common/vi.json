@@ -5,5 +5,8 @@
   },
   "legal": {
     "englishOnly": "Chỉ có bản tiếng Anh."
+  },
+  "settings": {
+    "passcodeNoRecovery": "Không thể khôi phục mật mã nếu bạn quên."
   }
 }

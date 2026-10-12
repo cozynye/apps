@@ -8,6 +8,8 @@ import * as SplashScreen from 'expo-splash-screen';
 
 import { initDatabase, useDbStatus } from '../src/db';
 import { cleanOrphanPhotos } from '../src/entries';
+import { LockOverlay } from '../src/components/LockOverlay';
+import { useAppLockLifecycle } from '../src/lock';
 import { useReminderSync } from '../src/reminders';
 
 configurePurchases(process.env.EXPO_PUBLIC_RC_IOS_KEY_NUNI);
@@ -66,17 +68,21 @@ function RootStack() {
 function ReadyStack() {
   const { colors } = useTheme();
   useReminderSync();
+  useAppLockLifecycle();
   return (
-    <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: colors.surface1 } }}>
-      <Stack.Screen name="a2-onboarding" options={{ gestureEnabled: false, animation: 'fade' }} />
-      <Stack.Screen name="(tabs)" options={{ animation: 'fade' }} />
-      <Stack.Screen name="a4-entry" options={ENTRY_SHEET} />
-      <Stack.Screen name="a5-entry/[date]" options={ENTRY_SHEET} />
-      <Stack.Screen name="a7-share" options={{ presentation: 'modal' }} />
-      <Stack.Screen name="a12-reminder" options={FIT_SHEET} />
-      <Stack.Screen name="streak-celebrate" options={FIT_SHEET} />
-      <Stack.Screen name="a9-paywall" options={{ presentation: 'modal' }} />
-      <Stack.Screen name="a13-legal/[doc]" options={{ presentation: 'modal' }} />
-    </Stack>
+    <>
+      <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: colors.surface1 } }}>
+        <Stack.Screen name="a2-onboarding" options={{ gestureEnabled: false, animation: 'fade' }} />
+        <Stack.Screen name="(tabs)" options={{ animation: 'fade' }} />
+        <Stack.Screen name="a4-entry" options={ENTRY_SHEET} />
+        <Stack.Screen name="a5-entry/[date]" options={ENTRY_SHEET} />
+        <Stack.Screen name="a7-share" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="a12-reminder" options={FIT_SHEET} />
+        <Stack.Screen name="streak-celebrate" options={FIT_SHEET} />
+        <Stack.Screen name="a9-paywall" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="a13-legal/[doc]" options={{ presentation: 'modal' }} />
+      </Stack>
+      <LockOverlay />
+    </>
   );
 }

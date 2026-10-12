@@ -48,7 +48,8 @@
     "analyticsHint": "Giúp chúng tôi sửa lỗi. Không bao giờ gửi ghi chép hay ảnh của bạn.",
     "privacy_section": "Quyền riêng tư",
     "licenses": "Giấy phép mã nguồn mở",
-    "localOnlyNotice": "Dữ liệu của bạn chỉ nằm trên chiếc iPhone này."
+    "localOnlyNotice": "Dữ liệu của bạn chỉ nằm trên chiếc iPhone này.",
+    "passcodeNoRecovery": "Không thể khôi phục mật mã nếu bạn quên."
   },
   "paywall": {
     "yearly": "Hằng năm",

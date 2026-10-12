@@ -37,7 +37,7 @@ import { requestReminderPermission, useReminderSettings } from '../../src/remind
 
 const SUPPORT_EMAIL = 'nunicozy@gmail.com';
 
-/** A10 settings (PLAN 화면 목록). App lock and backup rows arrive with their screens. */
+/** A10 settings (PLAN 화면 목록). The backup row arrives with its screen. */
 export default function SettingsScreen() {
   const { t } = useTranslation();
   const { colors, accent } = useTheme();
@@ -162,6 +162,15 @@ export default function SettingsScreen() {
               }
             />
           )}
+        </SettingsSection>
+
+        <SettingsSection title={t('settings.privacy_section')}>
+          <SettingsRow
+            testID="a10.lock"
+            label={t('settings.appLock')}
+            hint={t('settings.appLockHint')}
+            onPress={() => router.push('/settings/lock')}
+          />
         </SettingsSection>
 
         <SettingsSection title={t('settings.subscription')}>

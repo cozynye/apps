@@ -48,7 +48,8 @@
     "analyticsHint": "Helps us fix bugs. Never your entries or photos.",
     "privacy_section": "Privacy",
     "licenses": "Open source licenses",
-    "localOnlyNotice": "Your data lives only on this iPhone."
+    "localOnlyNotice": "Your data lives only on this iPhone.",
+    "passcodeNoRecovery": "A forgotten passcode cannot be recovered."
   },
   "paywall": {
     "yearly": "Yearly",

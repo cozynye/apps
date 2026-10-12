@@ -1,0 +1,83 @@
+# A11 + settings/lock: set a passcode (with a mismatch first), lock on background, wrong then right
+# passcode, then turn the lock off. Simulators have no enrolled Face ID, so the pad is the path.
+appId: app.nuni.mood
+---
+- runFlow: common/launch.yaml
+- extendedWaitUntil:
+    visible:
+      id: a2.skip
+    timeout: 20000
+- tapOn:
+    id: a2.skip
+- extendedWaitUntil:
+    visible:
+      id: a4.close
+    timeout: 10000
+- tapOn:
+    id: a4.close
+- tapOn:
+    id: tabs.settings
+- tapOn:
+    id: a10.lock
+- assertVisible:
+    id: lock.noRecovery
+- tapOn:
+    id: lock.switch
+- assertVisible: 'Set a 4-digit passcode'
+- runFlow:
+    file: common/enter-passcode.yaml
+    env: { PAD: lock, CODE: 1234 }
+- assertVisible: 'Enter it again'
+- runFlow:
+    file: common/enter-passcode.yaml
+    env: { PAD: lock, CODE: 5678 }
+- assertVisible: "Passcodes don't match"
+- runFlow:
+    file: common/enter-passcode.yaml
+    env: { PAD: lock, CODE: 1234 }
+- runFlow:
+    file: common/enter-passcode.yaml
+    env: { PAD: lock, CODE: 1234 }
+- extendedWaitUntil:
+    visible:
+      id: lock.change
+    timeout: 5000
+
+# Background → foreground: A11 covers the app.
+- pressKey: home
+- launchApp:
+    stopApp: false
+- extendedWaitUntil:
+    visible:
+      id: a11.root
+    timeout: 10000
+- takeScreenshot: a11
+- runFlow:
+    file: common/enter-passcode.yaml
+    env: { PAD: a11, CODE: 9999 }
+- assertVisible: 'Wrong passcode'
+- runFlow:
+    file: common/enter-passcode.yaml
+    env: { PAD: a11, CODE: 1234 }
+- extendedWaitUntil:
+    notVisible:
+      id: a11.root
+    timeout: 5000
+- assertVisible:
+    id: lock.change
+
+# Turning the lock off asks for the current passcode.
+- tapOn:
+    id: lock.switch
+- runFlow:
+    file: common/enter-passcode.yaml
+    env: { PAD: lock, CODE: 1234 }
+- extendedWaitUntil:
+    notVisible:
+      id: lock.change
+    timeout: 5000
+- pressKey: home
+- launchApp:
+    stopApp: false
+- assertNotVisible:
+    id: a11.root

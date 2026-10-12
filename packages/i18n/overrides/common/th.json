@@ -5,5 +5,8 @@
   },
   "legal": {
     "englishOnly": "มีเฉพาะภาษาอังกฤษ"
+  },
+  "settings": {
+    "passcodeNoRecovery": "หากลืมรหัสผ่าน จะไม่สามารถกู้คืนได้"
   }
 }
