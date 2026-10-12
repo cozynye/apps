@@ -1,0 +1,26 @@
+# Launches the dev client with a clean state and loads the JS bundle from the local Metro server.
+appId: app.nuni.mood
+---
+- launchApp:
+    clearState: true
+- openLink: exp+nuni://expo-development-client/?url=http%3A%2F%2Flocalhost%3A8081
+# After clearState the dev client shows its developer-menu intro sheet over the app.
+# Match its body text, not "Continue" (A2 onboarding has its own Continue button).
+- extendedWaitUntil:
+    visible: 'This is the developer menu.*|열기|Open'
+    timeout: 90000
+- runFlow: confirm-open.yaml
+- extendedWaitUntil:
+    visible: 'This is the developer menu.*'
+    timeout: 90000
+- tapOn: Continue
+# The dev menu itself opens after the intro; close it.
+- runFlow:
+    when:
+      visible: 'Runtime version.*'
+    commands:
+      - tapOn:
+          id: xmark
+# The dev client can restore the last deep link (e.g. /dev from an earlier flow); start from the root route.
+- openLink: nuni:///
+- runFlow: confirm-open.yaml

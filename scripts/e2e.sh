@@ -11,7 +11,8 @@ GLOB=${3:-'*'}
 if [ -d /opt/homebrew/opt/openjdk@17 ]; then export JAVA_HOME=/opt/homebrew/opt/openjdk@17; fi
 export PATH="${JAVA_HOME:+$JAVA_HOME/bin:}$HOME/.maestro/bin:$PATH"
 export MAESTRO_CLI_NO_ANALYTICS=1 MAESTRO_CLI_ANALYSIS_NOTIFICATION_DISABLED=true
-UDID=$(xcrun simctl list devices available | grep -F "$DEVICE" | head -1 | grep -oE '[0-9A-F-]{36}' || true)
+# Same-name simulators can exist per iOS runtime; runtimes are listed oldest first, so take the newest.
+UDID=$(xcrun simctl list devices available | grep -F "$DEVICE" | tail -1 | grep -oE '[0-9A-F-]{36}' || true)
 [ -n "$UDID" ] || UDID=$DEVICE
 xcrun simctl boot "$UDID" 2>/dev/null || true
 cd "apps/$APP/.maestro"

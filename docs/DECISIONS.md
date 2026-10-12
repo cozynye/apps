@@ -55,3 +55,9 @@
 - 2026-10-08 — (Cozy 결정) 약관 4절 “one-time purchases (theme or frame packs)” → “Each App offers an auto-renewing subscription. Fourpop also offers one-time purchases (frame and sticker packs).” — design/legal은 읽기 전용이라 `scripts/legal-patches.json`으로 앱(A13·B13)과 web/legal에 같이 적용
 - 2026-10-08 — (Cozy 결정) 개인정보처리방침 6절의 “Settings › Privacy › Copy ID”를 구현한다: A10·B12 Privacy 섹션에 익명 설치 ID(Firebase app instance ID) 복사 행 추가. Firebase(P18) 연결 후 S2/S4에서 구현, 문구 키는 그때 en·vi·th로 추가
 - 2026-10-08 — (Cozy 확인) `nuni.paywall.perk3` 수정 유지(“Up to 10 photos, longer notes, medium widget”)
+- 2026-10-12 — (Cozy 결정) S1 결제 완료 조건(`s1-purchase-restore`의 `mood_premium` 해제)을 남겨둔 채 S2 시작 — RevenueCat 대시보드 설정 대기. 설정되면 재실행해 S1을 닫는다
+- 2026-10-12 — A1 스플래시: `expo-splash-screen`(Expo 공식) + design-sync가 `@resvg/resvg-js`(devDependency, 빌드 스크립트 전용)로 SVG 로고를 PNG로 렌더 → `apps/<app>/assets/splash/`. 배경색은 `app.config.ts`가 `design/tokens.json`의 `surface-1`에서 읽음 — config 로더가 워크스페이스 .ts를 import하지 못해서
+- 2026-10-12 — A2: 온보딩 README 4번(마지막 장 뒤 알림 시간 선택 + 권한 요청)은 PLAN A2 “권한 요청 없음”·A12(첫 저장 직후)와 충돌 → PLAN을 따라 온보딩에서는 묻지 않음. Skip은 마지막 장에서 숨김(그 장의 버튼과 같은 동작). Skip도 `onboarding_complete` 전송
+- 2026-10-12 — 탭 바: expo-router `Tabs` + `tabBar`로 공용 `TabBar`(@nf/ui) 렌더, 아이콘 CalendarBlank·ChartBar·GearSix(목업), 크로스페이드 `durationFast`
+- 2026-10-12 — 설치일(`installDate`)은 첫 실행 날짜로 기본값을 잡고 온보딩 완료 시 MMKV(`app.v1`)에 처음 저장 — 온보딩을 거쳐야만 앱에 들어가므로 같은 날
+- 2026-10-12 — Maestro: `common/launch.yaml`(dev 메뉴 인트로 → 루트 `nuni:///`로 시작), S1 플로우는 `launch-dev.yaml`이 `nuni:///dev`로 이동. iOS의 “앱에서 열기” 확인창은 `confirm-open.yaml`이 처리. `e2e.sh`는 같은 이름 시뮬레이터 중 최신 런타임을 고름

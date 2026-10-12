@@ -1,24 +1,10 @@
-# Launches the dev client and loads the JS bundle from the local Metro server.
+# Launches the app and opens the dev menu screens (S1 flows).
 appId: app.nuni.mood
 ---
-- launchApp:
-    clearState: true
-- openLink: exp+nuni://expo-development-client/?url=http%3A%2F%2Flocalhost%3A8081
-# After clearState the dev client shows its developer-menu intro sheet over the app.
+- runFlow: launch.yaml
+- openLink: nuni:///dev
+- runFlow: confirm-open.yaml
 - extendedWaitUntil:
-    visible: 'Continue|Component stories'
-    timeout: 60000
-- runFlow:
-    when:
-      visible: Continue
-    commands:
-      - tapOn: Continue
-# The dev menu itself opens after the intro; close it.
-- runFlow:
-    when:
-      visible: 'Runtime version.*'
-    commands:
-      - tapOn:
-          id: xmark
-- assertVisible:
-    id: dev.stories
+    visible:
+      id: dev.stories
+    timeout: 20000

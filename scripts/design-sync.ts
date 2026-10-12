@@ -5,6 +5,8 @@
 import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { basename, dirname, join } from 'node:path';
 
+import { Resvg } from '@resvg/resvg-js';
+
 import { legalMarkdown } from './legal';
 
 const ROOT = join(import.meta.dirname, '..');
@@ -248,6 +250,13 @@ function syncAppIcons() {
       const file = `${app}-icon-1024-${variant}.png`;
       mkdirSync(join(appDir, 'assets/icon'), { recursive: true });
       cpSync(join(DESIGN, 'assets/app-icons', file), join(appDir, 'assets/icon', `${variant}.png`));
+    }
+    // A1/B1 splash: expo-splash-screen needs PNG; render the 1024 SVG logos at full size.
+    mkdirSync(join(appDir, 'assets/splash'), { recursive: true });
+    for (const variant of ['light', 'dark']) {
+      const svg = readFileSync(join(DESIGN, 'assets/splash', `${app}-splash-logo-${variant}.svg`), 'utf8');
+      const png = new Resvg(svg, { fitTo: { mode: 'width', value: 1024 } }).render().asPng();
+      writeFileSync(join(appDir, 'assets/splash', `logo-${variant}.png`), png);
     }
   }
 }

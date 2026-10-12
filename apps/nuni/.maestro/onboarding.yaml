@@ -1,0 +1,51 @@
+# A2 onboarding → A3 (PLAN 완료 기준 Maestro `onboarding`). Once completed, the next launch skips it.
+appId: app.nuni.mood
+---
+- runFlow: common/launch.yaml
+- extendedWaitUntil:
+    visible:
+      id: a2.page1
+    timeout: 20000
+- assertVisible:
+    id: a2.skip
+- takeScreenshot: onboarding-1
+- tapOn:
+    id: a2.continue
+- takeScreenshot: onboarding-2
+- tapOn:
+    id: a2.continue
+- assertNotVisible:
+    id: a2.skip
+- assertVisible:
+    id: a2.analytics
+- takeScreenshot: onboarding-3
+- tapOn:
+    id: a2.getStarted
+- extendedWaitUntil:
+    visible:
+      id: a3.title
+    timeout: 10000
+- tapOn:
+    id: tabs.stats
+- assertVisible:
+    id: a6.title
+- tapOn:
+    id: tabs.settings
+- assertVisible:
+    id: a10.title
+- takeScreenshot: tabs-settings
+- tapOn:
+    id: tabs.home
+- assertVisible:
+    id: a3.title
+# Relaunch without clearing state: onboarding must not show again.
+- stopApp
+- launchApp
+- openLink: exp+nuni://expo-development-client/?url=http%3A%2F%2Flocalhost%3A8081
+- runFlow: common/confirm-open.yaml
+- extendedWaitUntil:
+    visible:
+      id: a3.title
+    timeout: 60000
+- assertNotVisible:
+    id: a2.page1

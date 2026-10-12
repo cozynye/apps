@@ -4,15 +4,15 @@ Claude Code가 작업 단위가 끝날 때마다 갱신한다. 새 세션은 이
 
 ## 현재 단계
 
-S1 공통 패키지 — 진행 중 (결제 완료 조건만 Cozy의 RevenueCat 설정 대기)
+S2 Nuni 개발 — 진행 중 (Cozy 결정으로 S1 결제 조건 미완료 상태에서 시작)
 
 ## 단계 현황
 
 | 단계 | 상태 | 메모 |
 | --- | --- | --- |
 | S0 준비 | 완료 (개발 차단 항목 없음) | P15·P16 보류 → RevenueCat Test Store로 대체. 미확정 사항은 배포 전 해결 (RELEASE_CHECKLIST) |
-| S1 공통 패키지 | 진행 중 | 아래 완료 조건 표 |
-| S2 Nuni 개발 | 대기 | |
+| S1 공통 패키지 | 결제 조건 1개 남음 | 아래 완료 조건 표 |
+| S2 Nuni 개발 | 진행 중 | A1·A2·탭 완료 |
 | S3 Nuni 출시 | 대기 — 릴리스 게이트 적용 | |
 | S4 Fourpop 개발 | 대기 | |
 | S5 Fourpop 출시 | 대기 — 릴리스 게이트 적용 | |
@@ -46,11 +46,19 @@ S1 공통 패키지 — 진행 중 (결제 완료 조건만 Cozy의 RevenueCat �
 
 - 자정 넘김 날짜 규칙(시트 연 시점), 권한 팝업 문구 초안(`packages/i18n/permissions`, Nuni `app.config.ts` 연결), 약관 4절 수정(legal-patches), Copy ID를 S2·S4 범위에 추가 — DECISIONS 2026-10-08
 
+## 완료한 일 (2026-10-12, S2)
+
+- A1 스플래시(라이트·다크 로고 PNG, `surface-1` 배경), 탭 레이아웃 + 공용 `TabBar`(iPad 가운데 정렬 최대 480)
+- A2 온보딩 3장(Skip, 페이지 점, 마지막 장 분석 토글, `onboarding_complete`), 첫 실행 라우팅(`index` → A2 / A3), 설치일·온보딩 플래그(MMKV)
+- A3·A6·A10은 탭 셸만(제목) — 다음 단계에서 구현
+- Maestro `onboarding`, `onboarding-skip` + S1 플로우 전체: iPhone 17 Pro·iPad Pro 13" (iOS 26.5) 통과, `s1-purchase-restore`만 RevenueCat 설정 대기로 실패(기존과 같음)
+
 ## 다음 할 일
 
-1. Cozy의 RevenueCat 설정 후 `s1-purchase-restore` 재실행 → S1 완료 처리
-2. S2 시작: A1 스플래시(SVG → PNG), 탭 레이아웃 + 탭 바 컴포넌트, A2 온보딩부터
-3. P18 plist 수령 시 Firebase transport 연결 + 설정 Privacy의 Copy ID 행
+1. A3 홈(월간 캘린더, 연속 기록 칩, 오늘 카드, FAB, iPad 2단) + 연속 기록 계산(유닛 테스트)
+2. A4 기록 작성(formSheet / iPad 중앙 모달), 첫 실행 시 A3에서 A4 자동 열기, A5
+3. Cozy의 RevenueCat 설정 후 `s1-purchase-restore` 재실행 → S1 완료 처리
+4. P18 plist 수령 시 Firebase transport 연결 + 설정 Privacy의 Copy ID 행
 
 ## 막힌 것 / Cozy에게 필요한 것
 

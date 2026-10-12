@@ -25,6 +25,8 @@ function RootStack() {
   const { colors } = useTheme();
   return (
     <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: colors.surface1 } }}>
+      <Stack.Screen name="a2-onboarding" options={{ gestureEnabled: false, animation: 'fade' }} />
+      <Stack.Screen name="(tabs)" options={{ animation: 'fade' }} />
       <Stack.Screen name="a9-paywall" options={{ presentation: 'modal' }} />
       <Stack.Screen name="a13-legal/[doc]" options={{ presentation: 'modal' }} />
     </Stack>

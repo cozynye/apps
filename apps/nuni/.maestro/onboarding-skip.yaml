@@ -1,0 +1,14 @@
+# A2 Skip from the first page goes straight to A3.
+appId: app.nuni.mood
+---
+- runFlow: common/launch.yaml
+- extendedWaitUntil:
+    visible:
+      id: a2.skip
+    timeout: 20000
+- tapOn:
+    id: a2.skip
+- extendedWaitUntil:
+    visible:
+      id: a3.title
+    timeout: 10000
