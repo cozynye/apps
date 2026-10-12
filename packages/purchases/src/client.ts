@@ -1,5 +1,5 @@
 import { recordError, track } from '@nf/analytics';
-import { AppState, Platform } from 'react-native';
+import { AppState, Linking, Platform } from 'react-native';
 import Purchases, {
   INTRO_ELIGIBILITY_STATUS,
   LOG_LEVEL,
@@ -80,9 +80,7 @@ export async function getTrialEligibility(productIds: string[]): Promise<Record<
 }
 
 export type PurchaseOutcome =
-  | { status: 'success'; info: CustomerInfo }
-  | { status: 'cancelled' }
-  | { status: 'failed'; code: string };
+  { status: 'success'; info: CustomerInfo } | { status: 'cancelled' } | { status: 'failed'; code: string };
 
 function errorCode(error: unknown): string {
   const code = (error as { code?: unknown }).code;
@@ -128,4 +126,20 @@ export async function restorePurchases(): Promise<RestoreOutcome> {
     recordError(error as Error, 'restorePurchases');
     return 'failed';
   }
+}
+
+/**
+ * Settings › Manage subscription: Apple's subscription sheet. Falls back to the App Store account
+ * page when the SDK is not configured (missing key in dev).
+ */
+export async function showManageSubscriptions(): Promise<void> {
+  if (configured) {
+    try {
+      await Purchases.showManageSubscriptions();
+      return;
+    } catch (error) {
+      recordError(error as Error, 'showManageSubscriptions');
+    }
+  }
+  await Linking.openURL('https://apps.apple.com/account/subscriptions');
 }

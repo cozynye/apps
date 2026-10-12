@@ -12,7 +12,7 @@ S2 Nuni 개발 — 진행 중 (S1 완료 2026-10-12)
 | --- | --- | --- |
 | S0 준비 | 완료 (개발 차단 항목 없음) | P15·P16 보류 → RevenueCat Test Store로 대체. 미확정 사항은 배포 전 해결 (RELEASE_CHECKLIST) |
 | S1 공통 패키지 | 완료 (2026-10-12) | 아래 완료 조건 표 |
-| S2 Nuni 개발 | 진행 중 | A1–A7·A12·탭, 리마인더 |
+| S2 Nuni 개발 | 진행 중 | A1–A7·A10·A12·탭, 리마인더 |
 | S3 Nuni 출시 | 대기 — 릴리스 게이트 적용 | |
 | S4 Fourpop 개발 | 대기 | |
 | S5 Fourpop 출시 | 대기 — 릴리스 게이트 적용 | |
@@ -73,9 +73,17 @@ S2 Nuni 개발 — 진행 중 (S1 완료 2026-10-12)
 - A6 통계(Week/Month/Year 잠금, 분포, 연속 기록, What lifts your mood + 무료 블러), A7 공유 카드(월간·연간, 워터마크, 저장·공유)
 - Maestro `stats-share` (iPhone 통과, iPad·전체 회귀는 QA 에이전트가 진행)
 
+## 완료한 일 (2026-10-12, S2 5단계)
+
+- A10 설정(언어·외관·리마인더·구독·Privacy·문의·평가·약관·버전·전체 삭제), 공용 `SettingsSection`/`SettingsRow`
+- Maestro `settings` (iPhone 통과)
+- QA 서브에이전트: 커밋마다 별도 worktree·Metro 8082·iOS 26.2 시뮬레이터에서 회귀 + 탐색 QA
+
 ## 다음 할 일
 
-1. A10 설정(언어·외관·리마인더 행·잠금 A11·백업·내보내기·구독·약관·전체 삭제)
+1. A11 잠금 + `settings/lock`, 백그라운드 가림
+2. 백업(iCloud, 커스텀 Expo Module)·내보내기(zip)
+3. A10 설정(언어·외관·리마인더 행·잠금 A11·백업·내보내기·구독·약관·전체 삭제)
 3. P18 plist 수령 시 Firebase transport 연결 + 설정 Privacy의 Copy ID 행
 
 ## 막힌 것 / Cozy에게 필요한 것

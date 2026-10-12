@@ -1,7 +1,7 @@
 import { newId } from '@nf/db';
 import { entries, entryTags, photos, tags } from '@nf/db/nuni';
 import type { Mood } from '@nf/ui';
-import { asc, eq, max } from 'drizzle-orm';
+import { asc, eq, isNull, max } from 'drizzle-orm';
 import { Directory, File, Paths } from 'expo-file-system';
 import { SaveFormat, ImageManipulator } from 'expo-image-manipulator';
 
@@ -145,4 +145,14 @@ export async function createCustomTag(name: string): Promise<string> {
   const id = newId();
   await db.insert(tags).values({ id, customName: name, icon: 'Tag', sortOrder: (row?.last ?? 0) + 1 });
   return id;
+}
+
+/**
+ * Settings › Delete all data: photo files, entries (tags links and photo rows cascade) and custom
+ * tags. Default tags, settings and purchases stay.
+ */
+export async function deleteAllData(): Promise<void> {
+  if (photosDir.exists) photosDir.delete();
+  await db.delete(entries);
+  await db.delete(tags).where(isNull(tags.nameKey));
 }

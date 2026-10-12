@@ -1,0 +1,107 @@
+# A10: language switch at runtime, appearance, reminder toggle, analytics toggle, legal links,
+# restore (no purchases → notice), delete all data.
+appId: app.nuni.mood
+---
+- runFlow: common/launch.yaml
+- extendedWaitUntil:
+    visible:
+      id: a2.skip
+    timeout: 20000
+- tapOn:
+    id: a2.skip
+- extendedWaitUntil:
+    visible:
+      id: a4.mood.3
+    timeout: 10000
+- tapOn:
+    id: a4.mood.3
+- tapOn:
+    id: a4.save
+- extendedWaitUntil:
+    visible:
+      id: a12.notNow
+    timeout: 10000
+- tapOn:
+    id: a12.notNow
+- tapOn:
+    id: tabs.settings
+- extendedWaitUntil:
+    visible:
+      id: a10.title
+    timeout: 10000
+- takeScreenshot: a10-en
+
+# Language: Tiếng Việt from the action sheet, UI switches without restart, then back to system.
+- tapOn:
+    id: a10.language
+- tapOn: 'Tiếng Việt'
+- extendedWaitUntil:
+    visible: 'Cài đặt'
+    timeout: 5000
+- takeScreenshot: a10-vi
+- tapOn:
+    id: a10.language
+- tapOn: 'Theo hệ thống|Follow system'
+- extendedWaitUntil:
+    visible: 'Settings'
+    timeout: 5000
+
+# Appearance: dark, then back to system.
+- tapOn:
+    id: a10.appearance.dark
+- takeScreenshot: a10-dark
+- tapOn:
+    id: a10.appearance.system
+
+# Reminder on → permission → time row appears; off again.
+- tapOn:
+    id: a10.reminderSwitch
+- runFlow:
+    when:
+      visible: '허용|Allow'
+    commands:
+      - tapOn: '허용|Allow'
+- extendedWaitUntil:
+    visible:
+      id: a10.reminderTime
+    timeout: 10000
+- tapOn:
+    id: a10.reminderSwitch
+- assertNotVisible:
+    id: a10.reminderTime
+
+# Restore with no purchases is a notice, not a failure.
+- tapOn:
+    id: a10.restore
+- extendedWaitUntil:
+    visible: 'No purchases found for this Apple ID|Purchases restored'
+    timeout: 20000
+
+# Legal: terms opens A13.
+- scrollUntilVisible:
+    element:
+      id: a10.terms
+- tapOn:
+    id: a10.terms
+- extendedWaitUntil:
+    visible: 'English only.*|.*English.*'
+    timeout: 10000
+- tapOn:
+    id: a13.close
+
+# Delete all data → home shows the first-cloud hint again.
+- scrollUntilVisible:
+    element:
+      id: a10.delete
+- tapOn:
+    id: a10.delete
+- assertVisible: 'This removes everything on this device and cannot be undone.'
+- tapOn:
+    text: Delete
+    below: 'This removes everything.*'
+- tapOn:
+    id: tabs.home
+- extendedWaitUntil:
+    visible:
+      id: a3.firstCloud
+    timeout: 10000

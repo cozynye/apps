@@ -83,3 +83,5 @@
 - 2026-10-12 — i18n 키 추가: `stats.emptyPeriod`, `stats.liftsEmpty`, `home.todayLogged_one/_other`(“1 tags” 복수형 수정) — en·vi·th
 - 2026-10-12 — A7: Skia `drawAsImage`로 1080×1920 PNG, 미리보기는 같은 요소를 축소해 그림. 앱 테마와 무관하게 라이트 팔레트. 월간 = 달력 + 분포, 연간 = 12개월 타일(달마다 최다 감정) + 분포. 무료는 우하단 “Nuni”(`app.name`) 워터마크 18%·70%·32px 여백, 안내 문구 → A9(`share`). 저장은 `expo-media-library` 쓰기 전용 권한(플러그인 `photosPermission: false`로 읽기 권한 문구 없음), 공유는 `expo-sharing` 시스템 시트(Instagram 전용 URL scheme은 쓰지 않음 — 시스템 시트에 포함). SDK 57에서 루트 `saveToLibraryAsync`가 런타임 오류를 던져 `expo-media-library/legacy`에서 가져옴
 - 2026-10-12 — pnpm 10이 의존성 install 스크립트를 막아 Skia 바이너리가 없었음 → `pnpm-workspace.yaml` `onlyBuiltDependencies`에 `@shopify/react-native-skia`
+- 2026-10-12 — A10: 언어는 iOS 액션 시트(시스템 따르기 + 자국어 이름 3개), 외관은 세그먼트, 리마인더는 토글 + 시간(@expo/ui compact 피커) + 권한 꺼짐 시 `permission.notificationsOff` + 설정 열기. 구독 관리 = RevenueCat `showManageSubscriptions`(실패 시 App Store 구독 페이지), 무료 사용자에게 ‘Nuni Premium’ 행 → A9(`settings`). 평가 = `expo-store-review` `requestReview`(App Store ID 없이 가능). 문의 = mailto
+- 2026-10-12 — 전체 삭제: 사진 파일 + 기록(태그 연결·사진 행 cascade) + 커스텀 태그. 기본 태그·설정·구매·온보딩 완료는 유지, A12/3일 축하 플래그는 초기화. 리마인더는 DB 변경 감지로 재예약
