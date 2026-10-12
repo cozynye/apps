@@ -10,5 +10,11 @@ appId: app.nuni.mood
     id: a2.skip
 - extendedWaitUntil:
     visible:
+      id: a4.save
+    timeout: 10000
+- tapOn:
+    id: a4.close
+- extendedWaitUntil:
+    visible:
       id: a3.title
     timeout: 10000

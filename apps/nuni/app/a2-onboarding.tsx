@@ -49,6 +49,8 @@ export default function OnboardingScreen() {
     track('onboarding_complete', { analytics_opt_in: useSettings.getState().analyticsEnabled });
     completeOnboarding();
     router.replace('/a3-home');
+    // First success instead of an empty calendar: open A4 right away (PLAN 사용자 플로우).
+    router.push({ pathname: '/a4-entry', params: { source: 'fab' } });
   }
 
   function next() {

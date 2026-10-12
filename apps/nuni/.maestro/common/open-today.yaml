@@ -1,0 +1,11 @@
+# Taps today's calendar cell on A3 (id a3.day.<YYYY-MM-DD>). iPhone opens the A5 sheet; on wide
+# iPad (>= 1024pt) the day shows in A3's right column instead (ids a3.*).
+appId: app.nuni.mood
+---
+- evalScript: ${output.today = (() => { const d = new Date(); const p = (n) => String(n).padStart(2, '0'); return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()); })()}
+- tapOn:
+    id: a3.day.${output.today}
+- extendedWaitUntil:
+    visible:
+      id: '(a5|a3)\.dayTitle'
+    timeout: 10000

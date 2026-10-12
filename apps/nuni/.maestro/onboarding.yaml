@@ -21,9 +21,16 @@ appId: app.nuni.mood
 - takeScreenshot: onboarding-3
 - tapOn:
     id: a2.getStarted
+# First success: A4 opens over A3; closing it untouched needs no confirm.
 - extendedWaitUntil:
     visible:
-      id: a3.title
+      id: a4.save
+    timeout: 10000
+- tapOn:
+    id: a4.close
+- extendedWaitUntil:
+    visible:
+      id: a3.firstCloud
     timeout: 10000
 - tapOn:
     id: tabs.stats

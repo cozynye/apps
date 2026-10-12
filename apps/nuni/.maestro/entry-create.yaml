@@ -1,0 +1,100 @@
+# First run → A4 opens → save → A3 shows the cloud and streak; A5 lists, adds, deletes
+# (PLAN 완료 기준 Maestro `entry-create`).
+appId: app.nuni.mood
+---
+- runFlow: common/launch.yaml
+- extendedWaitUntil:
+    visible:
+      id: a2.skip
+    timeout: 20000
+- tapOn:
+    id: a2.skip
+# First success: A4 is already open on top of A3.
+- extendedWaitUntil:
+    visible:
+      id: a4.save
+    timeout: 10000
+- assertVisible:
+    id: a4.pickMood
+- takeScreenshot: a4-empty
+- tapOn:
+    id: a4.mood.4
+- assertNotVisible:
+    id: a4.pickMood
+- tapOn:
+    id: a4.tag.friends
+- tapOn:
+    id: a4.tag.music
+- tapOn:
+    id: a4.note
+- inputText: Long chat after work
+# Tapping outside the field closes the keyboard (keyboardShouldPersistTaps="handled").
+- tapOn: 'A line about today'
+- takeScreenshot: a4-filled
+- tapOn:
+    id: a4.save
+- extendedWaitUntil:
+    visible:
+      id: a3.streak
+    timeout: 10000
+- assertVisible: '1 day'
+- assertVisible: 'Today: Good · 2 tags.*'
+- assertNotVisible:
+    id: a3.firstCloud
+- takeScreenshot: a3-after-save
+
+# Discard confirm: FAB → pick a mood → close → Discard.
+- tapOn:
+    id: a3.fab
+- tapOn:
+    id: a4.mood.2
+- tapOn:
+    id: a4.close
+- assertVisible: 'Discard this entry?'
+- tapOn: Discard
+- assertVisible:
+    id: a3.fab
+
+# A5: the day cell opens the list; add another entry (the newest is the calendar cloud).
+- tapOn:
+    id: a3.today
+- extendedWaitUntil:
+    visible:
+      id: a4.save
+    timeout: 10000
+- assertVisible: 'Long chat after work'
+- tapOn:
+    id: a4.close
+- runFlow: common/open-today.yaml
+- tapOn:
+    id: '(a5|a3)\.addAnother'
+- extendedWaitUntil:
+    visible:
+      id: a4.mood.2
+    timeout: 10000
+- tapOn:
+    id: a4.mood.2
+- tapOn:
+    id: a4.save
+- extendedWaitUntil:
+    visible: 'Low,.*'
+    timeout: 10000
+- takeScreenshot: a5-two-entries
+- runFlow: common/close-a5.yaml
+- assertVisible: 'Today: Low · 0 tags.*'
+
+# Swipe-delete the newest entry; the older one becomes the calendar cloud again.
+- runFlow: common/open-today.yaml
+- swipe:
+    from:
+      text: 'Low,.*'
+    direction: LEFT
+- tapOn:
+    id: '(a5|a3)\.delete\..*'
+- assertVisible: 'Delete this entry?'
+- tapOn:
+    text: Delete
+    below: 'Delete this entry\?'
+- assertNotVisible: 'Low,.*'
+- runFlow: common/close-a5.yaml
+- assertVisible: 'Today: Good · 2 tags.*'

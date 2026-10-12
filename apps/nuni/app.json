@@ -42,6 +42,14 @@
       "expo-localization",
       "expo-sqlite",
       [
+        "expo-image-picker",
+        {
+          "photosPermission": false,
+          "cameraPermission": false,
+          "microphonePermission": false
+        }
+      ],
+      [
         "expo-font",
         {
           "fonts": [

@@ -12,7 +12,7 @@ S2 Nuni 개발 — 진행 중 (S1 완료 2026-10-12)
 | --- | --- | --- |
 | S0 준비 | 완료 (개발 차단 항목 없음) | P15·P16 보류 → RevenueCat Test Store로 대체. 미확정 사항은 배포 전 해결 (RELEASE_CHECKLIST) |
 | S1 공통 패키지 | 완료 (2026-10-12) | 아래 완료 조건 표 |
-| S2 Nuni 개발 | 진행 중 | A1·A2·탭 완료 |
+| S2 Nuni 개발 | 진행 중 | A1·A2·A3·A4·A5·탭 |
 | S3 Nuni 출시 | 대기 — 릴리스 게이트 적용 | |
 | S4 Fourpop 개발 | 대기 | |
 | S5 Fourpop 출시 | 대기 — 릴리스 게이트 적용 | |
@@ -53,10 +53,19 @@ S2 Nuni 개발 — 진행 중 (S1 완료 2026-10-12)
 - A3·A6·A10은 탭 셸만(제목) — 다음 단계에서 구현
 - Maestro `onboarding`, `onboarding-skip` + S1 플로우 전체: iPhone 17 Pro·iPad Pro 13" (iOS 26.5) 통과, `s1-purchase-restore`만 RevenueCat 설정 대기로 실패(기존과 같음)
 
+## 완료한 일 (2026-10-12, S2 2단계)
+
+- 앱 DB 초기화(스플래시 유지 → 마이그레이션 → 기본 태그 20종), 고아 사진 정리
+- 연속 기록·날짜 계산 + 유닛 테스트(PLAN 예시 포함)
+- A3 홈: 월간 캘린더(대표 구름, 점선 원, 설치 전 숫자만), 연속 기록 칩, 오늘 카드, FAB, iPad 1024pt+ 2단
+- A4 기록 작성·수정: 감정·태그(15 + 전체, 커스텀)·메모·사진(PHPicker → 1600px JPEG 85)·날짜 변경·닫기 확인, 무료 한도 → A9
+- A5 날짜별 기록: 목록, 수정, 스와이프 삭제, “Add another entry”
+- Maestro `entry-create` 추가(iPhone·iPad)
+
 ## 다음 할 일
 
-1. A3 홈(월간 캘린더, 연속 기록 칩, 오늘 카드, FAB, iPad 2단) + 연속 기록 계산(유닛 테스트)
-2. A4 기록 작성(formSheet / iPad 중앙 모달), 첫 실행 시 A3에서 A4 자동 열기, A5
+1. 저장 직후: 캘린더 구름 새김 애니메이션, A12 알림 프리프롬프트(첫 저장), 3일 연속 축하 시트, `streak_milestone`
+2. A6 통계, A10 설정(+ 잠금 A11, 백업, 내보내기)
 3. P18 plist 수령 시 Firebase transport 연결 + 설정 Privacy의 Copy ID 행
 
 ## 막힌 것 / Cozy에게 필요한 것

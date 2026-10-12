@@ -6,6 +6,7 @@ import type { Icon } from 'phosphor-react-native';
 // which would make tsc typecheck the library's own source.
 export const CalendarBlankIcon: Icon = require('phosphor-react-native/src/icons/CalendarBlank').CalendarBlankIcon;
 export const CameraIcon: Icon = require('phosphor-react-native/src/icons/Camera').CameraIcon;
+export const CaretDownIcon: Icon = require('phosphor-react-native/src/icons/CaretDown').CaretDownIcon;
 export const CaretLeftIcon: Icon = require('phosphor-react-native/src/icons/CaretLeft').CaretLeftIcon;
 export const CaretRightIcon: Icon = require('phosphor-react-native/src/icons/CaretRight').CaretRightIcon;
 export const ChartBarIcon: Icon = require('phosphor-react-native/src/icons/ChartBar').ChartBarIcon;

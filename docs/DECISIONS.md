@@ -61,3 +61,14 @@
 - 2026-10-12 — 탭 바: expo-router `Tabs` + `tabBar`로 공용 `TabBar`(@nf/ui) 렌더, 아이콘 CalendarBlank·ChartBar·GearSix(목업), 크로스페이드 `durationFast`
 - 2026-10-12 — 설치일(`installDate`)은 첫 실행 날짜로 기본값을 잡고 온보딩 완료 시 MMKV(`app.v1`)에 처음 저장 — 온보딩을 거쳐야만 앱에 들어가므로 같은 날
 - 2026-10-12 — Maestro: `common/launch.yaml`(dev 메뉴 인트로 → 루트 `nuni:///`로 시작), S1 플로우는 `launch-dev.yaml`이 `nuni:///dev`로 이동. iOS의 “앱에서 열기” 확인창은 `confirm-open.yaml`이 처리. `e2e.sh`는 같은 이름 시뮬레이터 중 최신 런타임을 고름
+- 2026-10-12 — 앱 DB: 시작 시 마이그레이션이 끝날 때까지 스플래시 유지, 연결은 앱 전체 1개(`apps/nuni/src/db.ts`). `enableChangeListener`로 drizzle `useLiveQuery` 사용. 기본 태그 20종은 id = 키 이름(`sleep` …)으로 멱등 시드, 아이콘은 Phosphor 이름(Moon, Barbell …), 커스텀 태그 아이콘 `Tag`
+- 2026-10-12 — A3: 미래 날짜는 누를 수 없음, 설치 전 날짜는 숫자만 보이지만 눌러서 기록 가능. 다음 달 버튼은 이번 달에서 비활성. 목업의 “Yesterday” 섹션은 PLAN 화면 목록에 없어 만들지 않음
+- 2026-10-12 — A3 iPad(너비 1024pt 이상, iPad Pro 13" 세로 포함): 기록 있는 날을 누르면 오른쪽 40% 열에 그 날 기록(A5와 같은 `DayEntries`), 빈 날은 A4. 기본 선택 = 오늘
+- 2026-10-12 — A4 제목은 PLAN대로 `entry.titleFor`(“How was today?”), 목업의 “Today”가 아님. 날짜 변경은 날짜 줄을 누르면 인라인 캘린더(라이브러리 추가 없음, 미래 비활성). 기존 기록 수정 시 날짜 변경도 저장
+- 2026-10-12 — A4 메모: 여러 줄로 보이되 Return은 키보드 닫기(“한 줄 메모”). 무료 200자 초과 입력 시 A9(`note`) + 200자에서 자름. 사진 2장째·커스텀 태그 4번째도 A9(`photo`/`tag`). 기존 기록 수정은 이미 가진 길이·사진 수까지 허용(구독 만료 규칙)
+- 2026-10-12 — A4 커스텀 태그: “Show all tags”를 펼친 뒤 “New tag” 칩 → iOS `Alert.prompt`(메시지 `tags.customPlaceholder`). 변경이 있으면 스와이프 닫기를 막고 닫기 버튼 → `entry.discardConfirm`
+- 2026-10-12 — A4/A5 시트: iPhone formSheet(detent 0.92), iPad는 네이티브 form sheet(가운데 약 540pt)로 PLAN의 ‘중앙 모달 520’을 대신함
+- 2026-10-12 — A5 스와이프 삭제: 가로 ScrollView(snap)로 구현, 제스처 라이브러리 추가 없음. 삭제 버튼은 `surface-2` 바탕 + `status-error` 글자(상태 색은 넓은 면에 쓰지 않음), VoiceOver는 커스텀 액션 ‘Delete’. 마지막 기록을 지우면 A5가 닫힘
+- 2026-10-12 — 사진: `expo-image-picker`(PHPicker) 플러그인에 photos/camera/microphone 권한 문구 `false` — Info.plist에 읽기·카메라 권한 없음 확인. 저장은 expo-sqlite `withTransactionAsync` 안에서 행 삽입 + 파일 이동(실패 시 롤백), 앱 시작 시 고아 파일 정리. 파일 보호는 iOS 기본값(CompleteUntilFirstUserAuthentication)
+- 2026-10-12 — 첫 실행 자동 A4의 `entry_create.source`는 `fab`(허용 값 fab/widget/notification/calendar 중 가장 가까움)
+- 2026-10-12 — DB가 읽기 전용(마이그레이션 실패)일 때 저장 시 `error.generic` 토스트 — 전용 문구 키 없음

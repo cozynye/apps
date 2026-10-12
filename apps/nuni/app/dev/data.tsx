@@ -1,6 +1,6 @@
 import { bundledManifest, buildCatalog, loadRemoteManifest } from '@nf/content';
-import { newId, runMigrations, type MigrationResult } from '@nf/db';
-import { entries, entryTags, migrations, openNuniDatabase, photos, tags } from '@nf/db/nuni';
+import { newId, type MigrationResult } from '@nf/db';
+import { entries, entryTags, photos, tags } from '@nf/db/nuni';
 import { toLocalDateString } from '@nf/i18n';
 import { Button, Card, Screen, space, Text } from '@nf/ui';
 import { nativeApplicationVersion } from 'expo-application';
@@ -8,21 +8,22 @@ import { count, eq } from 'drizzle-orm';
 import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
+import { db, initDatabase, sqlite } from '../../src/db';
+
 // Dev-only: exercises @nf/db (migrations, FK cascade) and @nf/content (manifest catalog).
 export default function DevData() {
   const [log, setLog] = useState<string[]>([]);
   const append = (line: string) => setLog((l) => [...l, line]);
 
   async function runDb() {
-    const { sqlite, db } = openNuniDatabase();
-    const result: MigrationResult = await runMigrations(sqlite, db, migrations);
+    const result: MigrationResult = await initDatabase();
     append(`migrate: ${result.status} v${result.schemaVersion}`);
     if (result.status !== 'ok') return;
 
     const now = Date.now();
     const entryId = newId();
     const tagId = newId();
-    await db.insert(tags).values({ id: tagId, nameKey: 'tags.sleep', icon: 'moon', sortOrder: 0 });
+    await db.insert(tags).values({ id: tagId, customName: 'dev', icon: 'Moon', sortOrder: 99 });
     await db.insert(entries).values({ id: entryId, date: toLocalDateString(new Date()), mood: 4, createdAt: now, updatedAt: now });
     await db.insert(entryTags).values({ entryId, tagId });
     await db.insert(photos).values({ id: newId(), entryId, fileName: 'x.jpg', sortOrder: 0 });

@@ -8,21 +8,24 @@ export interface IconButtonProps {
   accessibilityLabel: string;
   renderIcon: (color: string) => React.ReactNode;
   onPress?: () => void;
+  disabled?: boolean;
   testID: string;
 }
 
 /** 44×44 touch box around a 24px line icon. */
-export function IconButton({ accessibilityLabel, renderIcon, onPress, testID }: IconButtonProps) {
+export function IconButton({ accessibilityLabel, renderIcon, onPress, disabled, testID }: IconButtonProps) {
   const { colors } = useTheme();
   return (
     <Pressable
       accessibilityRole="button"
       accessibilityLabel={accessibilityLabel}
+      accessibilityState={{ disabled: !!disabled }}
+      disabled={disabled}
       onPress={onPress}
       testID={testID}
       style={({ pressed }) => [styles.box, { opacity: pressed ? 0.85 : 1 }]}
     >
-      {renderIcon(colors.ink)}
+      {renderIcon(disabled ? colors.inkDisabled : colors.ink)}
     </Pressable>
   );
 }

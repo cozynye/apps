@@ -1,0 +1,10 @@
+# Closes the A5 sheet when it is open (iPhone); on wide iPad the day is a column of A3.
+appId: app.nuni.mood
+---
+- runFlow:
+    when:
+      visible:
+        id: a5.close
+    commands:
+      - tapOn:
+          id: a5.close
