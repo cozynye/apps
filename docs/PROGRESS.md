@@ -4,14 +4,14 @@ Claude Code가 작업 단위가 끝날 때마다 갱신한다. 새 세션은 이
 
 ## 현재 단계
 
-S2 Nuni 개발 — 진행 중 (Cozy 결정으로 S1 결제 조건 미완료 상태에서 시작)
+S2 Nuni 개발 — 진행 중 (S1 완료 2026-10-12)
 
 ## 단계 현황
 
 | 단계 | 상태 | 메모 |
 | --- | --- | --- |
 | S0 준비 | 완료 (개발 차단 항목 없음) | P15·P16 보류 → RevenueCat Test Store로 대체. 미확정 사항은 배포 전 해결 (RELEASE_CHECKLIST) |
-| S1 공통 패키지 | 결제 조건 1개 남음 | 아래 완료 조건 표 |
+| S1 공통 패키지 | 완료 (2026-10-12) | 아래 완료 조건 표 |
 | S2 Nuni 개발 | 진행 중 | A1·A2·탭 완료 |
 | S3 Nuni 출시 | 대기 — 릴리스 게이트 적용 | |
 | S4 Fourpop 개발 | 대기 | |
@@ -23,7 +23,7 @@ S2 Nuni 개발 — 진행 중 (Cozy 결정으로 S1 결제 조건 미완료 상�
 | --- | --- | --- |
 | 언어 전환 (vi/th/en) | 통과 (iPhone 17 Pro, iPad Pro 13") | Maestro `s1-stories` |
 | 페이월 표시 (RevenueCat 가격) | 통과 (iPhone, iPad) | Maestro `s1-paywall` |
-| 결제·취소·실패·복원 | 흐름 통과, **권한 이름 불일치로 `mood_premium` 미해제** | Maestro `s1-purchase-restore` — Test Store가 기본 상품 `yearly`/`monthly`, 권한 `nooni_pro`를 줌. Cozy가 대시보드에 상품·권한·Offering 설정 필요 |
+| 결제·취소·실패·복원 | 통과 (iPhone, iPad, 2026-10-12) — `mood_premium` 해제, 연간 7일 체험 문구 표시 | Maestro `s1-paywall`, `s1-purchase-restore` (RevenueCat Test Store: 상품 `mood_premium_monthly`/`_yearly`, 권한 `mood_premium`, Offering `default`) |
 | 컴포넌트 스토리 iPhone·iPad 렌더 | 통과 (라이트·다크, en/th/vi) | Maestro `s1-stories` 스크린샷 |
 | A13 약관·라이선스, 페이월 → Terms 링크 | 통과 (iPhone, iPad) | Maestro `s1-legal` |
 | DB (마이그레이션, CHECK, FK cascade, WAL) | 통과 (iPhone, iPad) | Maestro `s1-data` |
@@ -57,15 +57,13 @@ S2 Nuni 개발 — 진행 중 (Cozy 결정으로 S1 결제 조건 미완료 상�
 
 1. A3 홈(월간 캘린더, 연속 기록 칩, 오늘 카드, FAB, iPad 2단) + 연속 기록 계산(유닛 테스트)
 2. A4 기록 작성(formSheet / iPad 중앙 모달), 첫 실행 시 A3에서 A4 자동 열기, A5
-3. Cozy의 RevenueCat 설정 후 `s1-purchase-restore` 재실행 → S1 완료 처리
-4. P18 plist 수령 시 Firebase transport 연결 + 설정 Privacy의 Copy ID 행
+3. P18 plist 수령 시 Firebase transport 연결 + 설정 Privacy의 Copy ID 행
 
 ## 막힌 것 / Cozy에게 필요한 것
 
 - 2026-10-12 P15: 번들 ID 2개 등록, App Store Connect 앱 생성 완료(“Nuni - Mood Diary”, “Fourpop - Photo Booth”, 스크린샷 확인), 유료 앱 계약은 Cozy 보고. RELEASE_CHECKLIST B1은 계약 ‘Active’·세금·은행 확인 후 체크
 - 2026-10-12 P16(Nuni): 구독 그룹 `Nuni Premium`에 `mood_premium_monthly`(1개월), `mood_premium_yearly`(1년) 생성(스크린샷 확인). **연간 7일 무료체험(Introductory Offer)은 아직 미설정** — 출시 전 설정 필요(PLAN 가격표). 미설정 동안 페이월은 체험 없는 문구(`subscribe`/`noTrial`)로 표시됨
-- P16: App Store Connect에 Nuni 구독 2개(`mood_premium_monthly`, `mood_premium_yearly` 7일 체험) 등록 → P17: RevenueCat iOS 앱(.p8 키) 연결 후 `appl_` 키 전달. 받으면 Sandbox로 S1 결제 조건 검증
+- (출시 전) P17: RevenueCat에 App Store 앱 연결(.p8) → `appl_` 키. 실제 StoreKit 검증은 TestFlight로(Sandbox 테스터는 필요 시 — Cozy 2026-10-12)
 
-- RevenueCat 대시보드: Test Store에 상품 `mood_premium_monthly`, `mood_premium_yearly`(7일 무료체험), 권한 `mood_premium`(두 상품 연결), Offering `default`(Monthly·Annual 패키지, current). 현재는 기본값(`yearly`/`monthly`, 권한 `nooni_pro`)
 - (S4 전) PLAN 충돌 5번(HD 해상도 1200×3600 vs 2400×7200)
 - P18 Firebase plist, P19 R2 URL, P22 리포, 도메인 — 배포 전까지
