@@ -48,7 +48,7 @@ appId: app.nuni.mood
 # Relaunch without clearing state: onboarding must not show again.
 - stopApp
 - launchApp
-- openLink: exp+nuni://expo-development-client/?url=http%3A%2F%2Flocalhost%3A8081
+- openLink: exp+nuni://expo-development-client/?url=http%3A%2F%2Flocalhost%3A${METRO_PORT}
 - runFlow: common/confirm-open.yaml
 - extendedWaitUntil:
     visible:

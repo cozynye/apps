@@ -3,6 +3,7 @@
 # Usage: bash scripts/e2e.sh <app> "<simulator name or UDID>" [flow-glob]
 #   bash scripts/e2e.sh nuni "iPhone 17 Pro"
 #   bash scripts/e2e.sh nuni "iPad Pro 13-inch (M5)" 's1-*'
+#   METRO_PORT=8082 bash scripts/e2e.sh nuni <UDID>   # a second Metro (e.g. a QA worktree)
 set -euo pipefail
 APP=${1:?app}
 DEVICE=${2:?simulator}
@@ -19,6 +20,6 @@ cd "apps/$APP/.maestro"
 STATUS=0
 for flow in $GLOB.yaml; do
   echo "== $flow on $DEVICE"
-  maestro --device "$UDID" test "$flow" || STATUS=1
+  maestro --device "$UDID" test -e METRO_PORT="${METRO_PORT:-8081}" "$flow" || STATUS=1
 done
 exit $STATUS

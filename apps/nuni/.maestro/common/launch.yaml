@@ -3,7 +3,7 @@ appId: app.nuni.mood
 ---
 - launchApp:
     clearState: true
-- openLink: exp+nuni://expo-development-client/?url=http%3A%2F%2Flocalhost%3A8081
+- openLink: exp+nuni://expo-development-client/?url=http%3A%2F%2Flocalhost%3A${METRO_PORT}
 # After clearState the dev client shows its developer-menu intro sheet over the app.
 # Match its body text, not "Continue" (A2 onboarding has its own Continue button).
 - extendedWaitUntil:
