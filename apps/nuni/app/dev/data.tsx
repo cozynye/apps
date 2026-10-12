@@ -5,6 +5,7 @@ import { toLocalDateString } from '@nf/i18n';
 import { Button, Card, Screen, space, Text } from '@nf/ui';
 import { nativeApplicationVersion } from 'expo-application';
 import { count, eq } from 'drizzle-orm';
+import * as Notifications from 'expo-notifications';
 import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
@@ -54,11 +55,22 @@ export default function DevData() {
     append(`manifest: ${loaded.source}, packs ${catalog.packs.map((p) => `${p.id}(${p.items.length})`).join(', ')}`);
   }
 
+  async function runReminders() {
+    const scheduled = await Notifications.getAllScheduledNotificationsAsync();
+    const dates = scheduled.map((n) => {
+      const trigger = n.trigger as { date?: number | string } | null;
+      return trigger?.date ? new Date(trigger.date).toISOString() : '?';
+    });
+    append(`reminders: ${scheduled.length}`);
+    if (dates.length) append(`first: ${dates.sort()[0]}`);
+  }
+
   return (
     <Screen scroll>
       <View style={styles.stack}>
         <Button testID="dev.data.db" label="Run DB check" onPress={() => void runDb().catch((e: Error) => append(`db error: ${e.message}`))} />
         <Button testID="dev.data.content" variant="secondary" label="Run content check" onPress={() => void runContent()} />
+        <Button testID="dev.data.reminders" variant="secondary" label="Scheduled reminders" onPress={() => void runReminders()} />
         <Card testID="dev.data.log">
           {log.map((line, i) => (
             <Text key={i} variant="bodySm">

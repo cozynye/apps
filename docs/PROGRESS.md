@@ -12,7 +12,7 @@ S2 Nuni 개발 — 진행 중 (S1 완료 2026-10-12)
 | --- | --- | --- |
 | S0 준비 | 완료 (개발 차단 항목 없음) | P15·P16 보류 → RevenueCat Test Store로 대체. 미확정 사항은 배포 전 해결 (RELEASE_CHECKLIST) |
 | S1 공통 패키지 | 완료 (2026-10-12) | 아래 완료 조건 표 |
-| S2 Nuni 개발 | 진행 중 | A1·A2·A3·A4·A5·탭 |
+| S2 Nuni 개발 | 진행 중 | A1·A2·A3·A4·A5·A12·탭, 리마인더 |
 | S3 Nuni 출시 | 대기 — 릴리스 게이트 적용 | |
 | S4 Fourpop 개발 | 대기 | |
 | S5 Fourpop 출시 | 대기 — 릴리스 게이트 적용 | |
@@ -62,10 +62,16 @@ S2 Nuni 개발 — 진행 중 (S1 완료 2026-10-12)
 - A5 날짜별 기록: 목록, 수정, 스와이프 삭제, “Add another entry”
 - Maestro `entry-create` 추가(iPhone·iPad)
 
+## 완료한 일 (2026-10-12, S2 3단계)
+
+- 저장 직후: 구름 새김 애니메이션, A12 알림 프리프롬프트(첫 기록 후), 3일 연속 축하 시트, `streak_milestone`
+- 리마인더: 7일 선예약 단발 알림, 빠른 액션(Low/Okay/Good 즉시 저장), 알림 탭·`nuni://entry/today` → A4
+- Maestro `reminder`(예약 6건 확인), `streak` 추가
+
 ## 다음 할 일
 
-1. 저장 직후: 캘린더 구름 새김 애니메이션, A12 알림 프리프롬프트(첫 저장), 3일 연속 축하 시트, `streak_milestone`
-2. A6 통계, A10 설정(+ 잠금 A11, 백업, 내보내기)
+1. A6 통계(Week/Month/Year 잠금, 분포, 연속 기록, 활동–감정 카드)
+2. A10 설정(언어·외관·리마인더 행·잠금 A11·백업·내보내기·구독·약관·전체 삭제)
 3. P18 plist 수령 시 Firebase transport 연결 + 설정 Privacy의 Copy ID 행
 
 ## 막힌 것 / Cozy에게 필요한 것

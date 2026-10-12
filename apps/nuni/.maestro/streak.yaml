@@ -1,0 +1,53 @@
+# Three consecutive days → 3-day celebration once → "See your patterns" opens A6.
+appId: app.nuni.mood
+---
+- runFlow: common/launch.yaml
+- extendedWaitUntil:
+    visible:
+      id: a2.skip
+    timeout: 20000
+- tapOn:
+    id: a2.skip
+- extendedWaitUntil:
+    visible:
+      id: a4.save
+    timeout: 10000
+- runFlow:
+    file: common/save-on-day.yaml
+    env:
+      DAYS_AGO: 2
+      MOOD: 3
+- extendedWaitUntil:
+    visible:
+      id: a12.notNow
+    timeout: 10000
+- tapOn:
+    id: a12.notNow
+- tapOn:
+    id: a3.fab
+- runFlow:
+    file: common/save-on-day.yaml
+    env:
+      DAYS_AGO: 1
+      MOOD: 4
+- extendedWaitUntil:
+    visible: '2-day streak|2 days'
+    timeout: 5000
+- tapOn:
+    id: a3.fab
+- tapOn:
+    id: a4.mood.5
+- tapOn:
+    id: a4.save
+- extendedWaitUntil:
+    visible:
+      id: streak.title
+    timeout: 10000
+- assertVisible: '3 days in a row!'
+- takeScreenshot: streak-3
+- tapOn:
+    id: streak.seePatterns
+- extendedWaitUntil:
+    visible:
+      id: a6.title
+    timeout: 10000

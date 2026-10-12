@@ -72,3 +72,10 @@
 - 2026-10-12 — 사진: `expo-image-picker`(PHPicker) 플러그인에 photos/camera/microphone 권한 문구 `false` — Info.plist에 읽기·카메라 권한 없음 확인. 저장은 expo-sqlite `withTransactionAsync` 안에서 행 삽입 + 파일 이동(실패 시 롤백), 앱 시작 시 고아 파일 정리. 파일 보호는 iOS 기본값(CompleteUntilFirstUserAuthentication)
 - 2026-10-12 — 첫 실행 자동 A4의 `entry_create.source`는 `fab`(허용 값 fab/widget/notification/calendar 중 가장 가까움)
 - 2026-10-12 — DB가 읽기 전용(마이그레이션 실패)일 때 저장 시 `error.generic` 토스트 — 전용 문구 키 없음
+- 2026-10-12 — 리마인더: “단발 알림 + 최대 7일분 선예약”을 오늘부터 7일 중 기록 없는 날마다 설정 시각 1회씩(지난 시각 제외)으로 해석. 기록 저장·삭제(DB 변경 감지), 설정 변경, 언어 변경, 포그라운드 복귀 때 전부 취소 후 재예약. 계산은 `reminder-plan.ts`(유닛 테스트)
+- 2026-10-12 — 알림 빠른 액션: i18n 키 `notification.action1/3/4`의 문구가 Low/Okay/Good이므로 PLAN대로 감정 2/3/4로 저장. 액션은 `opensAppToForeground: true` — 앱이 종료된 상태에서도 저장이 확실하도록(백그라운드 실행은 보장되지 않음). 저장 후 홈 + 토스트 `entry.saved`
+- 2026-10-12 — 로컬 알림만 쓰므로 expo-notifications 자동 플러그인이 넣는 `aps-environment`(푸시) entitlement를 `app.config.ts`에서 제거 — App ID에 Push capability 불필요
+- 2026-10-12 — A12 시간 선택: `@expo/ui`(Expo 공식) SwiftUI `DatePicker` 휠, 기본 21:00. 켜기 → 시스템 권한 요청, 거부 시 `permission_denied`(notifications) 후 꺼진 상태 유지
+- 2026-10-12 — 저장 후 흐름: 첫 기록 → A12 1회, 그 외 연속 3일 첫 도달 → 축하 시트 1회(`streak-celebrate`, PLAN 라우트 트리에 없어 추가). `streak_milestone`은 3/7/30에 도달한 저장에서 전송. 첫 기록과 3일 축하가 겹치면 A12 우선
+- 2026-10-12 — 구름 새김 애니메이션: 방금 저장한 날짜의 셀만(시트가 내려갈 시간 `duration-base` 뒤) spring 0.6→1, Reduce Motion이면 페이드. 공용 `useReduceMotion`(@nf/ui)
+- 2026-10-12 — 딥링크 `nuni://entry/today`는 `app/entry/today.tsx` → A3 위에 A4. 알림 응답 처리는 온보딩 뒤에만 마운트되는 탭 레이아웃에 둠

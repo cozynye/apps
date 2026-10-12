@@ -1,0 +1,44 @@
+# A12 after the first entry: pick nothing (default 21:00), turn on, allow the system prompt.
+appId: app.nuni.mood
+---
+- runFlow: common/launch.yaml
+- extendedWaitUntil:
+    visible:
+      id: a2.skip
+    timeout: 20000
+- tapOn:
+    id: a2.skip
+- extendedWaitUntil:
+    visible:
+      id: a4.save
+    timeout: 10000
+- tapOn:
+    id: a4.mood.3
+- tapOn:
+    id: a4.save
+- extendedWaitUntil:
+    visible:
+      id: a12.title
+    timeout: 10000
+- assertVisible:
+    id: a12.time
+- takeScreenshot: a12
+- tapOn:
+    id: a12.enable
+# iOS notification permission alert (ko/en simulator locale).
+- extendedWaitUntil:
+    visible: '허용|Allow'
+    timeout: 10000
+- tapOn: '허용|Allow'
+- extendedWaitUntil:
+    visible:
+      id: a3.fab
+    timeout: 10000
+- assertNotVisible:
+    id: a12.title
+# Today is logged, so the next six days are scheduled (PLAN 리마인더: up to 7 days ahead).
+- openLink: nuni:///dev/data
+- runFlow: common/confirm-open.yaml
+- tapOn:
+    id: dev.data.reminders
+- assertVisible: 'reminders: 6'

@@ -1,8 +1,10 @@
 import { formatWeekdayDayMonth, fromLocalDateString, isLanguage, useTranslation } from '@nf/i18n';
-import { Mascot, PressableSurface, radius, space, Text, useTheme, type Mood } from '@nf/ui';
-import { StyleSheet, View } from 'react-native';
+import { Mascot, motion, PressableSurface, radius, space, Text, useReduceMotion, useTheme, type Mood } from '@nf/ui';
+import { useEffect, useState } from 'react';
+import { Animated, StyleSheet, View } from 'react-native';
 
 import { monthGrid } from '../dates';
+import { takeJustSaved } from '../entries';
 
 const CLOUD = 28;
 
@@ -13,6 +15,8 @@ export interface MonthCalendarProps {
   moods: Map<string, Mood>;
   /** Date picker use (A4): outlines this day. */
   selected?: string;
+  /** testID prefix: `a3` on the home screen, `a4` in the entry sheet's date picker. */
+  screenId?: string;
   onPressDay: (date: string) => void;
 }
 
@@ -20,11 +24,19 @@ export interface MonthCalendarProps {
  * A3 month grid (Monday first). Logged days show the `-sm` cloud of the representative entry,
  * empty days since install a dashed circle, days before install and future days only the number.
  */
-export function MonthCalendar({ month, today, installDate, moods, selected, onPressDay }: MonthCalendarProps) {
+export function MonthCalendar({
+  month,
+  today,
+  installDate,
+  moods,
+  selected,
+  screenId = 'a3',
+  onPressDay,
+}: MonthCalendarProps) {
   const { t } = useTranslation();
   const weekdays = t('home.weekdays', { returnObjects: true }) as string[];
   return (
-    <View testID="a3.calendar">
+    <View testID={`${screenId}.calendar`}>
       <View style={styles.row}>
         {weekdays.map((name) => (
           <Text key={name} variant="caption" color="inkMuted" align="center" style={styles.weekday}>
@@ -42,6 +54,7 @@ export function MonthCalendar({ month, today, installDate, moods, selected, onPr
                 mood={moods.get(date)}
                 isToday={date === today}
                 isSelected={date === selected}
+                screenId={screenId}
                 isFuture={date > today}
                 beforeInstall={date < installDate}
                 onPress={() => onPressDay(date)}
@@ -61,12 +74,13 @@ interface DayCellProps {
   mood: Mood | undefined;
   isToday: boolean;
   isSelected: boolean;
+  screenId: string;
   isFuture: boolean;
   beforeInstall: boolean;
   onPress: () => void;
 }
 
-function DayCell({ date, mood, isToday, isSelected, isFuture, beforeInstall, onPress }: DayCellProps) {
+function DayCell({ date, mood, isToday, isSelected, screenId, isFuture, beforeInstall, onPress }: DayCellProps) {
   const { t, i18n } = useTranslation();
   const { colors, accent } = useTheme();
   const day = Number(date.slice(8));
@@ -79,14 +93,14 @@ function DayCell({ date, mood, isToday, isSelected, isFuture, beforeInstall, onP
     .join(', ');
 
   let mark: React.ReactNode = null;
-  if (mood) mark = <Mascot mood={mood} size={CLOUD} />;
+  if (mood) mark = <CarvedCloud date={date} mood={mood} />;
   else if (!isFuture && !beforeInstall) {
     mark = <View style={[styles.dashed, { borderColor: isToday ? accent.deep : colors.line }]} />;
   }
 
   return (
     <PressableSurface
-      testID={`a3.day.${date}`}
+      testID={`${screenId}.day.${date}`}
       accessibilityLabel={label}
       accessibilityState={{ selected: isSelected || isToday, disabled: isFuture }}
       disabled={isFuture}
@@ -119,3 +133,29 @@ const styles = StyleSheet.create({
   mark: { width: CLOUD, height: CLOUD, alignItems: 'center', justifyContent: 'center' },
   dashed: { width: CLOUD, height: CLOUD, borderRadius: CLOUD / 2, borderWidth: 1.5, borderStyle: 'dashed' },
 });
+
+/**
+ * The cloud of the day that was just saved is "carved in": scale 0.6 → 1 spring (damping 14), or a
+ * fade with Reduce Motion (DESIGN_SYSTEM 모션). It waits for the entry sheet to slide away first.
+ */
+function CarvedCloud({ date, mood }: { date: string; mood: Mood }) {
+  const reduceMotion = useReduceMotion();
+  const [progress] = useState(() => new Animated.Value(1));
+
+  useEffect(() => {
+    if (!takeJustSaved(date)) return;
+    progress.setValue(0);
+    const animation = reduceMotion
+      ? Animated.timing(progress, { toValue: 1, duration: motion.durationSlow, useNativeDriver: true })
+      : Animated.spring(progress, { toValue: 1, damping: 14, useNativeDriver: true });
+    Animated.sequence([Animated.delay(motion.durationBase), animation]).start();
+  }, [date, mood, progress, reduceMotion]);
+
+  const scale = reduceMotion ? 1 : progress.interpolate({ inputRange: [0, 1], outputRange: [0.6, 1] });
+  const opacity = reduceMotion ? progress : 1;
+  return (
+    <Animated.View style={{ transform: [{ scale }], opacity }}>
+      <Mascot mood={mood} size={CLOUD} />
+    </Animated.View>
+  );
+}

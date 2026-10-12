@@ -11,6 +11,10 @@ interface AppState {
    * way into the app). A3 shows days before it as plain numbers.
    */
   installDate: string;
+  /** A12 shows once, right after the first saved entry. */
+  reminderPrompted: boolean;
+  /** The 3-day streak sheet shows once (PLAN 사용자 플로우 4). */
+  streakCelebrated: boolean;
   completeOnboarding: () => void;
 }
 
@@ -19,6 +23,8 @@ export const useAppState = create<AppState>()(
     (set) => ({
       onboarded: false,
       installDate: toLocalDateString(new Date()),
+      reminderPrompted: false,
+      streakCelebrated: false,
       completeOnboarding: () => set({ onboarded: true }),
     }),
     { name: 'app.v1', storage: createJSONStorage(() => mmkvStateStorage), version: 1 },

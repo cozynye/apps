@@ -27,6 +27,7 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, Image, Pressable, ScrollView, StyleSheet, TextInput, View } from 'react-native';
 
+import { afterNewEntry, currentStreak } from '../src/after-save';
 import { useAppState } from '../src/app-state';
 import { MonthCalendar } from '../src/components/MonthCalendar';
 import { addDays, addMonths, startOfMonth, monthGrid } from '../src/dates';
@@ -180,6 +181,7 @@ export default function EntryScreen() {
     if (readOnly) return toast(t('error.generic'), 'error');
     setSaving(true);
     try {
+      const streakBefore = params.id ? 0 : await currentStreak();
       await saveEntry({ id: params.id, date, mood, note, tagIds, photos });
       void Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
       if (!params.id) {
@@ -187,6 +189,7 @@ export default function EntryScreen() {
         track('entry_create', { tag_count: tagIds.length, has_photo: photos.length > 0, has_note: note.trim().length > 0, source });
       }
       router.back();
+      if (!params.id) void afterNewEntry(streakBefore);
     } catch (error) {
       // Keep the sheet and its contents open (PLAN 예외 › 저장 공간 부족).
       const full = /full|ENOSPC|space/i.test(String(error));
@@ -384,7 +387,15 @@ function DatePicker({ selected, today, onPick }: { selected: string; today: stri
           renderIcon={(c) => <CaretRightIcon size={20} color={c} />}
         />
       </View>
-      <MonthCalendar month={month} today={today} installDate={installDate} moods={moods} selected={selected} onPressDay={onPick} />
+      <MonthCalendar
+        month={month}
+        today={today}
+        installDate={installDate}
+        moods={moods}
+        selected={selected}
+        screenId="a4"
+        onPressDay={onPick}
+      />
     </View>
   );
 }

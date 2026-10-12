@@ -2,10 +2,14 @@ import { CalendarBlankIcon, ChartBarIcon, GearSixIcon, motion, TabBar, useTheme,
 import { Tabs } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 
+import { useNotificationResponses } from '../../src/notification-responses';
+
 /** Three tabs: A3 home, A6 stats, A10 settings. Tab switch = 120ms cross-fade (DESIGN_SYSTEM 모션). */
 export default function TabsLayout() {
   const { t } = useTranslation();
   const { colors } = useTheme();
+  // Mounted only after onboarding, with navigation ready, so a launch from a reminder can open A4.
+  useNotificationResponses();
   const items: TabBarItem[] = [
     { name: 'a3-home', label: t('tabs.home'), Icon: CalendarBlankIcon, testID: 'tabs.home' },
     { name: 'a6-stats', label: t('tabs.stats'), Icon: ChartBarIcon, testID: 'tabs.stats' },

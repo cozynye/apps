@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "expo-router/entry",
   "dependencies": {
+    "@expo/ui": "~57.0.22",
     "@nf/analytics": "workspace:*",
     "@nf/content": "workspace:*",
     "@nf/db": "workspace:*",
@@ -22,6 +23,7 @@
     "expo-linking": "~57.0.12",
     "expo-localization": "~57.0.2",
     "expo-network": "~57.0.2",
+    "expo-notifications": "~57.0.22",
     "expo-router": "~57.0.25",
     "expo-splash-screen": "~57.0.9",
     "expo-sqlite": "~57.0.4",

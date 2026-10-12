@@ -33,6 +33,13 @@ appId: app.nuni.mood
 - takeScreenshot: a4-filled
 - tapOn:
     id: a4.save
+# First entry → A12 reminder prompt (covered by `reminder.yaml`); dismiss it here.
+- extendedWaitUntil:
+    visible:
+      id: a12.notNow
+    timeout: 10000
+- tapOn:
+    id: a12.notNow
 - extendedWaitUntil:
     visible:
       id: a3.streak

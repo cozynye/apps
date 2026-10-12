@@ -30,6 +30,15 @@ export interface EntryDraft {
 
 const LONG_EDGE = 1600;
 
+/** The day of the entry saved last, for the calendar's carve-in animation (consumed once). */
+let justSaved: { date: string; at: number } | null = null;
+
+export function takeJustSaved(date: string): boolean {
+  if (!justSaved || justSaved.date !== date || Date.now() - justSaved.at > 3000) return false;
+  justSaved = null;
+  return true;
+}
+
 /**
  * Right after picking: long edge 1600px, JPEG 85, EXIF orientation applied, written to Cache
  * (PLAN 규칙 › 사진 저장). Rendering through the manipulator bakes in the orientation.
@@ -103,6 +112,7 @@ export async function saveEntry(draft: EntryDraft): Promise<string> {
   });
 
   for (const fileName of removed) deleteFileQuietly(fileName);
+  justSaved = { date: draft.date, at: Date.now() };
   return id;
 }
 

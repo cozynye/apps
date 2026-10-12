@@ -1,0 +1,19 @@
+# In the open A4 sheet: picks the date ${DAYS_AGO} days back (moving to the previous month if
+# needed), picks mood ${MOOD} and saves.
+appId: app.nuni.mood
+---
+- evalScript: ${(() => { const p = (n) => String(n).padStart(2, '0'); const now = new Date(); const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() - Number(DAYS_AGO)); output.day = d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()); output.prevMonth = d.getMonth() !== now.getMonth(); })()}
+- tapOn:
+    id: a4.date
+- runFlow:
+    when:
+      true: ${output.prevMonth}
+    commands:
+      - tapOn:
+          id: a4.prevMonth
+- tapOn:
+    id: a4.day.${output.day}
+- tapOn:
+    id: a4.mood.${MOOD}
+- tapOn:
+    id: a4.save
