@@ -40,7 +40,8 @@
         "com.apple.security.application-groups": [
           "group.app.nuni.mood"
         ]
-      }
+      },
+      "appleTeamId": "TC547C863K"
     },
     "plugins": [
       "expo-router",
