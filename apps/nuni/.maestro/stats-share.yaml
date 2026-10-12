@@ -42,6 +42,7 @@ appId: app.nuni.mood
     visible:
       id: a9.cta
     timeout: 30000
+- assertVisible: 'See your whole year in clouds'
 - tapOn:
     id: a9.close
 - assertVisible:
@@ -52,6 +53,7 @@ appId: app.nuni.mood
     visible:
       id: a9.cta
     timeout: 30000
+- assertVisible: 'See what lifts your mood'
 - tapOn:
     id: a9.close
 # A7: preview with watermark hint, switch to the year card, save to Photos.

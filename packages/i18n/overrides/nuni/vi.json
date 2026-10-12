@@ -1,6 +1,16 @@
 {
   "paywall": {
-    "perk3": "Tối đa 10 ảnh, ghi chú dài hơn, widget cỡ vừa"
+    "perk3": "Tối đa 10 ảnh, ghi chú dài hơn, widget cỡ vừa",
+    "headline": {
+      "year": "Xem cả năm của bạn qua những đám mây",
+      "lifts": "Xem điều gì giúp bạn vui hơn",
+      "backup": "Giữ mọi kỷ niệm an toàn trên iCloud",
+      "widget": "Xem cả tuần chỉ trong một cái nhìn",
+      "tag": "Tạo bao nhiêu thẻ tùy thích",
+      "photo": "Thêm đến 10 ảnh cho mỗi ghi chép",
+      "note": "Viết dài bao nhiêu tùy thích",
+      "share": "Chia sẻ thẻ không có hình mờ"
+    }
   },
   "stats": {
     "emptyPeriod": "Chưa có ghi chép nào trong khoảng này",

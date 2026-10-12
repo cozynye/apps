@@ -96,3 +96,4 @@
 - 2026-10-12 — `SettingsRow`의 보조 문구를 `accessibilityHint`로도 노출(VoiceOver가 안내를 읽도록)
 - 2026-10-12 — 위젯: PLAN의 expo-apple-targets = npm `@bacons/apple-targets`(`apps/nuni/targets/widget`, SwiftUI, iOS 17+ `containerBackground`). 색은 `expo-target.config.js`가 `design/tokens.json`에서 읽고, 마스코트는 design-sync가 `-sm` SVG를 PNG로 렌더. 위젯 문구는 앱이 현재 언어로 `widget.json.strings`에 넣어 전달(위젯 자체 번역 없음). 위젯 갤러리 표시 이름은 브랜드명 “Nuni”, 설명 없음
 - 2026-10-12 — 앱 → 위젯: 로컬 Expo Module `widget-bridge`(App Group `group.app.nuni.mood`에 `widget.json` 쓰기 + `reloadAllTimelines`). 기록 변경·언어·잠금 토글·프리미엄 변경·포그라운드 때 갱신, 타임라인은 지금 + 다음 자정
+- 2026-10-12 — A9 헤드라인: `source`별 키 `nuni.paywall.headline.{year,lifts,backup,widget,tag,photo,note,share}` 추가(en·vi·th 초안), `settings`는 `paywall.title`. 잠긴 medium 위젯을 누르면 `nuni://premium/widget` → A3 위에 A9(`widget`)

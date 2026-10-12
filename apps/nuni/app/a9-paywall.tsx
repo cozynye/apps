@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 const SOURCES: NuniPaywallSource[] = ['year', 'lifts', 'backup', 'widget', 'tag', 'photo', 'note', 'share', 'settings'];
 
-/** A9 Paywall (modal, swipe down to close). ?source= decides analytics source (headline per source: S2). */
+/** A9 Paywall (modal, swipe down to close). ?source= picks the headline and the analytics source. */
 export default function PaywallScreen() {
   const { t } = useTranslation();
   const params = useLocalSearchParams<{ source?: string }>();
@@ -22,7 +22,7 @@ export default function PaywallScreen() {
     <Paywall
       screenId="a9"
       source={source}
-      headline={t('paywall.title')}
+      headline={source === 'settings' ? t('paywall.title') : t(`paywall.headline.${source}`)}
       subtitle={t('paywall.subtitle')}
       perks={perks}
       art={<Mascot mood={4} size={96} />}

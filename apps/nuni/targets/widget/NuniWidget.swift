@@ -18,6 +18,8 @@ struct WidgetPayload: Decodable {
 
 let appGroup = "group.app.nuni.mood"
 let todayURL = URL(string: "nuni://entry/today?source=widget")!
+/// The locked medium widget opens the paywall (A9 source `widget`).
+let premiumURL = URL(string: "nuni://premium/widget")!
 
 func loadPayload() -> WidgetPayload? {
   guard let dir = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroup),
@@ -106,7 +108,12 @@ struct NuniWidgetView: View {
       if family == .systemMedium { MediumView(entry: entry) } else { SmallView(entry: entry) }
     }
     .containerBackground(Color("$widgetBackground"), for: .widget)
-    .widgetURL(todayURL)
+    .widgetURL(isLockedMedium ? premiumURL : todayURL)
+  }
+
+  private var isLockedMedium: Bool {
+    guard family == .systemMedium, let p = entry.payload else { return false }
+    return p.locked && !p.hidden
   }
 }
 
