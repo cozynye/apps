@@ -62,7 +62,7 @@ S2 Nuni 개발 — 진행 중 (Cozy 결정으로 S1 결제 조건 미완료 상�
 
 ## 막힌 것 / Cozy에게 필요한 것
 
-- 2026-10-12 Cozy 보고: 유료 앱 계약 완료. 스크린샷 확인 결과 App Store Connect에 Nuni·Fourpop 앱은 아직 없음 → 번들 ID 등록(`app.nuni.mood`, `app.fourpop.booth`) + 신규 앱 생성 필요. RELEASE_CHECKLIST B1은 앱 2개 생성·계약 ‘Active’·세금·은행 확인 후 체크
+- 2026-10-12 P15: 번들 ID 2개 등록, App Store Connect 앱 생성 완료(“Nuni - Mood Diary”, “Fourpop - Photo Booth”, 스크린샷 확인), 유료 앱 계약은 Cozy 보고. RELEASE_CHECKLIST B1은 계약 ‘Active’·세금·은행 확인 후 체크
 - P16: App Store Connect에 Nuni 구독 2개(`mood_premium_monthly`, `mood_premium_yearly` 7일 체험) 등록 → P17: RevenueCat iOS 앱(.p8 키) 연결 후 `appl_` 키 전달. 받으면 Sandbox로 S1 결제 조건 검증
 
 - RevenueCat 대시보드: Test Store에 상품 `mood_premium_monthly`, `mood_premium_yearly`(7일 무료체험), 권한 `mood_premium`(두 상품 연결), Offering `default`(Monthly·Annual 패키지, current). 현재는 기본값(`yearly`/`monthly`, 권한 `nooni_pro`)
