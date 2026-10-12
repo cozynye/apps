@@ -1,5 +1,13 @@
 {
   "paywall": {
     "perk3": "Tối đa 10 ảnh, ghi chú dài hơn, widget cỡ vừa"
+  },
+  "stats": {
+    "emptyPeriod": "Chưa có ghi chép nào trong khoảng này",
+    "liftsEmpty": "Gắn thẻ cho vài ghi chép để xem điều gì giúp bạn vui hơn."
+  },
+  "home": {
+    "todayLogged_one": "Hôm nay: {{mood}} · {{count}} thẻ",
+    "todayLogged_other": "Hôm nay: {{mood}} · {{count}} thẻ"
   }
 }

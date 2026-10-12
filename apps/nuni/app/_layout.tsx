@@ -72,6 +72,7 @@ function ReadyStack() {
       <Stack.Screen name="(tabs)" options={{ animation: 'fade' }} />
       <Stack.Screen name="a4-entry" options={ENTRY_SHEET} />
       <Stack.Screen name="a5-entry/[date]" options={ENTRY_SHEET} />
+      <Stack.Screen name="a7-share" options={{ presentation: 'modal' }} />
       <Stack.Screen name="a12-reminder" options={FIT_SHEET} />
       <Stack.Screen name="streak-celebrate" options={FIT_SHEET} />
       <Stack.Screen name="a9-paywall" options={{ presentation: 'modal' }} />

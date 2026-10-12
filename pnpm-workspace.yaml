@@ -1,3 +1,8 @@
 packages:
   - 'apps/*'
   - 'packages/*'
+
+# pnpm 10 skips dependency install scripts unless listed. Skia's postinstall downloads its
+# prebuilt binaries, which the iOS podspec requires.
+onlyBuiltDependencies:
+  - '@shopify/react-native-skia'

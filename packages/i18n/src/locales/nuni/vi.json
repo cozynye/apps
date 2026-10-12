@@ -46,7 +46,9 @@
     "streakLabel_other": "Chuỗi {{count}} ngày",
     "firstCloud": "Đám mây đầu tiên của bạn sẽ ở đây",
     "todayLogged": "Hôm nay: {{mood}} · {{count}} thẻ",
-    "editEntry": "Sửa"
+    "editEntry": "Sửa",
+    "todayLogged_one": "Hôm nay: {{mood}} · {{count}} thẻ",
+    "todayLogged_other": "Hôm nay: {{mood}} · {{count}} thẻ"
   },
   "entry": {
     "title": "Hôm nay thế nào?",
@@ -106,7 +108,9 @@
     "yearTitle": "Một năm qua những đám mây",
     "tryPremium": "Dùng thử Premium miễn phí",
     "yearLocked": "Xem theo năm là tính năng Premium",
-    "share": "Chia sẻ tháng này"
+    "share": "Chia sẻ tháng này",
+    "emptyPeriod": "Chưa có ghi chép nào trong khoảng này",
+    "liftsEmpty": "Gắn thẻ cho vài ghi chép để xem điều gì giúp bạn vui hơn."
   },
   "share": {
     "title": "Thẻ chia sẻ",

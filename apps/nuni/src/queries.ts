@@ -103,3 +103,29 @@ export function useDayEntries(date: string): DayEntry[] {
     [rows, tagRows, photoRows],
   );
 }
+
+export interface PeriodData {
+  entries: { id: string; date: string; mood: Mood; createdAt: number }[];
+  entryTags: { entryId: string; tagId: string }[];
+}
+
+/** Entries in [from, to] with their tag links (A6 distribution and lifts). */
+export function usePeriodData(from: string, to: string): PeriodData {
+  const range = and(gte(entries.date, from), lte(entries.date, to));
+  const { data: rows } = useLiveQuery(
+    db.select({ id: entries.id, date: entries.date, mood: entries.mood, createdAt: entries.createdAt }).from(entries).where(range),
+    [from, to],
+  );
+  const { data: links } = useLiveQuery(
+    db
+      .select({ entryId: entryTags.entryId, tagId: entryTags.tagId })
+      .from(entryTags)
+      .innerJoin(entries, eq(entries.id, entryTags.entryId))
+      .where(range),
+    [from, to],
+  );
+  return useMemo(
+    () => ({ entries: rows.map((r) => ({ ...r, mood: r.mood as Mood })), entryTags: links }),
+    [rows, links],
+  );
+}

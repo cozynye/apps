@@ -1,5 +1,13 @@
 {
   "paywall": {
     "perk3": "Up to 10 photos, longer notes, medium widget"
+  },
+  "stats": {
+    "emptyPeriod": "No entries in this period yet",
+    "liftsEmpty": "Tag a few entries to see what lifts you."
+  },
+  "home": {
+    "todayLogged_one": "Today: {{mood}} · {{count}} tag",
+    "todayLogged_other": "Today: {{mood}} · {{count}} tags"
   }
 }

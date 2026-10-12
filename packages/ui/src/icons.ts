@@ -11,6 +11,7 @@ export const CaretLeftIcon: Icon = require('phosphor-react-native/src/icons/Care
 export const CaretRightIcon: Icon = require('phosphor-react-native/src/icons/CaretRight').CaretRightIcon;
 export const ChartBarIcon: Icon = require('phosphor-react-native/src/icons/ChartBar').ChartBarIcon;
 export const CloudIcon: Icon = require('phosphor-react-native/src/icons/Cloud').CloudIcon;
+export const ExportIcon: Icon = require('phosphor-react-native/src/icons/Export').ExportIcon;
 export const GearSixIcon: Icon = require('phosphor-react-native/src/icons/GearSix').GearSixIcon;
 export const LockSimpleIcon: Icon = require('phosphor-react-native/src/icons/LockSimple').LockSimpleIcon;
 export const PlusIcon: Icon = require('phosphor-react-native/src/icons/Plus').PlusIcon;

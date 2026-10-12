@@ -46,7 +46,9 @@
     "streakLabel_other": "ต่อเนื่อง {{count}} วัน",
     "firstCloud": "ก้อนเมฆแรกของคุณจะอยู่ตรงนี้",
     "todayLogged": "วันนี้: {{mood}} · {{count}} แท็ก",
-    "editEntry": "แก้ไข"
+    "editEntry": "แก้ไข",
+    "todayLogged_one": "วันนี้: {{mood}} · {{count}} แท็ก",
+    "todayLogged_other": "วันนี้: {{mood}} · {{count}} แท็ก"
   },
   "entry": {
     "title": "วันนี้เป็นยังไงบ้าง?",
@@ -106,7 +108,9 @@
     "yearTitle": "หนึ่งปีในก้อนเมฆ",
     "tryPremium": "ทดลอง Premium ฟรี",
     "yearLocked": "มุมมองรายปีเป็นส่วนหนึ่งของ Premium",
-    "share": "แชร์เดือนนี้"
+    "share": "แชร์เดือนนี้",
+    "emptyPeriod": "ยังไม่มีบันทึกในช่วงนี้",
+    "liftsEmpty": "ติดแท็กให้บันทึกสักสองสามรายการ เพื่อดูว่าอะไรช่วยให้อารมณ์ดีขึ้น"
   },
   "share": {
     "title": "การ์ดแชร์",

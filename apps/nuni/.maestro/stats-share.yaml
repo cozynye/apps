@@ -1,0 +1,87 @@
+# A6 stats (free): distribution, streaks, locked Year and lifts → A9; A7 share card preview and save.
+appId: app.nuni.mood
+---
+- runFlow: common/launch.yaml
+- extendedWaitUntil:
+    visible:
+      id: a2.skip
+    timeout: 20000
+- tapOn:
+    id: a2.skip
+- extendedWaitUntil:
+    visible:
+      id: a4.save
+    timeout: 10000
+- tapOn:
+    id: a4.mood.4
+- tapOn:
+    id: a4.tag.friends
+- tapOn:
+    id: a4.save
+- extendedWaitUntil:
+    visible:
+      id: a12.notNow
+    timeout: 10000
+- tapOn:
+    id: a12.notNow
+- tapOn:
+    id: tabs.stats
+- extendedWaitUntil:
+    visible:
+      id: a6.distribution
+    timeout: 10000
+- assertVisible: '1 day logged'
+- assertVisible:
+    id: a6.count.4
+    text: '1'
+- takeScreenshot: a6-free
+# Locked Year → paywall (source=year), Stats stays on Month.
+- tapOn:
+    id: a6.period.year
+- extendedWaitUntil:
+    visible:
+      id: a9.cta
+    timeout: 30000
+- tapOn:
+    id: a9.close
+- assertVisible:
+    id: a6.liftsLocked
+- tapOn:
+    id: a6.tryPremium
+- extendedWaitUntil:
+    visible:
+      id: a9.cta
+    timeout: 30000
+- tapOn:
+    id: a9.close
+# A7: preview with watermark hint, switch to the year card, save to Photos.
+- tapOn:
+    id: a6.share
+- extendedWaitUntil:
+    visible:
+      id: a7.preview
+    timeout: 10000
+- assertVisible:
+    id: a7.removeWatermark
+- takeScreenshot: a7-month
+- tapOn:
+    id: a7.period.year
+- takeScreenshot: a7-year
+- tapOn:
+    id: a7.save
+# First save asks for add-only Photos access (ko/en simulator locale); the toast lasts 2.5 s.
+- extendedWaitUntil:
+    visible: '허용|Allow|Saved'
+    timeout: 15000
+- runFlow:
+    when:
+      visible: '허용|Allow'
+    commands:
+      - tapOn: '허용|Allow'
+      - extendedWaitUntil:
+          visible: 'Saved'
+          timeout: 10000
+- tapOn:
+    id: a7.close
+- assertVisible:
+    id: a6.title

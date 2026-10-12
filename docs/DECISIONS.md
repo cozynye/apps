@@ -79,3 +79,7 @@
 - 2026-10-12 — 저장 후 흐름: 첫 기록 → A12 1회, 그 외 연속 3일 첫 도달 → 축하 시트 1회(`streak-celebrate`, PLAN 라우트 트리에 없어 추가). `streak_milestone`은 3/7/30에 도달한 저장에서 전송. 첫 기록과 3일 축하가 겹치면 A12 우선
 - 2026-10-12 — 구름 새김 애니메이션: 방금 저장한 날짜의 셀만(시트가 내려갈 시간 `duration-base` 뒤) spring 0.6→1, Reduce Motion이면 페이드. 공용 `useReduceMotion`(@nf/ui)
 - 2026-10-12 — 딥링크 `nuni://entry/today`는 `app/entry/today.tsx` → A3 위에 A4. 알림 응답 처리는 온보딩 뒤에만 마운트되는 탭 레이아웃에 둠
+- 2026-10-12 — A6: 분포·일 수는 날짜별 대표 기록 기준(캘린더와 같음). 기간은 이번 주(월요일 시작)·이번 달·올해, 이전 기간 이동 없음. 무료가 Year를 누르면 탭 전환 없이 A9(`year`). “What lifts your mood”는 기간 내 모든 기록에서 태그별 평균 감정, 2회 이상 쓰인 태그 상위 4개(`stats.ts` 유닛 테스트). 무료는 실제 데이터가 아닌 샘플 막대를 `expo-blur`로 가리고 A9(`lifts`)
+- 2026-10-12 — i18n 키 추가: `stats.emptyPeriod`, `stats.liftsEmpty`, `home.todayLogged_one/_other`(“1 tags” 복수형 수정) — en·vi·th
+- 2026-10-12 — A7: Skia `drawAsImage`로 1080×1920 PNG, 미리보기는 같은 요소를 축소해 그림. 앱 테마와 무관하게 라이트 팔레트. 월간 = 달력 + 분포, 연간 = 12개월 타일(달마다 최다 감정) + 분포. 무료는 우하단 “Nuni”(`app.name`) 워터마크 18%·70%·32px 여백, 안내 문구 → A9(`share`). 저장은 `expo-media-library` 쓰기 전용 권한(플러그인 `photosPermission: false`로 읽기 권한 문구 없음), 공유는 `expo-sharing` 시스템 시트(Instagram 전용 URL scheme은 쓰지 않음 — 시스템 시트에 포함). SDK 57에서 루트 `saveToLibraryAsync`가 런타임 오류를 던져 `expo-media-library/legacy`에서 가져옴
+- 2026-10-12 — pnpm 10이 의존성 install 스크립트를 막아 Skia 바이너리가 없었음 → `pnpm-workspace.yaml` `onlyBuiltDependencies`에 `@shopify/react-native-skia`
