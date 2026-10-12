@@ -89,3 +89,8 @@
 - 2026-10-12 — 패스코드: 4자리, `salt:SHA-256(salt:code)`를 SecureStore(`WHEN_UNLOCKED_THIS_DEVICE_ONLY`)에 저장(`expo-crypto`). 생체 인증은 등록돼 있으면 자동 시도, 기기 암호 폴백은 끔(앱 패스코드가 폴백). “Face ID”/“Touch ID”는 Apple 제품명이라 번역하지 않음. 잠금 끄기·패스코드 변경은 현재 패스코드 확인 필요
 - 2026-10-12 — i18n 키 추가: `settings.passcodeNoRecovery`(분실 시 복구 불가 안내, PLAN 예외 표) — en·vi·th. Face ID 문구는 `expo-local-authentication` 플러그인에도 같은 문구를 넘김
 - 2026-10-12 — Metro: `apps/nuni/metro.config.js`에서 `.claude/worktrees/`를 blockList — QA 에이전트 worktree(전체 체크아웃 + node_modules)가 파일 감시를 멈추게 했음
+- 2026-10-12 — iCloud 백업: 로컬 Expo Module(`apps/nuni/modules/icloud-backup`, Swift ~100줄) + `app.config.ts` 플러그인(iCloud Documents entitlement, 컨테이너 `iCloud.app.nuni.mood`, `NSUbiquitousContainerIsDocumentScopePublic: false` — 파일 앱에 안 보임). 새 백업은 `backup-staging`에 쓴 뒤 교체(실패 시 기존 백업 유지). 복원은 DB 연결 종료 → 파일 교체 → 앱 전체를 막는 재시작 안내(`RestartOverlay`), schemaVersion이 더 높으면 `error.updateRequired`
+- 2026-10-12 — 자동 백업: 프리미엄 + iCloud 사용 가능 시 포그라운드 진입 때 하루 1회(PLAN의 ‘iCloud에 로그인하면 자동 백업’ 문구 기준). 실패는 기록만, 수동 백업 실패는 토스트
+- 2026-10-12 — 내보내기: `export.json`(entries, tags, entryTags, photos 행) + `photos/` → `react-native-zip-archive`(PLAN 스택) → 공유 시트. 무료
+- 2026-10-12 — i18n 키 추가: `backup.signInHint`, `backup.done`, `backup.restoredRestart`, `backup.premiumHint` — en·vi·th
+- 2026-10-12 — `SettingsRow`의 보조 문구를 `accessibilityHint`로도 노출(VoiceOver가 안내를 읽도록)

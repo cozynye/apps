@@ -8,7 +8,9 @@ import * as SplashScreen from 'expo-splash-screen';
 
 import { initDatabase, useDbStatus } from '../src/db';
 import { cleanOrphanPhotos } from '../src/entries';
+import { useAutoBackup } from '../src/backup';
 import { LockOverlay } from '../src/components/LockOverlay';
+import { RestartOverlay } from '../src/components/RestartOverlay';
 import { useAppLockLifecycle } from '../src/lock';
 import { useReminderSync } from '../src/reminders';
 
@@ -69,6 +71,7 @@ function ReadyStack() {
   const { colors } = useTheme();
   useReminderSync();
   useAppLockLifecycle();
+  useAutoBackup();
   return (
     <>
       <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: colors.surface1 } }}>
@@ -83,6 +86,7 @@ function ReadyStack() {
         <Stack.Screen name="a13-legal/[doc]" options={{ presentation: 'modal' }} />
       </Stack>
       <LockOverlay />
+      <RestartOverlay />
     </>
   );
 }

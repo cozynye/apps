@@ -9,5 +9,11 @@
   "home": {
     "todayLogged_one": "Today: {{mood}} · {{count}} tag",
     "todayLogged_other": "Today: {{mood}} · {{count}} tags"
+  },
+  "backup": {
+    "signInHint": "Sign in to iCloud in Settings to back up automatically.",
+    "done": "Backed up",
+    "restoredRestart": "Restored. Close Nuni completely and open it again to see your entries.",
+    "premiumHint": "iCloud backup is part of Premium."
   }
 }

@@ -138,7 +138,11 @@
     "backupNow": "Back up now",
     "restore": "Restore from iCloud",
     "restoreConfirm": "This replaces the entries on this device with your iCloud backup.",
-    "never": "Never backed up"
+    "never": "Never backed up",
+    "signInHint": "Sign in to iCloud in Settings to back up automatically.",
+    "done": "Backed up",
+    "restoredRestart": "Restored. Close Nuni completely and open it again to see your entries.",
+    "premiumHint": "iCloud backup is part of Premium."
   },
   "widget": {
     "todayTitle": "Today",

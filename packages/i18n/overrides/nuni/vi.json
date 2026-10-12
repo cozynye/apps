@@ -9,5 +9,11 @@
   "home": {
     "todayLogged_one": "Hôm nay: {{mood}} · {{count}} thẻ",
     "todayLogged_other": "Hôm nay: {{mood}} · {{count}} thẻ"
+  },
+  "backup": {
+    "signInHint": "Đăng nhập iCloud trong Cài đặt để sao lưu tự động.",
+    "done": "Đã sao lưu",
+    "restoredRestart": "Đã khôi phục. Hãy đóng hẳn Nuni rồi mở lại để xem ghi chép.",
+    "premiumHint": "Sao lưu iCloud thuộc gói Premium."
   }
 }

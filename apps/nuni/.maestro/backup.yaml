@@ -1,0 +1,65 @@
+# settings/backup: local-only notice, free → paywall (source=backup), zip export to the share
+# sheet; after a Test Store purchase, the simulator (no iCloud account) shows the sign-in hint.
+appId: app.nuni.mood
+---
+- runFlow: common/launch.yaml
+- extendedWaitUntil:
+    visible:
+      id: a2.skip
+    timeout: 20000
+- tapOn:
+    id: a2.skip
+- extendedWaitUntil:
+    visible:
+      id: a4.mood.4
+    timeout: 10000
+- tapOn:
+    id: a4.mood.4
+- tapOn:
+    id: a4.save
+- extendedWaitUntil:
+    visible:
+      id: a12.notNow
+    timeout: 10000
+- tapOn:
+    id: a12.notNow
+- tapOn:
+    id: tabs.settings
+- tapOn:
+    id: a10.backup
+- assertVisible:
+    id: backup.localOnly
+- assertVisible:
+    id: backup.premium
+- takeScreenshot: backup-free
+
+# Export: the zip goes to the system share sheet.
+- tapOn:
+    id: backup.export
+- extendedWaitUntil:
+    visible: '.*nuni-export.*|.*zip.*|AirDrop|Save to Files|파일에 저장'
+    timeout: 20000
+- takeScreenshot: export-sheet
+- swipe:
+    start: 50%, 40%
+    end: 50%, 95%
+- extendedWaitUntil:
+    visible:
+      id: backup.export
+    timeout: 10000
+
+# Premium (Test Store) → iCloud section; no iCloud account on the simulator → sign-in hint.
+- tapOn:
+    id: backup.premium
+- extendedWaitUntil:
+    visible:
+      id: a9.cta
+    timeout: 30000
+- tapOn:
+    id: a9.cta
+- tapOn: Test valid purchase
+- extendedWaitUntil:
+    visible:
+      id: backup.signIn
+    timeout: 20000
+- takeScreenshot: backup-premium-no-icloud

@@ -9,5 +9,11 @@
   "home": {
     "todayLogged_one": "วันนี้: {{mood}} · {{count}} แท็ก",
     "todayLogged_other": "วันนี้: {{mood}} · {{count}} แท็ก"
+  },
+  "backup": {
+    "signInHint": "ลงชื่อเข้าใช้ iCloud ในการตั้งค่าเพื่อสำรองข้อมูลอัตโนมัติ",
+    "done": "สำรองข้อมูลแล้ว",
+    "restoredRestart": "กู้คืนแล้ว ปิด Nuni ให้สนิทแล้วเปิดใหม่เพื่อดูบันทึก",
+    "premiumHint": "การสำรองข้อมูลบน iCloud เป็นส่วนหนึ่งของ Premium"
   }
 }

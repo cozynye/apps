@@ -91,6 +91,8 @@ S2 Nuni 개발 — 진행 중 (S1 완료 2026-10-12)
 
 ## 막힌 것 / Cozy에게 필요한 것
 
+- (iCloud 백업 실기기 검증·위젯 전) Apple Developer → Identifiers: ① iCloud Containers에 `iCloud.app.nuni.mood` 생성 ② App Groups에 `group.app.nuni.mood` 생성 ③ App ID `app.nuni.mood`에 iCloud(CloudKit 아님, iCloud Documents) + 위 컨테이너, App Groups + 위 그룹 체크 ④ Team ID 전달(app.json `appleTeamId`, 비밀값 아님)
+
 - 2026-10-12 P15: 번들 ID 2개 등록, App Store Connect 앱 생성 완료(“Nuni - Mood Diary”, “Fourpop - Photo Booth”, 스크린샷 확인), 유료 앱 계약은 Cozy 보고. RELEASE_CHECKLIST B1은 계약 ‘Active’·세금·은행 확인 후 체크
 - 2026-10-12 P16(Nuni): 구독 그룹 `Nuni Premium`에 `mood_premium_monthly`(1개월), `mood_premium_yearly`(1년) 생성(스크린샷 확인). **연간 7일 무료체험(Introductory Offer)은 아직 미설정** — 출시 전 설정 필요(PLAN 가격표). 미설정 동안 페이월은 체험 없는 문구(`subscribe`/`noTrial`)로 표시됨
 - (출시 전) P17: RevenueCat에 App Store 앱 연결(.p8) → `appl_` 키. 실제 StoreKit 검증은 TestFlight로(Sandbox 테스터는 필요 시 — Cozy 2026-10-12)

@@ -27,23 +27,48 @@ const withoutPushEntitlement: ConfigPlugin = (config) =>
     return c;
   });
 
+/**
+ * iCloud Drive backup (PLAN 기술 스택 › 백업): ubiquity container `iCloud.app.nuni.mood`, hidden from the
+ * Files app. Device builds need the iCloud capability + this container on the App ID.
+ */
+const ICLOUD_CONTAINER = 'iCloud.app.nuni.mood';
+const withICloudDocuments: ConfigPlugin = (config) =>
+  withEntitlementsPlist(config, (c) => {
+    c.modResults['com.apple.developer.icloud-container-identifiers'] = [ICLOUD_CONTAINER];
+    c.modResults['com.apple.developer.ubiquity-container-identifiers'] = [ICLOUD_CONTAINER];
+    c.modResults['com.apple.developer.icloud-services'] = ['CloudDocuments'];
+    return c;
+  });
+
 /** app.json + permission strings (base en in Info.plist, vi/th/en via InfoPlist.strings) + splash. */
 export default ({ config }: ConfigContext): ExpoConfig =>
-  withoutPushEntitlement({
-    ...(config as ExpoConfig),
-    ios: {
-      ...config.ios,
-      infoPlist: { ...config.ios?.infoPlist, ...en },
-    },
-    locales: {
-      en: `${PERMISSIONS}/en.json`,
-      vi: `${PERMISSIONS}/vi.json`,
-      th: `${PERMISSIONS}/th.json`,
-    },
-    plugins: [
-      ...(config.plugins ?? []),
-      ['expo-splash-screen', splash],
-      // Same Face ID string as Info.plist so the plugin's default text never replaces it (DECISIONS 2026-10-08).
-      ['expo-local-authentication', { faceIDPermission: en.NSFaceIDUsageDescription }],
-    ],
-  } as ExpoConfig);
+  withICloudDocuments(
+    withoutPushEntitlement({
+      ...(config as ExpoConfig),
+      ios: {
+        ...config.ios,
+        infoPlist: {
+          ...config.ios?.infoPlist,
+          ...en,
+          NSUbiquitousContainers: {
+            [ICLOUD_CONTAINER]: {
+              NSUbiquitousContainerIsDocumentScopePublic: false,
+              NSUbiquitousContainerName: 'Nuni',
+              NSUbiquitousContainerSupportedFolderLevels: 'None',
+            },
+          },
+        },
+      },
+      locales: {
+        en: `${PERMISSIONS}/en.json`,
+        vi: `${PERMISSIONS}/vi.json`,
+        th: `${PERMISSIONS}/th.json`,
+      },
+      plugins: [
+        ...(config.plugins ?? []),
+        ['expo-splash-screen', splash],
+        // Same Face ID string as Info.plist so the plugin's default text never replaces it (DECISIONS 2026-10-08).
+        ['expo-local-authentication', { faceIDPermission: en.NSFaceIDUsageDescription }],
+      ],
+    } as ExpoConfig),
+  );

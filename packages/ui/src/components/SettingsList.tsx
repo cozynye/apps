@@ -76,6 +76,7 @@ export function SettingsRow({ label, hint, value, accessory, destructive, onPres
     <PressableSurface
       testID={testID}
       accessibilityLabel={[label, value].filter(Boolean).join(', ')}
+      accessibilityHint={hint}
       onPress={onPress}
       style={styles.row}
     >

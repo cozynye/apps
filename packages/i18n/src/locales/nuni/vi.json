@@ -138,7 +138,11 @@
     "backupNow": "Sao lưu ngay",
     "restore": "Khôi phục từ iCloud",
     "restoreConfirm": "Thao tác này thay thế các ghi chép trên thiết bị bằng bản sao lưu iCloud.",
-    "never": "Chưa sao lưu lần nào"
+    "never": "Chưa sao lưu lần nào",
+    "signInHint": "Đăng nhập iCloud trong Cài đặt để sao lưu tự động.",
+    "done": "Đã sao lưu",
+    "restoredRestart": "Đã khôi phục. Hãy đóng hẳn Nuni rồi mở lại để xem ghi chép.",
+    "premiumHint": "Sao lưu iCloud thuộc gói Premium."
   },
   "widget": {
     "todayTitle": "Hôm nay",
