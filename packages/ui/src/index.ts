@@ -22,6 +22,5 @@ export { StoryScreen } from './stories/StoryScreen';
 export { AppProviders } from './AppProviders';
 export { useIsOffline } from './network';
 export { MarkdownDocument } from './components/MarkdownDocument';
-export * from './components/TabBar';
 export { useReduceMotion } from './motion';
 export * from './components/SettingsList';

@@ -59,7 +59,11 @@ export default function StatsScreen() {
 
   return (
     <Screen edges={['top']}>
-      <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        contentContainerStyle={styles.content}
+        contentInsetAdjustmentBehavior="automatic"
+        showsVerticalScrollIndicator={false}
+      >
         <View style={styles.header}>
           <Text variant="displayLg" testID="a6.title" style={styles.title}>
             {t('stats.title')}

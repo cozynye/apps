@@ -122,3 +122,4 @@
   - 문구: `settings.localOnlyNotice` ‘this iPhone’ → ‘this device’(en·vi·th), `home.todayLogged_zero` 추가(‘Today: Good’), iPad 빈 날 제목도 today/yesterday 사용, 문의 이메일은 보조 줄로(큰 글씨에서 라벨이 단어 중간에 끊기지 않게), A12 하단 안전 영역 여백, 온보딩은 글자 크기 변경 시 페이지 다시 그림
   - Metro blockList: Metro가 worktree 안에서 실행될 때는 worktree 패턴을 막지 않음(QA worktree에서 모든 모듈 해석 실패하던 문제)
   - 미반영(PLAN에 없음, 질문으로 남김): 패스코드 재시도 제한, Touch ID 기기의 ‘Face ID’ 문구
+- 2026-10-13 — (Cozy 결정) 탭 바를 네이티브(`expo-router/unstable-native-tabs`, UITabBarController)로 교체 — iOS 26 리퀴드 글래스, 시스템 접근성. 공용 `TabBar` 컴포넌트 삭제(Fourpop도 네이티브 탭 예정). 이로써 PLAN ‘iPad 대응 › 탭 바: 744pt 이상에서도 하단 탭 바 유지’와 DESIGN_SYSTEM ‘탭 바’ 규격(surface-0·상단 line)은 대체됨: iPad는 iOS 표준대로 상단 탭, 활성 색 `nuni-deep`(tintColor), 아이콘은 SF Symbols(calendar, chart.bar, gearshape), 라벨은 시스템 폰트. 탭 콘텐츠는 `contentInsetAdjustmentBehavior="automatic"`, FAB은 하단 안전 영역(탭 바 포함) 위. 앞서 끈 JS 탭 크로스페이드 결정은 해당 없음(네이티브 전환), 회귀 플로우 `tab-after-modals`는 유지

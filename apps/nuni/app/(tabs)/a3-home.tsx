@@ -20,6 +20,7 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { useAppState } from '../../src/app-state';
 import { DayEntries } from '../../src/components/DayEntries';
@@ -39,6 +40,7 @@ export default function HomeScreen() {
   const { t, i18n } = useTranslation();
   const { colors, accent, shadowFloat } = useTheme();
   const today = useToday();
+  const insets = useSafeAreaInsets();
   const installDate = useAppState((s) => s.installDate);
   const [month, setMonth] = useState(() => startOfMonth(new Date()));
   // Crossing into a new month while the current month is shown: move along with "today".
@@ -75,7 +77,12 @@ export default function HomeScreen() {
   return (
     <Screen edges={['top']} maxWidth={isWide ? width : layout.layoutMaxContent}>
       <View style={styles.columns}>
-        <ScrollView style={styles.main} contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
+        <ScrollView
+          style={styles.main}
+          contentContainerStyle={styles.content}
+          contentInsetAdjustmentBehavior="automatic"
+          showsVerticalScrollIndicator={false}
+        >
           <View style={styles.header}>
             <IconButton
               testID="a3.prevMonth"
@@ -166,7 +173,11 @@ export default function HomeScreen() {
           </PressableSurface>
         </ScrollView>
         {isWide && (
-          <ScrollView style={styles.side} contentContainerStyle={styles.content}>
+          <ScrollView
+            style={styles.side}
+            contentContainerStyle={styles.content}
+            contentInsetAdjustmentBehavior="automatic"
+          >
             <DayEntries date={selectedDay} screenId="a3" />
           </ScrollView>
         )}
@@ -179,6 +190,8 @@ export default function HomeScreen() {
         onPress={() => openNew(today, 'fab')}
         style={({ pressed }) => [
           styles.fab,
+          // Above the floating native tab bar (part of the bottom safe area).
+          { bottom: insets.bottom + space[4] },
           shadowFloat,
           { backgroundColor: accent.primary, opacity: pressed ? 0.85 : 1 },
         ]}
@@ -218,7 +231,6 @@ const styles = StyleSheet.create({
   fab: {
     position: 'absolute',
     right: space[4],
-    bottom: space[4],
     width: FAB,
     height: FAB,
     borderRadius: FAB / 2,

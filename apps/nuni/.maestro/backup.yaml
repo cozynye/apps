@@ -41,21 +41,9 @@ appId: app.nuni.mood
     visible: '.*nuni-export.*|.*zip.*|AirDrop|Save to Files|파일에 저장|Copy|복사|dismiss popup'
     timeout: 20000
 - takeScreenshot: export-sheet
-# iPhone: a sheet (swipe down). iPad: a popover anchored to the button (tap outside it).
-- runFlow:
-    when:
-      notVisible: 'dismiss popup'
-    commands:
-      - swipe:
-          start: 50%, 40%
-          end: 50%, 95%
-- runFlow:
-    when:
-      visible: 'dismiss popup'
-    commands:
-      # Outside the popover (the region's centre is the popover itself).
-      - tapOn:
-          point: 50%, 90%
+# iPhone sheet / iPad popover (anchored mid-screen): tap outside it, near the top.
+- tapOn:
+    point: 50%, 8%
 - extendedWaitUntil:
     visible:
       id: backup.export

@@ -101,7 +101,11 @@ export default function SettingsScreen() {
 
   return (
     <Screen edges={['top']}>
-      <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        contentContainerStyle={styles.content}
+        contentInsetAdjustmentBehavior="automatic"
+        showsVerticalScrollIndicator={false}
+      >
         <Text variant="displayLg" testID="a10.title">
           {t('settings.title')}
         </Text>
