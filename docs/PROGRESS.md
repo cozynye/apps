@@ -101,12 +101,12 @@ S2 Nuni 개발 — 진행 중 (S1 완료 2026-10-12)
 
 - Cozy iPhone 12 Pro(iOS 26.6.2)에 개발 빌드 설치·실행, Cozy 보고 ‘잘된다’
 - Metro 로그로 확인: 온보딩, 기록 저장, 사진 포함 기록 저장, Test Store 결제 성공, 오류 없음
+- Cozy 확인(2026-10-13 ‘전부 다 되더라’): iCloud 백업→복원→재실행, 위젯 오늘 구름, Face ID·패스코드 폴백, 알림 빠른 액션, 공유 카드 사진 저장, 비행기 모드
 - 첫 실기기 빌드: `expo run:ios`가 `-allowProvisioningUpdates`를 넘기지 않아 와일드카드 프로파일로 실패 → `xcodebuild -allowProvisioningUpdates`로 앱·위젯 프로파일 생성 후 `xcrun devicectl`로 설치
 
 ## 다음 할 일
 
-1. 실기기 확인 대기(로그 흔적 없음): iCloud 백업→복원→재실행, 위젯 오늘 구름, Face ID, 알림 빠른 액션, 공유 카드 저장, 오프라인
-2. S2 완료 기준 중 남은 것: 콜드 스타트 2초(iPhone 12 Release 빌드, Instruments), VoiceOver 실기기 완주, Firebase DebugView·Crashlytics(P18 필요)
+1. S2 완료 기준 중 남은 것: 콜드 스타트 2초(iPhone 12 Release 빌드, Instruments), VoiceOver 실기기 완주, Firebase DebugView·Crashlytics(P18 필요)
 3. P18 plist 수령 시 Firebase transport 연결 + 설정 Privacy의 Copy ID 행
 
 ## 막힌 것 / Cozy에게 필요한 것
