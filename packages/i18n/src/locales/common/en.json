@@ -59,7 +59,7 @@
     "perMonthEquivalent": "{{price}} / mo",
     "trialThen": "{{days}} days free, then {{price}} / {{period}}",
     "afterTrial": "After the trial, {{price}} / {{period}}. Cancel anytime.",
-    "savePercent": "SAVE {{percent}}%",
+    "savePercent": "Save {{percent}}%",
     "startTrial": "Start {{days}}-day free trial",
     "subscribe": "Subscribe",
     "buy": "Buy for {{price}}",

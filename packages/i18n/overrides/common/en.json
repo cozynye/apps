@@ -1,7 +1,8 @@
 {
   "paywall": {
     "periodYear": "year",
-    "periodMonth": "month"
+    "periodMonth": "month",
+    "savePercent": "Save {{percent}}%"
   },
   "legal": {
     "englishOnly": "Available in English only."

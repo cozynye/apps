@@ -81,6 +81,7 @@ appId: app.nuni.mood
 - scrollUntilVisible:
     element:
       id: a10.terms
+    centerElement: true
 - tapOn:
     id: a10.terms
 - extendedWaitUntil:
@@ -93,6 +94,7 @@ appId: app.nuni.mood
 - scrollUntilVisible:
     element:
       id: a10.delete
+    centerElement: true
 - tapOn:
     id: a10.delete
 - assertVisible: 'This removes everything on this device and cannot be undone.'

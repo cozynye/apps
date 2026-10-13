@@ -1,5 +1,17 @@
 import { formatWeekdayDayMonth, fromLocalDateString, intlLocale, isLanguage, type Language } from '@nf/i18n';
-import { Button, IconButton, Mascot, PressableSurface, radius, space, Text, useTheme, useToast, XIcon } from '@nf/ui';
+import {
+  Button,
+  CameraIcon,
+  IconButton,
+  Mascot,
+  PressableSurface,
+  radius,
+  space,
+  Text,
+  useTheme,
+  useToast,
+  XIcon,
+} from '@nf/ui';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -40,15 +52,33 @@ export function DayEntries({ date, screenId, onClose }: DayEntriesProps) {
           />
         )}
       </View>
-      {entries.map((entry) => (
-        <EntryRow key={entry.id} entry={entry} language={language} screenId={screenId} />
-      ))}
-      <Button
-        testID={`${screenId}.addAnother`}
-        variant="secondary"
-        label={t('entry.addAnother')}
-        onPress={() => router.push({ pathname: '/a4-entry', params: { date, source: 'calendar' } })}
-      />
+      {entries.length === 0 ? (
+        // Wide iPad column on a day without entries: an empty state instead of "Add another entry".
+        <View style={styles.empty} testID={`${screenId}.dayEmpty`}>
+          <Mascot mood={3} size={96} />
+          <Text variant="body" color="inkMuted" align="center">
+            {t('entry.titleFor', { day: formatWeekdayDayMonth(language, fromLocalDateString(date)) })}
+          </Text>
+          <Button
+            testID={`${screenId}.newEntry`}
+            variant="secondary"
+            label={t('a11y.newEntry')}
+            onPress={() => router.push({ pathname: '/a4-entry', params: { date, source: 'calendar' } })}
+          />
+        </View>
+      ) : (
+        <>
+          {entries.map((entry) => (
+            <EntryRow key={entry.id} entry={entry} language={language} screenId={screenId} />
+          ))}
+          <Button
+            testID={`${screenId}.addAnother`}
+            variant="secondary"
+            label={t('entry.addAnother')}
+            onPress={() => router.push({ pathname: '/a4-entry', params: { date, source: 'calendar' } })}
+          />
+        </>
+      )}
     </View>
   );
 }
@@ -108,6 +138,14 @@ function EntryRow({ entry, language, screenId }: { entry: DayEntry; language: La
               </Text>
             )}
             {entry.note && <Text variant="body">{entry.note}</Text>}
+            {entry.photoCount > 0 && (
+              <View style={styles.photoHint} testID={`${screenId}.photos.${entry.id}`}>
+                <CameraIcon size={16} color={colors.inkMuted} />
+                <Text variant="caption" color="inkMuted">
+                  {entry.photoCount}
+                </Text>
+              </View>
+            )}
           </View>
         </PressableSurface>
         <PressableSurface
@@ -127,6 +165,7 @@ function EntryRow({ entry, language, screenId }: { entry: DayEntry; language: La
 
 const styles = StyleSheet.create({
   content: { gap: space[3] },
+  empty: { alignItems: 'center', gap: space[4], paddingVertical: space[8] },
   header: { flexDirection: 'row', alignItems: 'center' },
   title: { flex: 1 },
   row: {
@@ -137,6 +176,7 @@ const styles = StyleSheet.create({
     borderRadius: radius.md,
   },
   rowText: { flex: 1, gap: space[1] },
+  photoHint: { flexDirection: 'row', alignItems: 'center', gap: space[1] },
   delete: {
     width: DELETE_WIDTH - space[2],
     marginLeft: space[2],

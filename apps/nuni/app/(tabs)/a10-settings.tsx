@@ -49,7 +49,7 @@ export default function SettingsScreen() {
   const [restoring, setRestoring] = useState(false);
 
   const switchColors = {
-    trackColor: { true: accent.primary, false: colors.surface2 },
+    trackColor: { true: accent.deep, false: colors.surface2 },
     ios_backgroundColor: colors.surface2,
   };
 

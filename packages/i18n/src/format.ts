@@ -29,14 +29,17 @@ function format(language: Language, date: Date, options: Intl.DateTimeFormatOpti
   );
 }
 
-/** Calendar header, e.g. "October 2026". */
+/** Vietnamese month names come lowercase ("tháng 10"); headings start with a capital letter. */
+const capitalize = (s: string) => s.charAt(0).toLocaleUpperCase() + s.slice(1);
+
+/** Calendar header, e.g. "October 2026" / "Tháng 10 năm 2026". */
 export function formatMonthYear(language: Language, date: Date): string {
-  return format(language, date, { month: 'long', year: 'numeric' });
+  return capitalize(format(language, date, { month: 'long', year: 'numeric' }));
 }
 
-/** Month name only, e.g. "October". */
+/** Month name only, e.g. "October" / "Tháng 10". */
 export function formatMonth(language: Language, date: Date): string {
-  return format(language, date, { month: 'long' });
+  return capitalize(format(language, date, { month: 'long' }));
 }
 
 /** Entry sheet date line, e.g. "Tue, Oct 20". */

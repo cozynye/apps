@@ -23,9 +23,19 @@ import {
 import * as Haptics from 'expo-haptics';
 import * as ImagePicker from 'expo-image-picker';
 import { router, useLocalSearchParams, useNavigation } from 'expo-router';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Alert, Image, Pressable, ScrollView, StyleSheet, TextInput, View } from 'react-native';
+import {
+  ActivityIndicator,
+  Alert,
+  Image,
+  Keyboard,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  TextInput,
+  View,
+} from 'react-native';
 
 import { afterNewEntry, currentStreak } from '../src/after-save';
 import { useAppState } from '../src/app-state';
@@ -74,6 +84,7 @@ export default function EntryScreen() {
   const [note, setNote] = useState('');
   const [tagIds, setTagIds] = useState<string[]>([]);
   const [photos, setPhotos] = useState<DraftPhoto[]>([]);
+  const [preparing, setPreparing] = useState(0);
   const [showAllTags, setShowAllTags] = useState(false);
   const [pickingDate, setPickingDate] = useState(false);
   const [dirty, setDirty] = useState(false);
@@ -93,6 +104,22 @@ export default function EntryScreen() {
       setExisting({ noteLength: entry.note.length, photoCount: entry.photos.length });
     });
   }, [params.id]);
+
+  // While typing the note, keep the field and Save above the keyboard (DECISIONS: sheet insets).
+  const scroll = useRef<ScrollView>(null);
+  const noteFocused = useRef(false);
+  const [keyboardHeight, setKeyboardHeight] = useState(0);
+  useEffect(() => {
+    const show = Keyboard.addListener('keyboardDidShow', (e) => {
+      setKeyboardHeight(e.endCoordinates.height);
+      if (noteFocused.current) requestAnimationFrame(() => scroll.current?.scrollToEnd({ animated: true }));
+    });
+    const hide = Keyboard.addListener('keyboardWillHide', () => setKeyboardHeight(0));
+    return () => {
+      show.remove();
+      hide.remove();
+    };
+  }, []);
 
   // Swipe-down would drop unsaved changes; require the close button (with confirm) instead.
   useEffect(() => {
@@ -152,7 +179,7 @@ export default function EntryScreen() {
   }
 
   async function addPhoto() {
-    if (photos.length >= photoLimit) {
+    if (photos.length + preparing >= photoLimit) {
       if (!premium) router.push({ pathname: '/a9-paywall', params: { source: 'photo' } });
       return;
     }
@@ -160,11 +187,16 @@ export default function EntryScreen() {
     const result = await ImagePicker.launchImageLibraryAsync({ mediaTypes: ['images'], quality: 1 });
     const asset = result.assets?.[0];
     if (result.canceled || !asset) return;
+    // Resizing can take seconds; show a placeholder and hold Save so the photo is never dropped.
+    setPreparing((n) => n + 1);
     try {
       const prepared = await preparePhoto(asset.uri, asset.width, asset.height);
-      change(setPhotos)([...photos, prepared]);
+      setPhotos((current) => [...current, prepared]);
+      setDirty(true);
     } catch {
       toast(t('error.generic'), 'error');
+    } finally {
+      setPreparing((n) => n - 1);
     }
   }
 
@@ -177,7 +209,7 @@ export default function EntryScreen() {
   }
 
   async function save() {
-    if (!mood || saving) return;
+    if (!mood || saving || preparing > 0) return;
     if (readOnly) return toast(t('error.generic'), 'error');
     setSaving(true);
     try {
@@ -186,7 +218,12 @@ export default function EntryScreen() {
       void Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
       if (!params.id) {
         const source = SOURCES.find((s) => s === params.source) ?? 'fab';
-        track('entry_create', { tag_count: tagIds.length, has_photo: photos.length > 0, has_note: note.trim().length > 0, source });
+        track('entry_create', {
+          tag_count: tagIds.length,
+          has_photo: photos.length > 0,
+          has_note: note.trim().length > 0,
+          source,
+        });
       }
       router.back();
       if (!params.id) void afterNewEntry(streakBefore);
@@ -198,14 +235,14 @@ export default function EntryScreen() {
     }
   }
 
-  const visibleTags =
-    showAllTags ? tags : tags.filter((tag, i) => i < VISIBLE_TAGS || tagIds.includes(tag.id));
+  const visibleTags = showAllTags ? tags : tags.filter((tag, i) => i < VISIBLE_TAGS || tagIds.includes(tag.id));
 
   return (
     <ScrollView
+      ref={scroll}
       style={{ backgroundColor: colors.surface0 }}
-      contentContainerStyle={styles.content}
-      automaticallyAdjustKeyboardInsets
+      // Inside a form sheet iOS does not inset for the keyboard, so pad by its height ourselves.
+      contentContainerStyle={[styles.content, { paddingBottom: space[8] + keyboardHeight }]}
       keyboardDismissMode="interactive"
       keyboardShouldPersistTaps="handled"
     >
@@ -273,7 +310,12 @@ export default function EntryScreen() {
           {t('entry.whatDidYouDo')}
         </Text>
         {!showAllTags && tags.length > VISIBLE_TAGS && (
-          <Pressable testID="a4.showAllTags" accessibilityRole="button" onPress={() => setShowAllTags(true)} hitSlop={space[3]}>
+          <Pressable
+            testID="a4.showAllTags"
+            accessibilityRole="button"
+            onPress={() => setShowAllTags(true)}
+            hitSlop={space[3]}
+          >
             <Text variant="bodySm" style={{ color: accent.deep }}>
               {t('entry.showAllTags')}
             </Text>
@@ -306,6 +348,12 @@ export default function EntryScreen() {
       <View style={styles.noteRow}>
         <TextInput
           testID="a4.note"
+          onFocus={() => {
+            noteFocused.current = true;
+          }}
+          onBlur={() => {
+            noteFocused.current = false;
+          }}
           value={note}
           onChangeText={onChangeNote}
           placeholder={t('entry.notePlaceholder', { max: noteLimit })}
@@ -328,7 +376,7 @@ export default function EntryScreen() {
           renderIcon={(c) => <CameraIcon size={24} color={c} />}
         />
       </View>
-      {photos.length > 0 && (
+      {photos.length + preparing > 0 && (
         <ScrollView horizontal contentContainerStyle={styles.photos} showsHorizontalScrollIndicator={false}>
           {photos.map((photo, i) => (
             <View key={photo.kind === 'saved' ? photo.id : photo.cacheUri}>
@@ -348,6 +396,15 @@ export default function EntryScreen() {
               </Pressable>
             </View>
           ))}
+          {Array.from({ length: preparing }, (_, i) => (
+            <View
+              key={`preparing-${i}`}
+              testID="a4.photoPreparing"
+              style={[styles.photo, styles.preparing, { backgroundColor: colors.surface2 }]}
+            >
+              <ActivityIndicator color={colors.inkMuted} />
+            </View>
+          ))}
         </ScrollView>
       )}
 
@@ -356,7 +413,13 @@ export default function EntryScreen() {
           {t('entry.pickMood')}
         </Text>
       )}
-      <Button testID="a4.save" label={t('action.save')} disabled={!mood} loading={saving} onPress={() => void save()} />
+      <Button
+        testID="a4.save"
+        label={t('action.save')}
+        disabled={!mood || preparing > 0}
+        loading={saving || preparing > 0}
+        onPress={() => void save()}
+      />
     </ScrollView>
   );
 }
@@ -366,7 +429,9 @@ function DatePicker({ selected, today, onPick }: { selected: string; today: stri
   const { t, i18n } = useTranslation();
   const installDate = useAppState((s) => s.installDate);
   const [month, setMonth] = useState(() => startOfMonth(fromLocalDateString(selected)));
-  const days = monthGrid(month).flat().filter((d): d is string => d !== null);
+  const days = monthGrid(month)
+    .flat()
+    .filter((d): d is string => d !== null);
   const moods = useCalendarMoods(days[0]!, days.at(-1)!);
   const language = isLanguage(i18n.language) ? i18n.language : 'en';
   return (
@@ -423,6 +488,7 @@ const styles = StyleSheet.create({
   },
   photos: { gap: space[2] },
   photo: { width: PHOTO, height: PHOTO, borderRadius: radius.sm },
+  preparing: { alignItems: 'center', justifyContent: 'center' },
   removePhoto: {
     position: 'absolute',
     top: space[1],

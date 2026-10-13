@@ -98,3 +98,15 @@
 - 2026-10-12 — 앱 → 위젯: 로컬 Expo Module `widget-bridge`(App Group `group.app.nuni.mood`에 `widget.json` 쓰기 + `reloadAllTimelines`). 기록 변경·언어·잠금 토글·프리미엄 변경·포그라운드 때 갱신, 타임라인은 지금 + 다음 자정
 - 2026-10-12 — A9 헤드라인: `source`별 키 `nuni.paywall.headline.{year,lifts,backup,widget,tag,photo,note,share}` 추가(en·vi·th 초안), `settings`는 `paywall.title`. 잠긴 medium 위젯을 누르면 `nuni://premium/widget` → A3 위에 A9(`widget`)
 - 2026-10-12 — (Cozy 제공) Apple Team ID `TC547C863K`를 app.json `ios.appleTeamId`에 — 비밀값 아님, 실기기·EAS 서명용
+- 2026-10-12 — 사용성 개선(QA 에이전트 + vi 사용자 여정 테스트 반영):
+  - A4 시트 안에서는 iOS가 키보드만큼 여백을 주지 않아 메모 입력창·저장 버튼이 가려졌음 → 키보드 높이만큼 아래 여백 + 메모 포커스 시 맨 아래로 스크롤
+  - 사진 리사이즈(수 초) 동안 자리표시 타일 + 저장 비활성 — 처리 중 저장하면 사진이 빠지던 문제
+  - `Screen`(스크롤 없음)의 콘텐츠를 `flex: 1`로 — A3·A6 내부 ScrollView가 큰 글씨에서 스크롤되지 않던 문제
+  - 온보딩 분석 토글을 고정 하단이 아니라 3번째 장 스크롤 안으로 — AX1에서 본문이 가려지던 문제
+  - A12·설정 시간 선택은 앱 언어·테마로 표시(vi·th는 24시간, th는 서기)
+  - vi 월 제목 첫 글자 대문자(`formatMonthYear`/`formatMonth`), A6 주 라벨은 `dd/MM – dd/MM`(날짜 중간 줄바꿈 방지), A3 월 제목은 한 줄 유지(글자 축소)
+  - 주 색은 화면당 한 곳(원칙 1): 오늘 카드 구름 아이콘 `ink-muted`, A6 빈 기간 버튼 Secondary, 스위치 켜짐 색은 `nuni-deep`
+  - iPad 2단의 빈 날: 마스코트 + `entry.titleFor` + ‘New entry’(빈 상태)
+  - A7: 미리보기 `line` 테두리, iPad에서 시트 높이 기준 크기, 카드에 기간 최다 감정 마스코트(PLAN A7)
+  - A5 행에 사진 수 표시, 커스텀 태그 이름 최대 20자, 자정에 이번 달을 보고 있었다면 새 달로 이동
+  - 문구: `paywall.savePercent` 대문자 → 문장형(en·vi), vi 워터마크 안내의 영어 ‘watermark’ → ‘hình mờ’

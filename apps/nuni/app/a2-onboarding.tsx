@@ -13,7 +13,15 @@ import {
 import { router } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Pressable, ScrollView, StyleSheet, Switch, View, type NativeScrollEvent, type NativeSyntheticEvent } from 'react-native';
+import {
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Switch,
+  View,
+  type NativeScrollEvent,
+  type NativeSyntheticEvent,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { useAppState } from '../src/app-state';
@@ -100,29 +108,30 @@ export default function OnboardingScreen() {
                 {t(`onboarding.${n}.body`)}
               </Text>
             </View>
+            {/* In the page (not the fixed footer) so large text can scroll instead of hiding the body. */}
+            {n === PAGES.length && (
+              <View style={styles.analytics}>
+                <View style={styles.analyticsText}>
+                  <Text variant="bodyStrong">{t('settings.analytics')}</Text>
+                  <Text variant="bodySm" color="inkMuted">
+                    {t('settings.analyticsHint')}
+                  </Text>
+                </View>
+                <Switch
+                  testID="a2.analytics"
+                  accessibilityLabel={t('settings.analytics')}
+                  value={analyticsEnabled}
+                  onValueChange={setAnalyticsEnabled}
+                  trackColor={{ true: accent.deep, false: colors.surface2 }}
+                  ios_backgroundColor={colors.surface2}
+                />
+              </View>
+            )}
           </ScrollView>
         ))}
       </ScrollView>
 
       <View style={[styles.bottom, isTablet && styles.bottomTablet]}>
-        {last && (
-          <View style={styles.analytics}>
-            <View style={styles.analyticsText}>
-              <Text variant="bodyStrong">{t('settings.analytics')}</Text>
-              <Text variant="bodySm" color="inkMuted">
-                {t('settings.analyticsHint')}
-              </Text>
-            </View>
-            <Switch
-              testID="a2.analytics"
-              accessibilityLabel={t('settings.analytics')}
-              value={analyticsEnabled}
-              onValueChange={setAnalyticsEnabled}
-              trackColor={{ true: accent.primary, false: colors.surface2 }}
-              ios_backgroundColor={colors.surface2}
-            />
-          </View>
-        )}
         <View style={styles.dots} importantForAccessibility="no-hide-descendants" accessibilityElementsHidden>
           {PAGES.map((n, i) => (
             <View key={n} style={[styles.dot, { backgroundColor: i === page ? accent.primary : colors.line }]} />
@@ -154,7 +163,7 @@ const styles = StyleSheet.create({
   copy: { marginTop: space[8], gap: space[2], maxWidth: TEXT_MAX_WIDTH },
   bottom: { paddingHorizontal: space[4], paddingBottom: space[4], gap: space[6] },
   bottomTablet: { width: '100%', maxWidth: TEXT_MAX_WIDTH + space[4] * 2, alignSelf: 'center' },
-  analytics: { flexDirection: 'row', alignItems: 'center', gap: space[3] },
+  analytics: { flexDirection: 'row', alignItems: 'center', gap: space[3], marginTop: space[8], alignSelf: 'stretch' },
   analyticsText: { flex: 1, gap: space[1] },
   dots: { flexDirection: 'row', justifyContent: 'center', gap: space[2] },
   dot: { width: DOT, height: DOT, borderRadius: DOT / 2 },

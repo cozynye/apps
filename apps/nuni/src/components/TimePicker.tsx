@@ -1,7 +1,12 @@
 import { DatePicker, Host } from '@expo/ui/swift-ui';
-import { datePickerStyle, labelsHidden } from '@expo/ui/swift-ui/modifiers';
+import { datePickerStyle, environment, labelsHidden } from '@expo/ui/swift-ui/modifiers';
+import { isLanguage, useTranslation, type Language } from '@nf/i18n';
+import { useTheme } from '@nf/ui';
 
 import type { ReminderTime } from '../reminder-plan';
+
+/** SwiftUI locale per app language: vi/th use 24-hour time like the rest of the app; Thai stays Gregorian. */
+const SWIFT_LOCALE: Record<Language, string> = { en: 'en_US', vi: 'vi_VN', th: 'th_TH@calendar=gregorian' };
 
 export interface TimePickerProps {
   value: ReminderTime;
@@ -11,8 +16,11 @@ export interface TimePickerProps {
   testID: string;
 }
 
-/** Native iOS time picker (SwiftUI via @expo/ui); follows the device 12/24h setting. */
+/** Native iOS time picker (SwiftUI via @expo/ui) in the app's language and theme, not the device's. */
 export function TimePicker({ value, onChange, variant = 'wheel', testID }: TimePickerProps) {
+  const { i18n } = useTranslation();
+  const { scheme } = useTheme();
+  const locale = SWIFT_LOCALE[isLanguage(i18n.language) ? i18n.language : 'en'];
   const selection = new Date(2000, 0, 1, value.hour, value.minute);
   return (
     <Host matchContents testID={testID}>
@@ -20,7 +28,12 @@ export function TimePicker({ value, onChange, variant = 'wheel', testID }: TimeP
         selection={selection}
         displayedComponents={['hourAndMinute']}
         onDateChange={(d) => onChange({ hour: d.getHours(), minute: d.getMinutes() })}
-        modifiers={[datePickerStyle(variant), labelsHidden()]}
+        modifiers={[
+          datePickerStyle(variant),
+          labelsHidden(),
+          environment('locale', locale),
+          environment('colorScheme', scheme),
+        ]}
       />
     </Host>
   );

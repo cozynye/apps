@@ -109,16 +109,28 @@ export function ShareCard(props: ShareCardProps) {
           </Group>
         );
       })}
+      {dominantMood(counts) && (
+        <Group transform={[{ translateX: CARD_WIDTH / 2 - 80 }, { translateY: 1600 }, { scale: 160 / 1024 }]}>
+          <ImageSVG svg={svg(`nuni-mood-${dominantMood(counts)!}`)} x={0} y={0} width={1024} height={1024} />
+        </Group>
+      )}
       <Paragraph
-        paragraph={text(fonts, language, t('stats.daysLogged', { count: days }), 40, C.inkMuted, 400)}
+        paragraph={text(fonts, language, t('stats.daysLogged', { count: days }), 36, C.inkMuted, 400)}
         x={0}
-        y={1700}
+        y={1770}
         width={CARD_WIDTH}
       />
 
       {watermark && <Watermark fonts={fonts} label={t('app.name')} />}
     </Group>
   );
+}
+
+/** The period's most frequent day mood (ties → higher), or null without entries. */
+function dominantMood(counts: Record<Mood, number>): Mood | null {
+  let best: Mood | null = null;
+  for (const m of MOODS) if (counts[m] > 0 && (best === null || counts[m] >= counts[best])) best = m;
+  return best;
 }
 
 function distributionSegments(counts: Record<Mood, number>, days: number) {
@@ -209,9 +221,7 @@ function YearBody({ anchor, entries, fonts, language, t }: ShareCardProps) {
           <Group key={i}>
             <RoundedRect x={x + 8} y={y} width={colW - 16} height={rowH - 16} r={32} color={C.surface0} />
             <Paragraph paragraph={text(fonts, language, name, 32, C.ink, 600)} x={x} y={y + 20} width={colW} />
-            {m.mood ? (
-              <Cloud mood={m.mood} x={x + colW / 2 - 56} y={y + 70} size={112} />
-            ) : null}
+            {m.mood ? <Cloud mood={m.mood} x={x + colW / 2 - 56} y={y + 70} size={112} /> : null}
             <Paragraph
               paragraph={text(fonts, language, t('stats.daysLogged', { count: m.days }), 24, C.inkMuted, 400)}
               x={x}

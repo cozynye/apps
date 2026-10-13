@@ -1,5 +1,6 @@
 import {
   formatDateNumeric,
+  formatMonth,
   formatMonthYear,
   formatWeekdayDayMonth,
   fromLocalDateString,
@@ -54,5 +55,12 @@ describe('resolveLanguage', () => {
 
   it('falls back to English for unsupported or empty values', () => {
     expect(resolveLanguage({ forced: '', preferred: 'ko', deviceLanguageCodes: ['ja', null] })).toBe('en');
+  });
+});
+
+describe('month headings', () => {
+  it('start with a capital letter in Vietnamese', () => {
+    expect(formatMonthYear('vi', oct20)).toMatch(/^Tháng 10/);
+    expect(formatMonth('vi', oct20)).toMatch(/^Tháng 10/);
   });
 });

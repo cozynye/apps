@@ -1,4 +1,4 @@
-import { formatMonthYear, isLanguage } from '@nf/i18n';
+import { formatMonthYear, fromLocalDateString, isLanguage, toLocalDateString } from '@nf/i18n';
 import {
   Card,
   CaretLeftIcon,
@@ -41,6 +41,13 @@ export default function HomeScreen() {
   const today = useToday();
   const installDate = useAppState((s) => s.installDate);
   const [month, setMonth] = useState(() => startOfMonth(new Date()));
+  // Crossing into a new month while the current month is shown: move along with "today".
+  const [shownToday, setShownToday] = useState(today);
+  if (shownToday !== today) {
+    if (shownToday.slice(0, 7) === toLocalDateString(month).slice(0, 7))
+      setMonth(startOfMonth(fromLocalDateString(today)));
+    setShownToday(today);
+  }
   const { isWide, width } = useLayout();
   const [selected, setSelected] = useState<string | null>(null);
   const selectedDay = selected ?? today;
@@ -76,7 +83,15 @@ export default function HomeScreen() {
               onPress={() => setMonth(addMonths(month, -1))}
               renderIcon={(c) => <CaretLeftIcon size={24} color={c} />}
             />
-            <Text variant="displayLg" testID="a3.title" style={styles.title}>
+            {/* One line: shrink rather than wrap so the arrows don't jump when the streak chip appears. */}
+            <Text
+              variant="displayLg"
+              testID="a3.title"
+              style={styles.title}
+              numberOfLines={1}
+              adjustsFontSizeToFit
+              minimumFontScale={0.7}
+            >
               {formatMonthYear(language, month)}
             </Text>
             <IconButton
@@ -127,7 +142,7 @@ export default function HomeScreen() {
             }
             style={[styles.todayCard, { backgroundColor: colors.surface0, borderColor: colors.line }]}
           >
-            {todayEntry ? <Mascot mood={todayEntry.mood} size={40} /> : <CloudIcon size={40} color={accent.primary} />}
+            {todayEntry ? <Mascot mood={todayEntry.mood} size={40} /> : <CloudIcon size={40} color={colors.inkMuted} />}
             <View style={styles.todayText}>
               {todayEntry ? (
                 <Text variant="bodyStrong">

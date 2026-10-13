@@ -84,7 +84,10 @@ export async function saveEntry(draft: EntryDraft): Promise<string> {
 
   await sqlite.withTransactionAsync(async () => {
     if (draft.id) {
-      await db.update(entries).set({ date: draft.date, mood: draft.mood, note, updatedAt: now }).where(eq(entries.id, id));
+      await db
+        .update(entries)
+        .set({ date: draft.date, mood: draft.mood, note, updatedAt: now })
+        .where(eq(entries.id, id));
       await db.delete(entryTags).where(eq(entryTags.entryId, id));
       const kept = new Set(draft.photos.flatMap((p) => (p.kind === 'saved' ? [p.id] : [])));
       const existing = await db.select().from(photos).where(eq(photos.entryId, id));
@@ -106,7 +109,9 @@ export async function saveEntry(draft: EntryDraft): Promise<string> {
       }
       const photoId = newId();
       const fileName = `${photoId}.jpg`;
-      await db.insert(photos).values({ id: photoId, entryId: id, fileName, width: photo.width, height: photo.height, sortOrder });
+      await db
+        .insert(photos)
+        .values({ id: photoId, entryId: id, fileName, width: photo.width, height: photo.height, sortOrder });
       await new File(photo.cacheUri).move(new File(photosDir, fileName));
     }
   });
@@ -140,7 +145,11 @@ function deleteFileQuietly(fileName: string) {
 /** Free users keep up to 3 custom tags (PLAN 기능 범위). */
 export const FREE_CUSTOM_TAGS = 3;
 
+/** Custom tag names stay chip-sized. */
+export const CUSTOM_TAG_MAX = 20;
+
 export async function createCustomTag(name: string): Promise<string> {
+  name = name.trim().slice(0, CUSTOM_TAG_MAX);
   const [row] = await db.select({ last: max(tags.sortOrder) }).from(tags);
   const id = newId();
   await db.insert(tags).values({ id, customName: name, icon: 'Tag', sortOrder: (row?.last ?? 0) + 1 });

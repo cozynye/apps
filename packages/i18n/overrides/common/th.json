@@ -1,7 +1,8 @@
 {
   "paywall": {
     "periodYear": "ปี",
-    "periodMonth": "เดือน"
+    "periodMonth": "เดือน",
+    "savePercent": "ประหยัด {{percent}}%"
   },
   "legal": {
     "englishOnly": "มีเฉพาะภาษาอังกฤษ"

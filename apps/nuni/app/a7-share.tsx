@@ -52,14 +52,20 @@ export default function ShareScreen() {
   const premium = useEntitlement('mood_premium');
   const today = useToday();
   const fonts = useFonts(FONTS);
-  const { width, height } = useWindowDimensions();
+  const { width } = useWindowDimensions();
+  // The sheet's own height (on iPad the modal is shorter than the window).
+  const [available, setAvailable] = useState(0);
   const [period, setPeriod] = useState<'month' | 'year'>(params.period === 'year' ? 'year' : 'month');
   const [busy, setBusy] = useState(false);
   const { from, to } = periodRange(period, today);
   const data = usePeriodData(from, to);
   const language = isLanguage(i18n.language) ? i18n.language : 'en';
   // Fit the 9:16 preview so the save/share buttons stay on screen.
-  const previewWidth = Math.min(width - space[4] * 2, PREVIEW_MAX, ((height - CHROME_HEIGHT) * CARD_WIDTH) / CARD_HEIGHT);
+  const previewWidth = Math.min(
+    width - space[4] * 2,
+    PREVIEW_MAX,
+    ((available - CHROME_HEIGHT) * CARD_WIDTH) / CARD_HEIGHT,
+  );
 
   const card: Omit<ShareCardProps, 'fonts'> = {
     period,
@@ -109,7 +115,11 @@ export default function ShareScreen() {
   }
 
   return (
-    <ScrollView style={{ backgroundColor: colors.surface1 }} contentContainerStyle={styles.content}>
+    <ScrollView
+      style={{ backgroundColor: colors.surface1 }}
+      contentContainerStyle={styles.content}
+      onLayout={(e) => setAvailable(e.nativeEvent.layout.height)}
+    >
       <View style={styles.header}>
         <Text variant="title" style={styles.title}>
           {t('share.title')}
@@ -130,7 +140,13 @@ export default function ShareScreen() {
           { value: 'year', label: t('share.yearly') },
         ]}
       />
-      <View style={[styles.preview, { width: previewWidth, height: (previewWidth * CARD_HEIGHT) / CARD_WIDTH }]}>
+      {/* `line` border: the card's surface-1 matches this screen's background. */}
+      <View
+        style={[
+          styles.preview,
+          { width: previewWidth, height: (previewWidth * CARD_HEIGHT) / CARD_WIDTH, borderColor: colors.line },
+        ]}
+      >
         {fonts ? (
           <Canvas style={StyleSheet.absoluteFill} testID="a7.preview">
             <Group transform={[{ scale: previewWidth / CARD_WIDTH }]}>
@@ -177,6 +193,6 @@ const styles = StyleSheet.create({
   content: { padding: space[4], gap: space[4], alignItems: 'stretch', paddingBottom: space[8] },
   header: { flexDirection: 'row', alignItems: 'center' },
   title: { flex: 1 },
-  preview: { alignSelf: 'center', borderRadius: radius.lg, overflow: 'hidden' },
+  preview: { alignSelf: 'center', borderRadius: radius.lg, overflow: 'hidden', borderWidth: 1 },
   buttons: { gap: space[3], width: '100%', maxWidth: 520, alignSelf: 'center' },
 });

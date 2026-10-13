@@ -16,8 +16,18 @@ export interface ScreenProps extends ViewProps {
 export function Screen({ scroll, maxWidth = layout.layoutMaxContent, edges, style, children, ...rest }: ScreenProps) {
   const { colors } = useTheme();
   const { isTablet } = useLayout();
+  // Without `scroll`, the content fills the screen exactly so an inner ScrollView gets a bounded
+  // height and can scroll (tab screens at large Dynamic Type).
   const content = (
-    <View {...rest} style={[styles.content, isTablet && { maxWidth, alignSelf: 'center', width: '100%' }, style]}>
+    <View
+      {...rest}
+      style={[
+        styles.content,
+        !scroll && styles.fill,
+        isTablet && { maxWidth, alignSelf: 'center', width: '100%' },
+        style,
+      ]}
+    >
       {children}
     </View>
   );
@@ -37,4 +47,5 @@ export function Screen({ scroll, maxWidth = layout.layoutMaxContent, edges, styl
 const styles = StyleSheet.create({
   root: { flex: 1 },
   content: { flexGrow: 1, paddingHorizontal: space[4] },
+  fill: { flex: 1 },
 });

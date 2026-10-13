@@ -85,7 +85,7 @@ export default function LockSettings() {
                   accessibilityLabel={t('settings.appLock')}
                   value={enabled}
                   onValueChange={(on) => setStep(on ? { kind: 'set' } : { kind: 'verify', then: 'disable' })}
-                  trackColor={{ true: accent.primary, false: colors.surface2 }}
+                  trackColor={{ true: accent.deep, false: colors.surface2 }}
                   ios_backgroundColor={colors.surface2}
                 />
               }

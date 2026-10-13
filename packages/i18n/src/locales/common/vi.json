@@ -59,7 +59,7 @@
     "perMonthEquivalent": "{{price}} / tháng",
     "trialThen": "Miễn phí {{days}} ngày, sau đó {{price}} / {{period}}",
     "afterTrial": "Sau thời gian dùng thử: {{price}} / {{period}}. Hủy bất cứ lúc nào.",
-    "savePercent": "TIẾT KIỆM {{percent}}%",
+    "savePercent": "Tiết kiệm {{percent}}%",
     "startTrial": "Dùng thử miễn phí {{days}} ngày",
     "subscribe": "Đăng ký",
     "buy": "Mua với giá {{price}}",

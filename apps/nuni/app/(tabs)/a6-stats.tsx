@@ -1,4 +1,4 @@
-import { formatMonth, formatWeekdayDayMonth, fromLocalDateString, isLanguage } from '@nf/i18n';
+import { formatDateNumeric, formatMonth, fromLocalDateString, isLanguage } from '@nf/i18n';
 import { useEntitlement } from '@nf/purchases';
 import {
   Button,
@@ -46,7 +46,8 @@ export default function StatsScreen() {
       ? formatMonth(language, fromLocalDateString(today))
       : period === 'year'
         ? today.slice(0, 4)
-        : `${formatWeekdayDayMonth(language, fromLocalDateString(from))} – ${formatWeekdayDayMonth(language, fromLocalDateString(to))}`;
+        : // dd/MM – dd/MM: short and never broken inside a date (vi wrapped "12 thg / 10").
+          `${formatDateNumeric(fromLocalDateString(from)).slice(0, 5)} – ${formatDateNumeric(fromLocalDateString(to)).slice(0, 5)}`;
 
   function selectPeriod(next: Period) {
     if (next === 'year' && !premium) {
@@ -121,8 +122,10 @@ function DistributionCard({ label, data }: { label: string; data: ReturnType<typ
           <Text variant="bodySm" color="inkMuted" align="center">
             {t('stats.emptyPeriod')}
           </Text>
+          {/* Secondary: the locked lifts card below already has this screen's one Primary button. */}
           <Button
             testID="a6.log"
+            variant="secondary"
             label={t('home.todayPrompt')}
             onPress={() => router.push({ pathname: '/a4-entry', params: { source: 'fab' } })}
           />
