@@ -63,4 +63,5 @@ Cozy가 “배포 / 출시 / 심사 제출 / TestFlight 외부 배포”를 말�
 
 | 날짜 | 항목 | 앱 | 사유 (Cozy 지시) |
 | --- | --- | --- | --- |
-| | | | |
+| 2026-10-13 | C7 중 콜드 스타트 2초 측정 (iPhone 12 Release, Instruments) | Nuni | Cozy: “콜드스타트 하지말고” |
+| 2026-10-13 | C13 TestFlight 외부 테스트 1주 + Crashlytics 99.5% | Nuni | Cozy: “테스트플라이트도 안해도 된다” |

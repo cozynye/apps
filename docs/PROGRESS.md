@@ -106,8 +106,8 @@ S2 Nuni 개발 — 진행 중 (S1 완료 2026-10-12)
 
 ## 다음 할 일
 
-1. S2 완료 기준 중 남은 것: 콜드 스타트 2초(iPhone 12 Release 빌드, Instruments), VoiceOver 실기기 완주, Firebase DebugView·Crashlytics(P18 필요)
-2. P18 plist 수령 시 Firebase transport 연결 + 설정 Privacy의 Copy ID 행
+1. S2 완료 기준 중 남은 것: VoiceOver 실기기 완주(선택), Firebase DebugView·Crashlytics(P18 필요). 콜드 스타트·TestFlight 1주는 Cozy 지시로 건너뜀(RELEASE_CHECKLIST)
+2. P18 plist 수령 시(Cozy 결정 대기: Firebase 추가 여부 — 추천: 추가) Firebase transport 연결 + 설정 Privacy의 Copy ID 행
 
 ## 막힌 것 / Cozy에게 필요한 것
 
