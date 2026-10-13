@@ -110,3 +110,4 @@
   - A7: 미리보기 `line` 테두리, iPad에서 시트 높이 기준 크기, 카드에 기간 최다 감정 마스코트(PLAN A7)
   - A5 행에 사진 수 표시, 커스텀 태그 이름 최대 20자, 자정에 이번 달을 보고 있었다면 새 달로 이동
   - 문구: `paywall.savePercent` 대문자 → 문장형(en·vi), vi 워터마크 안내의 영어 ‘watermark’ → ‘hình mờ’
+- 2026-10-13 — 시간 선택 locale: @expo/ui는 `Locale.availableIdentifiers`에 있는 값만 적용 → th는 `th_TH`(시간만 표시하므로 달력 지정 불필요)
