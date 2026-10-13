@@ -25,16 +25,19 @@ export async function buildWidgetPayload(now = new Date()) {
     .from(entries)
     .where(and(gte(entries.date, from), lte(entries.date, today)));
   const moods = dayMoods(rows.map((r) => ({ ...r, mood: r.mood as 1 | 2 | 3 | 4 | 5 })));
-  const todayMood = moods.get(today);
+  // App lock on: the shared file carries no moods at all, not just a hidden flag.
+  const hidden = useLockSettings.getState().enabled;
+  const mood = (date: string) => (hidden ? null : (moods.get(date) ?? null));
+  const todayMood = mood(today);
   return {
     today: todayMood ? { mood: todayMood, date: today } : null,
     last7: Array.from({ length: 7 }, (_, i) => {
       const date = addDays(from, i);
-      return { date, mood: moods.get(date) ?? null };
+      return { date, mood: mood(date) };
     }),
     locale: i18next.language,
     locked: !hasEntitlement('mood_premium'),
-    hidden: useLockSettings.getState().enabled,
+    hidden,
     strings: {
       tapToLog: i18next.t('widget.tapToLog'),
       locked: i18next.t('widget.locked'),

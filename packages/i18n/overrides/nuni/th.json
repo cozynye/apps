@@ -18,7 +18,8 @@
   },
   "home": {
     "todayLogged_one": "วันนี้: {{mood}} · {{count}} แท็ก",
-    "todayLogged_other": "วันนี้: {{mood}} · {{count}} แท็ก"
+    "todayLogged_other": "วันนี้: {{mood}} · {{count}} แท็ก",
+    "todayLogged_zero": "วันนี้: {{mood}}"
   },
   "backup": {
     "signInHint": "ลงชื่อเข้าใช้ iCloud ในการตั้งค่าเพื่อสำรองข้อมูลอัตโนมัติ",

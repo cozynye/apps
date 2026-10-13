@@ -8,6 +8,7 @@
     "englishOnly": "Available in English only."
   },
   "settings": {
-    "passcodeNoRecovery": "A forgotten passcode cannot be recovered."
+    "passcodeNoRecovery": "A forgotten passcode cannot be recovered.",
+    "localOnlyNotice": "Your data lives only on this device."
   }
 }

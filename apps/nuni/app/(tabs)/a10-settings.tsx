@@ -45,7 +45,7 @@ export default function SettingsScreen() {
   const premium = useEntitlement('mood_premium');
   const settings = useSettings();
   const reminder = useReminderSettings();
-  const notificationsAllowed = useNotificationPermission();
+  const [notificationsAllowed, setNotificationsAllowed] = useNotificationPermission();
   const [restoring, setRestoring] = useState(false);
 
   const switchColors = {
@@ -68,9 +68,12 @@ export default function SettingsScreen() {
     );
   }
 
+  // `enabled` is the user's choice. If iOS permission is denied it stays on, so the row explains
+  // why nothing arrives and offers Open Settings (PLAN 예외 › 알림 권한 거부); scheduling skips
+  // until permission is granted.
   async function toggleReminder(on: boolean) {
-    if (!on) return reminder.setEnabled(false);
-    reminder.setEnabled(await requestReminderPermission());
+    reminder.setEnabled(on);
+    if (on) setNotificationsAllowed(await requestReminderPermission());
   }
 
   async function restore() {
@@ -164,7 +167,7 @@ export default function SettingsScreen() {
           )}
         </SettingsSection>
 
-        <SettingsSection title={t('settings.privacy_section')}>
+        <SettingsSection>
           <SettingsRow
             testID="a10.lock"
             label={t('settings.appLock')}
@@ -254,7 +257,7 @@ export default function SettingsScreen() {
 }
 
 /** Notification permission, re-read when the app returns from iOS Settings. null = not known yet. */
-function useNotificationPermission(): boolean | null {
+function useNotificationPermission() {
   const [granted, setGranted] = useState<boolean | null>(null);
   useEffect(() => {
     const read = () => void Notifications.getPermissionsAsync().then((p) => setGranted(p.granted));
@@ -262,7 +265,7 @@ function useNotificationPermission(): boolean | null {
     const sub = AppState.addEventListener('change', (s) => s === 'active' && read());
     return () => sub.remove();
   }, []);
-  return granted;
+  return [granted, setGranted] as const;
 }
 
 const styles = StyleSheet.create({

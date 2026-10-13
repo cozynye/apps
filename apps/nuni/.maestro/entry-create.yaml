@@ -88,7 +88,7 @@ appId: app.nuni.mood
     timeout: 10000
 - takeScreenshot: a5-two-entries
 - runFlow: common/close-a5.yaml
-- assertVisible: 'Today: Low · 0 tags.*'
+- assertVisible: 'Today: Low.*'
 
 # Swipe-delete the newest entry; the older one becomes the calendar cloud again.
 - runFlow: common/open-today.yaml

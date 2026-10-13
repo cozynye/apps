@@ -17,8 +17,10 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, ScrollView, StyleSheet, View } from 'react-native';
 
+import { addDays } from '../dates';
 import { deleteEntry } from '../entries';
 import { useDayEntries, type DayEntry } from '../queries';
+import { useToday } from '../today';
 
 const DELETE_WIDTH = 88;
 
@@ -37,6 +39,13 @@ export function DayEntries({ date, screenId, onClose }: DayEntriesProps) {
   const { t, i18n } = useTranslation();
   const entries = useDayEntries(date);
   const language = isLanguage(i18n.language) ? i18n.language : 'en';
+  const today = useToday();
+  const dayLabel =
+    date === today
+      ? t('entry.today')
+      : date === addDays(today, -1)
+        ? t('entry.yesterday')
+        : formatWeekdayDayMonth(language, fromLocalDateString(date));
   return (
     <View style={styles.content}>
       <View style={styles.header}>
@@ -57,7 +66,7 @@ export function DayEntries({ date, screenId, onClose }: DayEntriesProps) {
         <View style={styles.empty} testID={`${screenId}.dayEmpty`}>
           <Mascot mood={3} size={96} />
           <Text variant="body" color="inkMuted" align="center">
-            {t('entry.titleFor', { day: formatWeekdayDayMonth(language, fromLocalDateString(date)) })}
+            {t('entry.titleFor', { day: dayLabel })}
           </Text>
           <Button
             testID={`${screenId}.newEntry`}

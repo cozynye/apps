@@ -148,8 +148,19 @@ export const FREE_CUSTOM_TAGS = 3;
 /** Custom tag names stay chip-sized. */
 export const CUSTOM_TAG_MAX = 20;
 
-export async function createCustomTag(name: string): Promise<string> {
-  name = name.trim().slice(0, CUSTOM_TAG_MAX);
+/**
+ * Creates a custom tag, or returns the existing custom tag with the same name (case-insensitive).
+ * Names are cut at 20 characters by code point, so an emoji is never split.
+ */
+export async function createCustomTag(input: string): Promise<string> {
+  const name = Array.from(input.trim()).slice(0, CUSTOM_TAG_MAX).join('');
+  const existing = (await db.select({ id: tags.id, customName: tags.customName }).from(tags)).find(
+    (tag) => tag.customName?.toLocaleLowerCase() === name.toLocaleLowerCase(),
+  );
+  if (existing) {
+    await db.update(tags).set({ archived: false }).where(eq(tags.id, existing.id));
+    return existing.id;
+  }
   const [row] = await db.select({ last: max(tags.sortOrder) }).from(tags);
   const id = newId();
   await db.insert(tags).values({ id, customName: name, icon: 'Tag', sortOrder: (row?.last ?? 0) + 1 });

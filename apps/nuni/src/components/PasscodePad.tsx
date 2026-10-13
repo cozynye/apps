@@ -20,7 +20,12 @@ export function PasscodePad({ value, onChange, screenId }: PasscodePadProps) {
   const { colors, accent } = useTheme();
   return (
     <View style={styles.root}>
-      <View style={styles.dots} accessible accessibilityLabel={`${value.length}/${PASSCODE_LENGTH}`}>
+      <View
+        style={styles.dots}
+        accessible
+        accessibilityLabel={t('lock.passcode')}
+        accessibilityValue={{ min: 0, max: PASSCODE_LENGTH, now: value.length }}
+      >
         {Array.from({ length: PASSCODE_LENGTH }, (_, i) => (
           <View
             key={i}

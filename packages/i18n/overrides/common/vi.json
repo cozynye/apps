@@ -8,6 +8,7 @@
     "englishOnly": "Chỉ có bản tiếng Anh."
   },
   "settings": {
-    "passcodeNoRecovery": "Không thể khôi phục mật mã nếu bạn quên."
+    "passcodeNoRecovery": "Không thể khôi phục mật mã nếu bạn quên.",
+    "localOnlyNotice": "Dữ liệu của bạn chỉ nằm trên thiết bị này."
   }
 }

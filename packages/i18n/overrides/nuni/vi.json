@@ -18,7 +18,8 @@
   },
   "home": {
     "todayLogged_one": "Hôm nay: {{mood}} · {{count}} thẻ",
-    "todayLogged_other": "Hôm nay: {{mood}} · {{count}} thẻ"
+    "todayLogged_other": "Hôm nay: {{mood}} · {{count}} thẻ",
+    "todayLogged_zero": "Hôm nay: {{mood}}"
   },
   "backup": {
     "signInHint": "Đăng nhập iCloud trong Cài đặt để sao lưu tự động.",

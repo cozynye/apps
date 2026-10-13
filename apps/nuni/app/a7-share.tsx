@@ -8,7 +8,7 @@ import { File, Paths } from 'expo-file-system';
 import * as MediaLibrary from 'expo-media-library/legacy';
 import { router, useLocalSearchParams } from 'expo-router';
 import * as Sharing from 'expo-sharing';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   ActivityIndicator,
@@ -23,6 +23,7 @@ import {
 
 import { CARD_HEIGHT, CARD_WIDTH, ShareCard, type ShareCardProps } from '../src/components/ShareCard';
 import { usePeriodData } from '../src/queries';
+import { measureAnchor } from '../src/share-anchor';
 import { periodRange } from '../src/stats';
 import { useToday } from '../src/today';
 
@@ -57,6 +58,7 @@ export default function ShareScreen() {
   const [available, setAvailable] = useState(0);
   const [period, setPeriod] = useState<'month' | 'year'>(params.period === 'year' ? 'year' : 'month');
   const [busy, setBusy] = useState(false);
+  const shareButton = useRef<View>(null);
   const { from, to } = periodRange(period, today);
   const data = usePeriodData(from, to);
   const language = isLanguage(i18n.language) ? i18n.language : 'en';
@@ -104,7 +106,11 @@ export default function ShareScreen() {
         await MediaLibrary.saveToLibraryAsync(uri);
         toast(t('entry.saved'), 'success');
       } else {
-        await Sharing.shareAsync(uri, { mimeType: 'image/png', UTI: 'public.png' });
+        await Sharing.shareAsync(uri, {
+          mimeType: 'image/png',
+          UTI: 'public.png',
+          anchor: await measureAnchor(shareButton),
+        });
       }
       track('share_card', { period });
     } catch {
@@ -177,13 +183,15 @@ export default function ShareScreen() {
           disabled={!fonts}
           onPress={() => void run('save')}
         />
-        <Button
-          testID="a7.share"
-          variant="secondary"
-          label={t('action.share')}
-          disabled={!fonts || busy}
-          onPress={() => void run('share')}
-        />
+        <View ref={shareButton} collapsable={false}>
+          <Button
+            testID="a7.share"
+            variant="secondary"
+            label={t('action.share')}
+            disabled={!fonts || busy}
+            onPress={() => void run('share')}
+          />
+        </View>
       </View>
     </ScrollView>
   );

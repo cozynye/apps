@@ -3,6 +3,7 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ScrollView, StyleSheet, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { TimePicker } from '../src/components/TimePicker';
 import { requestReminderPermission, useReminderSettings } from '../src/reminders';
@@ -14,17 +15,23 @@ export default function ReminderPrompt() {
   const settings = useReminderSettings();
   const [time, setTime] = useState({ hour: settings.hour, minute: settings.minute });
   const [busy, setBusy] = useState(false);
+  const insets = useSafeAreaInsets();
 
   async function enable() {
     setBusy(true);
     settings.setTime(time);
-    // Denied: the app works as before; Settings shows `permission.notificationsOff` (PLAN 예외).
-    settings.setEnabled(await requestReminderPermission());
+    // The choice stays on even if iOS permission is denied; Settings then shows
+    // `permission.notificationsOff` + Open Settings (PLAN 예외 › 알림 권한 거부).
+    settings.setEnabled(true);
+    await requestReminderPermission();
     router.back();
   }
 
   return (
-    <ScrollView style={{ backgroundColor: colors.surface0 }} contentContainerStyle={styles.content}>
+    <ScrollView
+      style={{ backgroundColor: colors.surface0 }}
+      contentContainerStyle={[styles.content, { paddingBottom: space[6] + insets.bottom }]}
+    >
       <Mascot mood={4} size={72} />
       <View style={styles.copy}>
         <Text variant="title" align="center" testID="a12.title">
@@ -41,7 +48,12 @@ export default function ReminderPrompt() {
         <TimePicker testID="a12.time" value={time} onChange={setTime} />
       </View>
       <View style={styles.buttons}>
-        <Button testID="a12.enable" label={t('onboarding.enableReminder')} loading={busy} onPress={() => void enable()} />
+        <Button
+          testID="a12.enable"
+          label={t('onboarding.enableReminder')}
+          loading={busy}
+          onPress={() => void enable()}
+        />
         <Button testID="a12.notNow" variant="secondary" label={t('action.notNow')} onPress={() => router.back()} />
       </View>
     </ScrollView>

@@ -1,0 +1,45 @@
+# Regression (QA round 2): after A7 → A9 → close both, the Settings tab must render (was blank).
+appId: app.nuni.mood
+---
+- runFlow: common/launch.yaml
+- extendedWaitUntil:
+    visible:
+      id: a2.skip
+    timeout: 20000
+- tapOn:
+    id: a2.skip
+- extendedWaitUntil:
+    visible:
+      id: a4.close
+    timeout: 10000
+- tapOn:
+    id: a4.close
+- repeat:
+    times: 2
+    commands:
+      - tapOn:
+          id: tabs.stats
+      - tapOn:
+          id: a6.share
+      - extendedWaitUntil:
+          visible:
+            id: a7.removeWatermark
+          timeout: 10000
+      - tapOn:
+          id: a7.removeWatermark
+      - extendedWaitUntil:
+          visible:
+            id: a9.close
+          timeout: 30000
+      - tapOn:
+          id: a9.close
+      - tapOn:
+          id: a7.close
+      - tapOn:
+          id: tabs.settings
+      - extendedWaitUntil:
+          visible:
+            id: a10.title
+          timeout: 5000
+      - tapOn:
+          id: tabs.home

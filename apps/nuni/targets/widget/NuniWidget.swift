@@ -73,6 +73,17 @@ struct SmallView: View {
   }
 }
 
+/// The 7 days ending on `date`, moods looked up from the payload (unknown days → nil). Keeps the
+/// medium widget correct at the midnight timeline entry, before the app writes new data.
+func weekEnding(_ date: Date, moods: [WidgetPayload.Day]) -> [WidgetPayload.Day] {
+  let byDate = Dictionary(moods.map { ($0.date, $0.mood) }, uniquingKeysWith: { a, _ in a })
+  return (0..<7).reversed().map { offset in
+    let day = Calendar.current.date(byAdding: .day, value: -offset, to: date) ?? date
+    let key = localDateKey(day)
+    return WidgetPayload.Day(date: key, mood: byDate[key] ?? nil)
+  }
+}
+
 struct MediumView: View {
   let entry: NuniEntry
   var body: some View {
@@ -83,7 +94,7 @@ struct MediumView: View {
       VStack(alignment: .leading, spacing: 8) {
         Text(p.strings.weekTitle).font(.caption).foregroundStyle(Color("inkMuted"))
         HStack(spacing: 6) {
-          ForEach(p.last7, id: \.date) { day in
+          ForEach(weekEnding(entry.date, moods: p.last7), id: \.date) { day in
             VStack(spacing: 4) {
               if let mood = day.mood {
                 moodImage(mood).resizable().scaledToFit().frame(height: 32)

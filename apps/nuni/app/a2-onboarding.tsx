@@ -19,6 +19,7 @@ import {
   StyleSheet,
   Switch,
   View,
+  useWindowDimensions,
   type NativeScrollEvent,
   type NativeSyntheticEvent,
 } from 'react-native';
@@ -38,6 +39,8 @@ export default function OnboardingScreen() {
   const { t } = useTranslation();
   const { colors, accent } = useTheme();
   const { width, isTablet } = useLayout();
+  // Off-screen pager pages keep stale text measurements when Dynamic Type changes; remount them.
+  const { fontScale } = useWindowDimensions();
   const analyticsEnabled = useSettings((s) => s.analyticsEnabled);
   const setAnalyticsEnabled = useSettings((s) => s.setAnalyticsEnabled);
   const completeOnboarding = useAppState((s) => s.completeOnboarding);
@@ -98,7 +101,12 @@ export default function OnboardingScreen() {
         testID="a2.pager"
       >
         {PAGES.map((n) => (
-          <ScrollView key={n} style={{ width }} contentContainerStyle={styles.page} testID={`a2.page${n}`}>
+          <ScrollView
+            key={`${n}-${fontScale}`}
+            style={{ width }}
+            contentContainerStyle={styles.page}
+            testID={`a2.page${n}`}
+          >
             <Illustration name={`nuni-onboarding-${n}` as IllustrationName} width={illustrationWidth} />
             <View style={styles.copy}>
               <Text variant="displayXl" align="center">

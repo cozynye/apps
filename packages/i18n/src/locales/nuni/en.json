@@ -48,7 +48,8 @@
     "todayLogged": "Today: {{mood}} · {{count}} tags",
     "editEntry": "Edit",
     "todayLogged_one": "Today: {{mood}} · {{count}} tag",
-    "todayLogged_other": "Today: {{mood}} · {{count}} tags"
+    "todayLogged_other": "Today: {{mood}} · {{count}} tags",
+    "todayLogged_zero": "Today: {{mood}}"
   },
   "entry": {
     "title": "How was today?",

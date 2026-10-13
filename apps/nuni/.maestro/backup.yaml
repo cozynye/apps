@@ -37,12 +37,25 @@ appId: app.nuni.mood
 - tapOn:
     id: backup.export
 - extendedWaitUntil:
-    visible: '.*nuni-export.*|.*zip.*|AirDrop|Save to Files|파일에 저장'
+    # iPad's popover contents are not in the hierarchy; only its "dismiss popup" region is.
+    visible: '.*nuni-export.*|.*zip.*|AirDrop|Save to Files|파일에 저장|Copy|복사|dismiss popup'
     timeout: 20000
 - takeScreenshot: export-sheet
-- swipe:
-    start: 50%, 40%
-    end: 50%, 95%
+# iPhone: a sheet (swipe down). iPad: a popover anchored to the button (tap outside it).
+- runFlow:
+    when:
+      notVisible: 'dismiss popup'
+    commands:
+      - swipe:
+          start: 50%, 40%
+          end: 50%, 95%
+- runFlow:
+    when:
+      visible: 'dismiss popup'
+    commands:
+      # Outside the popover (the region's centre is the popover itself).
+      - tapOn:
+          point: 50%, 90%
 - extendedWaitUntil:
     visible:
       id: backup.export

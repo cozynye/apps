@@ -1,8 +1,8 @@
 import { Button, Mascot, space, Text, useTheme } from '@nf/ui';
 import * as Haptics from 'expo-haptics';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { StyleSheet, View } from 'react-native';
+import { AppState, StyleSheet, View } from 'react-native';
 import { FullWindowOverlay } from 'react-native-screens';
 
 import {
@@ -39,7 +39,6 @@ function Cover() {
 function LockScreen() {
   const { t } = useTranslation();
   const { colors } = useTheme();
-  const covered = useLockState((s) => s.covered);
   const [code, setCode] = useState('');
   const [wrong, setWrong] = useState(false);
   const [method, setMethod] = useState<BiometricMethod | null>(null);
@@ -51,14 +50,27 @@ function LockScreen() {
     [t],
   );
 
-  // Face ID / Touch ID first, automatically; the passcode pad is the fallback (PLAN A11).
+  // Face ID / Touch ID once per lock (this screen mounts each time the app locks), as soon as the
+  // app is active; after a failure or cancel the passcode pad stays (PLAN 예외 › 앱 잠금 실패).
+  // Retrying on every return to "active" re-opened the prompt in a loop, since the prompt itself
+  // makes the app inactive.
+  const attempted = useRef(false);
   useEffect(() => {
-    if (covered) return;
-    void availableBiometric().then((m) => {
-      setMethod(m);
-      if (m) void tryBiometric(m);
-    });
-  }, [covered, tryBiometric]);
+    function attempt() {
+      if (attempted.current) return;
+      attempted.current = true;
+      void availableBiometric().then((m) => {
+        setMethod(m);
+        if (m) void tryBiometric(m);
+      });
+    }
+    if (AppState.currentState === 'active') {
+      attempt();
+      return;
+    }
+    const sub = AppState.addEventListener('change', (state) => state === 'active' && attempt());
+    return () => sub.remove();
+  }, [tryBiometric]);
 
   async function onChange(next: string) {
     setWrong(false);

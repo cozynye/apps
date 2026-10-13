@@ -48,7 +48,8 @@
     "todayLogged": "Hôm nay: {{mood}} · {{count}} thẻ",
     "editEntry": "Sửa",
     "todayLogged_one": "Hôm nay: {{mood}} · {{count}} thẻ",
-    "todayLogged_other": "Hôm nay: {{mood}} · {{count}} thẻ"
+    "todayLogged_other": "Hôm nay: {{mood}} · {{count}} thẻ",
+    "todayLogged_zero": "Hôm nay: {{mood}}"
   },
   "entry": {
     "title": "Hôm nay thế nào?",

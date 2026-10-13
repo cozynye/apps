@@ -162,7 +162,7 @@ export default function EntryScreen() {
           onPress: (value?: string) => {
             const name = value?.trim();
             if (!name) return;
-            void createCustomTag(name).then((id) => change(setTagIds)([...tagIds, id]));
+            void createCustomTag(name).then((id) => change(setTagIds)(tagIds.includes(id) ? tagIds : [...tagIds, id]));
           },
         },
       ],

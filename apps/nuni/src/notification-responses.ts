@@ -7,11 +7,16 @@ import { router } from 'expo-router';
 import { useEffect } from 'react';
 
 import { afterNewEntry, currentStreak } from './after-save';
+import { useAppState } from './app-state';
 import { saveEntry } from './entries';
 import { QUICK_ACTION_PREFIX } from './reminders';
 
-/** Opens A4 for today on top of A3 (reminder tap, `nuni://entry/today`). */
+/**
+ * Opens A4 for today on top of A3 (reminder tap, `nuni://entry/today`). Before onboarding is done
+ * the link only starts onboarding, so consent and the install date are never skipped.
+ */
 export function openTodayEntry(source: 'notification' | 'widget') {
+  if (!useAppState.getState().onboarded) return router.replace('/a2-onboarding');
   router.navigate('/a3-home');
   router.push({ pathname: '/a4-entry', params: { date: toLocalDateString(new Date()), source } });
 }

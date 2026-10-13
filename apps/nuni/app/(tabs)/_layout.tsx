@@ -1,10 +1,10 @@
-import { CalendarBlankIcon, ChartBarIcon, GearSixIcon, motion, TabBar, useTheme, type TabBarItem } from '@nf/ui';
+import { CalendarBlankIcon, ChartBarIcon, GearSixIcon, TabBar, useTheme, type TabBarItem } from '@nf/ui';
 import { Tabs } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 
 import { useNotificationResponses } from '../../src/notification-responses';
 
-/** Three tabs: A3 home, A6 stats, A10 settings. Tab switch = 120ms cross-fade (DESIGN_SYSTEM 모션). */
+/** Three tabs: A3 home, A6 stats, A10 settings. */
 export default function TabsLayout() {
   const { t } = useTranslation();
   const { colors } = useTheme();
@@ -19,8 +19,9 @@ export default function TabsLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
-        animation: 'fade',
-        transitionSpec: { animation: 'timing', config: { duration: motion.durationFast } },
+        // No tab cross-fade: QA saw the Settings scene stay blank after modals closed (iOS 26.2,
+        // intermittent) with the fade on. Instant switch until that is understood (DECISIONS).
+        animation: 'none',
         sceneStyle: { backgroundColor: colors.surface1 },
       }}
       tabBar={({ state, navigation }) => (

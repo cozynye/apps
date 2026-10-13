@@ -25,7 +25,9 @@ export default function DevData() {
     const entryId = newId();
     const tagId = newId();
     await db.insert(tags).values({ id: tagId, customName: 'dev', icon: 'Moon', sortOrder: 99 });
-    await db.insert(entries).values({ id: entryId, date: toLocalDateString(new Date()), mood: 4, createdAt: now, updatedAt: now });
+    await db
+      .insert(entries)
+      .values({ id: entryId, date: toLocalDateString(new Date()), mood: 4, createdAt: now, updatedAt: now });
     await db.insert(entryTags).values({ entryId, tagId });
     await db.insert(photos).values({ id: newId(), entryId, fileName: 'x.jpg', sortOrder: 0 });
     try {
@@ -45,7 +47,9 @@ export default function DevData() {
   }
 
   async function runContent() {
-    const loaded = await loadRemoteManifest(process.env.EXPO_PUBLIC_CDN_BASE_URL, (e) => append(`manifest error: ${e.message}`));
+    const loaded = await loadRemoteManifest(process.env.EXPO_PUBLIC_CDN_BASE_URL, (e) =>
+      append(`manifest error: ${e.message}`),
+    );
     const catalog = buildCatalog({
       bundled: bundledManifest,
       remote: loaded.remote,
@@ -58,8 +62,9 @@ export default function DevData() {
   async function runReminders() {
     const scheduled = await Notifications.getAllScheduledNotificationsAsync();
     const dates = scheduled.map((n) => {
-      const trigger = n.trigger as { date?: number | string } | null;
-      return trigger?.date ? new Date(trigger.date).toISOString() : '?';
+      const trigger = n.trigger as { date?: number | string; value?: number } | null;
+      const when = trigger?.date ?? trigger?.value;
+      return when ? new Date(when).toISOString() : '?';
     });
     append(`reminders: ${scheduled.length}`);
     if (dates.length) append(`first: ${dates.sort()[0]}`);
@@ -68,9 +73,23 @@ export default function DevData() {
   return (
     <Screen scroll>
       <View style={styles.stack}>
-        <Button testID="dev.data.db" label="Run DB check" onPress={() => void runDb().catch((e: Error) => append(`db error: ${e.message}`))} />
-        <Button testID="dev.data.content" variant="secondary" label="Run content check" onPress={() => void runContent()} />
-        <Button testID="dev.data.reminders" variant="secondary" label="Scheduled reminders" onPress={() => void runReminders()} />
+        <Button
+          testID="dev.data.db"
+          label="Run DB check"
+          onPress={() => void runDb().catch((e: Error) => append(`db error: ${e.message}`))}
+        />
+        <Button
+          testID="dev.data.content"
+          variant="secondary"
+          label="Run content check"
+          onPress={() => void runContent()}
+        />
+        <Button
+          testID="dev.data.reminders"
+          variant="secondary"
+          label="Scheduled reminders"
+          onPress={() => void runReminders()}
+        />
         <Card testID="dev.data.log">
           {log.map((line, i) => (
             <Text key={i} variant="bodySm">

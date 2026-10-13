@@ -48,7 +48,8 @@
     "todayLogged": "วันนี้: {{mood}} · {{count}} แท็ก",
     "editEntry": "แก้ไข",
     "todayLogged_one": "วันนี้: {{mood}} · {{count}} แท็ก",
-    "todayLogged_other": "วันนี้: {{mood}} · {{count}} แท็ก"
+    "todayLogged_other": "วันนี้: {{mood}} · {{count}} แท็ก",
+    "todayLogged_zero": "วันนี้: {{mood}}"
   },
   "entry": {
     "title": "วันนี้เป็นยังไงบ้าง?",

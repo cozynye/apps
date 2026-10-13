@@ -3,7 +3,7 @@ import { useEntitlement } from '@nf/purchases';
 import { Button, CaretLeftIcon, IconButton, Screen, SettingsRow, SettingsSection, space, Text, useToast } from '@nf/ui';
 import { router } from 'expo-router';
 import * as Sharing from 'expo-sharing';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, ScrollView, StyleSheet, View } from 'react-native';
 
@@ -17,6 +17,7 @@ import {
   useBackupState,
   type BackupMeta,
 } from '../../src/backup';
+import { measureAnchor } from '../../src/share-anchor';
 import { useToday } from '../../src/today';
 
 /** Settings › Backup (PLAN 라우트 `settings/backup`): iCloud backup/restore (Premium) and a free zip export. */
@@ -29,6 +30,7 @@ export default function BackupSettings() {
   const [available, setAvailable] = useState<boolean | null>(null);
   const [meta, setMeta] = useState<BackupMeta | null>(null);
   const [busy, setBusy] = useState<'backup' | 'restore' | 'export' | null>(null);
+  const exportButton = useRef<View>(null);
 
   useEffect(() => {
     if (!premium) return;
@@ -72,7 +74,11 @@ export default function BackupSettings() {
     setBusy('export');
     try {
       const uri = await exportZip(today);
-      await Sharing.shareAsync(uri, { mimeType: 'application/zip', UTI: 'public.zip-archive' });
+      await Sharing.shareAsync(uri, {
+        mimeType: 'application/zip',
+        UTI: 'public.zip-archive',
+        anchor: await measureAnchor(exportButton),
+      });
     } catch {
       toast(t('error.generic'), 'error');
     } finally {
@@ -141,14 +147,16 @@ export default function BackupSettings() {
             <Text variant="bodySm" color="inkMuted">
               {t('export.hint')}
             </Text>
-            <Button
-              testID="backup.export"
-              variant="secondary"
-              label={t('settings.export')}
-              loading={busy === 'export'}
-              disabled={busy !== null}
-              onPress={() => void onExport()}
-            />
+            <View ref={exportButton} collapsable={false}>
+              <Button
+                testID="backup.export"
+                variant="secondary"
+                label={t('settings.export')}
+                loading={busy === 'export'}
+                disabled={busy !== null}
+                onPress={() => void onExport()}
+              />
+            </View>
           </View>
         </SettingsSection>
       </ScrollView>

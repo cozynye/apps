@@ -111,3 +111,14 @@
   - A5 행에 사진 수 표시, 커스텀 태그 이름 최대 20자, 자정에 이번 달을 보고 있었다면 새 달로 이동
   - 문구: `paywall.savePercent` 대문자 → 문장형(en·vi), vi 워터마크 안내의 영어 ‘watermark’ → ‘hình mờ’
 - 2026-10-13 — 시간 선택 locale: @expo/ui는 `Locale.availableIdentifiers`에 있는 값만 적용 → th는 `th_TH`(시간만 표시하므로 달력 지정 불필요)
+- 2026-10-13 — QA 2차 반영:
+  - A11: 생체 인증은 잠길 때마다 1회만 자동 시도(앱이 active일 때). 실패·취소 후에는 패스코드 패드 유지 — 프롬프트 자체가 앱을 inactive로 만들어 매번 다시 뜨던 루프 수정
+  - 탭 전환 크로스페이드 끔(`animation: 'none'`) — iOS 26.2에서 모달을 닫은 뒤 Settings 장면이 빈 채로 남는 현상이 간헐 재현(26.5에선 미재현). 원인 확인 전까지 즉시 전환, 회귀 플로우 `tab-after-modals` 추가. DESIGN_SYSTEM ‘탭 전환 크로스페이드 120ms’에서 벗어남
+  - 리마인더 `enabled`는 사용자의 선택: iOS 권한을 거부해도 켜진 상태로 두고 A10에 `permission.notificationsOff` + 설정 열기 표시, 권한이 생기면 포그라운드 때 예약
+  - 딥링크(`entry/today`, `premium/*`)는 온보딩 전이면 온보딩으로
+  - 커스텀 태그: 같은 이름(대소문자 무시)이면 기존 태그 재사용, 20자는 코드포인트 기준(이모지 안 쪼갬)
+  - iPad 공유 팝오버는 누른 버튼에 고정(`anchor`)
+  - 잠금이 켜져 있으면 `widget.json`에 감정 데이터 자체를 넣지 않음. medium 위젯은 타임라인 날짜 기준으로 7일을 계산(자정 이후에도 맞음)
+  - 문구: `settings.localOnlyNotice` ‘this iPhone’ → ‘this device’(en·vi·th), `home.todayLogged_zero` 추가(‘Today: Good’), iPad 빈 날 제목도 today/yesterday 사용, 문의 이메일은 보조 줄로(큰 글씨에서 라벨이 단어 중간에 끊기지 않게), A12 하단 안전 영역 여백, 온보딩은 글자 크기 변경 시 페이지 다시 그림
+  - Metro blockList: Metro가 worktree 안에서 실행될 때는 worktree 패턴을 막지 않음(QA worktree에서 모든 모듈 해석 실패하던 문제)
+  - 미반영(PLAN에 없음, 질문으로 남김): 패스코드 재시도 제한, Touch ID 기기의 ‘Face ID’ 문구
