@@ -5,8 +5,11 @@ import { useTheme } from '@nf/ui';
 
 import type { ReminderTime } from '../reminder-plan';
 
-/** SwiftUI locale per app language: vi/th use 24-hour time like the rest of the app; Thai stays Gregorian. */
-const SWIFT_LOCALE: Record<Language, string> = { en: 'en_US', vi: 'vi_VN', th: 'th_TH@calendar=gregorian' };
+/**
+ * SwiftUI locale per app language (vi/th show 24-hour time like the rest of the app). @expo/ui only
+ * applies identifiers listed in `Locale.availableIdentifiers`, so no `@calendar=` suffix (time only).
+ */
+const SWIFT_LOCALE: Record<Language, string> = { en: 'en_US', vi: 'vi_VN', th: 'th_TH' };
 
 export interface TimePickerProps {
   value: ReminderTime;
