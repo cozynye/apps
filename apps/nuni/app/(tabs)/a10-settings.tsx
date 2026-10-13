@@ -13,6 +13,7 @@ import {
   type Appearance,
 } from '@nf/ui';
 import { nativeApplicationVersion } from 'expo-application';
+import * as Clipboard from 'expo-clipboard';
 import * as Notifications from 'expo-notifications';
 import { router } from 'expo-router';
 import * as StoreReview from 'expo-store-review';
@@ -33,6 +34,7 @@ import {
 import { useAppState } from '../../src/app-state';
 import { TimePicker } from '../../src/components/TimePicker';
 import { deleteAllData } from '../../src/entries';
+import { anonymousInstallId, firebaseEnabled } from '../../src/firebase';
 import { requestReminderPermission, useReminderSettings } from '../../src/reminders';
 
 const SUPPORT_EMAIL = 'nunicozy@gmail.com';
@@ -83,6 +85,14 @@ export default function SettingsScreen() {
     if (outcome === 'restored') toast(t('settings.restoreSuccess'), 'success');
     else if (outcome === 'none') toast(t('settings.restoreNone'));
     else toast(t('error.generic'), 'error');
+  }
+
+  // Privacy policy §6: users send this ID to have their analytics/crash data deleted.
+  async function copyInstallId() {
+    const id = await anonymousInstallId().catch(() => null);
+    if (!id) return toast(t('error.generic'), 'error');
+    await Clipboard.setStringAsync(id);
+    toast(t('settings.copied'), 'success');
   }
 
   function confirmDelete() {
@@ -222,6 +232,14 @@ export default function SettingsScreen() {
               />
             }
           />
+          {firebaseEnabled && (
+            <SettingsRow
+              testID="a10.copyId"
+              label={t('settings.copyId')}
+              hint={t('settings.copyIdHint')}
+              onPress={() => void copyInstallId()}
+            />
+          )}
         </SettingsSection>
 
         <SettingsSection>

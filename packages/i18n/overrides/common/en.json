@@ -9,6 +9,9 @@
   },
   "settings": {
     "passcodeNoRecovery": "A forgotten passcode cannot be recovered.",
-    "localOnlyNotice": "Your data lives only on this device."
+    "localOnlyNotice": "Your data lives only on this device.",
+    "copyId": "Copy ID",
+    "copyIdHint": "Your anonymous ID, for asking us to delete usage data",
+    "copied": "Copied"
   }
 }

@@ -106,8 +106,12 @@ S2 Nuni 개발 — 진행 중 (S1 완료 2026-10-12)
 
 ## 다음 할 일
 
-1. S2 완료 기준 중 남은 것: VoiceOver 실기기 완주(선택), Firebase DebugView·Crashlytics(P18 필요). 콜드 스타트·TestFlight 1주는 Cozy 지시로 건너뜀(RELEASE_CHECKLIST)
-2. P18 plist 수령 시(Cozy 결정 대기: Firebase 추가 여부 — 추천: 추가) Firebase transport 연결 + 설정 Privacy의 Copy ID 행
+1. Firebase DebugView에서 이벤트 이름·파라미터 확인(Cozy, 실기기 -FIRDebugEnabled로 실행 중), `mood`·본문·태그 이름 미포함 확인
+2. 남은 S2 완료 기준: VoiceOver 실기기 완주(선택). 콜드 스타트·TestFlight 1주는 Cozy 지시로 건너뜀(RELEASE_CHECKLIST)
+
+## 완료한 일 (2026-10-13, Firebase)
+
+- P18 Nuni: Analytics + Crashlytics 연결(동적 프레임워크·SPM), 광고 ID 끔, 분석 토글 연동, 설정 Copy ID. 시뮬레이터 회귀 15/15, 실기기 설치·실행
 
 ## 막힌 것 / Cozy에게 필요한 것
 

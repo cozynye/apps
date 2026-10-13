@@ -7,6 +7,7 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 
 import { initDatabase, useDbStatus } from '../src/db';
+import { firebaseTransport } from '../src/firebase';
 import { cleanOrphanPhotos } from '../src/entries';
 import { useAutoBackup } from '../src/backup';
 import { LockOverlay } from '../src/components/LockOverlay';
@@ -19,6 +20,7 @@ configurePurchases(process.env.EXPO_PUBLIC_RC_IOS_KEY_NUNI);
 configureAnalytics({
   appVersion: nativeApplicationVersion ?? '0.0.0',
   enabled: useSettings.getState().analyticsEnabled,
+  transport: firebaseTransport(),
 });
 useSettings.subscribe((s) => setAnalyticsEnabled(s.analyticsEnabled));
 i18next.on('languageChanged', setAnalyticsLocale);

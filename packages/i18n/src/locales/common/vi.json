@@ -49,7 +49,10 @@
     "privacy_section": "Quyền riêng tư",
     "licenses": "Giấy phép mã nguồn mở",
     "localOnlyNotice": "Dữ liệu của bạn chỉ nằm trên thiết bị này.",
-    "passcodeNoRecovery": "Không thể khôi phục mật mã nếu bạn quên."
+    "passcodeNoRecovery": "Không thể khôi phục mật mã nếu bạn quên.",
+    "copyId": "Sao chép ID",
+    "copyIdHint": "ID ẩn danh của bạn, dùng khi yêu cầu xóa dữ liệu sử dụng",
+    "copied": "Đã sao chép"
   },
   "paywall": {
     "yearly": "Hằng năm",

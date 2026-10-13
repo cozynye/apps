@@ -49,7 +49,10 @@
     "privacy_section": "Privacy",
     "licenses": "Open source licenses",
     "localOnlyNotice": "Your data lives only on this device.",
-    "passcodeNoRecovery": "A forgotten passcode cannot be recovered."
+    "passcodeNoRecovery": "A forgotten passcode cannot be recovered.",
+    "copyId": "Copy ID",
+    "copyIdHint": "Your anonymous ID, for asking us to delete usage data",
+    "copied": "Copied"
   },
   "paywall": {
     "yearly": "Yearly",

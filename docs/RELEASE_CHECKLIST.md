@@ -28,7 +28,7 @@ Cozy가 “배포 / 출시 / 심사 제출 / TestFlight 외부 배포”를 말�
 | B1 | P15 App Store Connect 계정 이슈 해결, 앱 등록, 유료 앱 계약·세금·은행 활성 | 계약 ‘Active’ 확인 | [ ] | [ ] |
 | B2 | P16 인앱 상품 등록 (PLAN ‘상품 ID와 권한’ 표 그대로, Fourpop은 첫 시즌팩 1개). 2026-10-12 Nuni 구독 2개 생성됨 — **연간 7일 무료체험(Introductory Offer) 미설정**, 사용 가능 국가 VN·TH | 등록 완료 확인 | [ ] | [ ] |
 | B3 | P17 RevenueCat: 앱 2개, Entitlement·Offering, In-App Purchase Key(.p8), Shared Secret, Server Notifications URL | iOS API 키 2개 (`.env` / EAS Secrets) | [ ] | [ ] |
-| B4 | P18 Firebase 프로젝트 2개 (Analytics, Crashlytics) | `GoogleService-Info.plist` 2개 | [ ] | [ ] |
+| B4 | P18 Firebase 프로젝트 2개 (Analytics, Crashlytics). 2026-10-13 Nuni plist 수령·연결(프로젝트 nuni-6dc73), EAS 빌드 전 파일 시크릿 `GOOGLE_SERVICES_PLIST_NUNI` 등록 필요 | `GoogleService-Info.plist` 2개 | [x] | [ ] |
 | B5 | P19 Cloudflare R2 버킷 + 공개 URL | CDN base URL | — | [ ] |
 | B6 | Small Business Program 신청 (수수료 15%) | 신청 완료 확인 | [ ] | [ ] |
 | B7 | Sandbox 테스터 계정 1개 이상 | 계정 이메일 (비밀번호는 문서에 쓰지 않음) | [ ] | [ ] |

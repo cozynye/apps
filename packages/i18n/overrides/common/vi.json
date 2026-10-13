@@ -9,6 +9,9 @@
   },
   "settings": {
     "passcodeNoRecovery": "Không thể khôi phục mật mã nếu bạn quên.",
-    "localOnlyNotice": "Dữ liệu của bạn chỉ nằm trên thiết bị này."
+    "localOnlyNotice": "Dữ liệu của bạn chỉ nằm trên thiết bị này.",
+    "copyId": "Sao chép ID",
+    "copyIdHint": "ID ẩn danh của bạn, dùng khi yêu cầu xóa dữ liệu sử dụng",
+    "copied": "Đã sao chép"
   }
 }
