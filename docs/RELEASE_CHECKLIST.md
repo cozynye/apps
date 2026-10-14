@@ -46,13 +46,13 @@ Cozy가 “배포 / 출시 / 심사 제출 / TestFlight 외부 배포”를 말�
 | C5 | Firebase DebugView에서 이벤트 확인, `mood`·본문·태그 이름 미전송 확인 | [ ] | [ ] |
 | C6 | Fourpop: R2에 `manifest.json` + 첫 시즌팩 업로드, 앱에서 상점·구매·다운로드 확인 | — | [ ] |
 | C7 | PLAN ‘완료 기준’ 전 항목 충족 (Maestro iPhone·iPad, 3개 언어, 비행기 모드, 콜드 스타트, 합성 성능, 접근성) | [ ] | [ ] |
-| C8 | Info.plist 권한 문구 vi·th·en, `ITSAppUsesNonExemptEncryption = NO`, `supportsTablet: true` | [ ] | [ ] |
+| C8 | Info.plist 권한 문구 vi·th·en, `ITSAppUsesNonExemptEncryption = NO`, `supportsTablet: true` (2026-10-14 ios/ 생성물에서 확인) | [x] | [x] |
 | C9 | 스토어 스크린샷: iPhone 6.9인치 + iPad 13인치 × vi·th·en × 6장 (`design/store/*.md`의 캡션) | [ ] | [ ] |
-| C10 | 스토어 메타데이터 입력용 최종본 정리 (`design/store/*.md`에서 자리표시자 치환) | [ ] | [ ] |
-| C11 | 개인정보 라벨 답변표 (`design/legal/README.md` 매핑) 최종본 | [ ] | [ ] |
-| C12 | 심사 노트 최종본 (구독 테스트 방법, 로그인 없음, 자체 브랜드·현지화 설명) | [ ] | [ ] |
+| C10 | 스토어 메타데이터 입력용 최종본 정리 (`design/store/*.md`에서 자리표시자 치환) — 초안 `docs/release/store-*.md`(MVP 범위로 문구 수정, URL만 남음) | [ ] | [ ] |
+| C11 | 개인정보 라벨 답변표 (`design/legal/README.md` 매핑) 최종본 — `docs/release/privacy-labels.md` | [x] | [x] |
+| C12 | 심사 노트 최종본 (구독 테스트 방법, 로그인 없음, 자체 브랜드·현지화 설명) — `docs/release/review-notes.md`(Sandbox 계정·팩 id만 남음) | [ ] | [ ] |
 | C13 | TestFlight 외부 테스트 1주, Crashlytics 크래시 없는 사용자 99.5% 이상 | [ ] | [ ] |
-| C14 | 버전·빌드 번호, 릴리스 노트(vi·th·en) | [ ] | [ ] |
+| C14 | 버전·빌드 번호, 릴리스 노트(vi·th·en) — `docs/release/release-notes.md`, 빌드 번호는 EAS autoIncrement(`docs/release/eas.md`) | [ ] | [ ] |
 
 ## D. 알고 가는 것 (차단하지 않음)
 
@@ -65,3 +65,4 @@ Cozy가 “배포 / 출시 / 심사 제출 / TestFlight 외부 배포”를 말�
 | --- | --- | --- | --- |
 | 2026-10-13 | C7 중 콜드 스타트 2초 측정 (iPhone 12 Release, Instruments) | Nuni | Cozy: “콜드스타트 하지말고” |
 | 2026-10-13 | C13 TestFlight 외부 테스트 1주 + Crashlytics 99.5% | Nuni | Cozy: “테스트플라이트도 안해도 된다” |
+| 2026-10-14 | C7 중 콜드 스타트 2초, HD 메모리 300MB(Instruments) · C13 TestFlight 1주 | Fourpop | Cozy: “건너뛰고 일단 개발 빨리하고 배포하고 싶다” |
