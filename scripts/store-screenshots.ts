@@ -43,6 +43,9 @@ function captions(app: App, locale: Locale): string[] {
 
 const escape = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
+/** resvg mis-shapes Thai SARA AM (U+0E33); the decomposed NIKHAHIT + SARA AA renders correctly. */
+const shapeThai = (s: string) => s.replace(/\u0E33/g, '\u0E4D\u0E32');
+
 /** Greedy wrap by estimated glyph width (Thai has no spaces: kept on one line, font shrinks instead). */
 function wrap(text: string, maxWidth: number, fontSize: number): string[] {
   const per = fontSize * 0.56;
@@ -88,7 +91,7 @@ function compose(app: App, device: Device, locale: Locale, index: number, captio
   const radius = Math.round(dw * 0.06);
 
   const text = lines
-    .map((l, i) => `<tspan x="${w / 2}" dy="${i === 0 ? 0 : lineH}">${escape(l)}</tspan>`)
+    .map((l, i) => `<tspan x="${w / 2}" dy="${i === 0 ? 0 : lineH}">${escape(locale === 'th' ? shapeThai(l) : l)}</tspan>`)
     .join('');
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
   <rect width="${w}" height="${h}" fill="${accentSoft}"/>

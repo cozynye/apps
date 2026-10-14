@@ -182,6 +182,12 @@ S4 Fourpop 개발 — 진행 중 (S2 완료 2026-10-14)
 - 2026-10-14 (Cozy 결정) 라이브 GIF는 S4 완료 기준을 닫은 뒤 착수 (DECISIONS)
 - 실기기(iPhone 12 Pro, Debug): 실제 촬영·저장 정상, 모서리·헤더 수정 확인(Cozy ‘잘된다’)
 
+## 완료한 일 (2026-10-14, 릴리스 준비 — Claude Code 몫)
+
+- `apps/*/eas.json`(development·development-device·preview·production), `.github/workflows/pages.yml`(web/legal → GitHub Pages, Cozy가 Pages 활성·도메인 연결), `docs/release/`: `store-nuni.md`·`store-fourpop.md`(MVP 범위로 문구 수정한 입력용 최종본, URL만 미정), `privacy-labels.md`, `review-notes.md`(Sandbox 계정·팩 id 미정), `release-notes.md`(1.0 en·vi·th), `eas.md`
+- RELEASE_CHECKLIST C8(암호화 플래그·권한 문구 3언어·iPad) 두 앱 확인, C11 완료, C10·C12·C14 초안
+- 스토어 스크린샷 파이프라인(C9): `store-shots` 플로우 + `scripts/store-shots-all.sh` + `scripts/store-screenshots.ts`(캡션 합성, 태국어 SARA AM 분해). iPhone 17 Pro Max(6.9")·iPad Pro 13" 시뮬레이터에 두 앱 dev 빌드 설치
+
 ## 다음 할 일
 
 0. S4 6단계 2차: Fourpop Firebase plist(P18) 후 Copy ID·DebugView 이벤트(`booth_*`, `pack_*`); 실기기(Cozy iPhone 12 Pro): 실제 카메라·셔터음·플래시, 권한 거부, 비행기 모드, 공유 앱, 성능(합성 2초·300MB); 구독 만료 전환 관찰; QA 에이전트 회귀
