@@ -1,0 +1,38 @@
+# From B3: mock camera shoot (8 shots, 3 s timer) → B6 pick 4 → B7 → B8 (gallery copy saved).
+# Needs Metro started with EXPO_PUBLIC_MOCK_CAMERA=1.
+appId: app.fourpop.booth
+---
+- tapOn:
+    id: b3.startShooting
+- extendedWaitUntil:
+    visible:
+      id: b5.shutter
+    timeout: 10000
+- tapOn:
+    id: b5.timer.3
+- tapOn:
+    id: b5.shutter
+- extendedWaitUntil:
+    visible:
+      id: b6.title
+    timeout: 60000
+- tapOn:
+    id: b6.shot.0
+- tapOn:
+    id: b6.shot.2
+- tapOn:
+    id: b6.shot.4
+- tapOn:
+    id: b6.shot.6
+- tapOn:
+    id: b6.next
+- extendedWaitUntil:
+    visible:
+      id: b7.preview
+    timeout: 10000
+- tapOn:
+    id: b7.done
+- extendedWaitUntil:
+    visible:
+      id: b8.inGallery
+    timeout: 20000

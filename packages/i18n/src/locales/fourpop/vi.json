@@ -132,7 +132,12 @@
     "includedInPremium": "Có trong Premium",
     "seasonEnds": "Có đến {{date}}",
     "offline": "Ngoại tuyến — đang hiện các bộ đã lưu",
-    "updateApp": "Cập nhật ứng dụng để nhận bộ mới"
+    "updateApp": "Cập nhật ứng dụng để nhận bộ mới",
+    "download": "Tải về",
+    "frames_one": "{{count}} khung",
+    "frames_other": "{{count}} khung",
+    "stickers_one": "{{count}} sticker",
+    "stickers_other": "{{count}} sticker"
   },
   "paywall": {
     "title": "Fourpop Premium",

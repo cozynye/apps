@@ -37,6 +37,8 @@ const packBase = {
   availableUntil: isoDate.optional(),
   title: localized,
   thumbnail: z.string().optional(),
+  /** File path → SHA-256 hex. Verified after download when present (PLAN 다운로드). */
+  sha256: z.record(z.string(), z.string().regex(/^[0-9a-f]{64}$/i)).optional(),
 };
 
 export const packSchema = z.discriminatedUnion('type', [

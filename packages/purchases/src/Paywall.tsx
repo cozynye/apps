@@ -2,6 +2,7 @@ import type { PaywallSource } from '@nf/analytics';
 import { track } from '@nf/analytics';
 import {
   Button,
+  Card,
   IconButton,
   PlanCard,
   Screen,
@@ -26,6 +27,18 @@ export interface PaywallPerk {
   text: string;
 }
 
+/** One-time product shown above the subscription (Fourpop B11 with `?packId=`). */
+export interface PaywallSingle {
+  title: string;
+  subtitle?: string;
+  /** Button label with the localized price (`paywall.unlockPack`). */
+  cta: string;
+  onPress: () => void;
+  busy?: boolean;
+  /** No price yet (purchases disabled or product unknown). */
+  disabled?: boolean;
+}
+
 export interface PaywallProps {
   /** Screen id for testIDs: 'a9' (Nuni) or 'b11' (Fourpop). */
   screenId: string;
@@ -34,6 +47,8 @@ export interface PaywallProps {
   subtitle: string;
   perks: PaywallPerk[];
   art?: ReactNode;
+  /** Single-pack card first, subscription below (PLAN B11). */
+  single?: PaywallSingle;
   onClose: () => void;
   onOpenTerms: () => void;
   onOpenPrivacy: () => void;
@@ -46,9 +61,10 @@ type Plan = 'annual' | 'monthly';
  * app (App Review 3.1.2); prices always come from RevenueCat, never hardcoded.
  */
 export function Paywall(props: PaywallProps) {
-  const { screenId, source, headline, subtitle, perks, art, onClose } = props;
+  const { screenId, source, headline, subtitle, perks, art, single, onClose } = props;
   const { t } = useTranslation();
   const { colors, accent } = useTheme();
+  const offline = useIsOffline();
   const offering = useSubscriptionOffering();
 
   useEffect(() => {
@@ -74,6 +90,28 @@ export function Paywall(props: PaywallProps) {
           {subtitle}
         </Text>
       </View>
+      {single ? (
+        <View style={styles.single} testID={`${screenId}.single`}>
+          <Card style={styles.singleCard}>
+            <Text variant="title">{single.title}</Text>
+            {single.subtitle ? (
+              <Text variant="bodySm" color="inkMuted">
+                {single.subtitle}
+              </Text>
+            ) : null}
+            <Button
+              testID={`${screenId}.single.cta`}
+              label={single.cta}
+              loading={single.busy}
+              disabled={single.disabled || offline || single.busy}
+              onPress={single.onPress}
+            />
+          </Card>
+          <Text variant="bodyStrong" color="inkMuted" align="center">
+            {t('paywall.orPremium')}
+          </Text>
+        </View>
+      ) : null}
       <View style={styles.perks}>
         {perks.map((perk) => (
           <View key={perk.text} style={styles.perk}>
@@ -103,7 +141,7 @@ export function Paywall(props: PaywallProps) {
   );
 }
 
-function Plans({ screenId, onClose, onOpenTerms, onOpenPrivacy, plans }: PaywallProps & { plans: SubscriptionPlans }) {
+function Plans({ screenId, single, onClose, onOpenTerms, onOpenPrivacy, plans }: PaywallProps & { plans: SubscriptionPlans }) {
   const { t } = useTranslation();
   const toast = useToast();
   const offline = useIsOffline();
@@ -192,6 +230,8 @@ function Plans({ screenId, onClose, onOpenTerms, onOpenPrivacy, plans }: Paywall
         <Button
           testID={`${screenId}.cta`}
           label={cta}
+          // With a single-pack card above, that card carries the accent (one primary per screen).
+          variant={single ? 'secondary' : 'primary'}
           loading={busy === 'buy'}
           disabled={offline || busy !== null || !selected}
           onPress={buy}
@@ -255,6 +295,8 @@ function Link({
 const styles = StyleSheet.create({
   header: { alignItems: 'flex-end', marginRight: -space[2] },
   hero: { alignItems: 'center', gap: space[2] },
+  single: { gap: space[3], marginTop: space[6] },
+  singleCard: { gap: space[3] },
   perks: { gap: space[3], marginTop: space[6] },
   perk: { flexDirection: 'row', alignItems: 'center', gap: space[3] },
   perkText: { flex: 1 },

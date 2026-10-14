@@ -16,6 +16,9 @@ coverage/
 apps/*/ios/
 apps/*/android/
 
+# dev-only generated CDN fixture (pnpm cdn:mock)
+scripts/mock-cdn/
+
 # misc
 .DS_Store
 *.log

@@ -132,7 +132,12 @@
     "includedInPremium": "Included in Premium",
     "seasonEnds": "Available until {{date}}",
     "offline": "Offline — showing saved packs",
-    "updateApp": "Update the app to get new packs"
+    "updateApp": "Update the app to get new packs",
+    "download": "Download",
+    "frames_one": "{{count}} frame",
+    "frames_other": "{{count}} frames",
+    "stickers_one": "{{count}} sticker",
+    "stickers_other": "{{count}} stickers"
   },
   "paywall": {
     "title": "Fourpop Premium",

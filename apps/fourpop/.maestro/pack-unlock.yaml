@@ -1,0 +1,60 @@
+# PLAN 완료 기준 `pack-unlock`: shop → B11 pack card → buy (RevenueCat Test Store) → pack downloads →
+# B4 Season frame unlocked → shoot with it → B8 saves without the lock blur.
+# Needs: `pnpm cdn:mock`, Metro with EXPO_PUBLIC_CDN_BASE_URL=http://localhost:8090 and
+# EXPO_PUBLIC_MOCK_CAMERA=1, and EXPO_PUBLIC_RC_IOS_KEY_FOURPOP (Test Store with `booth_pack_dev_sample`).
+appId: app.fourpop.booth
+---
+- runFlow: common/launch.yaml
+- extendedWaitUntil:
+    visible:
+      id: b2.skip
+    timeout: 20000
+- tapOn:
+    id: b2.skip
+- extendedWaitUntil:
+    visible:
+      id: b3.title
+    timeout: 10000
+- tapOn:
+    id: tabs.shop
+- extendedWaitUntil:
+    visible:
+      id: b10.pack.dev-sample
+    timeout: 15000
+# The card opens B11 whether or not the price is known yet (Unlock button needs a price).
+- tapOn:
+    id: b10.pack.dev-sample
+- extendedWaitUntil:
+    visible:
+      id: b11.single.cta
+    timeout: 10000
+- takeScreenshot: pack-unlock-b11
+- tapOn:
+    id: b11.single.cta
+- tapOn: Test valid purchase
+- assertVisible: "You're all set!"
+# Back in the shop: owned, download finishes.
+- extendedWaitUntil:
+    visible:
+      id: b10.owned.dev-sample
+    timeout: 15000
+- extendedWaitUntil:
+    notVisible:
+      id: b10.downloading.dev-sample
+    timeout: 30000
+- takeScreenshot: pack-unlock-owned
+# The pack's frame is usable: B4 Season (no lock) → shoot → B8 saved (no blur).
+- tapOn:
+    id: tabs.booth
+- tapOn:
+    id: b3.allFrames
+- tapOn:
+    id: b4.tab.season
+- tapOn:
+    id: b4.frame.sample-night
+- runFlow: common/shoot.yaml
+- assertNotVisible:
+    id: b8.locked
+- takeScreenshot: pack-unlock-b8
+- tapOn:
+    id: b8.close

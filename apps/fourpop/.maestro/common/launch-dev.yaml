@@ -1,0 +1,10 @@
+# Launches the app and opens the dev menu (`fourpop:///dev`).
+appId: app.fourpop.booth
+---
+- runFlow: launch.yaml
+- openLink: fourpop:///dev
+- runFlow: confirm-open.yaml
+- extendedWaitUntil:
+    visible:
+      id: dev.home
+    timeout: 20000

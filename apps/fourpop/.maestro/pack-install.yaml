@@ -1,0 +1,74 @@
+# Dev path for the pack download (no purchase): mock CDN manifest → shop lists the sample packs →
+# dev menu installs one (download, sha256, move, installed_packs) → shop shows it, B4 Season lists it.
+# Needs: `pnpm cdn:mock` (port 8090) and Metro with EXPO_PUBLIC_CDN_BASE_URL=http://localhost:8090.
+appId: app.fourpop.booth
+---
+- runFlow: common/launch.yaml
+- extendedWaitUntil:
+    visible:
+      id: b2.skip
+    timeout: 20000
+- tapOn:
+    id: b2.skip
+- extendedWaitUntil:
+    visible:
+      id: b3.title
+    timeout: 10000
+# Season banner comes from the CDN manifest.
+- assertVisible:
+    id: b3.seasonBanner
+- tapOn:
+    id: tabs.shop
+- extendedWaitUntil:
+    visible:
+      id: b10.pack.dev-sample
+    timeout: 15000
+- assertVisible:
+    id: b10.pack.dev-stickers
+- assertVisible:
+    id: b10.premium
+- takeScreenshot: shop-b10
+# Locked pack → B11 with the single-pack card first.
+- tapOn:
+    id: b10.pack.dev-sample
+- extendedWaitUntil:
+    visible:
+      id: b11.single
+    timeout: 10000
+- assertVisible:
+    id: b11.single.cta
+- takeScreenshot: paywall-b11-pack
+- tapOn:
+    id: b11.close
+# Install without buying (dev menu), then the file-backed pack shows in the shop and in B4 › Season.
+- openLink: fourpop:///dev
+- runFlow: common/confirm-open.yaml
+- extendedWaitUntil:
+    visible:
+      id: dev.install.dev-sample
+    timeout: 10000
+- tapOn:
+    id: dev.install.dev-sample
+- extendedWaitUntil:
+    visible:
+      id: dev.pack.dev-sample
+      text: 'dev-sample: done'
+    timeout: 30000
+- takeScreenshot: dev-pack-installed
+- tapOn:
+    id: dev.home
+- extendedWaitUntil:
+    visible:
+      id: b3.allFrames
+    timeout: 10000
+- tapOn:
+    id: b3.allFrames
+- tapOn:
+    id: b4.tab.season
+- extendedWaitUntil:
+    visible:
+      id: b4.frame.sample-night
+    timeout: 10000
+- takeScreenshot: b4-season
+- tapOn:
+    id: b4.close

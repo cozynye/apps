@@ -132,7 +132,12 @@
     "includedInPremium": "รวมอยู่ใน Premium",
     "seasonEnds": "มีถึง {{date}}",
     "offline": "ออฟไลน์ — แสดงเฉพาะชุดที่บันทึกไว้",
-    "updateApp": "อัปเดตแอปเพื่อรับชุดใหม่"
+    "updateApp": "อัปเดตแอปเพื่อรับชุดใหม่",
+    "download": "ดาวน์โหลด",
+    "frames_one": "{{count}} กรอบ",
+    "frames_other": "{{count}} กรอบ",
+    "stickers_one": "{{count}} สติกเกอร์",
+    "stickers_other": "{{count}} สติกเกอร์"
   },
   "paywall": {
     "title": "Fourpop Premium",

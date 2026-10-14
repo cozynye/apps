@@ -4,5 +4,12 @@
     "tabSeason": "ตามฤดูกาล",
     "seasonEmpty": "ยังไม่มีเฟรมตามฤดูกาลตอนนี้ แพ็กใหม่จะมาในช่วงเทศกาล",
     "ownedEmpty": "แพ็กที่คุณปลดล็อกจะแสดงที่นี่"
+  },
+  "shop": {
+    "download": "ดาวน์โหลด",
+    "frames_one": "{{count}} กรอบ",
+    "frames_other": "{{count}} กรอบ",
+    "stickers_one": "{{count}} สติกเกอร์",
+    "stickers_other": "{{count}} สติกเกอร์"
   }
 }

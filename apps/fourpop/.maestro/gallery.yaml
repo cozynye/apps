@@ -1,0 +1,77 @@
+# B9: empty state → shoot one strip → listed by day → tap → B8 share again → back → swipe delete → empty again.
+# Needs Metro started with EXPO_PUBLIC_MOCK_CAMERA=1.
+appId: app.fourpop.booth
+---
+- runFlow: common/launch.yaml
+- extendedWaitUntil:
+    visible:
+      id: b2.skip
+    timeout: 20000
+- tapOn:
+    id: b2.skip
+- extendedWaitUntil:
+    visible:
+      id: b3.title
+    timeout: 10000
+- tapOn:
+    id: tabs.gallery
+- extendedWaitUntil:
+    visible:
+      id: b9.empty
+    timeout: 10000
+- takeScreenshot: gallery-empty
+# Empty-state CTA goes back to the booth tab.
+- tapOn:
+    id: b9.empty.action
+- extendedWaitUntil:
+    visible:
+      id: b3.startShooting
+    timeout: 10000
+- runFlow: common/shoot.yaml
+- tapOn:
+    id: b8.close
+- extendedWaitUntil:
+    visible:
+      id: b3.title
+    timeout: 10000
+- tapOn:
+    id: tabs.gallery
+- extendedWaitUntil:
+    visible:
+      id: b9.strip.0
+    timeout: 10000
+- takeScreenshot: gallery-list
+# Share again: B8 in gallery mode (no HD / GIF chips, no close button).
+- tapOn:
+    id: b9.strip.0
+- extendedWaitUntil:
+    visible:
+      id: b8.reshare
+    timeout: 10000
+- assertVisible:
+    id: b8.saveToPhotos
+- assertNotVisible:
+    id: b8.gif
+- takeScreenshot: gallery-reshare
+- tapOn:
+    id: b8.back
+- extendedWaitUntil:
+    visible:
+      id: b9.strip.0
+    timeout: 10000
+# Swipe left reveals Delete; confirm; the list is empty again.
+- swipe:
+    from:
+      id: b9.strip.0
+    direction: LEFT
+- tapOn:
+    id: b9.delete.0
+# The row's own Delete button has the same label; pick the alert button below the title.
+- assertVisible: 'Delete this strip\?'
+- tapOn:
+    text: Delete
+    below: 'Delete this strip\?'
+- extendedWaitUntil:
+    visible:
+      id: b9.empty
+    timeout: 10000

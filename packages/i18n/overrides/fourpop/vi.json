@@ -4,5 +4,12 @@
     "tabSeason": "Theo mùa",
     "seasonEmpty": "Hiện chưa có khung theo mùa. Gói mới sẽ ra vào các dịp lễ.",
     "ownedEmpty": "Các gói bạn mở khóa sẽ hiện ở đây."
+  },
+  "shop": {
+    "download": "Tải về",
+    "frames_one": "{{count}} khung",
+    "frames_other": "{{count}} khung",
+    "stickers_one": "{{count}} sticker",
+    "stickers_other": "{{count}} sticker"
   }
 }

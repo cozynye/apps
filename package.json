@@ -14,7 +14,8 @@
     "design:sync": "tsx scripts/design-sync.ts",
     "fourpop": "pnpm --filter fourpop run",
     "legal:build": "tsx web/legal/build.ts",
-    "e2e": "bash scripts/e2e.sh"
+    "e2e": "bash scripts/e2e.sh",
+    "cdn:mock": "tsx scripts/mock-cdn.ts"
   },
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2",

@@ -1,5 +1,6 @@
 import { recordError, track } from '@nf/analytics';
-import { getProducts, purchaseProduct, useEntitlement } from '@nf/purchases';
+import { strips, type Strip } from '@nf/db/fourpop';
+import { useEntitlement } from '@nf/purchases';
 import {
   Button,
   CaretLeftIcon,
@@ -14,31 +15,36 @@ import {
   ShareNetworkIcon,
   space,
   Text,
-  useTheme,
+  useIsOffline,
   useLayout,
+  useTheme,
   useToast,
   XIcon,
   type Icon,
 } from '@nf/ui';
 import { AlphaType, ColorType, type SkImage } from '@shopify/react-native-skia';
+import { eq } from 'drizzle-orm';
 import { BlurView } from 'expo-blur';
 import { File, Paths } from 'expo-file-system';
 // SDK 57 moved saveToLibraryAsync to the legacy entry (the root export throws).
 import * as MediaLibrary from 'expo-media-library/legacy';
-import { router } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import * as Sharing from 'expo-sharing';
 import { GIFEncoder, applyPalette, quantize } from 'gifenc';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ActivityIndicator, Alert, Image, Linking, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { DEFAULT_FRAME, useFrameChoice } from '../../src/booth';
 import { findFrame, imageSource, PREMIUM, useCanUse, useCatalog } from '../../src/catalog';
-import { renderStrip, saveToGallery } from '../../src/compose';
+import { renderStrip, saveToGallery, stripUri } from '../../src/compose';
+import { db } from '../../src/db';
 import { useDecorate } from '../../src/decorate';
 import { useStripFonts } from '../../src/fonts';
 import { HD_SCALE, STANDARD_SCALE } from '../../src/geometry';
+import { purchasePack } from '../../src/packs';
+import { useProductPrice } from '../../src/prices';
 import { clearSessionFiles, useSession } from '../../src/session';
 import { useBoothSettings } from '../../src/settings';
 import { loadSkImage, useSkImages } from '../../src/skia-images';
@@ -53,15 +59,24 @@ const GIF_WIDTH = 480;
 /** Header + chips + share row + Save + note + gaps on B8. */
 const ACTIONS_HEIGHT = 380;
 
-/** B8 result: render, keep a gallery copy, then save / share / HD / GIF. Locked frames show a blur. */
+type Lang = 'en' | 'vi' | 'th';
+const useLang = (): Lang => {
+  const { i18n } = useTranslation();
+  return (['vi', 'th'].includes(i18n.language) ? i18n.language : 'en') as Lang;
+};
+
+/** B8: the fresh session result, or a gallery strip shared again (`?stripId=`, PLAN B9 재공유). */
 export default function ResultScreen() {
-  const { t, i18n } = useTranslation();
+  const { stripId } = useLocalSearchParams<{ stripId?: string }>();
+  return stripId ? <GalleryResult stripId={stripId} /> : <SessionResult />;
+}
+
+/** Session result: render, keep a gallery copy, then save / share / HD / GIF. Locked frames show a blur. */
+function SessionResult() {
+  const { t } = useTranslation();
   const { colors, accent } = useTheme();
   const toast = useToast();
-  const insets = useSafeAreaInsets();
-  const { height, isTablet } = useLayout();
-  // Keep chips, share row and Save on screen without scrolling (PLAN B8: one-tap save).
-  const previewH = Math.max(300, Math.min(isTablet ? 900 : 540, height - insets.top - insets.bottom - ACTIONS_HEIGHT));
+  const offline = useIsOffline();
   const premium = useEntitlement(PREMIUM);
   const hdSetting = useBoothSettings((s) => s.hd);
   const fonts = useStripFonts();
@@ -70,10 +85,11 @@ export default function ResultScreen() {
   const setFrame = useFrameChoice((s) => s.setFrame);
   const frame = findFrame(packs, frameId);
   const canUseFrame = useCanUse(frame?.pack ?? { free: true, entitlementId: null });
+  const packPrice = useProductPrice(canUseFrame ? null : (frame?.pack.productId ?? null));
   const shots = useSession((s) => s.shots);
   const picked = useSession((s) => s.picked);
   const { filter, items, dateFormat } = useDecorate();
-  const language = (['vi', 'th'].includes(i18n.language) ? i18n.language : 'en') as 'en' | 'vi' | 'th';
+  const language = useLang();
 
   const [frameImage, ...pickedImages] = useSkImages([
     frame ? imageSource(frame.item.image) : null,
@@ -81,9 +97,7 @@ export default function ResultScreen() {
   ]);
   const [stickerImages, setStickerImages] = useState<Record<string, SkImage | null>>({});
   const [standardUri, setStandardUri] = useState<string | null>(null);
-  const [saved, setSaved] = useState(false);
-  const [busy, setBusy] = useState<'save' | 'gif' | 'unlock' | null>(null);
-  const [channels, setChannels] = useState<Channel[]>([]);
+  const [busy, setBusy] = useState<'gif' | 'unlock' | null>(null);
   const savedToGallery = useRef(false);
   const hd = premium && hdSetting;
 
@@ -94,13 +108,6 @@ export default function ResultScreen() {
       setStickerImages(Object.fromEntries(pairs)),
     );
   }, [items]);
-
-  useEffect(() => {
-    const list = CHANNELS[language] ?? CHANNELS.en!;
-    void Promise.all(list.map(async (c) => ((await Linking.canOpenURL(SCHEMES[c]).catch(() => false)) ? c : null))).then((r) =>
-      setChannels(r.filter((c): c is Channel => c !== null)),
-    );
-  }, [language]);
 
   const ready = Boolean(frame && fonts && frameImage && pickedImages.every(Boolean) && Object.keys(stickerImages).length >= 0);
   const sceneProps = useCallback(
@@ -142,39 +149,11 @@ export default function ResultScreen() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready, premium, canUseFrame, frameId]);
 
-  async function saveToPhotos() {
-    setBusy('save');
-    try {
-      const uri = hd ? await renderStrip(sceneProps(false), HD_SCALE) : standardUri;
-      if (!uri) return;
-      const permission = await MediaLibrary.requestPermissionsAsync(true);
-      if (!permission.granted) {
-        track('permission_denied', { type: 'photos' });
-        Alert.alert(t('permission.photosTitle'), `${t('permission.photosBody')}\n${t('result.savedToGallery')}`, [
-          { text: t('action.cancel'), style: 'cancel' },
-          { text: t('action.openSettings'), onPress: () => void Linking.openSettings() },
-        ]);
-        return;
-      }
-      await MediaLibrary.saveToLibraryAsync(uri);
-      setSaved(true);
-      toast(t('result.savedToPhotos'), 'success');
-      track('booth_share', { channel: 'photos' });
-    } catch (error) {
-      recordError(error as Error, 'saveToPhotos');
-      toast(t('error.generic'), 'error');
-    } finally {
-      setBusy(null);
-    }
-  }
-
-  async function share(channel: Channel | 'system') {
-    if (!standardUri) return;
-    const uri = hd ? await renderStrip(sceneProps(false), HD_SCALE).catch(() => standardUri) : standardUri;
-    // Zalo / Messenger / LINE / Instagram receive the image through the share sheet (no SDKs).
-    await Sharing.shareAsync(uri, { mimeType: 'image/jpeg', UTI: 'public.jpeg' }).catch(() => undefined);
-    track('booth_share', { channel });
-  }
+  const share = useShare({
+    // Save: HD render must succeed when HD is selected (no silent downgrade).
+    uriForSave: async () => (hd ? renderStrip(sceneProps(false), HD_SCALE) : standardUri),
+    uriForShare: async () => (hd ? renderStrip(sceneProps(false), HD_SCALE).catch(() => standardUri) : standardUri),
+  });
 
   async function makeGif() {
     if (!premium) return router.push({ pathname: '/b11-paywall', params: { source: 'gif' } });
@@ -210,15 +189,14 @@ export default function ResultScreen() {
     }
   }
 
+  /** Single-pack purchase; the strip stays in memory and the blur lifts on success (PLAN 사용자 플로우 5). */
   async function unlockPack() {
-    if (!frame?.pack.productId) return;
+    if (!frame) return;
     setBusy('unlock');
-    const [product] = await getProducts([frame.pack.productId]).catch(() => []);
-    if (product) {
-      const outcome = await purchaseProduct(product);
-      if (outcome.status === 'success') toast(t('paywall.purchaseSuccess'), 'success');
-      else if (outcome.status === 'failed') toast(t('paywall.purchaseFailed'), 'error');
-    } else toast(t('error.purchaseOffline'), 'error');
+    const outcome = await purchasePack(frame.pack);
+    if (outcome === 'success') toast(t('paywall.purchaseSuccess'), 'success');
+    else if (outcome === 'failed') toast(t('paywall.purchaseFailed'), 'error');
+    else if (outcome === 'unavailable') toast(t(offline ? 'error.purchaseOffline' : 'error.generic'), 'error');
     setBusy(null);
   }
 
@@ -229,88 +207,220 @@ export default function ResultScreen() {
   }
 
   return (
-    <View style={[styles.root, { backgroundColor: colors.surface1, paddingTop: insets.top }]}>
+    <ResultLayout onBack={() => router.back()} onClose={finish}>
+      {(previewH) => (
+        <>
+          <Preview previewH={previewH} uri={standardUri}>
+            {!canUseFrame && standardUri && (
+              <>
+                <BlurView intensity={30} tint="light" style={StyleSheet.absoluteFill} />
+                <View style={styles.lockOverlay} testID="b8.locked">
+                  <LockSimpleIcon size={28} color={colors.ink} />
+                  <Text variant="bodyStrong" align="center">
+                    {t('result.unlockToSave')}
+                  </Text>
+                </View>
+              </>
+            )}
+          </Preview>
+
+          {!canUseFrame ? (
+            <View style={styles.actions}>
+              <Button
+                testID="b8.unlockPack"
+                label={packPrice ? t('paywall.unlockPack', { price: packPrice }) : t('paywall.unlockPack', { price: '' }).replace(/\s·\s*$/, '')}
+                loading={busy === 'unlock'}
+                onPress={() => void unlockPack()}
+              />
+              <Button
+                testID="b8.orPremium"
+                variant="secondary"
+                label={t('paywall.orPremium')}
+                onPress={() => router.push({ pathname: '/b11-paywall', params: { source: 'pack', packId: frame?.pack.id ?? '' } })}
+              />
+              <Pressable testID="b8.useFreeFrame" accessibilityRole="button" onPress={() => setFrame(DEFAULT_FRAME)} hitSlop={space[3]}>
+                <Text variant="bodySm" align="center" style={{ color: accent.deep }}>
+                  {t('result.useFreeFrame')}
+                </Text>
+              </Pressable>
+            </View>
+          ) : (
+            <>
+              <View style={styles.chips}>
+                <Chip testID="b8.standard" label={t('result.standard', { size: '600×1800' })} selected={!hd} />
+                <Chip
+                  testID="b8.hd"
+                  label={t('result.hdUpsell')}
+                  locked={!premium}
+                  selected={hd}
+                  onPress={() => (premium ? useBoothSettings.getState().set({ hd: !hdSetting }) : router.push({ pathname: '/b11-paywall', params: { source: 'hd' } }))}
+                />
+                <Chip testID="b8.gif" label={t('result.gif')} locked={!premium} busy={busy === 'gif'} onPress={() => void makeGif()} />
+              </View>
+              <ShareActions share={share} disabled={!standardUri} />
+              <Text variant="bodySm" color="inkMuted" align="center" testID="b8.inGallery">
+                {t('result.inGallery')}
+              </Text>
+            </>
+          )}
+          <Pressable testID="b8.shootAnother" accessibilityRole="button" onPress={finish} hitSlop={space[3]}>
+            <Text variant="bodyStrong" align="center" style={{ color: accent.deep }}>
+              {t('result.shootAnother')}
+            </Text>
+          </Pressable>
+        </>
+      )}
+    </ResultLayout>
+  );
+}
+
+/** A saved strip opened from B9: the standard-quality gallery copy, shared or saved again. */
+function GalleryResult({ stripId }: { stripId: string }) {
+  const [row, setRow] = useState<Strip | null | undefined>(undefined);
+  useEffect(() => {
+    let alive = true;
+    db.select()
+      .from(strips)
+      .where(eq(strips.id, stripId))
+      .then((rows) => alive && setRow(rows[0] ?? null))
+      .catch(() => alive && setRow(null));
+    return () => {
+      alive = false;
+    };
+  }, [stripId]);
+  const uri = row ? stripUri(row.fileName) : null;
+  const share = useShare({ uriForSave: async () => uri, uriForShare: async () => uri });
+
+  return (
+    <ResultLayout onBack={() => router.back()} testID="b8.reshare">
+      {(previewH) => (
+        <>
+          <Preview previewH={previewH} uri={uri} failed={row === null} />
+          <ShareActions share={share} disabled={!uri} />
+        </>
+      )}
+    </ResultLayout>
+  );
+}
+
+/** Header + centered column (520pt on iPad, like Nuni A7); children get the preview height. */
+function ResultLayout({ onBack, onClose, testID, children }: { onBack: () => void; onClose?: () => void; testID?: string; children: (previewH: number) => ReactNode }) {
+  const { t } = useTranslation();
+  const { colors } = useTheme();
+  const insets = useSafeAreaInsets();
+  const { height, isTablet } = useLayout();
+  // Keep chips, share row and Save on screen without scrolling (PLAN B8: one-tap save).
+  const previewH = Math.max(300, Math.min(isTablet ? 900 : 540, height - insets.top - insets.bottom - ACTIONS_HEIGHT));
+  return (
+    <View style={[styles.root, { backgroundColor: colors.surface1, paddingTop: insets.top }]} testID={testID}>
       <View style={styles.header}>
-        <IconButton testID="b8.back" accessibilityLabel={t('action.back')} onPress={() => router.back()} renderIcon={(c) => <CaretLeftIcon size={24} color={c} />} />
+        <IconButton testID="b8.back" accessibilityLabel={t('action.back')} onPress={onBack} renderIcon={(c) => <CaretLeftIcon size={24} color={c} />} />
         <Text variant="title" align="center" style={styles.title} testID="b8.title">
           {t('result.title')}
         </Text>
-        <IconButton testID="b8.close" accessibilityLabel={t('a11y.close')} onPress={finish} renderIcon={(c) => <XIcon size={24} color={c} />} />
-      </View>
-      <ScrollView contentContainerStyle={[styles.content, { paddingBottom: insets.bottom + space[6] }]}>
-        <View style={[styles.preview, { borderColor: colors.line, width: previewH / 3, height: previewH }]} testID="b8.preview">
-          {standardUri ? (
-            <Image source={{ uri: standardUri }} style={StyleSheet.absoluteFill} />
-          ) : (
-            <ActivityIndicator style={StyleSheet.absoluteFill} color={colors.inkMuted} />
-          )}
-          {!canUseFrame && standardUri && (
-            <>
-              <BlurView intensity={30} tint="light" style={StyleSheet.absoluteFill} />
-              <View style={styles.lockOverlay} testID="b8.locked">
-                <LockSimpleIcon size={28} color={colors.ink} />
-                <Text variant="bodyStrong" align="center">
-                  {t('result.unlockToSave')}
-                </Text>
-              </View>
-            </>
-          )}
-        </View>
-
-        {!canUseFrame ? (
-          <View style={styles.actions}>
-            <Button testID="b8.unlockPack" label={t('paywall.unlockPack', { price: '' }).replace(/\s·\s$/, '')} loading={busy === 'unlock'} onPress={() => void unlockPack()} />
-            <Button
-              testID="b8.orPremium"
-              variant="secondary"
-              label={t('paywall.orPremium')}
-              onPress={() => router.push({ pathname: '/b11-paywall', params: { source: 'pack', packId: frame?.pack.id ?? '' } })}
-            />
-            <Pressable testID="b8.useFreeFrame" accessibilityRole="button" onPress={() => setFrame(DEFAULT_FRAME)} hitSlop={space[3]}>
-              <Text variant="bodySm" align="center" style={{ color: accent.deep }}>
-                {t('result.useFreeFrame')}
-              </Text>
-            </Pressable>
-          </View>
+        {onClose ? (
+          <IconButton testID="b8.close" accessibilityLabel={t('a11y.close')} onPress={onClose} renderIcon={(c) => <XIcon size={24} color={c} />} />
         ) : (
-          <>
-            <View style={styles.chips}>
-              <Chip testID="b8.standard" label={t('result.standard', { size: '600×1800' })} selected={!hd} />
-              <Chip
-                testID="b8.hd"
-                label={t('result.hdUpsell')}
-                locked={!premium}
-                selected={hd}
-                onPress={() => (premium ? useBoothSettings.getState().set({ hd: !hdSetting }) : router.push({ pathname: '/b11-paywall', params: { source: 'hd' } }))}
-              />
-              <Chip testID="b8.gif" label={t('result.gif')} locked={!premium} busy={busy === 'gif'} onPress={() => void makeGif()} />
-            </View>
-            <View style={styles.shareRow}>
-              {channels.map((c) => (
-                <ShareButton key={c} testID={`b8.share.${c}`} label={t(`result.${c}`)} Icon={CHANNEL_ICON[c]} onPress={() => void share(c)} />
-              ))}
-              <ShareButton testID="b8.share.system" label={t('result.share')} Icon={ShareNetworkIcon} onPress={() => void share('system')} />
-            </View>
-            <Button
-              testID="b8.saveToPhotos"
-              label={saved ? t('result.saved') : t('result.saveToPhotos')}
-              icon={saved ? <CheckIcon size={20} color={colors.onAccent} /> : <DownloadSimpleIcon size={20} color={colors.onAccent} />}
-              loading={busy === 'save'}
-              disabled={!standardUri}
-              onPress={() => void saveToPhotos()}
-            />
-            <Text variant="bodySm" color="inkMuted" align="center" testID="b8.inGallery">
-              {t('result.inGallery')}
-            </Text>
-          </>
+          <View style={styles.headerSpacer} />
         )}
-        <Pressable testID="b8.shootAnother" accessibilityRole="button" onPress={finish} hitSlop={space[3]}>
-          <Text variant="bodyStrong" align="center" style={{ color: accent.deep }}>
-            {t('result.shootAnother')}
-          </Text>
-        </Pressable>
-      </ScrollView>
+      </View>
+      <ScrollView contentContainerStyle={[styles.content, { paddingBottom: insets.bottom + space[6] }]}>{children(previewH)}</ScrollView>
     </View>
+  );
+}
+
+function Preview({ previewH, uri, failed, children }: { previewH: number; uri: string | null; failed?: boolean; children?: ReactNode }) {
+  const { t } = useTranslation();
+  const { colors } = useTheme();
+  return (
+    <View style={[styles.preview, { borderColor: colors.line, width: previewH / 3, height: previewH }]} testID="b8.preview">
+      {uri ? (
+        <Image source={{ uri }} style={StyleSheet.absoluteFill} />
+      ) : failed ? (
+        <Text variant="bodySm" color="inkMuted" align="center" style={styles.previewText}>
+          {t('error.generic')}
+        </Text>
+      ) : (
+        <ActivityIndicator style={StyleSheet.absoluteFill} color={colors.inkMuted} />
+      )}
+      {children}
+    </View>
+  );
+}
+
+/** Save to Photos (add-only permission) and the locale share row (PLAN B8 공유 행). */
+function useShare({ uriForSave, uriForShare }: { uriForSave: () => Promise<string | null>; uriForShare: () => Promise<string | null> }) {
+  const { t } = useTranslation();
+  const toast = useToast();
+  const language = useLang();
+  const [saved, setSaved] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [channels, setChannels] = useState<Channel[]>([]);
+
+  useEffect(() => {
+    const list = CHANNELS[language] ?? CHANNELS.en!;
+    void Promise.all(list.map(async (c) => ((await Linking.canOpenURL(SCHEMES[c]).catch(() => false)) ? c : null))).then((r) =>
+      setChannels(r.filter((c): c is Channel => c !== null)),
+    );
+  }, [language]);
+
+  async function saveToPhotos() {
+    setSaving(true);
+    try {
+      const uri = await uriForSave();
+      if (!uri) return;
+      const permission = await MediaLibrary.requestPermissionsAsync(true);
+      if (!permission.granted) {
+        track('permission_denied', { type: 'photos' });
+        Alert.alert(t('permission.photosTitle'), `${t('permission.photosBody')}\n${t('result.savedToGallery')}`, [
+          { text: t('action.cancel'), style: 'cancel' },
+          { text: t('action.openSettings'), onPress: () => void Linking.openSettings() },
+        ]);
+        return;
+      }
+      await MediaLibrary.saveToLibraryAsync(uri);
+      setSaved(true);
+      toast(t('result.savedToPhotos'), 'success');
+      track('booth_share', { channel: 'photos' });
+    } catch (error) {
+      recordError(error as Error, 'saveToPhotos');
+      toast(t('error.generic'), 'error');
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  async function share(channel: Channel | 'system') {
+    const uri = await uriForShare();
+    if (!uri) return;
+    // Zalo / Messenger / LINE / Instagram receive the image through the share sheet (no SDKs).
+    await Sharing.shareAsync(uri, { mimeType: 'image/jpeg', UTI: 'public.jpeg' }).catch(() => undefined);
+    track('booth_share', { channel });
+  }
+
+  return { saved, saving, channels, saveToPhotos, share };
+}
+
+function ShareActions({ share, disabled }: { share: ReturnType<typeof useShare>; disabled: boolean }) {
+  const { t } = useTranslation();
+  const { colors } = useTheme();
+  return (
+    <>
+      <View style={styles.shareRow}>
+        {share.channels.map((c) => (
+          <ShareButton key={c} testID={`b8.share.${c}`} label={t(`result.${c}`)} Icon={CHANNEL_ICON[c]} onPress={() => void share.share(c)} />
+        ))}
+        <ShareButton testID="b8.share.system" label={t('result.share')} Icon={ShareNetworkIcon} onPress={() => void share.share('system')} />
+      </View>
+      <Button
+        testID="b8.saveToPhotos"
+        label={share.saved ? t('result.saved') : t('result.saveToPhotos')}
+        icon={share.saved ? <CheckIcon size={20} color={colors.onAccent} /> : <DownloadSimpleIcon size={20} color={colors.onAccent} />}
+        loading={share.saving}
+        disabled={disabled}
+        onPress={() => void share.saveToPhotos()}
+      />
+    </>
   );
 }
 
@@ -369,9 +479,11 @@ const styles = StyleSheet.create({
   root: { flex: 1 },
   header: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: space[2] },
   title: { flex: 1 },
+  headerSpacer: { width: 44 },
   // Same 520pt action column as Nuni A7 on iPad.
   content: { alignItems: 'stretch', gap: space[4], padding: space[4], width: '100%', maxWidth: 520, alignSelf: 'center' },
-  preview: { alignSelf: 'center', borderRadius: radius.md, overflow: 'hidden', borderWidth: 1 },
+  preview: { alignSelf: 'center', borderRadius: radius.md, overflow: 'hidden', borderWidth: 1, justifyContent: 'center' },
+  previewText: { padding: space[3] },
   lockOverlay: { ...StyleSheet.absoluteFill, alignItems: 'center', justifyContent: 'center', gap: space[2], padding: space[3] },
   actions: { gap: space[3] },
   chips: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: space[2] },

@@ -4,5 +4,12 @@
     "tabSeason": "Season",
     "seasonEmpty": "No season frames right now. New packs drop for holidays.",
     "ownedEmpty": "Packs you unlock show up here."
+  },
+  "shop": {
+    "download": "Download",
+    "frames_one": "{{count}} frame",
+    "frames_other": "{{count}} frames",
+    "stickers_one": "{{count}} sticker",
+    "stickers_other": "{{count}} stickers"
   }
 }
