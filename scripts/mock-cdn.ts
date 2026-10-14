@@ -117,6 +117,37 @@ function build() {
       },
     ],
   };
+  // Broken pack: same image, wrong digest → install must fail after 3 attempts and clean up.
+  const brokenPath = (file: string) => `packs/dev-broken/${PACK_VERSION}/${file}`;
+  files[brokenPath('night.png')] = files[framePath('night.png')]!;
+  files[brokenPath('night-thumb.png')] = files[framePath('night-thumb.png')]!;
+  manifest.packs.push({
+    id: 'dev-broken',
+    type: 'frame',
+    productId: 'booth_pack_dev_broken',
+    entitlementId: 'booth_pack_dev_broken',
+    free: false,
+    bundled: false,
+    category: 'season',
+    minAppVersion: '1.0.0',
+    availableFrom: '2026-01-01',
+    availableUntil: '2099-12-31',
+    title: title('Broken sample (bad sha256)', 'Mẫu lỗi (sha256 sai)', 'ตัวอย่างเสีย (sha256 ผิด)'),
+    thumbnail: brokenPath('night-thumb.png'),
+    sha256: { [brokenPath('night.png')]: '0'.repeat(64), [brokenPath('night-thumb.png')]: sha256(files[brokenPath('night-thumb.png')]!) },
+    items: [
+      {
+        id: 'broken-night',
+        layout: 'strip4',
+        image: brokenPath('night.png'),
+        thumbnail: brokenPath('night-thumb.png'),
+        canvas: { w: 1200, h: 3600 },
+        slots,
+        captionSlot,
+        title: title('Broken', 'Broken', 'Broken'),
+      },
+    ],
+  });
   files['manifest.json'] = Buffer.from(`${JSON.stringify(manifest, null, 2)}\n`);
   for (const [path, data] of Object.entries(files)) {
     const target = join(OUT, path);

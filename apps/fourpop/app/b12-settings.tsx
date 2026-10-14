@@ -101,15 +101,19 @@ export default function SettingsScreen() {
         <SettingsSection>
           <View style={styles.stackedRow}>
             <Text variant="body">{t('settings.saveQuality')}</Text>
+            {/* Short labels so the two options fit at AX1 text size; sizes and watermark note go below. */}
             <Segment<'standard' | 'hd'>
               testID="b12.quality"
               value={premium && booth.hd ? 'hd' : 'standard'}
               onChange={(v) => setQuality(v === 'hd')}
               options={[
-                { value: 'standard', label: t('result.standard', { size: '600×1800' }) },
-                { value: 'hd', label: t('result.hdUpsell'), locked: !premium },
+                { value: 'standard', label: t('settings.qualityStandard') },
+                { value: 'hd', label: t('settings.qualityHd'), locked: !premium },
               ]}
             />
+            <Text variant="bodySm" color="inkMuted">
+              {t('settings.saveQualityHint')}
+            </Text>
           </View>
           <SettingsRow
             testID="b12.shutter"

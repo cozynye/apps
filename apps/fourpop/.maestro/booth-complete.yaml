@@ -75,7 +75,7 @@ appId: app.fourpop.booth
 - extendedWaitUntil:
     visible:
       id: b8.saveToPhotos
-      text: 'Saved.*|.*저장됨.*'
+      text: 'Saved.*|Đã lưu.*|บันทึกแล้ว.*|.*저장됨.*'
     timeout: 10000
 - scrollUntilVisible:
     element:

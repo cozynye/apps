@@ -1,0 +1,59 @@
+# Premium subscriber: packs show "Included in Premium" with Download; downloading installs the pack
+# (pack_unlock method premium). Needs the mock CDN, Metro CDN env and the Test Store key.
+appId: app.fourpop.booth
+---
+- runFlow: common/launch.yaml
+- extendedWaitUntil:
+    visible:
+      id: b2.skip
+    timeout: 20000
+- tapOn:
+    id: b2.skip
+- extendedWaitUntil:
+    visible:
+      id: b3.settings
+    timeout: 10000
+- tapOn:
+    id: b3.settings
+- tapOn:
+    id: b12.premium
+- extendedWaitUntil:
+    visible:
+      id: b11.cta
+    timeout: 30000
+- tapOn:
+    id: b11.cta
+- tapOn: Test valid purchase
+- assertVisible: "You're all set!|Xong rồi!|เรียบร้อยแล้ว!"
+- tapOn:
+    id: b12.back
+- tapOn:
+    id: tabs.shop
+- extendedWaitUntil:
+    visible:
+      id: b10.premium.dev-sample
+    timeout: 15000
+- assertVisible:
+    id: b10.premium.dev-stickers
+- assertNotVisible:
+    id: b10.unlock.dev-stickers
+- takeScreenshot: shop-premium
+- tapOn:
+    id: b10.download.dev-sample
+- extendedWaitUntil:
+    notVisible:
+      id: b10.downloading.dev-sample
+    timeout: 40000
+- assertNotVisible:
+    id: b10.download.dev-sample
+- takeScreenshot: shop-premium-downloaded
+# Installed on disk: dev menu shows the install state.
+- openLink: fourpop:///dev
+- runFlow: common/confirm-open.yaml
+- extendedWaitUntil:
+    visible:
+      id: dev.pack.dev-sample
+      text: 'dev-sample: done'
+    timeout: 10000
+- tapOn:
+    id: dev.home

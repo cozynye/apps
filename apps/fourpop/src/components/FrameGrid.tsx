@@ -69,7 +69,8 @@ function FrameCell({
         ]}
       >
         <Image source={imageSource(item.thumbnail)} style={styles.thumb} resizeMode="contain" />
-        <Text variant="caption" align="center" numberOfLines={2} style={{ color: selected ? accent.deep : colors.inkMuted }}>
+        {/* 5–8 narrow columns: cap the caption's Dynamic Type growth so names do not break mid-word at AX1. */}
+        <Text variant="caption" align="center" numberOfLines={2} maxFontSizeMultiplier={1.3} style={{ color: selected ? accent.deep : colors.inkMuted }}>
           {name}
         </Text>
         {locked && (
@@ -87,6 +88,7 @@ const styles = StyleSheet.create({
   cellWrap: { padding: space[1] },
   cell: { alignItems: 'center', gap: space[1], paddingVertical: space[2], borderWidth: 1, borderRadius: radius.md },
   cellSelected: { borderWidth: 2 },
-  thumb: { width: '62%', aspectRatio: 1 / 3 },
+  // Bundled (require) images carry their pixel size as a default height; clear it so aspectRatio wins.
+  thumb: { width: '62%', height: undefined, aspectRatio: 1 / 3 },
   lock: { position: 'absolute', top: space[1], right: space[1], borderRadius: radius.pill, padding: 3 },
 });

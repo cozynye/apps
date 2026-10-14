@@ -67,10 +67,10 @@ appId: app.fourpop.booth
 - tapOn:
     id: b9.delete.0
 # The row's own Delete button has the same label; pick the alert button below the title.
-- assertVisible: 'Delete this strip\?'
+- assertVisible: 'Delete this strip\?|Xóa dải ảnh này\?|ลบแถบรูปนี้\?'
 - tapOn:
-    text: Delete
-    below: 'Delete this strip\?'
+    text: 'Delete|Xóa|ลบ'
+    below: 'Delete this strip\?|Xóa dải ảnh này\?|ลบแถบรูปนี้\?'
 - extendedWaitUntil:
     visible:
       id: b9.empty

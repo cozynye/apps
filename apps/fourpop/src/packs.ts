@@ -7,6 +7,7 @@ import { Directory, File, Paths } from 'expo-file-system';
 import { create } from 'zustand';
 
 import { cdnUrl, installedFile, packsDir, refreshCatalog, useCatalog } from './catalog';
+import { ensureDiskSpace } from './compose';
 import { db } from './db';
 
 /** Downloads land here first; the folder moves to Documents/packs/<id>/ only when every file passed. */
@@ -60,6 +61,7 @@ export async function installPack(pack: Pack): Promise<void> {
   const tmp = new Directory(tmpRoot, pack.id);
   setInstall(pack.id, { status: 'downloading', done: 0, total: files.length });
   try {
+    ensureDiskSpace();
     if (tmp.exists) tmp.delete();
     tmp.create({ intermediates: true });
     let done = 0;

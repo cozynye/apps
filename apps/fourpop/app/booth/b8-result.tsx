@@ -38,7 +38,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { DEFAULT_FRAME, useFrameChoice } from '../../src/booth';
 import { findFrame, imageSource, PREMIUM, useCanUse, useCatalog } from '../../src/catalog';
-import { renderStrip, saveToGallery, stripUri } from '../../src/compose';
+import { ensureDiskSpace, renderStrip, saveErrorKey, saveToGallery, stripUri } from '../../src/compose';
 import { db } from '../../src/db';
 import { useDecorate } from '../../src/decorate';
 import { useStripFonts } from '../../src/fonts';
@@ -141,7 +141,7 @@ function SessionResult() {
       })
       .catch((error: Error) => {
         recordError(error, 'renderStrip');
-        toast(t('error.generic'), 'error');
+        toast(t(saveErrorKey(error)), 'error');
       });
     return () => {
       alive = false;
@@ -174,6 +174,7 @@ function SessionResult() {
         encoder.writeFrame(applyPalette(rgba, palette), w, h, { palette, delay: 400, repeat: 0 });
       }
       encoder.finish();
+      ensureDiskSpace();
       const file = new File(Paths.cache, `fourpop-${Date.now()}.gif`);
       file.write(encoder.bytes());
       const permission = await MediaLibrary.requestPermissionsAsync(true);
@@ -183,7 +184,7 @@ function SessionResult() {
       track('booth_share', { channel: 'gif' });
     } catch (error) {
       recordError(error as Error, 'gif');
-      toast(t('error.generic'), 'error');
+      toast(t(saveErrorKey(error)), 'error');
     } finally {
       setBusy(null);
     }
@@ -384,7 +385,7 @@ function useShare({ uriForSave, uriForShare }: { uriForSave: () => Promise<strin
       track('booth_share', { channel: 'photos' });
     } catch (error) {
       recordError(error as Error, 'saveToPhotos');
-      toast(t('error.generic'), 'error');
+      toast(t(saveErrorKey(error)), 'error');
     } finally {
       setSaving(false);
     }

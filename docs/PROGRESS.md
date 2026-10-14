@@ -130,9 +130,34 @@ S4 Fourpop 개발 — 진행 중 (S2 완료 2026-10-14)
 - 결제 검증(2026-10-14 오후, Cozy가 RevenueCat Fourpop 프로젝트 + Test Store 설정, `.env`에 `test_` 키): Maestro `pack-unlock`(상점 → B11 단품 카드 $0.99 → Test Store 구매 → `pack_unlock(single)` → 다운로드 → Owned → B4 Season 잠금 해제 → 촬영 → B8 블러 없이 저장)과 `paywall-restore`(B12 → B11 연간/월간 플랜·절약 배지, 취소 → 실패 토스트 → 성공 토스트·Premium 행 사라짐 → 복원 ‘Purchases restored’) iPhone 17 Pro·iPad Pro 13" 통과. 이로써 PLAN 완료 기준의 Fourpop Maestro 3종(`onboarding`·`booth-complete`·`pack-unlock`) iPhone·iPad 통과
 - 미검증: 프리미엄 구독자의 팩 Download 버튼 경로(E2E 없음, 코드는 구매 설치와 같은 `installPack`), 구독 만료 후 잠금 전환(Test Store 자동 갱신 5회 뒤 취소를 기다려야 함), 실제 CDN(R2) ETag·immutable 헤더 동작(P19 후), 실기기 결제 시트
 
+## 완료한 일 (2026-10-14, S4 6단계 — 완료 기준 점검 1차)
+
+- 3언어: vi(iPhone 17 Pro)·th(iPad Pro 13")로 `onboarding`·`booth-complete`·`gallery`·`pack-install`·`paywall-restore` 통과, 스크린샷에서 잘림·말줄임 없음(vi 버튼 두 줄 허용 범위). en은 두 기기 전부
+- 큰 글씨(AX1, `simctl ui content_size accessibility-medium`) `ax1-tour`로 B3·B4·B8·B9·B10·B11·B12 점검 → B3/B4 썸네일 폭주(번들 이미지 기본 높이), B12 세그먼트 단어 끊김, 그리드 캡션 끊김 3건 수정(DECISIONS)
+- 예외 상황 표(Fourpop·공통) 재현 현황:
+  | 행 | 확인 방법 | 상태 |
+  | --- | --- | --- |
+  | 카메라·사진 권한 거부 | 코드(`startShooting` Alert+설정 열기, B8 photos Alert) | 실기기 확인 필요(시뮬레이터는 MOCK_CAMERA) |
+  | 사진 limited | add-only라 해당 없음 | — |
+  | 카메라 없는 기기 | Maestro `camera-unavailable`(MOCK_CAMERA 없이 시뮬레이터, iPad) ✓ | ✓ |
+  | 오프라인 | 상점 캐시 `shop-cached` ✓ · 배너·결제 비활성은 `useIsOffline` | 비행기 모드는 실기기 |
+  | 결제 중 오프라인·종료 | RC SDK + 포그라운드 `getCustomerInfo` 코드 | 미검증 |
+  | 매니페스트 실패·파싱 실패 | `shop-cached` ✓ (Crashlytics non-fatal 로그) | ✓ |
+  | minAppVersion 미달 | `merge.test.ts` ✓ (`shop.updateApp` UI는 미검증) | 부분 |
+  | 팩 다운로드 실패 | `pack-install` dev-broken ✓ (sha256 불일치 → 3회 → failed, 임시 삭제) | ✓ (재시도 버튼 UI 미검증) |
+  | 결제 실패·취소 | `paywall-restore` ✓ (`purchase_fail` error_code 42) | ✓ |
+  | 복원했는데 권한 없음 | `paywall-restore` ✓ `settings.restoreNone` | ✓ |
+  | 구독 만료 | Test Store 자동 갱신 5회 뒤 취소 대기 필요 | 미검증 |
+  | 저장 공간 부족 | `ensureDiskSpace` → `error.storageFull` 코드 | 재현 불가(코드만) |
+  | 저장·촬영 중 앱 종료 | 다음 실행 `cleanTemp`/`clearSessionFiles` 코드 | 미검증 |
+  | Dynamic Type | `ax1-tour` ✓ | ✓ |
+  | 회전(iPad) | Fourpop 세로 고정 | 해당 없음 |
+  | DB 마이그레이션 | S1 `s1-data` ✓ | ✓ |
+- 추가 플로우: `paywall-restore`(복원 없음 안내 포함)·`pack-download-premium`·`shop-cached`·`ax1-tour`·`common/relaunch.yaml`·`common/shoot.yaml`; 모의 CDN `dev-broken` 팩
+
 ## 다음 할 일
 
-0. S4 6단계(완료 기준 점검): vi·th·en 플로우 스크린샷 점검(`EXPO_PUBLIC_FORCE_LOCALE`); 비행기 모드(상점 오프라인·촬영·저장); 예외 상황 표 항목 재현 기록; Fourpop Firebase plist(P18) 후 Copy ID; 프리미엄 Download 경로 E2E; QA 회귀
+0. S4 6단계 2차: Fourpop Firebase plist(P18) 후 Copy ID·DebugView 이벤트(`booth_*`, `pack_*`); 실기기(Cozy iPhone 12 Pro): 실제 카메라·셔터음·플래시, 권한 거부, 비행기 모드, 공유 앱, 성능(합성 2초·300MB); 구독 만료 전환 관찰; QA 에이전트 회귀
 
 1. Firebase DebugView 파라미터 최종 확인(Cozy): `share_card` 등에 `mood`·본문·태그 이름 미포함
    - 2026-10-14 실기기 DebugView에 자동 이벤트 + 앱 이벤트(`share_card`) 도착 확인. 이벤트 파라미터는 `buildEventParams`가 금지 키를 막음(유닛 테스트)

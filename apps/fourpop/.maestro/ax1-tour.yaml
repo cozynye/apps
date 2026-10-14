@@ -1,0 +1,58 @@
+# Large-text (AX1) screenshots of the main screens. Run AFTER `onboarding` on the same simulator with
+# `xcrun simctl ui <udid> content_size accessibility-medium` (the dev-client intro cannot be
+# dismissed at that size, so this relaunches without clearing state). Ids only — works in any locale.
+appId: app.fourpop.booth
+---
+- runFlow: common/relaunch.yaml
+- extendedWaitUntil:
+    visible:
+      id: b3.title
+    timeout: 20000
+- takeScreenshot: ax1-b3
+- tapOn:
+    id: b3.allFrames
+- takeScreenshot: ax1-b4
+- tapOn:
+    id: b4.close
+- runFlow: common/shoot.yaml
+- takeScreenshot: ax1-b8
+- tapOn:
+    id: b8.close
+- extendedWaitUntil:
+    visible:
+      id: b3.title
+    timeout: 10000
+- tapOn:
+    id: tabs.gallery
+- extendedWaitUntil:
+    visible:
+      id: b9.strip.0
+    timeout: 10000
+- takeScreenshot: ax1-b9
+- tapOn:
+    id: tabs.shop
+- extendedWaitUntil:
+    visible:
+      id: b10.pack.dev-sample
+    timeout: 15000
+- takeScreenshot: ax1-b10
+- tapOn:
+    id: b10.pack.dev-sample
+- extendedWaitUntil:
+    visible:
+      id: b11.single
+    timeout: 10000
+- takeScreenshot: ax1-b11
+- tapOn:
+    id: b11.close
+- tapOn:
+    id: tabs.booth
+- tapOn:
+    id: b3.settings
+- extendedWaitUntil:
+    visible:
+      id: b12.title
+    timeout: 10000
+- takeScreenshot: ax1-b12
+- tapOn:
+    id: b12.back

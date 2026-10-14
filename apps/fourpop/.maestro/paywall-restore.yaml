@@ -19,6 +19,10 @@ appId: app.fourpop.booth
     visible:
       id: b12.premium
     timeout: 10000
+# Restore with nothing bought: a notice, not an error (PLAN 예외 › 구매 복원했는데 권한 없음).
+- tapOn:
+    id: b12.restore
+- assertVisible: 'No purchases found.*|Không tìm thấy giao dịch.*|ไม่พบการซื้อ.*'
 - tapOn:
     id: b12.premium
 - extendedWaitUntil:
@@ -32,19 +36,19 @@ appId: app.fourpop.booth
 - tapOn: Cancel
 - assertVisible:
     id: b11.cta
-- assertNotVisible: "Purchase didn't go through. Please try again."
+- assertNotVisible: "Purchase didn't go through.*|Giao dịch chưa thành công.*|การซื้อไม่สำเร็จ.*"
 # Failure: error toast, still on the paywall.
 - tapOn:
     id: b11.cta
 - tapOn: Test failed purchase
-- assertVisible: "Purchase didn't go through. Please try again."
+- assertVisible: "Purchase didn't go through.*|Giao dịch chưa thành công.*|การซื้อไม่สำเร็จ.*"
 - assertVisible:
     id: b11.cta
 # Success: toast, paywall closes, Premium row gone from settings.
 - tapOn:
     id: b11.cta
 - tapOn: Test valid purchase
-- assertVisible: "You're all set!"
+- assertVisible: "You're all set!|Xong rồi!|เรียบร้อยแล้ว!"
 - extendedWaitUntil:
     notVisible:
       id: b12.premium
@@ -54,4 +58,4 @@ appId: app.fourpop.booth
 - takeScreenshot: settings-premium
 - tapOn:
     id: b12.restore
-- assertVisible: 'Purchases restored'
+- assertVisible: 'Purchases restored|Đã khôi phục giao dịch|กู้คืนการซื้อแล้ว'

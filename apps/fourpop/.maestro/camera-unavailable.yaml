@@ -1,0 +1,37 @@
+# Simulator without EXPO_PUBLIC_MOCK_CAMERA: camera permission is asked on first use, then B5 shows
+# `error.cameraUnavailable` with the album path (PLAN 예외 › 카메라 없는 기기). Start Metro WITHOUT
+# EXPO_PUBLIC_MOCK_CAMERA for this flow.
+appId: app.fourpop.booth
+---
+- runFlow: common/launch.yaml
+- extendedWaitUntil:
+    visible:
+      id: b2.skip
+    timeout: 20000
+- tapOn:
+    id: b2.skip
+- extendedWaitUntil:
+    visible:
+      id: b3.startShooting
+    timeout: 10000
+- tapOn:
+    id: b3.startShooting
+# System camera prompt (first use only; wording follows the simulator language).
+- runFlow:
+    when:
+      visible: '허용|Allow|OK'
+    commands:
+      - tapOn: '허용|Allow|OK'
+- extendedWaitUntil:
+    visible:
+      id: b5.unavailable
+    timeout: 15000
+- assertVisible:
+    id: b5.fromAlbum
+- takeScreenshot: camera-unavailable
+- tapOn:
+    id: b5.close
+- extendedWaitUntil:
+    visible:
+      id: b3.title
+    timeout: 10000

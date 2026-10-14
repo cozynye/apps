@@ -1,0 +1,18 @@
+# Run right after pack-install with the mock CDN STOPPED: the manifest fetch fails and the shop and
+# season banner come from the MMKV cache (PLAN 예외 › 매니페스트 다운로드 실패). No clearState.
+appId: app.fourpop.booth
+---
+- runFlow: common/relaunch.yaml
+- extendedWaitUntil:
+    visible:
+      id: b3.seasonBanner
+    timeout: 20000
+- tapOn:
+    id: tabs.shop
+- extendedWaitUntil:
+    visible:
+      id: b10.pack.dev-sample
+    timeout: 15000
+- assertVisible:
+    id: b10.pack.dev-stickers
+- takeScreenshot: shop-cached

@@ -13,10 +13,27 @@ import { CANVAS } from './geometry';
 export const stripsDir = new Directory(Paths.document, 'strips');
 const tmpDir = new Directory(Paths.cache, 'tmp');
 
+/** Thrown before writing when the device is nearly full (PLAN 예외 › 저장 공간 부족 → `error.storageFull`). */
+export class StorageFullError extends Error {
+  constructor() {
+    super('storage full');
+    this.name = 'StorageFullError';
+  }
+}
+const MIN_FREE_BYTES = 50 * 1024 * 1024;
+
+export function ensureDiskSpace() {
+  if (Paths.availableDiskSpace < MIN_FREE_BYTES) throw new StorageFullError();
+}
+
+/** `error.storageFull` for a full disk, `error.generic` otherwise. */
+export const saveErrorKey = (error: unknown) => (error instanceof StorageFullError ? 'error.storageFull' : 'error.generic');
+
 /** Renders the strip offscreen at `scale` (0.5 standard / 1 HD) into a temporary JPEG. */
 export async function renderStrip(props: Omit<StripSceneProps, 'scale'>, scale: number): Promise<string> {
   const width = Math.round(CANVAS.w * scale);
   const height = Math.round(CANVAS.h * scale);
+  ensureDiskSpace();
   const image = await drawAsImage(createElement(StripScene, { ...props, scale }), { width, height });
   if (!image) throw new Error('strip render failed');
   tmpDir.create({ intermediates: true, idempotent: true });
@@ -39,6 +56,7 @@ export async function saveToGallery(
   meta: { frameId: string; packId: string; filter: string; hd: boolean },
 ): Promise<SavedStrip> {
   const id = newId();
+  ensureDiskSpace();
   stripsDir.create({ intermediates: true, idempotent: true });
   const file = new File(stripsDir, `${id}.jpg`);
   await new File(standardUri).copy(file);

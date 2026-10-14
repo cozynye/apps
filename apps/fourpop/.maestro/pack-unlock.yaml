@@ -32,7 +32,7 @@ appId: app.fourpop.booth
 - tapOn:
     id: b11.single.cta
 - tapOn: Test valid purchase
-- assertVisible: "You're all set!"
+- assertVisible: "You're all set!|Xong rồi!|เรียบร้อยแล้ว!"
 # Back in the shop: owned, download finishes.
 - extendedWaitUntil:
     visible:

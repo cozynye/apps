@@ -11,5 +11,10 @@
     "frames_other": "{{count}} khung",
     "stickers_one": "{{count}} sticker",
     "stickers_other": "{{count}} sticker"
+  },
+  "settings": {
+    "qualityStandard": "Tiêu chuẩn",
+    "qualityHd": "HD",
+    "saveQualityHint": "Tiêu chuẩn 600×1800 có watermark · HD 1200×3600 không watermark (Premium)"
   }
 }

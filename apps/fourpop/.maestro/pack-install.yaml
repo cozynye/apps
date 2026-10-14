@@ -24,10 +24,18 @@ appId: app.fourpop.booth
       id: b10.pack.dev-sample
     timeout: 15000
 - assertVisible:
-    id: b10.pack.dev-stickers
-- assertVisible:
     id: b10.premium
 - takeScreenshot: shop-b10
+# Longer vi/th copy pushes the sticker section below the fold on iPhone.
+- scrollUntilVisible:
+    element:
+      id: b10.pack.dev-stickers
+    direction: DOWN
+- takeScreenshot: shop-b10-stickers
+- scrollUntilVisible:
+    element:
+      id: b10.pack.dev-sample
+    direction: UP
 # Locked pack → B11 with the single-pack card first.
 - tapOn:
     id: b10.pack.dev-sample
@@ -55,6 +63,14 @@ appId: app.fourpop.booth
       text: 'dev-sample: done'
     timeout: 30000
 - takeScreenshot: dev-pack-installed
+# A pack whose manifest sha256 does not match: 3 attempts, then failed (PLAN 예외 › 팩 다운로드 중 실패).
+- tapOn:
+    id: dev.install.dev-broken
+- extendedWaitUntil:
+    visible:
+      id: dev.pack.dev-broken
+      text: 'dev-broken: failed'
+    timeout: 40000
 - tapOn:
     id: dev.home
 - extendedWaitUntil:

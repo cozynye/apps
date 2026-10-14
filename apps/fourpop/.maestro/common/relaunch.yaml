@@ -1,0 +1,14 @@
+# Relaunches the dev client WITHOUT clearing state (MMKV manifest cache, onboarding flag survive).
+appId: app.fourpop.booth
+---
+- launchApp
+- openLink: exp+fourpop://expo-development-client/?url=http%3A%2F%2Flocalhost%3A${METRO_PORT}
+- runFlow: confirm-open.yaml
+- runFlow:
+    when:
+      visible: 'Runtime version.*'
+    commands:
+      - tapOn:
+          id: xmark
+- openLink: fourpop:///
+- runFlow: confirm-open.yaml
