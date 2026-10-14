@@ -248,7 +248,7 @@ function SessionResult() {
           ) : (
             <>
               <View style={styles.chips}>
-                <Chip testID="b8.standard" label={t('result.standard', { size: '600×1800' })} selected={!hd} />
+                <Chip testID="b8.standard" label={t('result.standard', { size: '1200×3600' })} selected={!hd} />
                 <Chip
                   testID="b8.hd"
                   label={t('result.hdUpsell')}

@@ -71,10 +71,13 @@ export async function installPack(pack: Pack): Promise<void> {
       setInstall(pack.id, { status: 'downloading', done, total: files.length });
     }
 
-    packsDir.create({ intermediates: true, idempotent: true });
+    // Fresh target, then file-by-file renames (File → File is an exact path, unlike Directory.move
+    // which moves *into* an existing directory). The DB row is written only after every file moved.
     const target = new Directory(packsDir, pack.id);
     if (target.exists) target.delete();
-    tmp.move(target);
+    target.create({ intermediates: true });
+    for (const path of files) new File(tmp, fileName(path)).move(installedFile(pack.id, path));
+    if (tmp.exists) tmp.delete();
     const missing = files.find((path) => !installedFile(pack.id, path).exists);
     if (missing) throw new Error(`pack ${pack.id}: ${fileName(missing)} missing after move`);
 

@@ -21,7 +21,7 @@ import * as Haptics from 'expo-haptics';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Alert, Animated, AppState, Image, Pressable, StyleSheet, View } from 'react-native';
+import { Alert, Animated, AppState, Image, Platform, Pressable, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { useSession, SHOTS, clearSessionFiles, storeShot } from '../../src/session';
@@ -51,7 +51,8 @@ export default function CaptureScreen() {
   const shots = useSession((s) => s.shots);
 
   const camera = useRef<CameraView>(null);
-  const [available, setAvailable] = useState<boolean | null>(MOCK_CAMERA ? true : null);
+  // Native starts optimistic (the view must mount to probe lenses); web asks the API first.
+  const [available, setAvailable] = useState<boolean | null>(MOCK_CAMERA || Platform.OS !== 'web' ? true : null);
   const [facing, setFacing] = useState<CameraType>('front');
   const [flash, setFlash] = useState(false);
   const [mirror, setMirror] = useState(booth.mirrorSelfie);
@@ -67,12 +68,24 @@ export default function CaptureScreen() {
   const taken = shots.filter(Boolean).length;
   const viewWidth = Math.min(width - space[4] * 2, VIEWFINDER_MAX);
 
-  // Simulators and some iPads have no camera (PLAN 예외 › 카메라 없는 기기).
+  // Camera-less devices (PLAN 예외 › 카메라 없는 기기). `isAvailableAsync` exists on web only; on iOS
+  // every device has a camera but the simulator finds no capture device and lists no lenses
+  // (its `onCameraReady` still fires), so an empty lens list shortly after mount means "no camera".
   useEffect(() => {
     if (MOCK_CAMERA) return;
-    CameraView.isAvailableAsync()
-      .then(setAvailable)
-      .catch(() => setAvailable(false));
+    if (Platform.OS === 'web') {
+      CameraView.isAvailableAsync()
+        .then(setAvailable)
+        .catch(() => setAvailable(false));
+      return;
+    }
+    const timer = setTimeout(() => {
+      camera.current
+        ?.getAvailableLensesAsync()
+        .then((lenses) => lenses.length === 0 && setAvailable(false))
+        .catch(() => undefined);
+    }, 1500);
+    return () => clearTimeout(timer);
   }, []);
 
   // Leaving the app pauses the session; returning resumes from the current shot (PLAN B5).

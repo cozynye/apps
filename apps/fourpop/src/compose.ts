@@ -8,7 +8,7 @@ import { createElement } from 'react';
 
 import { StripScene, type StripSceneProps } from './components/StripScene';
 import { db } from './db';
-import { CANVAS } from './geometry';
+import { CANVAS, STANDARD_SCALE } from './geometry';
 
 export const stripsDir = new Directory(Paths.document, 'strips');
 const tmpDir = new Directory(Paths.cache, 'tmp');
@@ -29,7 +29,7 @@ export function ensureDiskSpace() {
 /** `error.storageFull` for a full disk, `error.generic` otherwise. */
 export const saveErrorKey = (error: unknown) => (error instanceof StorageFullError ? 'error.storageFull' : 'error.generic');
 
-/** Renders the strip offscreen at `scale` (0.5 standard / 1 HD) into a temporary JPEG. */
+/** Renders the strip offscreen at `scale` (1 standard / 2 HD) into a temporary JPEG. */
 export async function renderStrip(props: Omit<StripSceneProps, 'scale'>, scale: number): Promise<string> {
   const width = Math.round(CANVAS.w * scale);
   const height = Math.round(CANVAS.h * scale);
@@ -75,8 +75,8 @@ export async function saveToGallery(
     hd: meta.hd,
     fileName: `${id}.jpg`,
     thumbName: `${id}-thumb.jpg`,
-    width: Math.round(CANVAS.w / 2),
-    height: Math.round(CANVAS.h / 2),
+    width: Math.round(CANVAS.w * STANDARD_SCALE),
+    height: Math.round(CANVAS.h * STANDARD_SCALE),
   });
   return { id, uri: file.uri };
 }

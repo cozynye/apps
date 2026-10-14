@@ -155,6 +155,12 @@ S4 Fourpop 개발 — 진행 중 (S2 완료 2026-10-14)
   | DB 마이그레이션 | S1 `s1-data` ✓ | ✓ |
 - 추가 플로우: `paywall-restore`(복원 없음 안내 포함)·`pack-download-premium`·`shop-cached`·`ax1-tour`·`common/relaunch.yaml`·`common/shoot.yaml`; 모의 CDN `dev-broken` 팩
 
+## 완료한 일 (2026-10-14, 실기기 1차)
+
+- Cozy iPhone 12 Pro(iOS 26.6.2)에 Fourpop 개발 빌드 설치(`xcodebuild -allowProvisioningUpdates` → `devicectl install`/`launch --payload-url`로 Metro 연결, Metro는 목업 카메라 없이 + 모의 CDN LAN 주소)
+- 실기기에서 드러난 버그 2건 수정: B5 “카메라 없음”(`isAvailableAsync`는 웹 전용 → 렌즈 목록으로 판정), 팩 설치 “pack.png missing after move”(디렉터리 이동 대신 파일별 이동). 시뮬레이터 `camera-unavailable`·`pack-install` 재통과
+- Cozy 피드백으로 출력 해상도 상향: 일반 1200×3600 / HD 2400×7200 (DECISIONS)
+
 ## 다음 할 일
 
 0. S4 6단계 2차: Fourpop Firebase plist(P18) 후 Copy ID·DebugView 이벤트(`booth_*`, `pack_*`); 실기기(Cozy iPhone 12 Pro): 실제 카메라·셔터음·플래시, 권한 거부, 비행기 모드, 공유 앱, 성능(합성 2초·300MB); 구독 만료 전환 관찰; QA 에이전트 회귀

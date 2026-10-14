@@ -1,8 +1,8 @@
 /** Frame canvas space (PLAN 구현 명세 › 좌표계): 1200×3600, origin top-left. */
 export const CANVAS = { w: 1200, h: 3600 } as const;
-/** Standard output = 0.5 (600×1800); HD = 1 (1200×3600, Cozy 2026-10-14). */
-export const STANDARD_SCALE = 0.5;
-export const HD_SCALE = 1;
+/** Standard output = 1 (1200×3600, the canvas); HD = 2 (2400×7200). Cozy 2026-10-14: 600×1800 looked too soft on the phone. */
+export const STANDARD_SCALE = 1;
+export const HD_SCALE = 2;
 
 export interface Rect {
   x: number;
