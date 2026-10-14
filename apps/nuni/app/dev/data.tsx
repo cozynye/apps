@@ -9,7 +9,9 @@ import * as Notifications from 'expo-notifications';
 import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
+import { addDays } from '../../src/dates';
 import { db, initDatabase, sqlite } from '../../src/db';
+import { saveEntry } from '../../src/entries';
 
 // Dev-only: exercises @nf/db (migrations, FK cascade) and @nf/content (manifest catalog).
 export default function DevData() {
@@ -70,9 +72,38 @@ export default function DevData() {
     if (dates.length) append(`first: ${dates.sort()[0]}`);
   }
 
+  /** Dev only: a month of sample entries for store screenshots (deterministic, skips a few days). */
+  async function seedSampleMonth() {
+    const today = toLocalDateString(new Date());
+    const moods = [4, 3, 5, 4, 2, 4, 5, 3, 4, 4, 1, 3, 5, 4, 3, 4, 5, 2, 4, 3, 4, 5, 4, 3] as const;
+    const tagSets = [
+      ['friends', 'music'],
+      ['work', 'cafe'],
+      ['exercise', 'sleep'],
+      ['family', 'food'],
+      ['study'],
+      ['travel', 'photos'],
+      ['movies', 'games'],
+      ['reading', 'weather'],
+    ];
+    let n = 0;
+    for (let i = 1; i < 31; i += 1) {
+      if (i % 7 === 5 || i === 11 || i === 19) continue;
+      await saveEntry({ date: addDays(today, -i), mood: moods[n % moods.length] ?? 3, note: '', tagIds: tagSets[n % tagSets.length]!, photos: [] });
+      n += 1;
+    }
+    append(`seeded ${n} entries`);
+  }
+
   return (
     <Screen scroll>
       <View style={styles.stack}>
+        <Button
+          testID="dev.data.seed"
+          variant="secondary"
+          label="Seed sample month (screenshots)"
+          onPress={() => void seedSampleMonth().catch((e: Error) => append(`seed error: ${e.message}`))}
+        />
         <Button
           testID="dev.data.db"
           label="Run DB check"

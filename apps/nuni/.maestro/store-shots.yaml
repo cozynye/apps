@@ -1,0 +1,86 @@
+# App Store screenshots (C9), one locale per run: 1 entry sheet · 2 mood picked · 5 reminder prompt ·
+# 3 calendar (seeded month) · 4 stats with Premium · 6 backup. Metro with EXPO_PUBLIC_FORCE_LOCALE=<locale>.
+# Needs the RevenueCat Test Store key (Premium unlock for the stats screen).
+appId: app.nuni.mood
+---
+- runFlow: common/launch.yaml
+- extendedWaitUntil:
+    visible:
+      id: a2.skip
+    timeout: 20000
+- tapOn:
+    id: a2.skip
+- extendedWaitUntil:
+    visible:
+      id: a4.mood.3
+    timeout: 10000
+- takeScreenshot: store-1
+- tapOn:
+    id: a4.mood.4
+- tapOn:
+    id: a4.tag.friends
+- tapOn:
+    id: a4.tag.music
+- takeScreenshot: store-2
+- tapOn:
+    id: a4.save
+- extendedWaitUntil:
+    visible:
+      id: a12.notNow
+    timeout: 10000
+- takeScreenshot: store-5
+- tapOn:
+    id: a12.notNow
+# A month of sample entries from the dev menu, then back to the root route.
+- openLink: nuni:///dev
+- runFlow: common/confirm-open.yaml
+- extendedWaitUntil:
+    visible:
+      id: dev.data
+    timeout: 10000
+- tapOn:
+    id: dev.data
+- tapOn:
+    id: dev.data.seed
+- extendedWaitUntil:
+    visible: 'seeded \d+ entries'
+    timeout: 30000
+- openLink: nuni:///
+- runFlow: common/confirm-open.yaml
+- extendedWaitUntil:
+    visible:
+      id: a3.streak
+    timeout: 10000
+- takeScreenshot: store-3
+- tapOn:
+    id: tabs.stats
+- extendedWaitUntil:
+    visible:
+      id: a6.tryPremium
+    timeout: 10000
+- tapOn:
+    id: a6.tryPremium
+- extendedWaitUntil:
+    visible:
+      id: a9.cta
+    timeout: 30000
+- tapOn:
+    id: a9.cta
+- tapOn: Test valid purchase
+- extendedWaitUntil:
+    notVisible:
+      id: a6.liftsLocked
+    timeout: 10000
+- takeScreenshot: store-4
+- tapOn:
+    id: tabs.settings
+- extendedWaitUntil:
+    visible:
+      id: a10.backup
+    timeout: 10000
+- tapOn:
+    id: a10.backup
+- extendedWaitUntil:
+    visible: 'iCloud.*|.*iCloud'
+    timeout: 10000
+- takeScreenshot: store-6

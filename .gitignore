@@ -27,3 +27,6 @@ packages/db/drizzle/*/migrations.js
 
 # Agent worktrees (QA runs)
 .claude/worktrees/
+
+# store screenshots (generated, large)
+docs/release/screenshots/

@@ -1,0 +1,79 @@
+# App Store screenshots (C9), one locale per run: 1 home · 2 countdown · 3 pick 4 · 4 frames ·
+# 5 decorate · 6 result. Metro with EXPO_PUBLIC_MOCK_CAMERA=1 and EXPO_PUBLIC_FORCE_LOCALE=<locale>.
+appId: app.fourpop.booth
+---
+- runFlow: common/launch.yaml
+- extendedWaitUntil:
+    visible:
+      id: b2.skip
+    timeout: 20000
+- tapOn:
+    id: b2.skip
+- extendedWaitUntil:
+    visible:
+      id: b3.title
+    timeout: 10000
+- tapOn:
+    id: b3.frame.base-coral
+- takeScreenshot: store-1
+- tapOn:
+    id: b3.allFrames
+- extendedWaitUntil:
+    visible:
+      id: b4.frame.base-classic
+    timeout: 10000
+- takeScreenshot: store-4
+- tapOn:
+    id: b4.close
+- tapOn:
+    id: b3.startShooting
+- extendedWaitUntil:
+    visible:
+      id: b5.shutter
+    timeout: 10000
+- tapOn:
+    id: b5.timer.5
+- tapOn:
+    id: b5.shutter
+- extendedWaitUntil:
+    visible:
+      id: b5.countdown
+    timeout: 5000
+- takeScreenshot: store-2
+- extendedWaitUntil:
+    visible:
+      id: b6.title
+    timeout: 90000
+- tapOn:
+    id: b6.shot.0
+- tapOn:
+    id: b6.shot.2
+- tapOn:
+    id: b6.shot.4
+- tapOn:
+    id: b6.shot.6
+- takeScreenshot: store-3
+- tapOn:
+    id: b6.next
+- extendedWaitUntil:
+    visible:
+      id: b7.preview
+    timeout: 10000
+- tapOn:
+    id: b7.filter.warm
+- tapOn:
+    id: b7.tool.stickers
+- tapOn:
+    id: b7.sticker.base-star
+- tapOn:
+    id: b7.tool.date
+- tapOn:
+    id: b7.date.0
+- takeScreenshot: store-5
+- tapOn:
+    id: b7.done
+- extendedWaitUntil:
+    visible:
+      id: b8.inGallery
+    timeout: 20000
+- takeScreenshot: store-6
