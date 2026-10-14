@@ -47,7 +47,7 @@ Cozy가 “배포 / 출시 / 심사 제출 / TestFlight 외부 배포”를 말�
 | C6 | Fourpop: R2에 `manifest.json` + 첫 시즌팩 업로드, 앱에서 상점·구매·다운로드 확인 | — | [ ] |
 | C7 | PLAN ‘완료 기준’ 전 항목 충족 (Maestro iPhone·iPad, 3개 언어, 비행기 모드, 콜드 스타트, 합성 성능, 접근성) — Nuni: S2 완료, 건너뛴 항목은 아래 표 | [x] | [ ] |
 | C8 | Info.plist 권한 문구 vi·th·en, `ITSAppUsesNonExemptEncryption = NO`, `supportsTablet: true` (2026-10-14 ios/ 생성물에서 확인) | [x] | [x] |
-| C9 | 스토어 스크린샷: iPhone 6.9인치 + iPad 13인치 × vi·th·en × 6장 (`design/store/*.md`의 캡션) | [ ] | [ ] |
+| C9 | 스토어 스크린샷: iPhone 6.9인치 + iPad 13인치 × vi·th·en × 6장 (`design/store/*.md`의 캡션) — 2026-10-14 생성 `docs/release/screenshots/<app>/<device>/<locale>/1–6.png` (시뮬레이터 dev 빌드, Fourpop 사진은 도형 샘플) | [x] | [x] |
 | C10 | 스토어 메타데이터 입력용 최종본 정리 (`design/store/*.md`에서 자리표시자 치환) — 초안 `docs/release/store-*.md`(MVP 범위로 문구 수정, URL만 남음) | [ ] | [ ] |
 | C11 | 개인정보 라벨 답변표 (`design/legal/README.md` 매핑) 최종본 — `docs/release/privacy-labels.md` | [x] | [x] |
 | C12 | 심사 노트 최종본 (구독 테스트 방법, 로그인 없음, 자체 브랜드·현지화 설명) — `docs/release/review-notes.md`(Sandbox 계정·팩 id만 남음) | [ ] | [ ] |

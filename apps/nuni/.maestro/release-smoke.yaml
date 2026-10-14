@@ -10,6 +10,13 @@ appId: app.nuni.mood
     timeout: 30000
 - tapOn:
     id: a2.skip
+# First run opens the A4 entry sheet over A3; close it to reach the home screen.
+- extendedWaitUntil:
+    visible:
+      id: a4.save
+    timeout: 15000
+- tapOn:
+    id: a4.close
 - extendedWaitUntil:
     visible:
       id: a3.title
