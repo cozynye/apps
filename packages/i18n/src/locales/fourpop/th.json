@@ -25,7 +25,11 @@
     "packMeta_one": "{{count}} กรอบ · {{price}}",
     "packMeta_other": "{{count}} กรอบ · {{price}}",
     "fromAlbum": "จากอัลบั้ม",
-    "lockedHint": "ถ่ายได้เลย ปลดล็อกเพื่อบันทึก"
+    "lockedHint": "ถ่ายได้เลย ปลดล็อกเพื่อบันทึก",
+    "tabBasics": "พื้นฐาน",
+    "tabSeason": "ตามฤดูกาล",
+    "seasonEmpty": "ยังไม่มีเฟรมตามฤดูกาลตอนนี้ แพ็กใหม่จะมาในช่วงเทศกาล",
+    "ownedEmpty": "แพ็กที่คุณปลดล็อกจะแสดงที่นี่"
   },
   "tabs": {
     "booth": "บูธ",

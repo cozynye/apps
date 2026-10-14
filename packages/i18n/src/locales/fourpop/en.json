@@ -25,7 +25,11 @@
     "packMeta_one": "{{count}} frame · {{price}}",
     "packMeta_other": "{{count}} frames · {{price}}",
     "fromAlbum": "From album",
-    "lockedHint": "Shoot now, unlock to save"
+    "lockedHint": "Shoot now, unlock to save",
+    "tabBasics": "Basics",
+    "tabSeason": "Season",
+    "seasonEmpty": "No season frames right now. New packs drop for holidays.",
+    "ownedEmpty": "Packs you unlock show up here."
   },
   "tabs": {
     "booth": "Booth",

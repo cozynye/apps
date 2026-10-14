@@ -1,0 +1,89 @@
+# B3 → B5 (8 mock shots) → B6 pick 4 → B7 decorate → B8 result → B3 (PLAN 완료 기준 Maestro `booth-complete`).
+# Needs Metro started with EXPO_PUBLIC_MOCK_CAMERA=1 (simulators have no camera).
+appId: app.fourpop.booth
+---
+- runFlow: common/launch.yaml
+- extendedWaitUntil:
+    visible:
+      id: b2.skip
+    timeout: 20000
+- tapOn:
+    id: b2.skip
+- extendedWaitUntil:
+    visible:
+      id: b3.title
+    timeout: 10000
+- tapOn:
+    id: b3.startShooting
+- extendedWaitUntil:
+    visible:
+      id: b5.shutter
+    timeout: 10000
+- tapOn:
+    id: b5.timer.3
+- takeScreenshot: booth-b5
+- tapOn:
+    id: b5.shutter
+# 8 shots × 3 s countdown + capture.
+- extendedWaitUntil:
+    visible:
+      id: b6.title
+    timeout: 60000
+- tapOn:
+    id: b6.shot.0
+- tapOn:
+    id: b6.shot.2
+- tapOn:
+    id: b6.shot.4
+- tapOn:
+    id: b6.shot.6
+- takeScreenshot: booth-b6
+- tapOn:
+    id: b6.next
+- extendedWaitUntil:
+    visible:
+      id: b7.preview
+    timeout: 10000
+- tapOn:
+    id: b7.filter.warm
+- tapOn:
+    id: b7.tool.stickers
+- tapOn:
+    id: b7.sticker.base-star
+- assertVisible:
+    id: b7.deleteItem
+- tapOn:
+    id: b7.tool.date
+- tapOn:
+    id: b7.date.0
+- takeScreenshot: booth-b7
+- tapOn:
+    id: b7.done
+- extendedWaitUntil:
+    visible:
+      id: b8.inGallery
+    timeout: 20000
+- takeScreenshot: booth-b8
+- tapOn:
+    id: b8.saveToPhotos
+# Add-only photo access alert on first save (wording varies by iOS version / locale).
+- runFlow:
+    when:
+      visible: '허용|Allow.*'
+    commands:
+      - tapOn: '허용|Allow.*'
+- extendedWaitUntil:
+    visible:
+      id: b8.saveToPhotos
+      text: 'Saved.*|.*저장됨.*'
+    timeout: 10000
+- scrollUntilVisible:
+    element:
+      id: b8.shootAnother
+    direction: DOWN
+- tapOn:
+    id: b8.shootAnother
+- extendedWaitUntil:
+    visible:
+      id: b3.title
+    timeout: 10000

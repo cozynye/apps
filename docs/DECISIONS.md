@@ -131,3 +131,11 @@
 - 2026-10-14 — (Cozy 결정) Fourpop HD 저장 = 1200×3600(프레임 canvas 원본), 일반 = 600×1800. PLAN 완료 기준의 ‘2400×7200’ 문장은 이 값으로 대체(PLAN 충돌 5번 해소). 성능 목표(2초·300MB)는 1200×3600 합성 기준
 - 2026-10-14 — Fourpop 뼈대: Nuni와 같은 구조(app.config에 권한 문구·스플래시, 네이티브 탭 Booth/Gallery/Shop, 설정은 B3 헤더 톱니 → B12). iPad도 세로 고정(PLAN). `expo-camera` 플러그인은 마이크 권한 없음. `expo-image-picker` 플러그인에서 `cameraPermission: false`는 빼야 함(카메라 문구까지 지움). 개발 중 Fourpop Metro는 8082(`pnpm fourpop start --port 8082`, E2E `METRO_PORT=8082`), Nuni는 8081
 - 2026-10-14 — Fourpop Firebase는 plist(P18 2번째) 수령 시 Nuni와 같은 방식으로 추가. 그 전에는 dev 로그 transport
+- 2026-10-14 — Fourpop 촬영 세부: 카운트다운 숫자 144pt, 포즈 가이드는 각 컷 첫 1초만, 원본은 긴 변 2400 JPEG 90 + 480 썸네일을 Cache/booth-session에 저장(세션 끝·앱 시작 시 삭제). 시뮬레이터는 카메라가 없어 `EXPO_PUBLIC_MOCK_CAMERA=1`일 때 목업 8장 사용(개발 전용, `scripts/mock-shots.ts`로 생성)
+- 2026-10-14 — B7 도구는 바텀 시트 대신 미리보기 아래 인라인 패널(필터·스티커·펜·텍스트·날짜 탭) — 미리보기를 가리지 않음. 컷 2배 확대 편집은 MVP에서 보류(PLAN 필수 아님). 텍스트 입력은 `Alert.prompt`
+- 2026-10-14 — 날짜 스탬프는 캡션 영역 왼쪽(90, 3380)에 반투명 밝은 알약 배경 — 어두운 프레임에서도 읽히게. 워터마크는 프레임 README 위치(오른쪽 x1140, y3180, 높이 72, 70%)
+- 2026-10-14 — 공유: Zalo·Messenger·LINE·Instagram은 SDK 없이 시스템 공유 시트로 이미지 전달(Instagram 스토리 직접 공유 미사용). 버튼은 `canOpenURL`로 설치된 앱만 표시(`LSApplicationQueriesSchemes`: zalo, fb-messenger, line, instagram), 시스템 공유는 항상 표시
+- 2026-10-14 — GIF는 촬영한 8컷 썸네일(480px, 0.4초, 무한 반복)을 `gifenc`로 인코딩해 사진 앱에 저장(PLAN 기술 스택의 gifenc). 프레임·꾸미기는 포함하지 않음
+- 2026-10-14 — 잠긴 프레임으로 끝까지 진행하면 B8에서 블러 + 팩 구매/프리미엄/무료 프레임 선택. 해제 전에는 갤러리에 저장하지 않음, 해제되면 그 자리에서 저장
+- 2026-10-14 — B7·B8은 `SafeAreaView` 대신 `useSafeAreaInsets` 패딩: 부스 스택(fullScreenModal) 안에서 push된 화면의 SafeAreaView 인셋이 0으로 나와 헤더가 상태 바 밑으로 들어감(Done 탭이 먹지 않음). B6은 정상 — 원인 미확인, 증상은 Maestro 계층으로 확인
+- 2026-10-14 — B8 미리보기 높이는 화면에 맞춰(iPhone에서 저장 버튼까지 스크롤 없이 보이게), iPad는 액션 열 최대 520pt(Nuni A7과 같음)

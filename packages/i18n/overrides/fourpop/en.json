@@ -1,0 +1,8 @@
+{
+  "home": {
+    "tabBasics": "Basics",
+    "tabSeason": "Season",
+    "seasonEmpty": "No season frames right now. New packs drop for holidays.",
+    "ownedEmpty": "Packs you unlock show up here."
+  }
+}

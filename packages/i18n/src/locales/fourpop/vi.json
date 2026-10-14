@@ -25,7 +25,11 @@
     "packMeta_one": "{{count}} khung · {{price}}",
     "packMeta_other": "{{count}} khung · {{price}}",
     "fromAlbum": "Từ album",
-    "lockedHint": "Chụp ngay, mở khóa để lưu"
+    "lockedHint": "Chụp ngay, mở khóa để lưu",
+    "tabBasics": "Cơ bản",
+    "tabSeason": "Theo mùa",
+    "seasonEmpty": "Hiện chưa có khung theo mùa. Gói mới sẽ ra vào các dịp lễ.",
+    "ownedEmpty": "Các gói bạn mở khóa sẽ hiện ở đây."
   },
   "tabs": {
     "booth": "Booth",

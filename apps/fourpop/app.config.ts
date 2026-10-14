@@ -21,7 +21,12 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   ...(config as ExpoConfig),
   ios: {
     ...config.ios,
-    infoPlist: { ...config.ios?.infoPlist, ...en },
+    infoPlist: {
+      ...config.ios?.infoPlist,
+      ...en,
+      // B8 share row shows a messenger only when it is installed (canOpenURL needs these listed).
+      LSApplicationQueriesSchemes: ['zalo', 'fb-messenger', 'line', 'instagram'],
+    },
   },
   locales: {
     en: `${PERMISSIONS}/en.json`,
