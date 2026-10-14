@@ -12,6 +12,7 @@ FOURPOP_PORT=${FOURPOP_PORT:-8083}
 # Store shots show only bundled content: no CDN (dev sample packs would appear). STORE_CDN=url to include one.
 CDN=${STORE_CDN:-}
 LOG=${LOG:-/tmp/store-shots}
+DEVICES=${DEVICES:-iphone ipad}   # e.g. DEVICES=ipad to recapture only iPad
 mkdir -p "$LOG"
 
 restart_metro() { # app port locale extra-env...
@@ -25,13 +26,20 @@ restart_metro() { # app port locale extra-env...
   curl -s -o /dev/null "http://localhost:$port/index.bundle?platform=ios&dev=true&hot=false&lazy=false" || true
 }
 
-use_sim() { # exactly one simulator booted (the Maestro driver times out with two)
-  local on=$1
+use_sim() { # exactly one simulator booted (the Maestro driver times out with two); system locale = shot locale
+  local on=$1 locale=$2
   xcrun simctl shutdown all >/dev/null 2>&1 || true
+  # iPad's status bar shows the date in the system language; match it to the screenshot locale.
+  local prefs="$HOME/Library/Developer/CoreSimulator/Devices/$on/data/Library/Preferences/.GlobalPreferences.plist"
+  local region; case "$locale" in vi) region=vi_VN ;; th) region=th_TH ;; *) region=en_US ;; esac
+  if [ -f "$prefs" ]; then
+    plutil -replace AppleLanguages -json "[\"$locale\"]" "$prefs" >/dev/null 2>&1 || true
+    plutil -replace AppleLocale -string "$region" "$prefs" >/dev/null 2>&1 || true
+  fi
   xcrun simctl boot "$on" >/dev/null 2>&1 || true
   sleep 8
   # Apple-style clean status bar for store shots.
-  xcrun simctl status_bar "$on" override --time 9:41 --batteryState charged --batteryLevel 100 --wifiBars 3 --cellularBars 4 --operatorName '' >/dev/null 2>&1 || true
+  xcrun simctl status_bar "$on" override --time 9:41 --batteryState discharging --batteryLevel 100 --wifiBars 3 --cellularBars 4 --operatorName '' >/dev/null 2>&1 || true
 }
 
 capture() { # app device locale udid port — skipped when the 6 raw files already exist
@@ -52,12 +60,16 @@ for locale in "${@:-en vi th}"; do
   echo "=== locale $locale"
   restart_metro nuni "$NUNI_PORT" "$locale" || STATUS=1
   restart_metro fourpop "$FOURPOP_PORT" "$locale" EXPO_PUBLIC_MOCK_CAMERA=1 ${CDN:+EXPO_PUBLIC_CDN_BASE_URL="$CDN"} || STATUS=1
-  use_sim "$IPHONE"
-  capture fourpop iphone "$locale" "$IPHONE" "$FOURPOP_PORT" || STATUS=1
-  capture nuni iphone "$locale" "$IPHONE" "$NUNI_PORT" || STATUS=1
-  use_sim "$IPAD"
-  capture fourpop ipad "$locale" "$IPAD" "$FOURPOP_PORT" || STATUS=1
-  capture nuni ipad "$locale" "$IPAD" "$NUNI_PORT" || STATUS=1
+  case " $DEVICES " in *" iphone "*)
+    use_sim "$IPHONE" "$locale"
+    capture fourpop iphone "$locale" "$IPHONE" "$FOURPOP_PORT" || STATUS=1
+    capture nuni iphone "$locale" "$IPHONE" "$NUNI_PORT" || STATUS=1 ;;
+  esac
+  case " $DEVICES " in *" ipad "*)
+    use_sim "$IPAD" "$locale"
+    capture fourpop ipad "$locale" "$IPAD" "$FOURPOP_PORT" || STATUS=1
+    capture nuni ipad "$locale" "$IPAD" "$NUNI_PORT" || STATUS=1 ;;
+  esac
 done
 (cd "$ROOT" && pnpm tsx scripts/store-screenshots.ts) || STATUS=1
 exit $STATUS
