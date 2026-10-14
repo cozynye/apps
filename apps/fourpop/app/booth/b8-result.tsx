@@ -151,10 +151,17 @@ function SessionResult() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready, premium, canUseFrame, frameId]);
 
+  const renderHd = async () => {
+    const began = performance.now();
+    const uri = await renderStrip(sceneProps(false), HD_SCALE);
+    // Performance target (PLAN 구현 명세): HD composition ≤ 2 s on iPhone 12; read it from the dev log.
+    if (__DEV__) console.log(`[perf] HD strip render ${Math.round(performance.now() - began)} ms`);
+    return uri;
+  };
   const share = useShare({
     // Save: HD render must succeed when HD is selected (no silent downgrade).
-    uriForSave: async () => (hd ? renderStrip(sceneProps(false), HD_SCALE) : standardUri),
-    uriForShare: async () => (hd ? renderStrip(sceneProps(false), HD_SCALE).catch(() => standardUri) : standardUri),
+    uriForSave: async () => (hd ? renderHd() : standardUri),
+    uriForShare: async () => (hd ? renderHd().catch(() => standardUri) : standardUri),
   });
 
   async function makeGif() {

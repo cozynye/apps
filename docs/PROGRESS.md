@@ -161,6 +161,27 @@ S4 Fourpop 개발 — 진행 중 (S2 완료 2026-10-14)
 - 실기기에서 드러난 버그 2건 수정: B5 “카메라 없음”(`isAvailableAsync`는 웹 전용 → 렌즈 목록으로 판정), 팩 설치 “pack.png missing after move”(디렉터리 이동 대신 파일별 이동). 시뮬레이터 `camera-unavailable`·`pack-install` 재통과
 - Cozy 피드백으로 출력 해상도 상향: 일반 1200×3600 / HD 2400×7200 (DECISIONS)
 
+## S4 완료 기준 현황 (2026-10-14 기준)
+
+| 기준 | 상태 |
+| --- | --- |
+| 화면 B1–B13 + Maestro `onboarding`·`booth-complete`·`pack-unlock` iPhone·iPad | 통과 |
+| testID / 아이콘 버튼 accessibilityLabel | 적용 (전수 점검은 QA 회귀에서) |
+| vi·th·en 플로우, 잘림 없음 | 통과 (vi iPhone, th iPad) |
+| 구독·단품·복원·체험 자격 없음 | Test Store로 통과 (`paywall-restore`·`pack-unlock`). Fourpop 연간은 체험 없음 |
+| 비행기 모드 | **실기기 확인 대기(Cozy)** |
+| 예외 상황 표 | 위 표 참조 — 권한 거부·비행기 모드·공유 앱은 실기기 대기, 구독 만료는 Test Store 갱신 대기 |
+| 콜드 스타트 2초 (iPhone 12 Release) | **미측정** — Nuni와 같이 Cozy 결정 필요(측정 or 건너뜀) |
+| HD 합성 2초·메모리 300MB (iPhone 12) | **미측정** — 2400×7200 기준. Debug 빌드에서 `[perf] HD strip render` 로그로 1차 확인 예정, 메모리는 Instruments 필요 |
+| Firebase DebugView 이벤트 | **P18 Fourpop plist 대기(Cozy)** |
+| Crashlytics 99.5% TestFlight 1주 | Nuni와 같이 Cozy 결정 필요 |
+| 유닛 테스트 5종 | 통과 (Jest 68) |
+| 자리표시자 없음 | `check-placeholders.sh`: 코드에는 없음. web/legal의 `[EFFECTIVE DATE]`·`[DOMAIN]`, `.env` CDN URL, Fourpop plist는 릴리스 항목 |
+| VoiceOver 완주 | 선택(미실시, Nuni와 동일) |
+
+- 2026-10-14 (Cozy 결정) 라이브 GIF는 S4 완료 기준을 닫은 뒤 착수 (DECISIONS)
+- 실기기(iPhone 12 Pro, Debug): 실제 촬영·저장 정상, 모서리·헤더 수정 확인(Cozy ‘잘된다’)
+
 ## 다음 할 일
 
 0. S4 6단계 2차: Fourpop Firebase plist(P18) 후 Copy ID·DebugView 이벤트(`booth_*`, `pack_*`); 실기기(Cozy iPhone 12 Pro): 실제 카메라·셔터음·플래시, 권한 거부, 비행기 모드, 공유 앱, 성능(합성 2초·300MB); 구독 만료 전환 관찰; QA 에이전트 회귀
