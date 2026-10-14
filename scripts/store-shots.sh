@@ -6,9 +6,13 @@
 set -euo pipefail
 APP=${1:?app}; DEVICE=${2:?iphone|ipad}; LOCALE=${3:?locale}; UDID=${4:?udid}; PORT=${5:-8081}
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
-MAESTRO_DRIVER_STARTUP_TIMEOUT=${MAESTRO_DRIVER_STARTUP_TIMEOUT:-300000} METRO_PORT=$PORT bash "$ROOT/scripts/e2e.sh" "$APP" "$UDID" store-shots
-RUN=$(ls -dt "$HOME/.maestro/tests"/*/ | head -1)
+# Success = the six screenshots exist (Maestro's exit code is not reliable once the flow completed).
+MAESTRO_DRIVER_STARTUP_TIMEOUT=${MAESTRO_DRIVER_STARTUP_TIMEOUT:-300000} METRO_PORT=$PORT bash "$ROOT/scripts/e2e.sh" "$APP" "$UDID" store-shots || true
+RUN=$(ls -d "$HOME/.maestro/tests"/20*/ | sort | tail -1)   # newest by timestamp name (mtime is unreliable)
 DEST="$ROOT/docs/release/screenshots/raw/$APP/$DEVICE/$LOCALE"
 mkdir -p "$DEST"
-for i in 1 2 3 4 5 6; do cp "$RUN/store-shots/takeScreenshot/store-$i.png" "$DEST/$i.png"; done
+for i in 1 2 3 4 5 6; do
+  [ -f "$RUN/store-shots/takeScreenshot/store-$i.png" ] || { echo "missing store-$i.png in $RUN" >&2; exit 1; }
+  cp "$RUN/store-shots/takeScreenshot/store-$i.png" "$DEST/$i.png"
+done
 echo "raw screenshots → $DEST"

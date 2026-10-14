@@ -30,12 +30,17 @@ use_sim() { # exactly one simulator booted (the Maestro driver times out with tw
   xcrun simctl shutdown all >/dev/null 2>&1 || true
   xcrun simctl boot "$on" >/dev/null 2>&1 || true
   sleep 8
+  # Apple-style clean status bar for store shots.
+  xcrun simctl status_bar "$on" override --time 9:41 --batteryState charged --batteryLevel 100 --wifiBars 3 --cellularBars 4 --operatorName '' >/dev/null 2>&1 || true
 }
 
 capture() { # app device locale udid port — skipped when the 6 raw files already exist
   local app=$1 device=$2 locale=$3 udid=$4 port=$5
   local dir="$ROOT/docs/release/screenshots/raw/$app/$device/$locale"
   if [ "$(ls "$dir"/[1-6].png 2>/dev/null | wc -l | tr -d ' ')" = "6" ]; then echo "skip $app/$device/$locale (done)"; return 0; fi
+  # No foreground app when the dev client opens, or iOS shows a "◀ Fourpop" back link in the status bar.
+  xcrun simctl terminate "$udid" app.nuni.mood >/dev/null 2>&1 || true
+  xcrun simctl terminate "$udid" app.fourpop.booth >/dev/null 2>&1 || true
   # One retry: the dev-client intro and Test Store network calls are occasionally flaky.
   bash "$ROOT/scripts/store-shots.sh" "$app" "$device" "$locale" "$udid" "$port" && return 0
   echo "retry $app/$device/$locale"

@@ -76,6 +76,10 @@ appId: app.nuni.mood
     notVisible:
       id: a6.liftsLocked
     timeout: 10000
+# Let the purchase toast disappear before the screenshot.
+- extendedWaitUntil:
+    notVisible: "You're all set!|Xong rồi!|เรียบร้อยแล้ว!"
+    timeout: 8000
 - takeScreenshot: store-4
 - tapOn:
     id: tabs.settings
