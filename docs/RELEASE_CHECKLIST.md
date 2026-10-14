@@ -43,9 +43,9 @@ Cozy가 “배포 / 출시 / 심사 제출 / TestFlight 외부 배포”를 말�
 | C2 | P21 `web/legal` 개인정보처리방침·이용약관·지원 페이지를 `[DOMAIN]`에 배포, URL 접속 확인 | [ ] | [ ] |
 | C3 | 앱 내 A13/B13 약관 본문과 웹 페이지 본문 일치, 시행일 반영 | [ ] | [ ] |
 | C4 | 실제 RevenueCat 키·실제 상품으로 Sandbox 검증: 구독·체험·체험 자격 없음·단품·복원·만료 | [ ] | [ ] |
-| C5 | Firebase DebugView에서 이벤트 확인, `mood`·본문·태그 이름 미전송 확인 | [ ] | [ ] |
+| C5 | Firebase DebugView에서 이벤트 확인, `mood`·본문·태그 이름 미전송 확인 (Nuni 2026-10-14 실기기 DebugView) | [x] | [ ] |
 | C6 | Fourpop: R2에 `manifest.json` + 첫 시즌팩 업로드, 앱에서 상점·구매·다운로드 확인 | — | [ ] |
-| C7 | PLAN ‘완료 기준’ 전 항목 충족 (Maestro iPhone·iPad, 3개 언어, 비행기 모드, 콜드 스타트, 합성 성능, 접근성) | [ ] | [ ] |
+| C7 | PLAN ‘완료 기준’ 전 항목 충족 (Maestro iPhone·iPad, 3개 언어, 비행기 모드, 콜드 스타트, 합성 성능, 접근성) — Nuni: S2 완료, 건너뛴 항목은 아래 표 | [x] | [ ] |
 | C8 | Info.plist 권한 문구 vi·th·en, `ITSAppUsesNonExemptEncryption = NO`, `supportsTablet: true` (2026-10-14 ios/ 생성물에서 확인) | [x] | [x] |
 | C9 | 스토어 스크린샷: iPhone 6.9인치 + iPad 13인치 × vi·th·en × 6장 (`design/store/*.md`의 캡션) | [ ] | [ ] |
 | C10 | 스토어 메타데이터 입력용 최종본 정리 (`design/store/*.md`에서 자리표시자 치환) — 초안 `docs/release/store-*.md`(MVP 범위로 문구 수정, URL만 남음) | [ ] | [ ] |

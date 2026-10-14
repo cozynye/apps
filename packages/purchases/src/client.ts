@@ -29,6 +29,11 @@ export function configurePurchases(apiKey: string | undefined) {
     console.warn('[purchases] No RevenueCat API key; purchases are disabled.');
     return;
   }
+  // A Test Store key makes the SDK abort in release builds; a mis-set EAS secret must not ship a crash.
+  if (!__DEV__ && apiKey.startsWith('test_')) {
+    console.warn('[purchases] Test Store key in a release build; purchases are disabled.');
+    return;
+  }
   if (Platform.OS !== 'ios') return;
   if (__DEV__) void Purchases.setLogLevel(LOG_LEVEL.WARN);
   Purchases.configure({ apiKey });
