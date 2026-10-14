@@ -186,7 +186,8 @@ S4 Fourpop 개발 — 진행 중 (S2 완료 2026-10-14)
 
 - `apps/*/eas.json`(development·development-device·preview·production), `.github/workflows/pages.yml`(web/legal → GitHub Pages, Cozy가 Pages 활성·도메인 연결), `docs/release/`: `store-nuni.md`·`store-fourpop.md`(MVP 범위로 문구 수정한 입력용 최종본, URL만 미정), `privacy-labels.md`, `review-notes.md`(Sandbox 계정·팩 id 미정), `release-notes.md`(1.0 en·vi·th), `eas.md`
 - RELEASE_CHECKLIST C8(암호화 플래그·권한 문구 3언어·iPad) 두 앱 확인, C11 완료, C10·C12·C14 초안
-- 스토어 스크린샷 파이프라인(C9): `store-shots` 플로우 + `scripts/store-shots-all.sh` + `scripts/store-screenshots.ts`(캡션 합성, 태국어 SARA AM 분해). iPhone 17 Pro Max(6.9")·iPad Pro 13" 시뮬레이터에 두 앱 dev 빌드 설치
+- 스토어 스크린샷 파이프라인(C9): `store-shots` 플로우 + `scripts/store-shots-all.sh`(언어별 Metro 재시작, 시뮬레이터 1대씩, 번들 워밍업, 재시도 1회, 깨끗한 상태 바 9:41, 모의 CDN 제외) + `scripts/store-screenshots.ts`(캡션 합성, 태국어 SARA AM 분해). iPhone 17 Pro Max(6.9")·iPad Pro 13" 시뮬레이터에 두 앱 dev 빌드 설치(iPad Nuni는 Firebase 포함으로 재빌드). 1차 전체 캡처 72장 생성·검수 후 상태 바 정리를 위해 2차 전체 재캡처 진행(2026-10-14 저녁)
+- Nuni 제출 안내서 `docs/release/nuni-submission.md`, 릴리스 빌드에서 `test_` RevenueCat 키 무시(결제만 비활성), Release 구성 스모크 `scripts/release-smoke.sh` + `release-smoke` 플로우(두 앱, 캡처 뒤 실행 예정)
 
 ## 다음 할 일
 
