@@ -106,7 +106,8 @@ S2 Nuni 개발 — 진행 중 (S1 완료 2026-10-12)
 
 ## 다음 할 일
 
-1. Firebase DebugView에서 이벤트 이름·파라미터 확인(Cozy, 실기기 -FIRDebugEnabled로 실행 중), `mood`·본문·태그 이름 미포함 확인
+1. Firebase DebugView 파라미터 최종 확인(Cozy): `share_card` 등에 `mood`·본문·태그 이름 미포함
+   - 2026-10-14 실기기 DebugView에 자동 이벤트 + 앱 이벤트(`share_card`) 도착 확인. 이벤트 파라미터는 `buildEventParams`가 금지 키를 막음(유닛 테스트)
 2. 남은 S2 완료 기준: VoiceOver 실기기 완주(선택). 콜드 스타트·TestFlight 1주는 Cozy 지시로 건너뜀(RELEASE_CHECKLIST)
 
 ## 완료한 일 (2026-10-13, Firebase)
