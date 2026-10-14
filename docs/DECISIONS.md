@@ -159,3 +159,5 @@
 - 2026-10-14 — (실기기 피드백) B5·B6도 B7·B8처럼 `SafeAreaView` 대신 `useSafeAreaInsets` 패딩 — iPhone 12 Pro에서 B5 상단 바(X·전환)가 상태 바와 겹쳤음(시뮬레이터 iPhone 17 Pro에서는 재현되지 않았음)
 - 2026-10-14 — Maestro `booth-complete`는 Noir(어두운 프레임)로 촬영해 B8 스크린샷에서 모서리 채움을 볼 수 있게 함
 - 2026-10-14 — (Cozy 결정) ‘라이브 GIF’(컷마다 카운트다운 구간을 무음 클립으로 녹화 → 정지 컷은 클립 마지막 프레임, GIF는 클립 프레임으로 슬롯 4개가 움직이는 스트립)는 **S4 완료 기준을 닫은 뒤** 착수. 방식 후보: 영상 모드 고정 + `expo-video-thumbnails`로 프레임 추출(공식 모듈), HD는 4K 녹화 필요, 한국 기기는 녹화음 강제. 착수 시 PLAN의 ‘GIF 8컷 0.4초’·‘라이브 영상 제외’ 항목을 갱신
+- 2026-10-14 — (Cozy 결정) Fourpop도 Nuni와 같이 콜드 스타트 2초 측정, TestFlight 1주 크래시 지표, HD 메모리 300MB Instruments 측정을 건너뛰고 빠르게 출시. HD 합성 시간은 Debug 빌드의 `[perf]` 로그로만 1차 확인. RELEASE_CHECKLIST에 건너뜀 사유로 기록
+- 2026-10-14 — (실기기 피드백) 탭 화면 B9·B10의 ScrollView에 `contentInsetAdjustmentBehavior="automatic"` — 네이티브 플로팅 탭 바 아래로 마지막 행이 가려졌음(Nuni A3·A6·A10과 같은 처리). B3는 CTA 행이 `insets.bottom` 패딩을 가져 해당 없음

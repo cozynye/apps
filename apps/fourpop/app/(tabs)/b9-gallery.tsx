@@ -34,7 +34,8 @@ export default function GalleryScreen() {
           onAction={() => router.navigate('/b3-home')}
         />
       ) : (
-        <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
+        // `automatic` keeps the last rows above the floating native tab bar (iPad: top tabs).
+        <ScrollView contentContainerStyle={styles.content} contentInsetAdjustmentBehavior="automatic" showsVerticalScrollIndicator={false}>
           {groups.map((group) => (
             <View key={group.date} style={styles.group}>
               <Text variant="bodySm" color="inkMuted" testID={`b9.day.${group.date}`}>

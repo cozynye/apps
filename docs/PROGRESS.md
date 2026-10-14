@@ -171,10 +171,10 @@ S4 Fourpop 개발 — 진행 중 (S2 완료 2026-10-14)
 | 구독·단품·복원·체험 자격 없음 | Test Store로 통과 (`paywall-restore`·`pack-unlock`). Fourpop 연간은 체험 없음 |
 | 비행기 모드 | **실기기 확인 대기(Cozy)** |
 | 예외 상황 표 | 위 표 참조 — 권한 거부·비행기 모드·공유 앱은 실기기 대기, 구독 만료는 Test Store 갱신 대기 |
-| 콜드 스타트 2초 (iPhone 12 Release) | **미측정** — Nuni와 같이 Cozy 결정 필요(측정 or 건너뜀) |
-| HD 합성 2초·메모리 300MB (iPhone 12) | **미측정** — 2400×7200 기준. Debug 빌드에서 `[perf] HD strip render` 로그로 1차 확인 예정, 메모리는 Instruments 필요 |
+| 콜드 스타트 2초 (iPhone 12 Release) | 건너뜀 (Cozy 2026-10-14, Nuni와 동일) |
+| HD 합성 2초·메모리 300MB (iPhone 12) | 메모리 측정 건너뜀 (Cozy 2026-10-14). 합성 시간은 Debug `[perf] HD strip render` 로그로 확인 예정 |
 | Firebase DebugView 이벤트 | **P18 Fourpop plist 대기(Cozy)** |
-| Crashlytics 99.5% TestFlight 1주 | Nuni와 같이 Cozy 결정 필요 |
+| Crashlytics 99.5% TestFlight 1주 | 건너뜀 (Cozy 2026-10-14, Nuni와 동일) |
 | 유닛 테스트 5종 | 통과 (Jest 68) |
 | 자리표시자 없음 | `check-placeholders.sh`: 코드에는 없음. web/legal의 `[EFFECTIVE DATE]`·`[DOMAIN]`, `.env` CDN URL, Fourpop plist는 릴리스 항목 |
 | VoiceOver 완주 | 선택(미실시, Nuni와 동일) |

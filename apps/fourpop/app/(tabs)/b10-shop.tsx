@@ -47,7 +47,7 @@ export default function ShopScreen() {
       <Text variant="displayLg" testID="b10.title" style={styles.title}>
         {t('shop.title')}
       </Text>
-      <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
+      <ScrollView contentContainerStyle={styles.content} contentInsetAdjustmentBehavior="automatic" showsVerticalScrollIndicator={false}>
         {offline ? (
           <Text variant="bodySm" color="inkMuted" testID="b10.offline" style={[styles.notice, { backgroundColor: colors.surface2 }]}>
             {t('shop.offline')}
