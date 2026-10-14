@@ -1,0 +1,57 @@
+# B11 subscription via B12 (RevenueCat Test Store): cancel → failed → valid purchase unlocks Premium,
+# then Restore in B12 reports restored. Needs EXPO_PUBLIC_RC_IOS_KEY_FOURPOP (test_ key).
+appId: app.fourpop.booth
+---
+- runFlow: common/launch.yaml
+- extendedWaitUntil:
+    visible:
+      id: b2.skip
+    timeout: 20000
+- tapOn:
+    id: b2.skip
+- extendedWaitUntil:
+    visible:
+      id: b3.settings
+    timeout: 10000
+- tapOn:
+    id: b3.settings
+- extendedWaitUntil:
+    visible:
+      id: b12.premium
+    timeout: 10000
+- tapOn:
+    id: b12.premium
+- extendedWaitUntil:
+    visible:
+      id: b11.cta
+    timeout: 30000
+- takeScreenshot: paywall-b11-plans
+# Cancel: stays on the paywall, no error toast.
+- tapOn:
+    id: b11.cta
+- tapOn: Cancel
+- assertVisible:
+    id: b11.cta
+- assertNotVisible: "Purchase didn't go through. Please try again."
+# Failure: error toast, still on the paywall.
+- tapOn:
+    id: b11.cta
+- tapOn: Test failed purchase
+- assertVisible: "Purchase didn't go through. Please try again."
+- assertVisible:
+    id: b11.cta
+# Success: toast, paywall closes, Premium row gone from settings.
+- tapOn:
+    id: b11.cta
+- tapOn: Test valid purchase
+- assertVisible: "You're all set!"
+- extendedWaitUntil:
+    notVisible:
+      id: b12.premium
+    timeout: 10000
+- assertVisible:
+    id: b12.restore
+- takeScreenshot: settings-premium
+- tapOn:
+    id: b12.restore
+- assertVisible: 'Purchases restored'

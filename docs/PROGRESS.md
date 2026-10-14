@@ -127,11 +127,12 @@ S4 Fourpop 개발 — 진행 중 (S2 완료 2026-10-14)
 - 딥링크 `fourpop://shop/<packId>`, 개발 메뉴 `fourpop:///dev`(구매 없이 팩 설치, production 제외), 모의 CDN `pnpm cdn:mock`(포트 8090, 샘플 시즌팩·스티커팩 + sha256, ETag/304)
 - i18n 키 추가 `shop.download`, `shop.frames_*`, `shop.stickers_*`(en·vi·th). 유닛 테스트 `packFiles`/`fileName`, `groupStripsByDate` 추가(Jest 68)
 - 검증: typecheck·lint(오류 0, 경고 2 기존)·Jest 68·i18n 패리티 통과. Fourpop 개발 빌드 재생성(expo-crypto) iPhone 17 Pro·iPad Pro 13" (iOS 26.5). Maestro(Metro 8082, `EXPO_PUBLIC_MOCK_CAMERA=1` + `EXPO_PUBLIC_CDN_BASE_URL=http://localhost:8090`, 모의 CDN 실행 중) iPhone·iPad 모두 통과: `onboarding`, `booth-complete`, `gallery`(촬영 → 목록 → 재공유 → 삭제 → 빈 상태), `pack-install`(CDN 매니페스트 → 시즌 배너 → 상점 카드 → B11 단품 카드 → 다운로드·sha256·설치 → B4 Season)
-- 미검증(차단): `pack-unlock`(PLAN 완료 기준)은 B11 단품 카드까지 가고 결제 단계에서 멈춤 — Fourpop RevenueCat 키 없음(단품 CTA 비활성). 구매 → 다운로드 → 잠금 해제 연쇄, 프리미엄 Download 버튼, 구독 페이월 가격 표시는 키 수령 후 확인. 실제 CDN(R2) ETag·immutable 헤더 동작은 P19 후
+- 결제 검증(2026-10-14 오후, Cozy가 RevenueCat Fourpop 프로젝트 + Test Store 설정, `.env`에 `test_` 키): Maestro `pack-unlock`(상점 → B11 단품 카드 $0.99 → Test Store 구매 → `pack_unlock(single)` → 다운로드 → Owned → B4 Season 잠금 해제 → 촬영 → B8 블러 없이 저장)과 `paywall-restore`(B12 → B11 연간/월간 플랜·절약 배지, 취소 → 실패 토스트 → 성공 토스트·Premium 행 사라짐 → 복원 ‘Purchases restored’) iPhone 17 Pro·iPad Pro 13" 통과. 이로써 PLAN 완료 기준의 Fourpop Maestro 3종(`onboarding`·`booth-complete`·`pack-unlock`) iPhone·iPad 통과
+- 미검증: 프리미엄 구독자의 팩 Download 버튼 경로(E2E 없음, 코드는 구매 설치와 같은 `installPack`), 구독 만료 후 잠금 전환(Test Store 자동 갱신 5회 뒤 취소를 기다려야 함), 실제 CDN(R2) ETag·immutable 헤더 동작(P19 후), 실기기 결제 시트
 
 ## 다음 할 일
 
-0. S4 6단계(완료 기준 점검): Fourpop RevenueCat 키 수령 후 `pack-unlock`·B11 구독 결제·복원; vi·th·en 플로우 스크린샷 점검(`EXPO_PUBLIC_FORCE_LOCALE`); 비행기 모드(상점 오프라인·촬영·저장); 예외 상황 표 항목 재현 기록; Fourpop Firebase plist(P18) 후 Copy ID; QA 회귀
+0. S4 6단계(완료 기준 점검): vi·th·en 플로우 스크린샷 점검(`EXPO_PUBLIC_FORCE_LOCALE`); 비행기 모드(상점 오프라인·촬영·저장); 예외 상황 표 항목 재현 기록; Fourpop Firebase plist(P18) 후 Copy ID; 프리미엄 Download 경로 E2E; QA 회귀
 
 1. Firebase DebugView 파라미터 최종 확인(Cozy): `share_card` 등에 `mood`·본문·태그 이름 미포함
    - 2026-10-14 실기기 DebugView에 자동 이벤트 + 앱 이벤트(`share_card`) 도착 확인. 이벤트 파라미터는 `buildEventParams`가 금지 키를 막음(유닛 테스트)
@@ -149,5 +150,5 @@ S4 Fourpop 개발 — 진행 중 (S2 완료 2026-10-14)
 - 2026-10-12 P16(Nuni): 구독 그룹 `Nuni Premium`에 `mood_premium_monthly`(1개월), `mood_premium_yearly`(1년) 생성(스크린샷 확인). **연간 7일 무료체험(Introductory Offer)은 아직 미설정** — 출시 전 설정 필요(PLAN 가격표). 미설정 동안 페이월은 체험 없는 문구(`subscribe`/`noTrial`)로 표시됨
 - (출시 전) P17: RevenueCat에 App Store 앱 연결(.p8) → `appl_` 키. 실제 StoreKit 검증은 TestFlight로(Sandbox 테스터는 필요 시 — Cozy 2026-10-12)
 
-- 2026-10-14 P17(Fourpop, 개발용): RevenueCat에 Fourpop 프로젝트 + Test Store 앱을 만들고 `.env`의 `EXPO_PUBLIC_RC_IOS_KEY_FOURPOP`에 `test_` 키를 넣어 주세요. 필요한 설정: 권한 `booth_premium`, Offering `default`에 `booth_premium_monthly`(1개월)·`booth_premium_yearly`(1년), 비소모성 상품 `booth_pack_dev_sample`·`booth_stickers_dev_sample`(각각 같은 이름의 권한, E2E용 샘플팩). 받으면 `pack-unlock`·결제·복원 플로우를 돌려 S4 완료 기준을 닫습니다
+- 2026-10-14 P17(Fourpop, 개발용) 완료: Cozy가 RevenueCat Fourpop 프로젝트 + Test Store(상품 `booth_premium_monthly`·`booth_premium_yearly`·`booth_pack_dev_sample`·`booth_stickers_dev_sample`, 권한 `booth_premium` + 단품 2개, Offering `default` Monthly/Annual)를 설정, `.env`에 `EXPO_PUBLIC_RC_IOS_KEY_FOURPOP`(test_). 출시 전 실제 `appl_` 키와 실제 시즌팩 상품은 P17에서
 - P18 Firebase plist(Fourpop), P19 R2 URL, 도메인 — 배포 전까지. P22 GitHub 리포는 2026-10-14 `github.com/cozynye/apps`(public, main)로 연결·푸시 완료
