@@ -22,7 +22,7 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, Animated, AppState, Image, Platform, Pressable, StyleSheet, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { useSession, SHOTS, clearSessionFiles, storeShot } from '../../src/session';
 import { useBoothSettings } from '../../src/settings';
@@ -51,6 +51,7 @@ export default function CaptureScreen() {
   const shots = useSession((s) => s.shots);
 
   const camera = useRef<CameraView>(null);
+  const insets = useSafeAreaInsets();
   // Native starts optimistic (the view must mount to probe lenses); web asks the API first.
   const [available, setAvailable] = useState<boolean | null>(MOCK_CAMERA || Platform.OS !== 'web' ? true : null);
   const [facing, setFacing] = useState<CameraType>('front');
@@ -171,7 +172,7 @@ export default function CaptureScreen() {
 
   if (available === false) {
     return (
-      <SafeAreaView style={[styles.root, styles.center]} testID="b5.unavailable">
+      <View style={[styles.root, styles.center, { paddingTop: insets.top, paddingBottom: insets.bottom }]} testID="b5.unavailable">
         <Text variant="body" align="center" style={{ color: C.cameraInk }}>
           {t('error.cameraUnavailable')}
         </Text>
@@ -181,12 +182,14 @@ export default function CaptureScreen() {
           onPress={() => void startFromAlbum().then((ok) => ok || undefined)}
         />
         <Button testID="b5.close" variant="secondary" label={t('action.close')} onPress={() => router.back()} />
-      </SafeAreaView>
+      </View>
     );
   }
 
   return (
-    <SafeAreaView style={styles.root}>
+    // Inset padding instead of the safe-area view: inside the fullScreenModal booth stack its insets
+    // come back 0 on device (DECISIONS 2026-10-14, B7·B8).
+    <View style={[styles.root, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
       <View style={styles.topBar}>
         <ControlButton testID="b5.close" label={t('a11y.close')} Icon={XIcon} onPress={close} />
         <Text variant="bodyStrong" style={{ color: C.cameraInkMuted }} testID="b5.shotOf">
@@ -303,7 +306,7 @@ export default function CaptureScreen() {
           )}
         </Pressable>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 

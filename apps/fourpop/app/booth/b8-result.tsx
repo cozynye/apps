@@ -31,7 +31,7 @@ import * as MediaLibrary from 'expo-media-library/legacy';
 import { router, useLocalSearchParams } from 'expo-router';
 import * as Sharing from 'expo-sharing';
 import { GIFEncoder, applyPalette, quantize } from 'gifenc';
-import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ActivityIndicator, Alert, Image, Linking, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -47,7 +47,7 @@ import { purchasePack } from '../../src/packs';
 import { useProductPrice } from '../../src/prices';
 import { clearSessionFiles, useSession } from '../../src/session';
 import { useBoothSettings } from '../../src/settings';
-import { loadSkImage, useSkImages } from '../../src/skia-images';
+import { frameEdgeColor, loadSkImage, useSkImages } from '../../src/skia-images';
 import { formatStamp } from './b7-decorate';
 
 type Channel = 'zalo' | 'messenger' | 'line' | 'instagram';
@@ -96,6 +96,7 @@ function SessionResult() {
     ...picked.map((i) => shots[i]?.uri ?? null),
   ]);
   const [stickerImages, setStickerImages] = useState<Record<string, SkImage | null>>({});
+  const background = useMemo(() => (frameImage ? (frameEdgeColor(frameImage) ?? undefined) : undefined), [frameImage]);
   const [standardUri, setStandardUri] = useState<string | null>(null);
   const [busy, setBusy] = useState<'gif' | 'unlock' | null>(null);
   const savedToGallery = useRef(false);
@@ -121,8 +122,9 @@ function SessionResult() {
       dateText: dateFormat === null ? null : formatStamp(dateFormat, language),
       watermark: watermark ? t('app.name') : null,
       fonts,
+      background,
     }),
-    [frame, frameImage, pickedImages, filter, items, stickerImages, dateFormat, language, t, fonts],
+    [frame, frameImage, pickedImages, filter, items, stickerImages, dateFormat, language, t, fonts, background],
   );
 
   // Standard render (watermarked for free users) → preview + automatic gallery copy (PLAN 사용자 플로우 6).

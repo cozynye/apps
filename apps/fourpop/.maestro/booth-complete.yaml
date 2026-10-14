@@ -13,6 +13,9 @@ appId: app.fourpop.booth
     visible:
       id: b3.title
     timeout: 10000
+# Dark frame: the exported corners must take the frame colour, not the page background.
+- tapOn:
+    id: b3.frame.base-noir
 - tapOn:
     id: b3.startShooting
 - extendedWaitUntil:

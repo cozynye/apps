@@ -34,8 +34,10 @@ export interface StripSceneProps {
   dateText: string | null;
   watermark: string | null;
   fonts: SkTypefaceFontProvider | null;
-  /** Canvas → pixels (preview width / 1200, 0.5 standard, 1 HD). */
+  /** Canvas → pixels (preview width / 1200, 1 standard, 2 HD). */
   scale: number;
+  /** Fill under the frame (its sampled edge colour); surface-0 when unknown. */
+  background?: string;
 }
 
 /**
@@ -46,7 +48,7 @@ export function StripScene(p: StripSceneProps) {
   const spec = FILTER_SPECS[p.filter];
   return (
     <Group transform={[{ scale: p.scale }]}>
-      <Rect x={0} y={0} width={CANVAS.w} height={CANVAS.h} color={C.surface0} />
+      <Rect x={0} y={0} width={CANVAS.w} height={CANVAS.h} color={p.background ?? C.surface0} />
       {p.frame.slots.map((slot, i) => {
         const shot = p.shots[i];
         const clip = Skia.RRectXY(Skia.XYWHRect(slot.x, slot.y, slot.w, slot.h), SLOT_RADIUS, SLOT_RADIUS);

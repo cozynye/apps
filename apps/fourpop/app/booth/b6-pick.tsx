@@ -3,7 +3,7 @@ import * as Haptics from 'expo-haptics';
 import { router } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { Alert, Image, Pressable, ScrollView, StyleSheet, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { PICKS, resetSession, useSession } from '../../src/session';
 
@@ -15,6 +15,7 @@ const C = palette.light;
  */
 export default function PickScreen() {
   const { t } = useTranslation();
+  const insets = useSafeAreaInsets();
   const shots = useSession((s) => s.shots);
   const picked = useSession((s) => s.picked);
 
@@ -39,7 +40,7 @@ export default function PickScreen() {
   }
 
   return (
-    <SafeAreaView style={styles.root}>
+    <View style={[styles.root, { paddingTop: insets.top + space[4], paddingBottom: insets.bottom }]}>
       <Text variant="title" align="center" style={{ color: C.cameraInk }} testID="b6.title">
         {t('pick.title', { count: PICKS })}
       </Text>
@@ -85,12 +86,12 @@ export default function PickScreen() {
           </Text>
         </Pressable>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: C.cameraSurface, gap: space[2], paddingTop: space[4] },
+  root: { flex: 1, backgroundColor: C.cameraSurface, gap: space[2] },
   grid: { flexDirection: 'row', flexWrap: 'wrap', padding: space[3], gap: space[3], justifyContent: 'center' },
   cell: { width: '46%', maxWidth: 280, aspectRatio: 3 / 2, borderRadius: radius.md, borderWidth: 3, overflow: 'hidden', backgroundColor: C.cameraControl },
   image: { width: '100%', height: '100%' },

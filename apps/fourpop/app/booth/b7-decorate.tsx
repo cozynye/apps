@@ -36,7 +36,7 @@ import { FILTER_SPECS, FILTERS, PREMIUM_FILTERS, type FilterId } from '../../src
 import { useStripFonts } from '../../src/fonts';
 import { CANVAS, STICKER, toCanvas } from '../../src/geometry';
 import { useSession } from '../../src/session';
-import { loadSkImage, useSkImages } from '../../src/skia-images';
+import { frameEdgeColor, loadSkImage, useSkImages } from '../../src/skia-images';
 
 const C = palette.light;
 type Tool = 'filter' | 'stickers' | 'draw' | 'text' | 'date';
@@ -85,6 +85,7 @@ export default function DecorateScreen() {
     frame ? imageSource(frame.item.image) : null,
     ...picked.map((i) => shots[i]?.uri ?? null),
   ]);
+  const background = useMemo(() => (frameImage ? (frameEdgeColor(frameImage) ?? undefined) : undefined), [frameImage]);
 
   // Decode sticker images as they are placed.
   useEffect(() => {
@@ -298,6 +299,7 @@ export default function DecorateScreen() {
               watermark={null}
               fonts={fonts}
               scale={k}
+              background={background}
             />
           </Canvas>
           <View style={StyleSheet.absoluteFill} {...canvasResponder.panHandlers} />
