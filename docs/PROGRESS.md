@@ -4,7 +4,7 @@ Claude Code가 작업 단위가 끝날 때마다 갱신한다. 새 세션은 이
 
 ## 현재 단계
 
-S2 Nuni 개발 — 진행 중 (S1 완료 2026-10-12)
+S4 Fourpop 개발 — 진행 중 (S2 완료 2026-10-14)
 
 ## 단계 현황
 
@@ -12,9 +12,9 @@ S2 Nuni 개발 — 진행 중 (S1 완료 2026-10-12)
 | --- | --- | --- |
 | S0 준비 | 완료 (개발 차단 항목 없음) | P15·P16 보류 → RevenueCat Test Store로 대체. 미확정 사항은 배포 전 해결 (RELEASE_CHECKLIST) |
 | S1 공통 패키지 | 완료 (2026-10-12) | 아래 완료 조건 표 |
-| S2 Nuni 개발 | 진행 중 | A1–A13 화면, 위젯, 리마인더, 잠금, 백업 |
+| S2 Nuni 개발 | 완료 (2026-10-14) | A1–A13·위젯·리마인더·잠금·백업·Firebase. 예외: 콜드 스타트·TestFlight 1주 Cozy 지시로 건너뜀, VoiceOver 실기기 완주 선택(미실시) |
 | S3 Nuni 출시 | 대기 — 릴리스 게이트 적용 | |
-| S4 Fourpop 개발 | 대기 | |
+| S4 Fourpop 개발 | 진행 중 | |
 | S5 Fourpop 출시 | 대기 — 릴리스 게이트 적용 | |
 
 ## S1 완료 조건 확인 (2026-10-07)
@@ -122,5 +122,4 @@ S2 Nuni 개발 — 진행 중 (S1 완료 2026-10-12)
 - 2026-10-12 P16(Nuni): 구독 그룹 `Nuni Premium`에 `mood_premium_monthly`(1개월), `mood_premium_yearly`(1년) 생성(스크린샷 확인). **연간 7일 무료체험(Introductory Offer)은 아직 미설정** — 출시 전 설정 필요(PLAN 가격표). 미설정 동안 페이월은 체험 없는 문구(`subscribe`/`noTrial`)로 표시됨
 - (출시 전) P17: RevenueCat에 App Store 앱 연결(.p8) → `appl_` 키. 실제 StoreKit 검증은 TestFlight로(Sandbox 테스터는 필요 시 — Cozy 2026-10-12)
 
-- (S4 전) PLAN 충돌 5번(HD 해상도 1200×3600 vs 2400×7200)
 - P18 Firebase plist, P19 R2 URL, P22 리포, 도메인 — 배포 전까지

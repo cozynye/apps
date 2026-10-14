@@ -128,3 +128,4 @@
 - 2026-10-13 — 빌드 우회 2건(config plugin): RN Firebase Crashlytics dSYM 스크립트(SPM 경로)가 `ios/GoogleService-Info.plist`를 읽어서 prebuild 때 ios 루트에도 복사, Debug 구성은 dSYM 업로드를 건너뜀(Podfile `post_integrate`로 스크립트 앞에 조건 추가 — 시뮬레이터 빌드가 10분 넘게 멈춤). Release는 업로드 유지
 - 2026-10-13 — 설정 › Privacy › Copy ID(개인정보처리방침 6절): Firebase app instance ID를 `expo-clipboard`로 복사, Firebase가 포함된 빌드에서만 표시. i18n 키 `settings.copyId/copyIdHint/copied` 추가(en·vi·th)
 - 2026-10-14 — 개발 빌드는 Metro가 시작할 때 평가한 app.config(`extra.firebase`)를 받는다: plist를 추가한 뒤에는 Metro 재시작 필요(재시작 전에는 dev 로그 transport로 동작했음)
+- 2026-10-14 — (Cozy 결정) Fourpop HD 저장 = 1200×3600(프레임 canvas 원본), 일반 = 600×1800. PLAN 완료 기준의 ‘2400×7200’ 문장은 이 값으로 대체(PLAN 충돌 5번 해소). 성능 목표(2초·300MB)는 1200×3600 합성 기준
