@@ -129,3 +129,5 @@
 - 2026-10-13 — 설정 › Privacy › Copy ID(개인정보처리방침 6절): Firebase app instance ID를 `expo-clipboard`로 복사, Firebase가 포함된 빌드에서만 표시. i18n 키 `settings.copyId/copyIdHint/copied` 추가(en·vi·th)
 - 2026-10-14 — 개발 빌드는 Metro가 시작할 때 평가한 app.config(`extra.firebase`)를 받는다: plist를 추가한 뒤에는 Metro 재시작 필요(재시작 전에는 dev 로그 transport로 동작했음)
 - 2026-10-14 — (Cozy 결정) Fourpop HD 저장 = 1200×3600(프레임 canvas 원본), 일반 = 600×1800. PLAN 완료 기준의 ‘2400×7200’ 문장은 이 값으로 대체(PLAN 충돌 5번 해소). 성능 목표(2초·300MB)는 1200×3600 합성 기준
+- 2026-10-14 — Fourpop 뼈대: Nuni와 같은 구조(app.config에 권한 문구·스플래시, 네이티브 탭 Booth/Gallery/Shop, 설정은 B3 헤더 톱니 → B12). iPad도 세로 고정(PLAN). `expo-camera` 플러그인은 마이크 권한 없음. `expo-image-picker` 플러그인에서 `cameraPermission: false`는 빼야 함(카메라 문구까지 지움). 개발 중 Fourpop Metro는 8082(`pnpm fourpop start --port 8082`, E2E `METRO_PORT=8082`), Nuni는 8081
+- 2026-10-14 — Fourpop Firebase는 plist(P18 2번째) 수령 시 Nuni와 같은 방식으로 추가. 그 전에는 dev 로그 transport

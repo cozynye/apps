@@ -1,0 +1,42 @@
+# B2 onboarding → B3 (PLAN 완료 기준 Maestro `onboarding`); tabs; the next launch skips onboarding.
+appId: app.fourpop.booth
+---
+- runFlow: common/launch.yaml
+- extendedWaitUntil:
+    visible:
+      id: b2.page1
+    timeout: 20000
+- assertVisible:
+    id: b2.skip
+- takeScreenshot: onboarding-1
+- tapOn:
+    id: b2.continue
+- assertVisible:
+    id: b2.analytics
+- takeScreenshot: onboarding-2
+- tapOn:
+    id: b2.getStarted
+- extendedWaitUntil:
+    visible:
+      id: b3.title
+    timeout: 10000
+- tapOn:
+    id: tabs.gallery
+- assertVisible:
+    id: b9.title
+- tapOn:
+    id: tabs.shop
+- assertVisible:
+    id: b10.title
+- tapOn:
+    id: tabs.booth
+- assertVisible:
+    id: b3.title
+- stopApp
+- launchApp
+- openLink: exp+fourpop://expo-development-client/?url=http%3A%2F%2Flocalhost%3A${METRO_PORT}
+- runFlow: common/confirm-open.yaml
+- extendedWaitUntil:
+    visible:
+      id: b3.title
+    timeout: 60000

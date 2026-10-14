@@ -1,0 +1,8 @@
+# iOS may ask to confirm opening a custom URL scheme from outside the app (ko/en simulator locale).
+appId: app.fourpop.booth
+---
+- runFlow:
+    when:
+      visible: '열기|Open'
+    commands:
+      - tapOn: '열기|Open'

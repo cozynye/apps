@@ -1,0 +1,73 @@
+{
+  "expo": {
+    "name": "Fourpop",
+    "slug": "fourpop",
+    "scheme": "fourpop",
+    "version": "1.0.0",
+    "userInterfaceStyle": "automatic",
+    "icon": "./assets/icon/light.png",
+    "ios": {
+      "bundleIdentifier": "app.fourpop.booth",
+      "appleTeamId": "TC547C863K",
+      "supportsTablet": true,
+      "requireFullScreen": true,
+      "icon": {
+        "light": "./assets/icon/light.png",
+        "dark": "./assets/icon/dark.png",
+        "tinted": "./assets/icon/tinted.png"
+      },
+      "config": {
+        "usesNonExemptEncryption": false
+      },
+      "infoPlist": {
+        "CFBundleDevelopmentRegion": "en",
+        "CFBundleLocalizations": [
+          "en",
+          "vi",
+          "th"
+        ],
+        "UISupportedInterfaceOrientations": [
+          "UIInterfaceOrientationPortrait"
+        ],
+        "UISupportedInterfaceOrientations~ipad": [
+          "UIInterfaceOrientationPortrait"
+        ],
+        "EXDevMenuShowFloatingActionButton": false
+      }
+    },
+    "plugins": [
+      "expo-router",
+      "expo-localization",
+      "expo-sqlite",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": false,
+          "microphonePermission": false
+        }
+      ],
+      [
+        "expo-media-library",
+        {
+          "photosPermission": false
+        }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "../../packages/ui/fonts/BeVietnamPro-Regular.ttf",
+            "../../packages/ui/fonts/BeVietnamPro-SemiBold.ttf",
+            "../../packages/ui/fonts/BeVietnamPro-Bold.ttf",
+            "../../packages/ui/fonts/Prompt-Regular.ttf",
+            "../../packages/ui/fonts/Prompt-SemiBold.ttf",
+            "../../packages/ui/fonts/Prompt-Bold.ttf"
+          ]
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

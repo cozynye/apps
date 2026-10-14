@@ -14,7 +14,7 @@ S4 Fourpop 개발 — 진행 중 (S2 완료 2026-10-14)
 | S1 공통 패키지 | 완료 (2026-10-12) | 아래 완료 조건 표 |
 | S2 Nuni 개발 | 완료 (2026-10-14) | A1–A13·위젯·리마인더·잠금·백업·Firebase. 예외: 콜드 스타트·TestFlight 1주 Cozy 지시로 건너뜀, VoiceOver 실기기 완주 선택(미실시) |
 | S3 Nuni 출시 | 대기 — 릴리스 게이트 적용 | |
-| S4 Fourpop 개발 | 진행 중 | |
+| S4 Fourpop 개발 | 진행 중 | 1단계 뼈대(B1·B2·탭) |
 | S5 Fourpop 출시 | 대기 — 릴리스 게이트 적용 | |
 
 ## S1 완료 조건 확인 (2026-10-07)
@@ -104,7 +104,13 @@ S4 Fourpop 개발 — 진행 중 (S2 완료 2026-10-14)
 - Cozy 확인(2026-10-13 ‘전부 다 되더라’): iCloud 백업→복원→재실행, 위젯 오늘 구름, Face ID·패스코드 폴백, 알림 빠른 액션, 공유 카드 사진 저장, 비행기 모드
 - 첫 실기기 빌드: `expo run:ios`가 `-allowProvisioningUpdates`를 넘기지 않아 와일드카드 프로파일로 실패 → `xcodebuild -allowProvisioningUpdates`로 앱·위젯 프로파일 생성 후 `xcrun devicectl`로 설치
 
+## 완료한 일 (2026-10-14, S4 1단계)
+
+- `apps/fourpop` 뼈대: 번들 `app.fourpop.booth`, 아이콘·스플래시, 권한 문구(카메라·사진 추가, vi/th/en), DB 초기화, B2 온보딩 2장, 네이티브 탭. Maestro `onboarding`(iPhone 통과)
+
 ## 다음 할 일
+
+0. S4 2단계: B3 홈(시즌 배너·프레임 10종·CTA), B4 프레임 선택, B12 진입
 
 1. Firebase DebugView 파라미터 최종 확인(Cozy): `share_card` 등에 `mood`·본문·태그 이름 미포함
    - 2026-10-14 실기기 DebugView에 자동 이벤트 + 앱 이벤트(`share_card`) 도착 확인. 이벤트 파라미터는 `buildEventParams`가 금지 키를 막음(유닛 테스트)
