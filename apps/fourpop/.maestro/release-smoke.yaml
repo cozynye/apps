@@ -1,0 +1,17 @@
+# Release-configuration smoke test (no Metro, embedded bundle): the app launches, onboarding shows,
+# Skip reaches the home screen. Run with scripts/release-smoke.sh.
+appId: app.fourpop.booth
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible:
+      id: b2.skip
+    timeout: 30000
+- tapOn:
+    id: b2.skip
+- extendedWaitUntil:
+    visible:
+      id: b3.title
+    timeout: 15000
+- takeScreenshot: release-home

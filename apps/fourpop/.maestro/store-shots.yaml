@@ -6,7 +6,7 @@ appId: app.fourpop.booth
 - extendedWaitUntil:
     visible:
       id: b2.skip
-    timeout: 20000
+    timeout: 60000
 - tapOn:
     id: b2.skip
 - extendedWaitUntil:
@@ -43,7 +43,7 @@ appId: app.fourpop.booth
 - extendedWaitUntil:
     visible:
       id: b6.title
-    timeout: 90000
+    timeout: 150000
 - tapOn:
     id: b6.shot.0
 - tapOn:

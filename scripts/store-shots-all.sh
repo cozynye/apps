@@ -9,7 +9,8 @@ IPHONE=${IPHONE:-FB8DC577-5B85-40D4-9EA7-CED269D56965}   # iPhone 17 Pro Max, iO
 IPAD=${IPAD:-3C3FCE0E-483C-4833-93DE-278FD428027E}       # iPad Pro 13-inch (M5), iOS 26.5
 NUNI_PORT=${NUNI_PORT:-8081}
 FOURPOP_PORT=${FOURPOP_PORT:-8083}
-CDN=${EXPO_PUBLIC_CDN_BASE_URL:-http://localhost:8090}
+# Store shots show only bundled content: no CDN (dev sample packs would appear). STORE_CDN=url to include one.
+CDN=${STORE_CDN:-}
 LOG=${LOG:-/tmp/store-shots}
 mkdir -p "$LOG"
 
@@ -18,28 +19,40 @@ restart_metro() { # app port locale extra-env...
   local pid; pid=$(lsof -nP -iTCP:"$port" -sTCP:LISTEN -t || true)
   [ -n "$pid" ] && kill "$pid" && sleep 2
   (cd "$ROOT/apps/$app" && env EXPO_PUBLIC_FORCE_LOCALE="$locale" "$@" nohup pnpm start --port "$port" > "$LOG/metro-$app-$locale.log" 2>&1 < /dev/null &)
-  for _ in $(seq 1 30); do curl -s -o /dev/null "http://localhost:$port/status" && return 0; sleep 2; done
-  echo "Metro $app:$port did not start" >&2; return 1
+  for _ in $(seq 1 30); do curl -s -o /dev/null "http://localhost:$port/status" && break; sleep 2; done
+  curl -s -o /dev/null "http://localhost:$port/status" || { echo "Metro $app:$port did not start" >&2; return 1; }
+  # Warm the bundle so the first launch after a locale switch is not spent compiling 2,600 modules.
+  curl -s -o /dev/null "http://localhost:$port/index.bundle?platform=ios&dev=true&hot=false&lazy=false" || true
 }
 
-use_sim() { # boot one, shut the other
-  local on=$1 off=$2
-  xcrun simctl shutdown "$off" >/dev/null 2>&1 || true
+use_sim() { # exactly one simulator booted (the Maestro driver times out with two)
+  local on=$1
+  xcrun simctl shutdown all >/dev/null 2>&1 || true
   xcrun simctl boot "$on" >/dev/null 2>&1 || true
-  sleep 6
+  sleep 8
+}
+
+capture() { # app device locale udid port — skipped when the 6 raw files already exist
+  local app=$1 device=$2 locale=$3 udid=$4 port=$5
+  local dir="$ROOT/docs/release/screenshots/raw/$app/$device/$locale"
+  if [ "$(ls "$dir"/[1-6].png 2>/dev/null | wc -l | tr -d ' ')" = "6" ]; then echo "skip $app/$device/$locale (done)"; return 0; fi
+  # One retry: the dev-client intro and Test Store network calls are occasionally flaky.
+  bash "$ROOT/scripts/store-shots.sh" "$app" "$device" "$locale" "$udid" "$port" && return 0
+  echo "retry $app/$device/$locale"
+  bash "$ROOT/scripts/store-shots.sh" "$app" "$device" "$locale" "$udid" "$port"
 }
 
 STATUS=0
 for locale in "${@:-en vi th}"; do
   echo "=== locale $locale"
   restart_metro nuni "$NUNI_PORT" "$locale" || STATUS=1
-  restart_metro fourpop "$FOURPOP_PORT" "$locale" EXPO_PUBLIC_MOCK_CAMERA=1 EXPO_PUBLIC_CDN_BASE_URL="$CDN" || STATUS=1
-  use_sim "$IPHONE" "$IPAD"
-  bash "$ROOT/scripts/store-shots.sh" fourpop iphone "$locale" "$IPHONE" "$FOURPOP_PORT" || STATUS=1
-  bash "$ROOT/scripts/store-shots.sh" nuni iphone "$locale" "$IPHONE" "$NUNI_PORT" || STATUS=1
-  use_sim "$IPAD" "$IPHONE"
-  bash "$ROOT/scripts/store-shots.sh" fourpop ipad "$locale" "$IPAD" "$FOURPOP_PORT" || STATUS=1
-  bash "$ROOT/scripts/store-shots.sh" nuni ipad "$locale" "$IPAD" "$NUNI_PORT" || STATUS=1
+  restart_metro fourpop "$FOURPOP_PORT" "$locale" EXPO_PUBLIC_MOCK_CAMERA=1 ${CDN:+EXPO_PUBLIC_CDN_BASE_URL="$CDN"} || STATUS=1
+  use_sim "$IPHONE"
+  capture fourpop iphone "$locale" "$IPHONE" "$FOURPOP_PORT" || STATUS=1
+  capture nuni iphone "$locale" "$IPHONE" "$NUNI_PORT" || STATUS=1
+  use_sim "$IPAD"
+  capture fourpop ipad "$locale" "$IPAD" "$FOURPOP_PORT" || STATUS=1
+  capture nuni ipad "$locale" "$IPAD" "$NUNI_PORT" || STATUS=1
 done
 (cd "$ROOT" && pnpm tsx scripts/store-screenshots.ts) || STATUS=1
 exit $STATUS

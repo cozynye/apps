@@ -1,0 +1,17 @@
+# Release-configuration smoke test (no Metro, embedded bundle): the app launches, onboarding shows,
+# Skip reaches the home screen. Run with scripts/release-smoke.sh.
+appId: app.nuni.mood
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible:
+      id: a2.skip
+    timeout: 30000
+- tapOn:
+    id: a2.skip
+- extendedWaitUntil:
+    visible:
+      id: a3.title
+    timeout: 15000
+- takeScreenshot: release-home

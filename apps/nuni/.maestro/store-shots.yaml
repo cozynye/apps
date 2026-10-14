@@ -7,7 +7,7 @@ appId: app.nuni.mood
 - extendedWaitUntil:
     visible:
       id: a2.skip
-    timeout: 20000
+    timeout: 60000
 - tapOn:
     id: a2.skip
 - extendedWaitUntil:
@@ -67,6 +67,11 @@ appId: app.nuni.mood
 - tapOn:
     id: a9.cta
 - tapOn: Test valid purchase
+- assertVisible: "You're all set!|Xong rồi!|เรียบร้อยแล้ว!"
+- extendedWaitUntil:
+    notVisible:
+      id: a9.cta
+    timeout: 10000
 - extendedWaitUntil:
     notVisible:
       id: a6.liftsLocked
