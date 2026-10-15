@@ -15,6 +15,10 @@
   "settings": {
     "qualityStandard": "Standard",
     "qualityHd": "HD",
-    "saveQualityHint": "Standard 1200×3600 with watermark · HD 2400×7200 without watermark (Premium)"
+    "saveQualityHint": "Standard 1200×3600 with watermark · HD 2400×7200 without watermark (Premium)",
+    "saveQualityHintFree": "Standard 1200×3600 · HD 2400×7200"
+  },
+  "result": {
+    "hd": "HD · {{size}}"
   }
 }

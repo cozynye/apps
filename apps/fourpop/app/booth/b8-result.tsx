@@ -1,6 +1,6 @@
 import { recordError, track } from '@nf/analytics';
 import { strips, type Strip } from '@nf/db/fourpop';
-import { useEntitlement } from '@nf/purchases';
+import { MONETIZATION, useEntitlement } from '@nf/purchases';
 import {
   Button,
   CaretLeftIcon,
@@ -260,7 +260,7 @@ function SessionResult() {
                 <Chip testID="b8.standard" label={t('result.standard', { size: '1200×3600' })} selected={!hd} />
                 <Chip
                   testID="b8.hd"
-                  label={t('result.hdUpsell')}
+                  label={MONETIZATION ? t('result.hdUpsell') : t('result.hd', { size: '2400×7200' })}
                   locked={!premium}
                   selected={hd}
                   onPress={() => (premium ? useBoothSettings.getState().set({ hd: !hdSetting }) : router.push({ pathname: '/b11-paywall', params: { source: 'hd' } }))}

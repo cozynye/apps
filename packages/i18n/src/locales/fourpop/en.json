@@ -114,7 +114,8 @@
     "share": "Share",
     "inGallery": "Also kept in your Gallery tab",
     "unlockToSave": "Unlock this frame to save without blur",
-    "useFreeFrame": "Use a free frame instead"
+    "useFreeFrame": "Use a free frame instead",
+    "hd": "HD · {{size}}"
   },
   "gallery": {
     "title": "Gallery",
@@ -164,6 +165,7 @@
     "mirrorSelfie": "Mirror selfies",
     "qualityStandard": "Standard",
     "qualityHd": "HD",
-    "saveQualityHint": "Standard 1200×3600 with watermark · HD 2400×7200 without watermark (Premium)"
+    "saveQualityHint": "Standard 1200×3600 with watermark · HD 2400×7200 without watermark (Premium)",
+    "saveQualityHintFree": "Standard 1200×3600 · HD 2400×7200"
   }
 }

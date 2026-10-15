@@ -114,7 +114,8 @@
     "share": "Chia sẻ",
     "inGallery": "Cũng được giữ trong tab Bộ sưu tập",
     "unlockToSave": "Mở khóa khung này để lưu không mờ",
-    "useFreeFrame": "Dùng khung miễn phí thay thế"
+    "useFreeFrame": "Dùng khung miễn phí thay thế",
+    "hd": "HD · {{size}}"
   },
   "gallery": {
     "title": "Bộ sưu tập",
@@ -164,6 +165,7 @@
     "mirrorSelfie": "Lật ảnh selfie",
     "qualityStandard": "Tiêu chuẩn",
     "qualityHd": "HD",
-    "saveQualityHint": "Tiêu chuẩn 1200×3600 có watermark · HD 2400×7200 không watermark (Premium)"
+    "saveQualityHint": "Tiêu chuẩn 1200×3600 có watermark · HD 2400×7200 không watermark (Premium)",
+    "saveQualityHintFree": "Tiêu chuẩn 1200×3600 · HD 2400×7200"
   }
 }

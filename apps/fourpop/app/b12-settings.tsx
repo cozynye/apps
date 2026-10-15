@@ -112,7 +112,7 @@ export default function SettingsScreen() {
               ]}
             />
             <Text variant="bodySm" color="inkMuted">
-              {t('settings.saveQualityHint')}
+              {t(MONETIZATION ? 'settings.saveQualityHint' : 'settings.saveQualityHintFree')}
             </Text>
           </View>
           <SettingsRow

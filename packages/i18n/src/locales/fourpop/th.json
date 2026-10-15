@@ -114,7 +114,8 @@
     "share": "แชร์",
     "inGallery": "เก็บไว้ในแท็บแกลเลอรีด้วย",
     "unlockToSave": "ปลดล็อกกรอบนี้เพื่อบันทึกแบบไม่เบลอ",
-    "useFreeFrame": "ใช้กรอบฟรีแทน"
+    "useFreeFrame": "ใช้กรอบฟรีแทน",
+    "hd": "HD · {{size}}"
   },
   "gallery": {
     "title": "แกลเลอรี",
@@ -164,6 +165,7 @@
     "mirrorSelfie": "กลับด้านเซลฟี่",
     "qualityStandard": "มาตรฐาน",
     "qualityHd": "HD",
-    "saveQualityHint": "มาตรฐาน 1200×3600 มีลายน้ำ · HD 2400×7200 ไม่มีลายน้ำ (Premium)"
+    "saveQualityHint": "มาตรฐาน 1200×3600 มีลายน้ำ · HD 2400×7200 ไม่มีลายน้ำ (Premium)",
+    "saveQualityHintFree": "มาตรฐาน 1200×3600 · HD 2400×7200"
   }
 }

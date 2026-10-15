@@ -15,6 +15,10 @@
   "settings": {
     "qualityStandard": "Tiêu chuẩn",
     "qualityHd": "HD",
-    "saveQualityHint": "Tiêu chuẩn 1200×3600 có watermark · HD 2400×7200 không watermark (Premium)"
+    "saveQualityHint": "Tiêu chuẩn 1200×3600 có watermark · HD 2400×7200 không watermark (Premium)",
+    "saveQualityHintFree": "Tiêu chuẩn 1200×3600 · HD 2400×7200"
+  },
+  "result": {
+    "hd": "HD · {{size}}"
   }
 }
