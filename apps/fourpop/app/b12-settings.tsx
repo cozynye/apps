@@ -15,12 +15,14 @@ import {
   type Appearance,
 } from '@nf/ui';
 import { nativeApplicationVersion } from 'expo-application';
+import * as Clipboard from 'expo-clipboard';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ActionSheetIOS, ActivityIndicator, Linking, ScrollView, StyleSheet, Switch, View } from 'react-native';
 
 import { PREMIUM } from '../src/catalog';
+import { anonymousInstallId, firebaseEnabled } from '../src/firebase';
 import { useBoothSettings } from '../src/settings';
 
 const SUPPORT_EMAIL = 'nunicozy@gmail.com';
@@ -60,6 +62,15 @@ export default function SettingsScreen() {
     // HD is Premium (PLAN 기능 범위 › 저장 화질); free users go to the paywall instead.
     if (hd && !premium) return router.push({ pathname: '/b11-paywall', params: { source: 'hd' } });
     booth.set({ hd });
+  }
+
+
+  // Privacy policy §6: users send this ID to have their analytics/crash data deleted.
+  async function copyInstallId() {
+    const id = await anonymousInstallId().catch(() => null);
+    if (!id) return toast(t('error.generic'), 'error');
+    await Clipboard.setStringAsync(id);
+    toast(t('settings.copied'), 'success');
   }
 
   return (
@@ -177,6 +188,14 @@ export default function SettingsScreen() {
               />
             }
           />
+          {firebaseEnabled && (
+            <SettingsRow
+              testID="b12.copyId"
+              label={t('settings.copyId')}
+              hint={t('settings.copyIdHint')}
+              onPress={() => void copyInstallId()}
+            />
+          )}
         </SettingsSection>
 
         <SettingsSection>

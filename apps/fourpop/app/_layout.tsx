@@ -9,12 +9,14 @@ import * as SplashScreen from 'expo-splash-screen';
 import { loadCatalog } from '../src/catalog';
 import { cleanTemp } from '../src/compose';
 import { initDatabase, useDbStatus } from '../src/db';
+import { firebaseTransport } from '../src/firebase';
 import { clearSessionFiles } from '../src/session';
 
 configurePurchases(process.env.EXPO_PUBLIC_RC_IOS_KEY_FOURPOP);
 configureAnalytics({
   appVersion: nativeApplicationVersion ?? '0.0.0',
   enabled: useSettings.getState().analyticsEnabled,
+  transport: firebaseTransport(),
 });
 useSettings.subscribe((s) => setAnalyticsEnabled(s.analyticsEnabled));
 i18next.on('languageChanged', setAnalyticsLocale);
