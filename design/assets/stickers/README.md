@@ -15,3 +15,9 @@ star · heart · heart-mint · sparkle · bff · love · lol · smile · wink ·
 
 strawberry · ice-cream · sakura · daisy · butterfly · bubble-tea · cat · bear · bow · balloon · cupcake · clover · sunglasses · wow · yay · omg · planet · sparkle · peach · watermelon
 
+## `y2k/` — Y2K 팩 18종 (무료, 번들, 2026-10-15)
+
+같은 규격, 크롬 그라데이션·네온·키치 채움. `scripts/content-gen/y2k-stickers.ts`, 매니페스트 팩 id `stickers-y2k`.
+
+butterfly · star-chrome · heart-chrome · bolt-chrome · dizzy · cd · cassette · flip-phone · pixel-heart · pixel-star · barcode · y2k · ootd · slay · 4ever · spiral · yin-yang · flame
+

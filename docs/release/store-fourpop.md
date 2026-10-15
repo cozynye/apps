@@ -44,7 +44,7 @@ LIKE A REAL BOOTH
 • Or build a strip from photos you already have
 
 MAKE IT YOURS
-• 20 frames to start, plus seasonal packs for Tết, Songkran, Valentine's and more
+• 30 frames to start, plus seasonal packs for Tết, Songkran, Valentine's and more
 • Filters, stickers, drawing, text and date stamp
 • HD export, no watermark
 • Animated GIF of all 8 shots
@@ -75,7 +75,7 @@ NHƯ BOOTH THẬT
 • Hoặc ghép dải ảnh từ ảnh có sẵn
 
 THEO CÁCH CỦA BẠN
-• 20 khung để bắt đầu, thêm bộ khung theo mùa cho Tết, Valentine, 8/3, 20/10…
+• 30 khung để bắt đầu, thêm bộ khung theo mùa cho Tết, Valentine, 8/3, 20/10…
 • Bộ lọc, sticker, vẽ, chữ và dấu ngày
 • Xuất HD, không watermark
 • GIF động từ cả 8 tấm
@@ -106,7 +106,7 @@ Fourpop เปลี่ยนมือถือของคุณให้เป
 • หรือทำแถบรูปจากรูปที่มีอยู่แล้ว
 
 ทำให้เป็นสไตล์คุณ
-• กรอบเริ่มต้น 20 แบบ พร้อมชุดตามเทศกาล สงกรานต์ ลอยกระทง วาเลนไทน์ และอื่น ๆ
+• กรอบเริ่มต้น 30 แบบ พร้อมชุดตามเทศกาล สงกรานต์ ลอยกระทง วาเลนไทน์ และอื่น ๆ
 • ฟิลเตอร์ สติกเกอร์ วาด ข้อความ และตราวันที่
 • ส่งออก HD ไม่มีลายน้ำ
 • GIF เคลื่อนไหวจากทั้ง 8 ช็อต

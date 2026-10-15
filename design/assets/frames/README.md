@@ -41,3 +41,20 @@ Cozy 요청(“좀더 예쁜 프레임”)으로 추가한 두 번째 기본 팩
 | notebook | 흰 | 하늘색 모눈·펀치 구멍 | #3b6fb6 |
 | waves | fourpop-soft | 민트·흰 물결 | ink |
 
+## `y2k/` — Y2K 팩 10종 (무료, 번들, 2026-10-15)
+
+Cozy 요청(“사진이기 때문에 MZ감성”)으로 추가한 세 번째 기본 팩. `scripts/content-gen/y2k-frames.ts`. 픽셀 캡션은 `common.ts`의 5×7 비트맵 글꼴, 글로우는 SVG 필터(feGaussianBlur).
+
+| id | 바탕 | 장식 | 캡션 |
+| --- | --- | --- | --- |
+| chrome | ink 매트 + 은색 그라데이션 | 안쪽 ink 선 | ink |
+| holo | 흰 매트 + 파스텔 홀로그램 그라데이션 | 흰 반짝임 | 흰 글자 + ink 외곽선 |
+| pixel | #1b1b2f | 24px 픽셀 색종이(시안·마젠타·노랑·흰) | 픽셀 글꼴 시안(마젠타 그림자) |
+| grain | #3b2a1f 필름 브라운 | 그레인 노이즈 | 픽셀 글꼴 주황 + 글로우(필름 날짜 도장 느낌) |
+| receipt | #fbfbf7 | 바코드, 점선, “FOURPOP * 4 CUTS * THANK YOU” | ink |
+| cyber | #0a0a0c | 시안 그리드, 마젠타 코너 점 | 시안 글로우 |
+| kitsch | 핫핑크 #ff5fa2 | 검은 별, 흰 하트 | ink |
+| mono | #0a0a0c | 슬롯 흰 테두리 | 흰, 부제 “PHOTO BOOTH · 4 CUTS” |
+| neon | 네이비 #0f1230 | 마젠타·시안 이중 네온 테두리 | 마젠타 글로우 |
+| heartcore | 핑크 매트 + 라벤더→핑크 그라데이션 | 블링 하트, 반짝임 | ink + 양옆 하트 |
+

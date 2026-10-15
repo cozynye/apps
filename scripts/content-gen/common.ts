@@ -57,3 +57,31 @@ export function rng(seed: number): () => number {
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   };
 }
+
+/** 5×7 bitmap glyphs for pixel-style captions (Y2K pack). */
+const GLYPHS: Record<string, string[]> = {
+  F: ['11111', '10000', '10000', '11110', '10000', '10000', '10000'],
+  O: ['01110', '10001', '10001', '10001', '10001', '10001', '01110'],
+  U: ['10001', '10001', '10001', '10001', '10001', '10001', '01110'],
+  R: ['11110', '10001', '10001', '11110', '10100', '10010', '10001'],
+  P: ['11110', '10001', '10001', '11110', '10000', '10000', '10000'],
+  ' ': ['00000', '00000', '00000', '00000', '00000', '00000', '00000'],
+};
+
+/** Renders `text` as pixel rects, centred on (cx, cy); `px` = pixel size. Unknown glyphs become spaces. */
+export function pixelText(text: string, cx: number, cy: number, px: number, fill: string): string {
+  const width = text.length * 6 - 1;
+  const x0 = cx - (width * px) / 2;
+  const y0 = cy - (7 * px) / 2;
+  const rects: string[] = [];
+  [...text].forEach((ch, i) => {
+    const rows = GLYPHS[ch] ?? GLYPHS[' ']!;
+    rows.forEach((row, r) => {
+      [...row].forEach((bit, c) => {
+        if (bit === '1') rects.push(`<rect x="${x0 + (i * 6 + c) * px}" y="${y0 + r * px}" width="${px}" height="${px}" fill="${fill}"/>`);
+      });
+    });
+  });
+  return rects.join('');
+}
+

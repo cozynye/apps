@@ -1,6 +1,6 @@
 # 에셋과 콘텐츠 매니페스트
 
-`manifest.json`이 앱 번들 콘텐츠(프레임 base 10종 + pop 10종, 스티커 base 22종 + pop 20종)의 단일 매니페스트다. CDN의 `manifest.json`도 **같은 스키마**를 쓴다(기획서 ‘앱 B 구현 명세 › 콘텐츠 매니페스트’가 이 파일을 가리킨다).
+`manifest.json`이 앱 번들 콘텐츠(프레임 base 10종 + pop 10종 + y2k 10종, 스티커 base 22종 + pop 20종 + y2k 18종)의 단일 매니페스트다. CDN의 `manifest.json`도 **같은 스키마**를 쓴다(기획서 ‘앱 B 구현 명세 › 콘텐츠 매니페스트’가 이 파일을 가리킨다).
 
 ```ts
 type Manifest = { schemaVersion: 1; version: number; minAppVersion: string; packs: Pack[] };

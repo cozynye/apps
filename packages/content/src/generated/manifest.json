@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": 3,
+  "version": 4,
   "minAppVersion": "1.0.0",
   "packs": [
     {
@@ -1401,6 +1401,682 @@
         {
           "id": "pop-watermelon",
           "image": "stickers/pop/watermelon.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        }
+      ]
+    },
+    {
+      "id": "y2k",
+      "type": "frame",
+      "productId": null,
+      "entitlementId": null,
+      "free": true,
+      "bundled": true,
+      "category": "basic",
+      "minAppVersion": "1.0.0",
+      "title": {
+        "en": "Y2K",
+        "vi": "Y2K",
+        "th": "Y2K"
+      },
+      "items": [
+        {
+          "id": "y2k-chrome",
+          "title": {
+            "en": "Chrome",
+            "vi": "Chrome",
+            "th": "โครเมียม"
+          },
+          "layout": "strip4",
+          "image": "frames/y2k/chrome.png",
+          "thumbnail": "frames/y2k/chrome-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "y2k-holo",
+          "title": {
+            "en": "Holo",
+            "vi": "Holo",
+            "th": "โฮโลแกรม"
+          },
+          "layout": "strip4",
+          "image": "frames/y2k/holo.png",
+          "thumbnail": "frames/y2k/holo-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "y2k-pixel",
+          "title": {
+            "en": "Pixel",
+            "vi": "Pixel",
+            "th": "พิกเซล"
+          },
+          "layout": "strip4",
+          "image": "frames/y2k/pixel.png",
+          "thumbnail": "frames/y2k/pixel-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "y2k-grain",
+          "title": {
+            "en": "Film Grain",
+            "vi": "Hạt phim",
+            "th": "เกรนฟิล์ม"
+          },
+          "layout": "strip4",
+          "image": "frames/y2k/grain.png",
+          "thumbnail": "frames/y2k/grain-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "y2k-receipt",
+          "title": {
+            "en": "Receipt",
+            "vi": "Hóa đơn",
+            "th": "ใบเสร็จ"
+          },
+          "layout": "strip4",
+          "image": "frames/y2k/receipt.png",
+          "thumbnail": "frames/y2k/receipt-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "y2k-cyber",
+          "title": {
+            "en": "Cyber",
+            "vi": "Cyber",
+            "th": "ไซเบอร์"
+          },
+          "layout": "strip4",
+          "image": "frames/y2k/cyber.png",
+          "thumbnail": "frames/y2k/cyber-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "y2k-kitsch",
+          "title": {
+            "en": "Kitsch",
+            "vi": "Kitsch",
+            "th": "คิตช์"
+          },
+          "layout": "strip4",
+          "image": "frames/y2k/kitsch.png",
+          "thumbnail": "frames/y2k/kitsch-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "y2k-mono",
+          "title": {
+            "en": "Mono",
+            "vi": "Đen trắng",
+            "th": "ขาวดำ"
+          },
+          "layout": "strip4",
+          "image": "frames/y2k/mono.png",
+          "thumbnail": "frames/y2k/mono-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "y2k-neon",
+          "title": {
+            "en": "Neon",
+            "vi": "Neon",
+            "th": "นีออน"
+          },
+          "layout": "strip4",
+          "image": "frames/y2k/neon.png",
+          "thumbnail": "frames/y2k/neon-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "y2k-heartcore",
+          "title": {
+            "en": "Heartcore",
+            "vi": "Tim lấp lánh",
+            "th": "หัวใจวิบวับ"
+          },
+          "layout": "strip4",
+          "image": "frames/y2k/heartcore.png",
+          "thumbnail": "frames/y2k/heartcore-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        }
+      ]
+    },
+    {
+      "id": "stickers-y2k",
+      "type": "sticker",
+      "productId": null,
+      "entitlementId": null,
+      "free": true,
+      "bundled": true,
+      "category": "basic",
+      "minAppVersion": "1.0.0",
+      "title": {
+        "en": "Y2K",
+        "vi": "Y2K",
+        "th": "Y2K"
+      },
+      "items": [
+        {
+          "id": "y2k-butterfly",
+          "image": "stickers/y2k/butterfly.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "y2k-star-chrome",
+          "image": "stickers/y2k/star-chrome.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "y2k-heart-chrome",
+          "image": "stickers/y2k/heart-chrome.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "y2k-bolt-chrome",
+          "image": "stickers/y2k/bolt-chrome.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "y2k-dizzy",
+          "image": "stickers/y2k/dizzy.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "y2k-cd",
+          "image": "stickers/y2k/cd.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "y2k-cassette",
+          "image": "stickers/y2k/cassette.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "y2k-flip-phone",
+          "image": "stickers/y2k/flip-phone.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "y2k-pixel-heart",
+          "image": "stickers/y2k/pixel-heart.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "y2k-pixel-star",
+          "image": "stickers/y2k/pixel-star.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "y2k-barcode",
+          "image": "stickers/y2k/barcode.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "y2k-y2k",
+          "image": "stickers/y2k/y2k.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "y2k-ootd",
+          "image": "stickers/y2k/ootd.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "y2k-slay",
+          "image": "stickers/y2k/slay.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "y2k-4ever",
+          "image": "stickers/y2k/4ever.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "y2k-spiral",
+          "image": "stickers/y2k/spiral.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "y2k-yin-yang",
+          "image": "stickers/y2k/yin-yang.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "y2k-flame",
+          "image": "stickers/y2k/flame.png",
           "size": 512,
           "canvas": {
             "w": 512,

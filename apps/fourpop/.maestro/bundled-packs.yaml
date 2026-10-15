@@ -1,5 +1,5 @@
-# Pop packs (2026-10-15): B4 lists the Pop frames under Basics, the B7 sticker tray shows the Pop
-# stickers, and a Pop frame renders in B8 with a Pop sticker on it.
+# Generated bundled packs (Pop, Y2K — 2026-10-15): B4 lists them under Basics, the B7 sticker tray
+# shows their stickers after the base ones, and a Y2K frame renders in B8 with Pop + Y2K stickers.
 # Needs Metro started with EXPO_PUBLIC_MOCK_CAMERA=1 (simulators have no camera).
 appId: app.fourpop.booth
 ---
@@ -24,13 +24,18 @@ appId: app.fourpop.booth
     element:
       id: b4.frame.pop-sunset
     direction: DOWN
-- takeScreenshot: pop-b4
+- takeScreenshot: packs-b4-pop
 - scrollUntilVisible:
     element:
-      id: b4.frame.pop-gingham
+      id: b4.frame.y2k-chrome
+    direction: DOWN
+- takeScreenshot: packs-b4-y2k
+- scrollUntilVisible:
+    element:
+      id: b4.frame.y2k-holo
     direction: DOWN
 - tapOn:
-    id: b4.frame.pop-gingham
+    id: b4.frame.y2k-holo
 - extendedWaitUntil:
     visible:
       id: b3.startShooting
@@ -93,11 +98,23 @@ appId: app.fourpop.booth
           duration: 400
 - tapOn:
     id: b7.sticker.pop-wow
-- takeScreenshot: pop-b7
+- repeat:
+    times: 10
+    while:
+      notVisible:
+        id: b7.sticker.y2k-y2k
+    commands:
+      - swipe:
+          start: 92%, 84%
+          end: 8%, 84%
+          duration: 400
+- tapOn:
+    id: b7.sticker.y2k-y2k
+- takeScreenshot: packs-b7
 - tapOn:
     id: b7.done
 - extendedWaitUntil:
     visible:
       id: b8.inGallery
     timeout: 20000
-- takeScreenshot: pop-b8
+- takeScreenshot: packs-b8

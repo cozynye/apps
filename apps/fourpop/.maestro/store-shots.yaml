@@ -22,6 +22,11 @@ appId: app.fourpop.booth
     visible:
       id: b4.frame.base-classic
     timeout: 10000
+# Show the generated packs (end of Pop, start of Y2K) rather than the plain base frames.
+- scrollUntilVisible:
+    element:
+      id: b4.frame.y2k-chrome
+    direction: DOWN
 - takeScreenshot: store-4
 - tapOn:
     id: b4.close
