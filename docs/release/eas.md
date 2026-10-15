@@ -7,10 +7,11 @@
 1. `npm i -g eas-cli && eas login` (Expo 계정).
 2. 앱마다 프로젝트 생성: `cd apps/nuni && eas init` → `app.json`의 `extra.eas.projectId`가 채워짐. Fourpop도 같게.
 3. 시크릿 등록(앱별, production/preview 환경):
-   - `eas env:create --scope project --name EXPO_PUBLIC_RC_IOS_KEY_NUNI --value appl_... --environment production` (Fourpop은 `_FOURPOP`)
+   - (v1.1, 결제를 켤 때만) `eas env:create --scope project --name EXPO_PUBLIC_RC_IOS_KEY_NUNI --value appl_... --environment production` (Fourpop은 `_FOURPOP`)
    - `eas env:create --scope project --name EXPO_PUBLIC_CDN_BASE_URL --value https://... --environment production` (Fourpop)
    - plist는 파일 시크릿: `eas env:create --scope project --name GOOGLE_SERVICES_PLIST_NUNI --type file --value ./GoogleService-Info.plist --environment production` (Fourpop은 `_FOURPOP`, `app.config.ts`가 읽음)
    - preview 환경에도 같은 값을 넣는다(Test Store 키는 release 빌드에서 크래시하므로 preview에도 실제 `appl_` 키).
+   - `EXPO_PUBLIC_MONETIZATION`은 등록하지 않는다 — 비어 있으면 결제 코드가 꺼진 무료 빌드(1.0, Cozy 결정 2026-10-15). RevenueCat 키도 필요 없다.
 4. App Store Connect 앱이 있으면 `eas submit -p ios --profile production`에서 ascAppId를 물어본다(또는 `submit.production.ios.ascAppId`에 적어 둔다).
 
 ## 빌드 명령
@@ -24,6 +25,7 @@ eas submit -p ios --profile production  # 릴리스 게이트 통과 후에만 (
 
 ## 주의
 
-- RevenueCat Test Store 키(`test_`)는 Debug 빌드 전용. preview/production 빌드에 들어가면 앱이 즉시 종료된다.
+- 1.0은 `EXPO_PUBLIC_MONETIZATION` 없이 빌드한다(무료): RevenueCat SDK 미초기화, 페이월·구독 설정 숨김, 모든 기능 해제.
+- RevenueCat Test Store 키(`test_`)는 Debug 빌드 전용. preview/production 빌드에 들어가면 앱이 즉시 종료된다(결제를 켠 빌드에서만 해당).
 - `EXPO_PUBLIC_MOCK_CAMERA`, `EXPO_PUBLIC_FORCE_LOCALE`은 개발·E2E 전용이며 EAS 환경에 넣지 않는다.
 - 모노레포라 EAS는 저장소 루트를 올린다(`pnpm` 워크스페이스 자동 인식). `.easignore`는 아직 없다.

@@ -21,7 +21,7 @@
 
 # Fourpop — App Store 메타데이터
 
-카테고리: Photo & Video (보조: Entertainment). 연령: 4+. 가격: 무료 + 인앱결제.
+카테고리: Photo & Video (보조: Entertainment). 연령: 4+. 가격: 무료 — 1.0은 인앱결제 없음(Cozy 결정 2026-10-15).
 글자 수 제한: 이름 30, 부제 30, 키워드 100, 프로모션 텍스트 170, 설명 4000.
 
 ## en
@@ -44,19 +44,13 @@ LIKE A REAL BOOTH
 • Or build a strip from photos you already have
 
 MAKE IT YOURS
-• 10 free frames, new seasonal packs for Tết, Songkran, Valentine's and more
+• 10 frames to start, plus seasonal packs for Tết, Songkran, Valentine's and more
 • Filters, stickers, drawing, text and date stamp
+• HD export, no watermark
+• Animated GIF of all 8 shots
 • Everything saved to your Fourpop gallery
 
-FOURPOP PREMIUM
-• Every frame and sticker pack, including seasonal
-• HD export with no watermark
-• Animated GIF of all 8 shots
-• All filters
-
-Frames and sticker packs are also available as one-time purchases.
-
-Premium is a monthly or yearly subscription. Payment is charged to your Apple ID at confirmation of purchase. Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. Manage or cancel in your App Store account settings.
+Fourpop is free, with no ads and no in-app purchases.
 Terms: https://cozynye.github.io/apps/terms.html · Privacy: https://cozynye.github.io/apps/privacy.html
 
 - **Screenshot captions** (6): 1 "A photo booth in your pocket" · 2 "Real countdown, real booth feeling" · 3 "Shoot 8, keep your best 4" · 4 "Frames for every season" · 5 "Stickers, text, date stamp" · 6 "Share in a tap"
@@ -81,19 +75,13 @@ NHƯ BOOTH THẬT
 • Hoặc ghép dải ảnh từ ảnh có sẵn
 
 THEO CÁCH CỦA BẠN
-• 10 khung miễn phí, bộ khung mới theo mùa cho Tết, Valentine, 8/3, 20/10…
+• 10 khung để bắt đầu, thêm bộ khung theo mùa cho Tết, Valentine, 8/3, 20/10…
 • Bộ lọc, sticker, vẽ, chữ và dấu ngày
+• Xuất HD, không watermark
+• GIF động từ cả 8 tấm
 • Tất cả lưu vào bộ sưu tập Fourpop
 
-FOURPOP PREMIUM
-• Mọi bộ khung và sticker, kể cả theo mùa
-• Xuất HD không watermark
-• GIF động từ cả 8 tấm
-• Toàn bộ bộ lọc
-
-Các bộ khung và sticker cũng có thể mua lẻ một lần.
-
-Premium có gói tháng hoặc năm. Thanh toán được tính vào tài khoản Apple ID khi xác nhận mua. Gói đăng ký tự động gia hạn trừ khi hủy ít nhất 24 giờ trước khi kỳ hiện tại kết thúc. Quản lý hoặc hủy trong cài đặt tài khoản App Store.
+Fourpop miễn phí, không quảng cáo, không mua trong ứng dụng.
 Điều khoản: https://cozynye.github.io/apps/terms.html · Quyền riêng tư: https://cozynye.github.io/apps/privacy.html
 
 - **Screenshot captions**: 1 "Photobooth trong túi bạn" · 2 "Đếm ngược thật, cảm giác booth thật" · 3 "Chụp 8, giữ 4 tấm đẹp nhất" · 4 "Khung ảnh cho mọi mùa" · 5 "Sticker, chữ, dấu ngày" · 6 "Chia sẻ chỉ một chạm"
@@ -118,23 +106,17 @@ Fourpop เปลี่ยนมือถือของคุณให้เป
 • หรือทำแถบรูปจากรูปที่มีอยู่แล้ว
 
 ทำให้เป็นสไตล์คุณ
-• กรอบฟรี 10 แบบ ชุดใหม่ตามเทศกาล สงกรานต์ ลอยกระทง วาเลนไทน์ และอื่น ๆ
+• กรอบเริ่มต้น 10 แบบ พร้อมชุดตามเทศกาล สงกรานต์ ลอยกระทง วาเลนไทน์ และอื่น ๆ
 • ฟิลเตอร์ สติกเกอร์ วาด ข้อความ และตราวันที่
-• ทุกอย่างบันทึกในแกลเลอรี Fourpop
-
-FOURPOP PREMIUM
-• ชุดกรอบและสติกเกอร์ทั้งหมด รวมถึงตามเทศกาล
 • ส่งออก HD ไม่มีลายน้ำ
 • GIF เคลื่อนไหวจากทั้ง 8 ช็อต
-• ฟิลเตอร์ทั้งหมด
+• ทุกอย่างบันทึกในแกลเลอรี Fourpop
 
-ชุดกรอบและสติกเกอร์ซื้อแยกครั้งเดียวได้เช่นกัน
-
-Premium มีแบบรายเดือนและรายปี ระบบจะเรียกเก็บเงินจากบัญชี Apple ID เมื่อยืนยันการซื้อ การสมัครสมาชิกต่ออายุอัตโนมัติ เว้นแต่ยกเลิกอย่างน้อย 24 ชั่วโมงก่อนสิ้นสุดรอบปัจจุบัน จัดการหรือยกเลิกได้ในการตั้งค่าบัญชี App Store
+Fourpop ใช้ฟรี ไม่มีโฆษณา ไม่มีการซื้อในแอป
 ข้อกำหนด: https://cozynye.github.io/apps/terms.html · ความเป็นส่วนตัว: https://cozynye.github.io/apps/privacy.html
 
 - **Screenshot captions**: 1 "โฟโต้บูธในกระเป๋าคุณ" · 2 "นับถอยหลังจริง ฟีลบูธจริง" · 3 "ถ่าย 8 เก็บ 4 ที่ดีที่สุด" · 4 "กรอบสำหรับทุกเทศกาล" · 5 "สติกเกอร์ ข้อความ ตราวันที่" · 6 "แชร์ในแตะเดียว"
 
 ## 심사 노트 (Review Notes, en)
 
-Fourpop is an original photo booth app; all frames, stickers and illustrations are our own work (no licensed characters or third-party IP). No account required. Camera and Photos permissions are requested only when the user starts shooting or importing. Premium and frame packs can be tested with the Sandbox account; the paywall shows price, period and auto-renewal terms with Restore Purchases, Terms and Privacy links. Seasonal packs are delivered as static files from our CDN and are hidden when the app version is below the pack's minimum.
+Fourpop is an original photo booth app; all frames, stickers and illustrations are our own work (no licensed characters or third-party IP). No account required. Camera and Photos permissions are requested only when the user starts shooting or importing. This version is free with no in-app purchases or subscriptions; every frame, filter and export option is available to all users. Seasonal packs are delivered as static files from our CDN and are hidden when the app version is below the pack's minimum.

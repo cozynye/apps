@@ -7,20 +7,15 @@
 | 값 | 쓰이는 곳 | 현재 |
 | --- | --- | --- |
 | 도메인 | GitHub Pages `https://cozynye.github.io/apps/` (Cozy 결정 2026-10-15) — 개인정보 `https://cozynye.github.io/apps/privacy.html`, 약관 `https://cozynye.github.io/apps/terms.html`, 지원 `https://cozynye.github.io/apps/` | **완료** |
-| 시행일 `[EFFECTIVE DATE]` | 앱 내 A13 약관·개인정보 + 웹 페이지 | 미정 (A4) |
-| RevenueCat 실제 iOS 키 `appl_…` (Nuni) | EAS 시크릿 `EXPO_PUBLIC_RC_IOS_KEY_NUNI` (production·preview) | 미정 (B3) — Test Store 키는 릴리스 빌드에서 비활성 처리됨 |
-| RevenueCat ↔ App Store 연결 (.p8, Shared Secret) | 영수증 검증 | 미정 (B3) |
-| App Store Connect 상품 `mood_premium_monthly`·`mood_premium_yearly` + **연간 7일 무료체험** | 페이월 가격·체험 문구 | 상품 2개 생성됨, 체험 미설정 (B2) |
-| 유료 앱 계약·세금·은행 Active | 심사 제출 조건 | 미정 (B1) |
+| 시행일 `[EFFECTIVE DATE]` | 앱 내 A13 약관·개인정보 + 웹 페이지 | **완료** — 2026-10-15 (Effective: October 15, 2026) |
+|||| 유료 앱 계약·세금·은행 | — | **불필요** — 1.0은 무료(Cozy 결정 2026-10-15). 무료 앱은 개발자 프로그램 사용권 계약만으로 제출 가능. 단 ASC ‘한국 규정 준수 정보’가 무료 앱에도 사업자등록번호를 요구하는지는 미확인 |
 | EAS 프로젝트 ID (`eas init`) | `app.json` `extra.eas.projectId` | 미정 (P22) |
-| Sandbox 테스터 이메일 | 심사 노트 `[SANDBOX TESTER EMAIL]` | 미정 (B7) |
-| Firebase plist (Nuni) | EAS 파일 시크릿 `GOOGLE_SERVICES_PLIST_NUNI` | **있음** (로컬) — EAS에 등록 필요 |
-| 가격 확정 (월 29,000đ/฿49, 연 199,000đ/฿349) | ASC 가격 포인트 | 미정 (A8) |
-
+|| Firebase plist (Nuni) | EAS 파일 시크릿 `GOOGLE_SERVICES_PLIST_NUNI` | **있음** (로컬) — EAS에 등록 필요 |
+|
 ## 2. 빌드·제출 순서 (Claude Code)
 
 1. `docs/release/eas.md`대로 시크릿 등록 확인 → `cd apps/nuni && eas build -p ios --profile production`.
-2. 빌드 산출물로 `docs/RELEASE_CHECKLIST.md` C1(자리표시자 0건)·C3(약관 본문 일치)·C4(Sandbox 결제: 구독·체험·체험 자격 없음·복원·만료) 확인.
+2. 빌드 산출물로 `docs/RELEASE_CHECKLIST.md` C1(자리표시자 0건)·C3(약관 본문 일치) 확인. C4 결제 검증은 1.0(무료)에 해당 없음.
 3. `eas submit -p ios --profile production` — 게이트 통과 후에만.
 
 ## 3. App Store Connect 입력
@@ -30,6 +25,7 @@
 | 이름·부제·키워드·프로모션·설명 (en·vi·th) | `docs/release/store-nuni.md` 각 언어 절 (URL 치환 완료) |
 | 카테고리 | Lifestyle (보조 Health & Fitness) |
 | 연령 등급 | 4+ |
+| 가격 | 무료(Free Tier) — 인앱결제 없음 |
 | 스크린샷 | `docs/release/screenshots/nuni/iphone/<locale>/1–6.png`(6.9", 1320×2868), `…/ipad/<locale>/1–6.png`(13", 2064×2752). 캡션 순서는 store-nuni.md의 1~6 |
 | 개인정보처리방침 URL · 지원 URL | `https://cozynye.github.io/apps/privacy.html` · `https://cozynye.github.io/apps/` |
 | App Privacy 라벨 | `docs/release/privacy-labels.md` |
@@ -37,7 +33,7 @@
 | 새로운 기능 | `docs/release/release-notes.md` › Nuni 1.0 |
 | 수출 규정 | `ITSAppUsesNonExemptEncryption = NO` (app.json에 설정, 빌드에 포함) |
 | 판매 국가 | 베트남, 태국 (A2 확정 시) |
-| 인앱 상품 | `mood_premium_monthly`(1개월), `mood_premium_yearly`(1년, 7일 체험) — 구독 그룹 `Nuni Premium`, 현지화 이름·설명은 vi·th·en |
+| 인앱 상품 | 없음 — 1.0 무료. ASC에 이미 만든 `mood_premium_monthly`·`mood_premium_yearly`는 이 버전에 연결하지 않는다(v1.1 결제는 아이템 단위 해금으로 재설계, Cozy 2026-10-15) |
 | 지원 이메일 | nunicozy@gmail.com |
 
 ## 4. Nuni만의 확인 항목

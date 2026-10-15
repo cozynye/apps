@@ -1,6 +1,6 @@
 import type { Pack } from '@nf/content';
 import { formatDateNumeric, fromLocalDateString, isLanguage } from '@nf/i18n';
-import { isEntitled, useEntitlement, useEntitlementStore } from '@nf/purchases';
+import { isEntitled, MONETIZATION, useEntitlement, useEntitlementStore } from '@nf/purchases';
 import { Button, LockSimpleIcon, PressableSurface, radius, space, Text, useIsOffline, useTheme, useToast } from '@nf/ui';
 import { router } from 'expo-router';
 import { useTranslation } from 'react-i18next';
@@ -33,8 +33,10 @@ export function PackCard({ pack, price, onOpen }: PackCardProps) {
   const installed = useCatalog((s) => s.installedIds.has(pack.id));
   const install = useInstalls((s) => s[pack.id]);
 
-  const entitled = pack.free || own || premium;
-  const needsDownload = entitled && !pack.free && !pack.bundled && !installed;
+  // Monetization off (1.0): every pack is free to use; remote ones still need a download.
+  const free = pack.free || !MONETIZATION;
+  const entitled = free || own || premium;
+  const needsDownload = entitled && !pack.bundled && !installed;
   const thumbnail = pack.thumbnail ?? (pack.type === 'frame' ? pack.items[0]?.thumbnail : pack.items[0]?.image);
   const count = t(pack.type === 'frame' ? 'shop.frames' : 'shop.stickers', { count: pack.items.length });
   const until = pack.availableUntil
@@ -51,7 +53,7 @@ export function PackCard({ pack, price, onOpen }: PackCardProps) {
 
   // Access follows entitlements, not files: a pack a lapsed subscriber downloaded shows locked again
   // (its files stay, PLAN 예외 › 구독 만료).
-  const status = pack.free
+  const status = free
     ? { key: 'free', text: t('shop.free') }
     : own
       ? { key: 'owned', text: t('shop.owned') }

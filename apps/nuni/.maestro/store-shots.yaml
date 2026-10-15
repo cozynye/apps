@@ -1,6 +1,5 @@
 # App Store screenshots (C9), one locale per run: 1 entry sheet · 2 mood picked · 5 reminder prompt ·
 # 3 calendar (seeded month) · 4 stats with Premium · 6 backup. Metro with EXPO_PUBLIC_FORCE_LOCALE=<locale>.
-# Needs the RevenueCat Test Store key (Premium unlock for the stats screen).
 appId: app.nuni.mood
 ---
 - runFlow: common/launch.yaml
@@ -56,30 +55,8 @@ appId: app.nuni.mood
     id: tabs.stats
 - extendedWaitUntil:
     visible:
-      id: a6.tryPremium
+      id: a6.distribution
     timeout: 10000
-- tapOn:
-    id: a6.tryPremium
-- extendedWaitUntil:
-    visible:
-      id: a9.cta
-    timeout: 30000
-- tapOn:
-    id: a9.cta
-- tapOn: Test valid purchase
-- assertVisible: "You're all set!|Xong rồi!|เรียบร้อยแล้ว!"
-- extendedWaitUntil:
-    notVisible:
-      id: a9.cta
-    timeout: 10000
-- extendedWaitUntil:
-    notVisible:
-      id: a6.liftsLocked
-    timeout: 10000
-# Let the purchase toast disappear before the screenshot.
-- extendedWaitUntil:
-    notVisible: "You're all set!|Xong rồi!|เรียบร้อยแล้ว!"
-    timeout: 8000
 - takeScreenshot: store-4
 - tapOn:
     id: tabs.settings

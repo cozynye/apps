@@ -1,5 +1,5 @@
 import { LANGUAGE_AUTONYMS, SUPPORTED_LANGUAGES } from '@nf/i18n';
-import { restorePurchases, showManageSubscriptions, useEntitlement } from '@nf/purchases';
+import { MONETIZATION, restorePurchases, showManageSubscriptions, useEntitlement } from '@nf/purchases';
 import {
   Screen,
   Segment,
@@ -196,6 +196,7 @@ export default function SettingsScreen() {
           />
         </SettingsSection>
 
+        {MONETIZATION && (
         <SettingsSection title={t('settings.subscription')}>
           {!premium && (
             <SettingsRow
@@ -216,6 +217,7 @@ export default function SettingsScreen() {
             onPress={restoring ? undefined : () => void restore()}
           />
         </SettingsSection>
+        )}
 
         <SettingsSection title={t('settings.privacy_section')}>
           <SettingsRow

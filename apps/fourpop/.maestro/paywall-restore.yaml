@@ -1,3 +1,4 @@
+# Needs Metro started with EXPO_PUBLIC_MONETIZATION=on (1.0 ships free; purchases are opt-in).
 # B11 subscription via B12 (RevenueCat Test Store): cancel → failed → valid purchase unlocks Premium,
 # then Restore in B12 reports restored. Needs EXPO_PUBLIC_RC_IOS_KEY_FOURPOP (test_ key).
 appId: app.fourpop.booth

@@ -1,3 +1,4 @@
+# Needs Metro started with EXPO_PUBLIC_MONETIZATION=on (asserts Premium-locked UI; 1.0 ships free).
 # settings/backup: local-only notice, free → paywall (source=backup), zip export to the share
 # sheet; after a Test Store purchase, the simulator (no iCloud account) shows the sign-in hint.
 appId: app.nuni.mood

@@ -1,3 +1,4 @@
+# Needs Metro started with EXPO_PUBLIC_MONETIZATION=on (asserts Premium-locked UI; 1.0 ships free).
 # A10: language switch at runtime, appearance, reminder toggle, analytics toggle, legal links,
 # restore (no purchases → notice), delete all data.
 appId: app.nuni.mood

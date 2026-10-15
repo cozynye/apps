@@ -1,3 +1,4 @@
+import { MONETIZATION } from '@nf/purchases';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect } from 'react';
 
@@ -9,7 +10,7 @@ export default function ShopLink() {
   useEffect(() => {
     if (!useAppState.getState().onboarded) return router.replace('/b2-onboarding');
     router.navigate('/b10-shop');
-    router.push({ pathname: '/b11-paywall', params: { source: 'banner', packId } });
+    if (MONETIZATION) router.push({ pathname: '/b11-paywall', params: { source: 'banner', packId } });
   }, [packId]);
   return null;
 }

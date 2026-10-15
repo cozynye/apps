@@ -18,7 +18,7 @@
 
 # Nuni — App Store 메타데이터
 
-카테고리: Lifestyle (보조: Health & Fitness). 연령: 4+. 가격: 무료 + 인앱결제.
+카테고리: Lifestyle (보조: Health & Fitness). 연령: 4+. 가격: 무료 — 1.0은 인앱결제 없음(Cozy 결정 2026-10-15).
 글자 수 제한: 이름 30, 부제 30, 키워드 100(쉼표 포함, 공백 없이), 프로모션 텍스트 170, 설명 4000.
 
 ## en
@@ -41,7 +41,7 @@ HOW IT WORKS
 • One gentle reminder a day, at the time you choose
 • Face ID lock
 
-NUNI PREMIUM
+GO DEEPER
 • See which activities lift your mood
 • Yearly trends and your "year in clouds"
 • iCloud backup and restore
@@ -51,7 +51,7 @@ NUNI PREMIUM
 YOUR DIARY STAYS YOURS
 Entries are stored on your device. No account, no sign-up. We never see your diary.
 
-Premium is available as a monthly or yearly subscription. Payment is charged to your Apple ID at confirmation of purchase. Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. Manage or cancel in your App Store account settings.
+Nuni is free, with no ads and no in-app purchases.
 Terms: https://cozynye.github.io/apps/terms.html · Privacy: https://cozynye.github.io/apps/privacy.html
 
 - **Screenshot captions** (6): 1 "Log your day in 10 seconds" · 2 "Five clouds, one for every mood" · 3 "Your month at a glance" · 4 "See what lifts you" · 5 "A gentle reminder, never a nag" · 6 "Widgets and iCloud backup"
@@ -76,7 +76,7 @@ CÁCH HOẠT ĐỘNG
 • Một lời nhắc nhẹ nhàng mỗi ngày, vào giờ bạn chọn
 • Khóa bằng Face ID
 
-NUNI PREMIUM
+ĐI SÂU HƠN
 • Xem hoạt động nào nâng tâm trạng bạn
 • Xu hướng cả năm và "một năm qua những đám mây"
 • Sao lưu và khôi phục iCloud
@@ -86,7 +86,7 @@ NUNI PREMIUM
 NHẬT KÝ LÀ CỦA RIÊNG BẠN
 Mọi ghi chép được lưu trên thiết bị của bạn. Không tài khoản, không đăng ký. Chúng tôi không bao giờ đọc nhật ký của bạn.
 
-Premium có gói tháng hoặc năm. Thanh toán được tính vào tài khoản Apple ID khi xác nhận mua. Gói đăng ký tự động gia hạn trừ khi hủy ít nhất 24 giờ trước khi kỳ hiện tại kết thúc. Quản lý hoặc hủy trong cài đặt tài khoản App Store.
+Nuni miễn phí, không quảng cáo, không mua trong ứng dụng.
 Điều khoản: https://cozynye.github.io/apps/terms.html · Quyền riêng tư: https://cozynye.github.io/apps/privacy.html
 
 - **Screenshot captions**: 1 "Ghi lại một ngày trong 10 giây" · 2 "Năm đám mây cho năm cảm xúc" · 3 "Cả tháng trong một cái nhìn" · 4 "Xem điều gì làm bạn vui" · 5 "Nhắc nhẹ nhàng, không làm phiền" · 6 "Widget và sao lưu iCloud"
@@ -111,7 +111,7 @@ Nuni คือไดอารี่อารมณ์ที่ใช้เวล
 • เตือนเบา ๆ วันละครั้ง ในเวลาที่คุณเลือก
 • ล็อกด้วย Face ID
 
-NUNI PREMIUM
+ดูให้ลึกขึ้น
 • ดูว่ากิจกรรมไหนทำให้อารมณ์ดีขึ้น
 • แนวโน้มรายปีและ "หนึ่งปีในก้อนเมฆ"
 • สำรองและกู้คืนผ่าน iCloud
@@ -121,11 +121,11 @@ NUNI PREMIUM
 ไดอารี่เป็นของคุณคนเดียว
 บันทึกทั้งหมดเก็บไว้ในเครื่องของคุณ ไม่มีบัญชี ไม่ต้องสมัคร เราไม่เคยเห็นไดอารี่ของคุณ
 
-Premium มีแบบรายเดือนและรายปี ระบบจะเรียกเก็บเงินจากบัญชี Apple ID เมื่อยืนยันการซื้อ การสมัครสมาชิกต่ออายุอัตโนมัติ เว้นแต่ยกเลิกอย่างน้อย 24 ชั่วโมงก่อนสิ้นสุดรอบปัจจุบัน จัดการหรือยกเลิกได้ในการตั้งค่าบัญชี App Store
+Nuni ใช้ฟรี ไม่มีโฆษณา ไม่มีการซื้อในแอป
 ข้อกำหนด: https://cozynye.github.io/apps/terms.html · ความเป็นส่วนตัว: https://cozynye.github.io/apps/privacy.html
 
 - **Screenshot captions**: 1 "บันทึกวันนี้ใน 10 วินาที" · 2 "ห้าก้อนเมฆ ห้าอารมณ์" · 3 "เห็นทั้งเดือนในแวบเดียว" · 4 "ดูว่าอะไรทำให้คุณใจฟู" · 5 "เตือนเบา ๆ ไม่จุกจิก" · 6 "วิดเจ็ตและสำรอง iCloud"
 
 ## 심사 노트 (Review Notes, en)
 
-Nuni is an original mood diary with its own cloud mascot, illustrations and design system (no third-party assets). All data is stored on-device; no account is required, so no demo login is needed. Premium subscription can be tested with the Sandbox account; the paywall shows price, period and auto-renewal terms, with Restore Purchases, Terms and Privacy links. Localized for Vietnamese and Thai users.
+Nuni is an original mood diary with its own cloud mascot, illustrations and design system (no third-party assets). All data is stored on-device; no account is required, so no demo login is needed. This version is free with no in-app purchases or subscriptions. Localized for Vietnamese and Thai users.

@@ -1,3 +1,4 @@
+# Needs Metro started with EXPO_PUBLIC_MONETIZATION=on (asserts Premium-locked UI; 1.0 ships free).
 # Regression (QA round 2): after A7 → A9 → close both, the Settings tab must render (was blank).
 appId: app.nuni.mood
 ---

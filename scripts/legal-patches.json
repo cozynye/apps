@@ -2,14 +2,19 @@
   "_comment": "Corrections applied on top of design/legal/*.md (read-only input) by scripts/legal.ts. Each `find` must match exactly once.",
   "terms": [
     {
-      "reason": "MVP: Nuni has no one-time purchases (no themes); only Fourpop sells packs (DECISIONS 2026-10-08)",
-      "find": "Each App offers an auto-renewing subscription (\"Premium\") and one-time purchases (theme or frame packs).",
-      "replace": "Each App offers an auto-renewing subscription (\"Premium\"). Fourpop also offers one-time purchases (frame and sticker packs)."
+      "reason": "1.0 ships free, no in-app purchases (Cozy 2026-10-15); paid features return in v1.1",
+      "find": "- Each App offers an auto-renewing subscription (\"Premium\") and one-time purchases (theme or frame packs). Prices are shown in the App in your local currency before you buy.\n- Payment is charged to your Apple ID at confirmation of purchase. A subscription renews automatically at the same price and period unless you cancel at least 24 hours before the end of the current period. You can manage or cancel it in your App Store account settings. A free trial, where offered, converts to a paid subscription unless cancelled before the trial ends.\n- Refunds are handled by Apple under App Store terms. We cannot issue refunds directly.\n- One-time purchases stay yours after a subscription ends. Seasonal packs may be withdrawn from sale on the date shown, but packs you bought remain usable.",
+      "replace": "- The Apps are free to download and use. This version has no in-app purchases or subscriptions.\n- If paid features are added in a future update, the App will show the price, period and terms before you buy, and Apple's App Store terms will apply to payments and refunds."
     },
     {
       "reason": "Effective date = 1.0 submission date (Cozy 2026-10-15)",
       "find": "Effective: [EFFECTIVE DATE]",
       "replace": "Effective: October 15, 2026"
+    },
+    {
+      "reason": "no RevenueCat/StoreKit while monetization is off",
+      "find": "The Apps use Apple (App Store, iCloud, StoreKit), RevenueCat (purchase validation) and Google Firebase (crash reports and anonymous usage analytics).",
+      "replace": "The Apps use Apple (App Store, iCloud) and Google Firebase (crash reports and anonymous usage analytics)."
     }
   ],
   "privacy": [
@@ -17,6 +22,31 @@
       "reason": "Effective date = 1.0 submission date (Cozy 2026-10-15)",
       "find": "Effective: [EFFECTIVE DATE]",
       "replace": "Effective: October 15, 2026"
+    },
+    {
+      "reason": "no purchase records in 1.0",
+      "find": "we only receive anonymous usage statistics, crash reports and purchase records.",
+      "replace": "we only receive anonymous usage statistics and crash reports."
+    },
+    {
+      "reason": "no purchase records in 1.0",
+      "find": "| Purchase records (product bought, date, anonymous app user ID, Apple receipt) | Unlock what you paid for, restore purchases, prevent fraud | RevenueCat, Apple | No. Apple knows your identity; we and RevenueCat see only an anonymous ID |\n",
+      "replace": ""
+    },
+    {
+      "reason": "no purchase records in 1.0",
+      "find": "We process usage and crash data to run and improve the Apps (legitimate interest), and purchase records to perform the contract with you.",
+      "replace": "We process usage and crash data to run and improve the Apps (legitimate interest)."
+    },
+    {
+      "reason": "no RevenueCat/StoreKit in 1.0",
+      "find": "Apple (App Store, iCloud, StoreKit), Google (Firebase), RevenueCat and Cloudflare act as our processors",
+      "replace": "Apple (App Store, iCloud), Google (Firebase) and Cloudflare act as our processors"
+    },
+    {
+      "reason": "no purchase records in 1.0",
+      "find": " Purchase records: as long as needed to honour your purchases and for the legal retention period for financial records.",
+      "replace": ""
     }
   ]
 }

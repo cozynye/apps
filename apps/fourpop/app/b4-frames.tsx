@@ -1,6 +1,6 @@
 import { isAvailableOn, type FrameItem, type FramePack } from '@nf/content';
 import { isLanguage, toLocalDateString } from '@nf/i18n';
-import { canUsePack, useEntitlementStore } from '@nf/purchases';
+import { canUsePack, MONETIZATION, useEntitlementStore } from '@nf/purchases';
 import {
   EmptyState,
   IconButton,
@@ -40,7 +40,7 @@ export default function FramesScreen() {
   const today = toLocalDateString(new Date());
 
   const [now] = useState(Date.now);
-  const usable = (p: FramePack) => canUsePack(snapshot, p, PREMIUM, now);
+  const usable = (p: FramePack) => !MONETIZATION || canUsePack(snapshot, p, PREMIUM, now);
   const shown: FramePack[] =
     tab === 'basics'
       ? packs.filter((p) => p.category === 'basic')

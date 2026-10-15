@@ -1,5 +1,6 @@
 import { isLanguage, toLocalDateString } from '@nf/i18n';
 import { seasonBannerPack } from '@nf/content';
+import { MONETIZATION } from '@nf/purchases';
 import {
   Button,
   CameraIcon,
@@ -109,7 +110,9 @@ function SeasonBanner() {
     <PressableSurface
       testID="b3.seasonBanner"
       onPress={() =>
-        router.push({ pathname: '/b11-paywall', params: { source: 'banner', packId: pack.id } })
+        MONETIZATION
+          ? router.push({ pathname: '/b11-paywall', params: { source: 'banner', packId: pack.id } })
+          : router.navigate('/b10-shop')
       }
       style={[styles.banner, { backgroundColor: accent.soft }]}
     >

@@ -1,3 +1,4 @@
+# Needs Metro started with EXPO_PUBLIC_MONETIZATION=on (asserts Premium-locked UI; 1.0 ships free).
 # Large-text (AX1) screenshots of the main screens. Run AFTER `onboarding` on the same simulator with
 # `xcrun simctl ui <udid> content_size accessibility-medium` (the dev-client intro cannot be
 # dismissed at that size, so this relaunches without clearing state). Ids only — works in any locale.

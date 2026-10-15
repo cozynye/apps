@@ -1,3 +1,4 @@
+# Needs Metro started with EXPO_PUBLIC_MONETIZATION=on (1.0 ships free; purchases are opt-in).
 # PLAN 완료 기준 `pack-unlock`: shop → B11 pack card → buy (RevenueCat Test Store) → pack downloads →
 # B4 Season frame unlocked → shoot with it → B8 saves without the lock blur.
 # Needs: `pnpm cdn:mock`, Metro with EXPO_PUBLIC_CDN_BASE_URL=http://localhost:8090 and

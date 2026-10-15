@@ -1,3 +1,4 @@
+# Needs Metro started with EXPO_PUBLIC_MONETIZATION=on (asserts Premium-locked UI; 1.0 ships free).
 # A6 stats (free): distribution, streaks, locked Year and lifts → A9; A7 share card preview and save.
 appId: app.nuni.mood
 ---

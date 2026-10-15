@@ -1,3 +1,4 @@
+# Needs Metro started with EXPO_PUBLIC_MONETIZATION=on (asserts Premium-locked UI; 1.0 ships free).
 # S1: A13 renders bundled Markdown (licenses, terms from the paywall link).
 appId: app.nuni.mood
 ---

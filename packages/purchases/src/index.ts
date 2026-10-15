@@ -1,3 +1,4 @@
+export * from './monetization';
 export * from './entitlements';
 export * from './store';
 export * from './client';

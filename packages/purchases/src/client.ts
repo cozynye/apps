@@ -11,6 +11,7 @@ import Purchases, {
 } from 'react-native-purchases';
 
 import { mirrorFromActive } from './entitlements';
+import { MONETIZATION } from './monetization';
 import { useEntitlementStore } from './store';
 
 let configured = false;
@@ -25,6 +26,10 @@ function applyCustomerInfo(info: CustomerInfo) {
  */
 export function configurePurchases(apiKey: string | undefined) {
   if (configured) return;
+  if (!MONETIZATION) {
+    if (__DEV__) console.log('[purchases] Monetization is off for this build; everything is unlocked.');
+    return;
+  }
   if (!apiKey) {
     console.warn('[purchases] No RevenueCat API key; purchases are disabled.');
     return;

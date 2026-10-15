@@ -14,7 +14,7 @@ import {
   type StickerPack,
 } from '@nf/content';
 import { installedPacks } from '@nf/db/fourpop';
-import { canUsePack, useEntitlementStore } from '@nf/purchases';
+import { canUsePack, MONETIZATION, useEntitlementStore } from '@nf/purchases';
 import { nativeApplicationVersion } from 'expo-application';
 import { Directory, File, Paths } from 'expo-file-system';
 import type { ImageSourcePropType } from 'react-native';
@@ -124,5 +124,6 @@ export function imageSource(path: string): ImageSourcePropType {
 
 /** Reactive pack access: free, Premium, or bought on its own. */
 export function useCanUse(pack: Pick<Pack, 'free' | 'entitlementId'>): boolean {
-  return useEntitlementStore((s) => canUsePack(s, pack, PREMIUM, Date.now()));
+  const usable = useEntitlementStore((s) => canUsePack(s, pack, PREMIUM, Date.now()));
+  return !MONETIZATION || usable;
 }

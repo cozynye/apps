@@ -1,3 +1,4 @@
+import { MONETIZATION } from '@nf/purchases';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect } from 'react';
 
@@ -9,7 +10,7 @@ export default function PremiumLink() {
   useEffect(() => {
     if (!useAppState.getState().onboarded) return router.replace('/a2-onboarding');
     router.navigate('/a3-home');
-    router.push({ pathname: '/a9-paywall', params: { source } });
+    if (MONETIZATION) router.push({ pathname: '/a9-paywall', params: { source } });
   }, [source]);
   return null;
 }

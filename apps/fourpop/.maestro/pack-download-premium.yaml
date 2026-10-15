@@ -1,3 +1,4 @@
+# Needs Metro started with EXPO_PUBLIC_MONETIZATION=on (1.0 ships free; purchases are opt-in).
 # Premium subscriber: packs show "Included in Premium" with Download; downloading installs the pack
 # (pack_unlock method premium). Needs the mock CDN, Metro CDN env and the Test Store key.
 appId: app.fourpop.booth

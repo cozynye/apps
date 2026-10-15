@@ -4,7 +4,7 @@ Claude Code가 작업 단위가 끝날 때마다 갱신한다. 새 세션은 이
 
 ## 현재 단계
 
-S4 Fourpop 개발 — 진행 중 (S2 완료 2026-10-14)
+S4 6단계 마무리 + S3·S5 출시 준비 — **1.0은 무료(결제 없음)로 출시**(Cozy 결정 2026-10-15). 결제 코드는 `EXPO_PUBLIC_MONETIZATION=on` 뒤에 보존
 
 ## 단계 현황
 
@@ -13,9 +13,9 @@ S4 Fourpop 개발 — 진행 중 (S2 완료 2026-10-14)
 | S0 준비 | 완료 (개발 차단 항목 없음) | P15·P16 보류 → RevenueCat Test Store로 대체. 미확정 사항은 배포 전 해결 (RELEASE_CHECKLIST) |
 | S1 공통 패키지 | 완료 (2026-10-12) | 아래 완료 조건 표 |
 | S2 Nuni 개발 | 완료 (2026-10-14) | A1–A13·위젯·리마인더·잠금·백업·Firebase. 예외: 콜드 스타트·TestFlight 1주 Cozy 지시로 건너뜀, VoiceOver 실기기 완주 선택(미실시) |
-| S3 Nuni 출시 | 대기 — 릴리스 게이트 적용 | |
+| S3 Nuni 출시 | 준비 중 — 무료 1.0 | 문서·법률 문구·스크린샷 준비 완료. Cozy: `eas init`, ASC 입력(가격 무료), 한국 규정 준수 정보 확인 |
 | S4 Fourpop 개발 | 진행 중 | 1–5단계(뼈대, B3·B4, 촬영 B5·B6, 꾸미기·결과 B7·B8, 갤러리 B9·상점 B10·팩 구매/다운로드) 완료 — 화면 B1–B13 전부 있음. 다음 6단계(완료 기준 점검: 결제 검증·3언어·오프라인·예외 표) |
-| S5 Fourpop 출시 | 대기 — 릴리스 게이트 적용 | |
+| S5 Fourpop 출시 | 준비 중 — 무료 1.0 | Cozy: Firebase plist(P18), 시즌팩 유무(A5), `eas init` |
 
 ## S1 완료 조건 확인 (2026-10-07)
 
@@ -202,7 +202,7 @@ S4 Fourpop 개발 — 진행 중 (S2 완료 2026-10-14)
 
 ## 다음 할 일
 
-0. S4 6단계 2차: Fourpop Firebase plist(P18) 후 Copy ID·DebugView 이벤트(`booth_*`, `pack_*`); 실기기(Cozy iPhone 12 Pro): 실제 카메라·셔터음·플래시, 권한 거부, 비행기 모드, 공유 앱, 성능(합성 2초·300MB); 구독 만료 전환 관찰; QA 에이전트 회귀
+0. S4 6단계 2차: Fourpop Firebase plist(P18) 후 Copy ID·DebugView 이벤트(`booth_*`, `pack_*`); 실기기(Cozy iPhone 12 Pro): 실제 카메라·셔터음·플래시, 권한 거부, 비행기 모드, 공유 앱, HD 저장 시간; QA 에이전트 회귀(무료 UI 기준). 구독 만료 전환 관찰은 결제를 켜는 v1.1로
 
 1. Firebase DebugView 파라미터 최종 확인(Cozy): `share_card` 등에 `mood`·본문·태그 이름 미포함
    - 2026-10-14 실기기 DebugView에 자동 이벤트 + 앱 이벤트(`share_card`) 도착 확인. 이벤트 파라미터는 `buildEventParams`가 금지 키를 막음(유닛 테스트)
@@ -223,3 +223,10 @@ S4 Fourpop 개발 — 진행 중 (S2 완료 2026-10-14)
 - 2026-10-15 P20·P21 완료: 커스텀 도메인 대신 GitHub Pages `https://cozynye.github.io/apps/`(privacy.html·terms.html·지원 index) 배포, 세 URL 200 확인. `[EFFECTIVE DATE]`만 남음
 - 2026-10-14 P17(Fourpop, 개발용) 완료: Cozy가 RevenueCat Fourpop 프로젝트 + Test Store(상품 `booth_premium_monthly`·`booth_premium_yearly`·`booth_pack_dev_sample`·`booth_stickers_dev_sample`, 권한 `booth_premium` + 단품 2개, Offering `default` Monthly/Annual)를 설정, `.env`에 `EXPO_PUBLIC_RC_IOS_KEY_FOURPOP`(test_). 출시 전 실제 `appl_` 키와 실제 시즌팩 상품은 P17에서
 - P18 Firebase plist(Fourpop), P19 R2 URL, 도메인 — 배포 전까지. P22 GitHub 리포는 2026-10-14 `github.com/cozynye/apps`(public, main)로 연결·푸시 완료
+
+## 완료한 일 (2026-10-15, 무료 1.0 전환)
+
+- Apple 한국 계정은 유료 앱 계약에 사업자등록번호가 필요(개인 비사업자 불가) → Cozy 결정: 1.0은 구독·단품·광고 없이 전부 무료, 수익화는 추후(아이템 단위 해금)
+- `EXPO_PUBLIC_MONETIZATION` 플래그(기본 꺼짐): 권한 훅 항상 true, RevenueCat 미초기화, 설정 구독 섹션·페이월 진입·시즌 배너 페이월 숨김, 상점 카드 전부 Free. 결제 코드·E2E 플로우는 `=on`으로 보존
+- 약관·개인정보처리방침(앱 A13/B13 + 웹 Pages)에서 결제·RevenueCat·StoreKit 문구 제거(`legal-patches.json`), 스토어 문구·심사 노트·개인정보 라벨·릴리스 노트·제출 안내서·EAS 문서 무료 기준으로 수정, RELEASE_CHECKLIST의 결제 항목 [-] 처리
+- 검증: typecheck·lint(경고 2, 기존)·Jest 68·i18n 패리티 통과. 스토어 스크린샷은 무료 UI로 재촬영(`store-shots-all.sh`)

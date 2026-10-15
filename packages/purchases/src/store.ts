@@ -2,6 +2,7 @@ import { storage } from '@nf/ui';
 import { create } from 'zustand';
 
 import { isEntitled, type EntitlementMirror, type EntitlementSnapshot } from './entitlements';
+import { MONETIZATION } from './monetization';
 
 const MIRROR_KEY = 'rc.entitlements.v1';
 
@@ -33,12 +34,13 @@ export const useEntitlementStore = create<EntitlementState>()((set) => ({
   setEnabled: (enabled) => set({ enabled }),
 }));
 
-/** Reactive entitlement check for UI locks. */
+/** Reactive entitlement check for UI locks (always true while monetization is off). */
 export function useEntitlement(entitlementId: string): boolean {
-  return useEntitlementStore((s) => isEntitled(s, entitlementId, Date.now()));
+  const entitled = useEntitlementStore((s) => isEntitled(s, entitlementId, Date.now()));
+  return !MONETIZATION || entitled;
 }
 
 /** Non-reactive check (event handlers, services). */
 export function hasEntitlement(entitlementId: string): boolean {
-  return isEntitled(useEntitlementStore.getState(), entitlementId, Date.now());
+  return !MONETIZATION || isEntitled(useEntitlementStore.getState(), entitlementId, Date.now());
 }

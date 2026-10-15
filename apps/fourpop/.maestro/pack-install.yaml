@@ -1,3 +1,4 @@
+# Needs Metro started with EXPO_PUBLIC_MONETIZATION=on (asserts Premium-locked UI; 1.0 ships free).
 # Dev path for the pack download (no purchase): mock CDN manifest → shop lists the sample packs →
 # dev menu installs one (download, sha256, move, installed_packs) → shop shows it, B4 Season lists it.
 # Needs: `pnpm cdn:mock` (port 8090) and Metro with EXPO_PUBLIC_CDN_BASE_URL=http://localhost:8090.

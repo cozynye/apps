@@ -1,3 +1,4 @@
+# Needs Metro started with EXPO_PUBLIC_MONETIZATION=on (1.0 ships free; purchases are opt-in).
 # S1: paywall shows RevenueCat prices; a Test Store purchase unlocks mood_premium.
 appId: app.nuni.mood
 ---
