@@ -5,4 +5,4 @@ Static support, privacy and terms pages for App Store Connect (privacy policy UR
 
 Deployed by `.github/workflows/pages.yml` (GitHub Pages, Actions source) to `https://cozynye.github.io/apps/` — no custom
 domain (Cozy, 2026-10-15). Privacy policy URL `https://cozynye.github.io/apps/privacy.html`, terms `https://cozynye.github.io/apps/terms.html`, support URL `https://cozynye.github.io/apps/`.
-`[EFFECTIVE DATE]` is still filled at release.
+The effective date (October 15, 2026) is applied through `scripts/legal-patches.json`.

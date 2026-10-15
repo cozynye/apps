@@ -1,7 +1,7 @@
 /**
  * Builds the static legal/support site (P21) into web/legal/public for GitHub Pages:
  * index.html (support), privacy.html, terms.html. Body text comes from design/legal (same as the
- * in-app A13/B13 screens). [EFFECTIVE DATE] stays a placeholder until release; the site lives at
+ * in-app A13/B13 screens, effective date via scripts/legal-patches.json). The site lives at
  * https://cozynye.github.io/apps/ (GitHub Pages, .github/workflows/pages.yml).
  * Run: pnpm legal:build
  */
