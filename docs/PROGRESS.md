@@ -4,7 +4,7 @@ Claude Code가 작업 단위가 끝날 때마다 갱신한다. 새 세션은 이
 
 ## 현재 단계
 
-S4 6단계 마무리 + S3·S5 출시 준비 — **1.0은 무료(결제 없음)로 출시**(Cozy 결정 2026-10-15). 결제 코드는 `EXPO_PUBLIC_MONETIZATION=on` 뒤에 보존
+Nuni 1.0 심사 대기(2026-10-15 제출) · Fourpop S4 마무리 + S5 준비 — **1.0은 무료(결제 없음)로 출시**(Cozy 결정 2026-10-15). 결제 코드는 `EXPO_PUBLIC_MONETIZATION=on` 뒤에 보존
 
 ## 단계 현황
 
@@ -13,7 +13,7 @@ S4 6단계 마무리 + S3·S5 출시 준비 — **1.0은 무료(결제 없음)�
 | S0 준비 | 완료 (개발 차단 항목 없음) | P15·P16 보류 → RevenueCat Test Store로 대체. 미확정 사항은 배포 전 해결 (RELEASE_CHECKLIST) |
 | S1 공통 패키지 | 완료 (2026-10-12) | 아래 완료 조건 표 |
 | S2 Nuni 개발 | 완료 (2026-10-14) | A1–A13·위젯·리마인더·잠금·백업·Firebase. 예외: 콜드 스타트·TestFlight 1주 Cozy 지시로 건너뜀, VoiceOver 실기기 완주 선택(미실시) |
-| S3 Nuni 출시 | 진행 중 — 무료 1.0 | 2026-10-15 production 빌드 1.0.0(2) → TestFlight 업로드 완료, ASC 텍스트 메타데이터 푸시 완료. 남음: Cozy ASC 수동 입력(스크린샷·라벨·심사 노트·가격·국가), TestFlight 설치 확인, 심사 제출 |
+| S3 Nuni 출시 | **심사 대기** (2026-10-15 제출, WAITING_FOR_REVIEW, 수동 출시) | 1.0.0(2). 승인 후 Cozy가 ASC에서 출시(또는 API). 거절되면 사유 보고 대응 |
 | S4 Fourpop 개발 | 진행 중 | 1–5단계(뼈대, B3·B4, 촬영 B5·B6, 꾸미기·결과 B7·B8, 갤러리 B9·상점 B10·팩 구매/다운로드) 완료 — 화면 B1–B13 전부 있음. 다음 6단계(완료 기준 점검: 결제 검증·3언어·오프라인·예외 표) |
 | S5 Fourpop 출시 | 준비 중 — 무료 1.0 | Cozy: Firebase plist(P18), 시즌팩 유무(A5), `eas init` |
 
@@ -234,3 +234,4 @@ S4 6단계 마무리 + S3·S5 출시 준비 — **1.0은 무료(결제 없음)�
 - 2026-10-15 S3: Cozy가 `eas build`(Apple 인증서·프로파일 2개 생성)와 `eas submit`(ASC API 키 생성, App ID 6821789626) 실행. `eas metadata:push`로 en-US·vi·th 스토어 텍스트·카테고리·연령 등급 4+ 반영. 빌드 번호는 EAS remote(2)
 - 2026-10-15 S3: Cozy iPhone 12 Pro에 TestFlight(내부, Team (Expo))로 1.0.0(2) 설치·동작 확인(“잘된다”). 남은 것은 ASC 수동 입력과 심사 제출. Fourpop용 `store.config.json`(eas metadata) 준비
 - 2026-10-15 S3: ASC 웹 업로더가 스크린샷을 거절해 API 스크립트로 48장 업로드 완료(en-GB 기본 언어 포함). 남은 Cozy ASC 입력: 빌드 선택·심사 연락처/노트·App Privacy·가격 Free·국가 VN/TH·한국 규정 준수 → 심사 제출
+- 2026-10-15 S3: Cozy가 ASC에서 App Privacy 게시·빌드 선택·심사 정보·가격 무료·국가 VN/TH 입력 후 **심사 제출**(API 확인: 1.0.0 WAITING_FOR_REVIEW, releaseType MANUAL). 한국 규정 준수 정보는 무료 앱 제출을 막지 않았음

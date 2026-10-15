@@ -54,6 +54,12 @@ Cozy가 “배포 / 출시 / 심사 제출 / TestFlight 외부 배포”를 말�
 | C13 | TestFlight 외부 테스트 1주, Crashlytics 크래시 없는 사용자 99.5% 이상 — Cozy 지시로 건너뜀(아래 표 2026-10-13·14) | [-] | [-] |
 | C14 | 버전·빌드 번호, 릴리스 노트(vi·th·en) — 1.0.0(`app.json`), 빌드 번호는 EAS autoIncrement(`docs/release/eas.md`), `docs/release/release-notes.md` 2026-10-15 무료 문구 반영 | [x] | [x] |
 
+## 제출 기록
+
+| 날짜 | 앱 | 버전 | 상태 |
+| --- | --- | --- | --- |
+| 2026-10-15 | Nuni | 1.0.0 (2) | 심사 제출(Waiting for Review), 수동 출시. 게이트: A·B·C 전 항목 완료/생략 확인 후 Cozy가 ASC에서 제출 |
+
 ## D. 알고 가는 것 (차단하지 않음)
 
 - vi·th 문구는 네이티브 검수 없이 초안으로 출시한다. 출시 후 리뷰·TestFlight 피드백으로 보완 (S6).
