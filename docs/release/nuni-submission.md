@@ -14,7 +14,7 @@
 |
 ## 2. 빌드·제출 순서 (Claude Code)
 
-현황 2026-10-15: production 빌드 1.0.0(2) 완료 → `eas submit`으로 ASC 업로드 완료(ASC App ID 6821789626, `eas.json` `ascAppId`) → `eas metadata:push`로 en-US·vi·th 텍스트·카테고리·연령 등급 반영 완료. ASC API 키는 EAS에 보관(Admin). 남은 수동 입력: 스크린샷, App Privacy 라벨, 심사 연락처·노트, 가격 Free, 판매 국가, 한국 규정 준수 정보.
+현황 2026-10-15: production 빌드 1.0.0(2) 완료 → `eas submit`으로 ASC 업로드 완료(ASC App ID 6821789626, `eas.json` `ascAppId`) → `eas metadata:push`로 en-US·vi·th 텍스트·카테고리·연령 등급 반영 완료. ASC API 키는 EAS에 보관(Admin). 스크린샷은 API로 업로드 완료. 남은 수동 입력: 빌드 선택, App Privacy 라벨, 심사 연락처·노트, 가격 Free, 판매 국가, 한국 규정 준수 정보.
 
 1. `docs/release/eas.md`대로 시크릿 등록 확인 → `cd apps/nuni && eas build -p ios --profile production`.
 2. 빌드 산출물로 `docs/RELEASE_CHECKLIST.md` C1(자리표시자 0건)·C3(약관 본문 일치) 확인. C4 결제 검증은 1.0(무료)에 해당 없음.
@@ -28,7 +28,7 @@
 | 카테고리 | Lifestyle (보조 Health & Fitness) |
 | 연령 등급 | 4+ |
 | 가격 | 무료(Free Tier) — 인앱결제 없음 |
-| 스크린샷 | ASC(2026) 버전 페이지의 iPhone 기본 칸은 ‘Dynamic Island 지원 iPhone (중형 디스플레이)’ = 6.3" → `docs/release/screenshots/nuni/iphone-6.3/<locale>/1–6.png`(1206×2622). 6.9" `…/iphone/<locale>/`(1320×2868)은 미디어 관리의 대형 디스플레이 칸용(선택). iPad 13" `…/ipad/<locale>/1–6.png`(2064×2752). 캡션 순서는 store-nuni.md의 1~6. PNG는 알파 없는 RGB여야 업로드됨. 기본 언어가 영어(영국)라 영어 세트는 en-GB 탭에, vi·th는 각 탭에 |
+| 스크린샷 | **2026-10-15 API로 업로드 완료**(en-GB·en-US·vi·th × iPhone 6.3"·iPad 13" × 6장 = 48장, `scripts/asc-screenshots.ts`). 웹 업로더는 규격이 맞는 파일도 ‘파일 크기가 유효하지 않습니다’로 거절했음. ASC(2026) 버전 페이지의 iPhone 기본 칸은 ‘Dynamic Island 지원 iPhone (중형 디스플레이)’ = 6.3" → `docs/release/screenshots/nuni/iphone-6.3/<locale>/1–6.png`(1206×2622). 6.9" `…/iphone/<locale>/`(1320×2868)은 미디어 관리의 대형 디스플레이 칸용(선택). iPad 13" `…/ipad/<locale>/1–6.png`(2064×2752). 캡션 순서는 store-nuni.md의 1~6. PNG는 알파 없는 RGB여야 업로드됨. 기본 언어가 영어(영국)라 영어 세트는 en-GB 탭에, vi·th는 각 탭에 |
 | 개인정보처리방침 URL · 지원 URL | `https://cozynye.github.io/apps/privacy.html` · `https://cozynye.github.io/apps/` |
 | App Privacy 라벨 | `docs/release/privacy-labels.md` |
 | 심사 노트 | `docs/release/review-notes.md` › Nuni (Sandbox 계정 치환) |
@@ -44,3 +44,13 @@
 - 위젯 확장(`targets/widget`)은 EAS 빌드에 포함되며 별도 번들 ID `app.nuni.mood.widget`의 프로비저닝도 EAS가 만든다.
 - 알림은 로컬만 — Push capability 없음(`aps-environment` 제거됨).
 - 분석: Firebase DebugView에서 `mood`·본문·태그 이름 미전송 확인 완료(2026-10-14).
+
+## 5. 스크린샷 API 업로드
+
+웹 업로더가 거절할 때 쓴다. `.env`의 `ASC_KEY_ID`·`ASC_ISSUER_ID`·`ASC_KEY_PATH`(팀 키, App Manager, `.p8`는 gitignore) 로:
+
+```
+env $(grep '^ASC_' .env | xargs) pnpm tsx scripts/asc-screenshots.ts nuni [--dry-run]
+```
+
+편집 가능한 버전(Prepare for Submission 등)을 찾아 로케일별 기기 칸(APP_IPHONE_61 ← `iphone-6.3/`, APP_IPAD_PRO_3GEN_129 ← `ipad/`)을 비우고 6장씩 올린 뒤 처리 완료(COMPLETE)까지 기다린다. Fourpop은 `APP_IDS`에 ASC App ID를 추가하면 같은 스크립트로 올릴 수 있다.
