@@ -30,3 +30,4 @@ packages/db/drizzle/*/migrations.js
 
 # store screenshots (generated, large)
 docs/release/screenshots/
+*.p8
