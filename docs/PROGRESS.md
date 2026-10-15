@@ -15,7 +15,7 @@ Nuni 1.0 심사 대기(2026-10-15 제출) · Fourpop S4 마무리 + S5 준비 �
 | S2 Nuni 개발 | 완료 (2026-10-14) | A1–A13·위젯·리마인더·잠금·백업·Firebase. 예외: 콜드 스타트·TestFlight 1주 Cozy 지시로 건너뜀, VoiceOver 실기기 완주 선택(미실시) |
 | S3 Nuni 출시 | **심사 대기** (2026-10-15 제출, WAITING_FOR_REVIEW, 수동 출시) | 1.0.0(2). 승인 후 Cozy가 ASC에서 출시(또는 API). 거절되면 사유 보고 대응 |
 | S4 Fourpop 개발 | 진행 중 | 1–5단계(뼈대, B3·B4, 촬영 B5·B6, 꾸미기·결과 B7·B8, 갤러리 B9·상점 B10·팩 구매/다운로드) 완료 — 화면 B1–B13 전부 있음. 다음 6단계(완료 기준 점검: 결제 검증·3언어·오프라인·예외 표) |
-| S5 Fourpop 출시 | 준비 중 — 무료 1.0 | Cozy: Firebase plist(P18), 시즌팩 유무(A5), `eas init` |
+| S5 Fourpop 출시 | 준비 중 — 무료 1.0 | ASC 텍스트·스크린샷 반영 완료(2026-10-15). Cozy: Firebase plist(P18), 시즌팩 유무(A5), 첫 `eas build`(터미널) → 업로드·심사 입력 |
 
 ## S1 완료 조건 확인 (2026-10-07)
 
@@ -238,4 +238,5 @@ Nuni 1.0 심사 대기(2026-10-15 제출) · Fourpop S4 마무리 + S5 준비 �
 - 2026-10-15 Fourpop 콘텐츠: Pop 프레임 10종·스티커 20종 추가(`scripts/content-gen`), Maestro `pop-content` 통과. Fourpop 스토어 스크린샷(#4 프레임 화면)은 제출 전 재촬영 필요(Pop 섹션 반영)
 - 2026-10-15 Fourpop 콘텐츠 2차: Y2K 프레임 10종·스티커 18종 추가(총 프레임 30·스티커 60). Maestro `bundled-packs` 통과. Fourpop 스토어 스크린샷 재촬영(#4는 Pop·Y2K 섹션이 보이게 스크롤)
 - 2026-10-15 S5: Fourpop 스토어 텍스트(en-GB·en-US·vi·th, 카테고리, 연령 등급)를 `eas metadata:push`로 ASC(App ID 6821789911, 1.0 Prepare for Submission)에 반영. Fourpop EAS 프로젝트에는 ASC 키가 없어 `EXPO_ASC_API_KEY_PATH/KEY_ID/ISSUER_ID` + `EXPO_APPLE_TEAM_TYPE=INDIVIDUAL`로 전달
+- 2026-10-15 S5: Fourpop 스토어 스크린샷 재촬영(Pop·Y2K 반영, 4번은 프레임 시트를 스크롤해 새 팩이 보이게) → ASC에 48장 API 업로드 완료. 이제 Fourpop은 plist(P18)·시즌팩 여부(A5)·Cozy 터미널의 첫 `eas build`만 남음
 

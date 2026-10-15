@@ -23,7 +23,7 @@ Nuni와 같은 순서로 간다(`nuni-submission.md`). 2026-10-15 기준 현황�
 | 칸 | 내용 | 상태 |
 | --- | --- | --- |
 | 이름·부제·키워드·프로모션·설명·릴리스 노트 (en-GB·en-US·vi·th), 카테고리, 연령 등급 | `apps/fourpop/store.config.json` → `eas metadata:push` | **완료 2026-10-15** |
-| 스크린샷 | `docs/release/screenshots/fourpop/{iphone-6.3,ipad}/<locale>/1–6.png` → `env $(grep '^ASC_' .env \| xargs) pnpm tsx scripts/asc-screenshots.ts fourpop` | 재촬영 중(Pop·Y2K 반영) → API 업로드 |
+| 스크린샷 | `docs/release/screenshots/fourpop/{iphone-6.3,ipad}/<locale>/1–6.png` → `env $(grep '^ASC_' .env \| xargs) pnpm tsx scripts/asc-screenshots.ts fourpop` | **완료 2026-10-15** — Pop·Y2K 반영해 재촬영, API로 48장 업로드(en-GB·en-US·vi·th × iPhone 6.3"·iPad 13") |
 | 빌드 선택 | 1.0 버전 페이지 | Cozy (빌드 후) |
 | 앱 심사 정보 | 연락처 + `docs/release/review-notes.md` › Fourpop (en) | Cozy |
 | App Privacy | `docs/release/privacy-labels.md` (Nuni와 동일) | Cozy |

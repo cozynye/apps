@@ -47,7 +47,7 @@ Cozy가 “배포 / 출시 / 심사 제출 / TestFlight 외부 배포”를 말�
 | C6 | Fourpop: R2에 `manifest.json` + 첫 시즌팩 업로드, 앱에서 상점·다운로드 확인 — A5가 ‘1.0은 없음’이면 [-] (구매 단계는 1.0에 없음) | — | [ ] |
 | C7 | PLAN ‘완료 기준’ 전 항목 충족 (Maestro iPhone·iPad, 3개 언어, 비행기 모드, 콜드 스타트, 합성 성능, 접근성) — Nuni: S2 완료, 건너뛴 항목은 아래 표 | [x] | [ ] |
 | C8 | Info.plist 권한 문구 vi·th·en, `ITSAppUsesNonExemptEncryption = NO`, `supportsTablet: true` (2026-10-14 ios/ 생성물에서 확인) | [x] | [x] |
-| C9 | 스토어 스크린샷: iPhone 6.9인치 + iPad 13인치 × vi·th·en × 6장 (`design/store/*.md`의 캡션) — 2026-10-14 생성 `docs/release/screenshots/<app>/<device>/<locale>/1–6.png` (시뮬레이터 dev 빌드, Fourpop 사진은 도형 샘플). 2026-10-15 무료 UI(잠금·워터마크 없음)로 재촬영. ASC 2026 기본 iPhone 칸(6.3", 1206×2622)용 `iphone-6.3/` 세트 추가 생성, 알파 채널 제거(RGB) — ASC는 RGBA PNG도 ‘파일 크기가 유효하지 않음’으로 거절 | [x] | [x] |
+| C9 | 스토어 스크린샷: iPhone 6.9인치 + iPad 13인치 × vi·th·en × 6장 (`design/store/*.md`의 캡션) — 2026-10-14 생성 `docs/release/screenshots/<app>/<device>/<locale>/1–6.png` (시뮬레이터 dev 빌드, Fourpop 사진은 도형 샘플). 2026-10-15 무료 UI(잠금·워터마크 없음)로 재촬영. ASC 2026 기본 iPhone 칸(6.3", 1206×2622)용 `iphone-6.3/` 세트 추가 생성, 알파 채널 제거(RGB) — ASC는 RGBA PNG도 ‘파일 크기가 유효하지 않음’으로 거절. 두 앱 모두 API로 ASC 업로드 완료(Nuni 48장, Fourpop 48장 — Fourpop은 Pop·Y2K 반영 재촬영) | [x] | [x] |
 | C10 | 스토어 메타데이터 입력용 최종본 정리 (`design/store/*.md`에서 자리표시자 치환) — `docs/release/store-*.md` 2026-10-15 무료 1.0 반영(Premium 절·구독 문구 삭제, 가격 무료, URL 치환 완료). Nuni는 `store.config.json`으로 ASC에 푸시 완료 | [x] | [x] |
 | C11 | 개인정보 라벨 답변표 (`design/legal/README.md` 매핑) 최종본 — `docs/release/privacy-labels.md` | [x] | [x] |
 | C12 | 심사 노트 최종본 (로그인 없음, 무료·결제 없음, 자체 브랜드·현지화 설명) — `docs/release/review-notes.md` 2026-10-15 무료 1.0 반영(Sandbox·상품 항목 삭제) | [x] | [x] |
