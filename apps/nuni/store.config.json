@@ -1,0 +1,105 @@
+{
+  "configVersion": 0,
+  "apple": {
+    "version": "1.0.0",
+    "copyright": "2026 Chagyung",
+    "categories": [
+      "LIFESTYLE",
+      "HEALTH_AND_FITNESS"
+    ],
+    "release": {
+      "automaticRelease": false
+    },
+    "advisory": {
+      "alcoholTobaccoOrDrugUseOrReferences": "NONE",
+      "contests": "NONE",
+      "gamblingSimulated": "NONE",
+      "horrorOrFearThemes": "NONE",
+      "matureOrSuggestiveThemes": "NONE",
+      "medicalOrTreatmentInformation": "NONE",
+      "profanityOrCrudeHumor": "NONE",
+      "sexualContentGraphicAndNudity": "NONE",
+      "sexualContentOrNudity": "NONE",
+      "violenceCartoonOrFantasy": "NONE",
+      "violenceRealistic": "NONE",
+      "violenceRealisticProlongedGraphicOrSadistic": "NONE",
+      "gambling": false,
+      "unrestrictedWebAccess": false,
+      "kidsAgeBand": null,
+      "seventeenPlus": false,
+      "ageRatingOverride": "NONE",
+      "koreaAgeRatingOverride": "NONE"
+    },
+    "info": {
+      "en-US": {
+        "title": "Nuni - Mood Diary",
+        "subtitle": "Log your day in 10 seconds",
+        "description": "Nuni is a mood diary that takes 10 seconds a day.\n\nPick a cloud that matches your mood, tap what you did, add a line if you like. That's your entry. Over time, Nuni's calendar fills with little clouds and you start to see your patterns.\n\nHOW IT WORKS\n• Five moods, five clouds — from rainy to sunny\n• 20 activity tags, plus your own\n• A one-line note and a photo, if you want\n• Monthly calendar and streak counter\n• One gentle reminder a day, at the time you choose\n• Face ID lock\n\nGO DEEPER\n• See which activities lift your mood\n• Yearly trends and your \"year in clouds\"\n• iCloud backup and restore\n• Medium home screen widget with your last 7 days\n• Up to 10 photos per entry, longer notes\n\nYOUR DIARY STAYS YOURS\nEntries are stored on your device. No account, no sign-up. We never see your diary.\n\nNuni is free, with no ads and no in-app purchases.\nTerms: https://cozynye.github.io/apps/terms.html · Privacy: https://cozynye.github.io/apps/privacy.html",
+        "keywords": [
+          "mood",
+          "diary",
+          "journal",
+          "tracker",
+          "mental",
+          "wellness",
+          "habit",
+          "calendar",
+          "emotion",
+          "daily",
+          "self care",
+          "cute"
+        ],
+        "promoText": "One cloud a day. Pick how you feel, tap a few tags, done — Nuni shows you what lifts your mood.",
+        "releaseNotes": "Nuni is here — a mood diary that takes 10 seconds a day. Five clouds for five moods, activity tags, a monthly calendar, streaks, gentle reminders, Face ID lock, home screen widget and iCloud backup. Free, no ads.",
+        "privacyPolicyUrl": "https://cozynye.github.io/apps/privacy.html",
+        "supportUrl": "https://cozynye.github.io/apps/"
+      },
+      "vi": {
+        "title": "Nuni - Nhật ký cảm xúc",
+        "subtitle": "Ghi lại một ngày trong 10 giây",
+        "description": "Nuni là nhật ký cảm xúc chỉ mất 10 giây mỗi ngày.\n\nChọn một đám mây đúng với tâm trạng, chạm những việc bạn đã làm, thêm một dòng nếu muốn. Vậy là xong một ngày. Dần dần, lịch của Nuni đầy những đám mây nhỏ và bạn bắt đầu nhìn ra nhịp cảm xúc của mình.\n\nCÁCH HOẠT ĐỘNG\n• 5 cảm xúc, 5 đám mây — từ mưa đến nắng\n• 20 thẻ hoạt động, thêm thẻ riêng của bạn\n• Một dòng ghi chú và một tấm ảnh, nếu bạn muốn\n• Lịch tháng và chuỗi ngày liên tiếp\n• Một lời nhắc nhẹ nhàng mỗi ngày, vào giờ bạn chọn\n• Khóa bằng Face ID\n\nĐI SÂU HƠN\n• Xem hoạt động nào nâng tâm trạng bạn\n• Xu hướng cả năm và \"một năm qua những đám mây\"\n• Sao lưu và khôi phục iCloud\n• Widget cỡ vừa với 7 ngày gần nhất\n• Tối đa 10 ảnh mỗi ghi chép, ghi chú dài hơn\n\nNHẬT KÝ LÀ CỦA RIÊNG BẠN\nMọi ghi chép được lưu trên thiết bị của bạn. Không tài khoản, không đăng ký. Chúng tôi không bao giờ đọc nhật ký của bạn.\n\nNuni miễn phí, không quảng cáo, không mua trong ứng dụng.\nĐiều khoản: https://cozynye.github.io/apps/terms.html · Quyền riêng tư: https://cozynye.github.io/apps/privacy.html",
+        "keywords": [
+          "nhật ký",
+          "cảm xúc",
+          "tâm trạng",
+          "mood",
+          "diary",
+          "journal",
+          "theo dõi",
+          "thói quen",
+          "lịch",
+          "hằng ngày",
+          "dễ thương",
+          "chữa lành"
+        ],
+        "promoText": "Mỗi ngày một đám mây. Chọn cảm xúc, chạm vài thẻ, xong — Nuni cho bạn thấy điều gì làm bạn vui hơn.",
+        "releaseNotes": "Nuni ra mắt — nhật ký cảm xúc chỉ mất 10 giây mỗi ngày. Năm đám mây cho năm cảm xúc, thẻ hoạt động, lịch tháng, chuỗi ngày, lời nhắc nhẹ nhàng, khóa Face ID, widget màn hình chính và sao lưu iCloud. Miễn phí, không quảng cáo.",
+        "privacyPolicyUrl": "https://cozynye.github.io/apps/privacy.html",
+        "supportUrl": "https://cozynye.github.io/apps/"
+      },
+      "th": {
+        "title": "Nuni - ไดอารี่อารมณ์",
+        "subtitle": "บันทึกวันนี้ใน 10 วินาที",
+        "description": "Nuni คือไดอารี่อารมณ์ที่ใช้เวลาแค่วันละ 10 วินาที\n\nเลือกก้อนเมฆที่ตรงกับอารมณ์ แตะสิ่งที่ทำวันนี้ เพิ่มข้อความสักบรรทัดถ้าอยาก เท่านี้ก็ครบหนึ่งวัน พอเวลาผ่านไป ปฏิทินของ Nuni จะเต็มไปด้วยก้อนเมฆเล็ก ๆ และคุณจะเริ่มเห็นรูปแบบอารมณ์ของตัวเอง\n\nใช้งานยังไง\n• 5 อารมณ์ 5 ก้อนเมฆ — จากฝนตกถึงแดดออก\n• แท็กกิจกรรม 20 แบบ เพิ่มของตัวเองได้\n• โน้ตหนึ่งบรรทัดกับรูปหนึ่งใบ ถ้าต้องการ\n• ปฏิทินรายเดือนและตัวนับวันต่อเนื่อง\n• เตือนเบา ๆ วันละครั้ง ในเวลาที่คุณเลือก\n• ล็อกด้วย Face ID\n\nดูให้ลึกขึ้น\n• ดูว่ากิจกรรมไหนทำให้อารมณ์ดีขึ้น\n• แนวโน้มรายปีและ \"หนึ่งปีในก้อนเมฆ\"\n• สำรองและกู้คืนผ่าน iCloud\n• วิดเจ็ตขนาดกลางแสดง 7 วันล่าสุด\n• รูปสูงสุด 10 ใบต่อบันทึก โน้ตยาวขึ้น\n\nไดอารี่เป็นของคุณคนเดียว\nบันทึกทั้งหมดเก็บไว้ในเครื่องของคุณ ไม่มีบัญชี ไม่ต้องสมัคร เราไม่เคยเห็นไดอารี่ของคุณ\n\nNuni ใช้ฟรี ไม่มีโฆษณา ไม่มีการซื้อในแอป\nข้อกำหนด: https://cozynye.github.io/apps/terms.html · ความเป็นส่วนตัว: https://cozynye.github.io/apps/privacy.html",
+        "keywords": [
+          "ไดอารี่",
+          "อารมณ์",
+          "บันทึก",
+          "mood",
+          "diary",
+          "journal",
+          "ติดตาม",
+          "นิสัย",
+          "ปฏิทิน",
+          "ประจำวัน",
+          "น่ารัก",
+          "ฮีลใจ"
+        ],
+        "promoText": "วันละหนึ่งก้อนเมฆ เลือกความรู้สึก แตะแท็กนิดหน่อย เสร็จ — Nuni บอกได้ว่าอะไรทำให้คุณใจฟู",
+        "releaseNotes": "Nuni มาแล้ว — ไดอารี่อารมณ์ที่ใช้เวลาแค่วันละ 10 วินาที ห้าก้อนเมฆสำหรับห้าอารมณ์ แท็กกิจกรรม ปฏิทินรายเดือน วันต่อเนื่อง การเตือนเบา ๆ ล็อกด้วย Face ID วิดเจ็ตหน้าจอโฮม และสำรองข้อมูล iCloud ใช้ฟรี ไม่มีโฆษณา",
+        "privacyPolicyUrl": "https://cozynye.github.io/apps/privacy.html",
+        "supportUrl": "https://cozynye.github.io/apps/"
+      }
+    }
+  }
+}

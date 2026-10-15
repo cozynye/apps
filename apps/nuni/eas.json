@@ -7,27 +7,40 @@
     "development": {
       "developmentClient": true,
       "distribution": "internal",
-      "ios": { "simulator": true },
-      "env": { "EXPO_PUBLIC_ENV": "development" }
+      "ios": {
+        "simulator": true
+      },
+      "env": {
+        "EXPO_PUBLIC_ENV": "development"
+      }
     },
     "development-device": {
       "extends": "development",
-      "ios": { "simulator": false }
+      "ios": {
+        "simulator": false
+      }
     },
     "preview": {
       "distribution": "store",
       "autoIncrement": true,
-      "env": { "EXPO_PUBLIC_ENV": "preview" }
+      "env": {
+        "EXPO_PUBLIC_ENV": "preview"
+      }
     },
     "production": {
       "distribution": "store",
       "autoIncrement": true,
-      "env": { "EXPO_PUBLIC_ENV": "production" }
+      "env": {
+        "EXPO_PUBLIC_ENV": "production"
+      }
     }
   },
   "submit": {
     "production": {
-      "ios": { "appleTeamId": "TC547C863K" }
+      "ios": {
+        "appleTeamId": "TC547C863K",
+        "metadataPath": "./store.config.json"
+      }
     }
   }
 }
