@@ -168,3 +168,4 @@
 - 2026-10-15 — (Cozy 결정) 약관·개인정보·지원 페이지는 커스텀 도메인 없이 GitHub Pages 프로젝트 사이트 `https://cozynye.github.io/apps/`로 배포(`pages.yml`, Actions 소스; Pages 설정은 `gh api`로 켬). App Store Connect 개인정보처리방침 URL `https://cozynye.github.io/apps/privacy.html`, 지원 URL `https://cozynye.github.io/apps/`. PLAN 미확정 6번(도메인)·P20 해소. 남은 자리표시자는 `[EFFECTIVE DATE]`
 - 2026-10-15 — (Cozy 결정) 약관·개인정보처리방침 시행일 = 1.0 제출일 2026-10-15 (“Effective: October 15, 2026”). `scripts/legal-patches.json`의 치환으로 앱(A13/B13)과 웹(Pages)에 동시 반영. 코드·웹에 남은 자리표시자 없음(`check-placeholders.sh` 통과, 시크릿·plist 항목만 남음)
 - 2026-10-15 — (Cozy 지시) 이후 커밋은 즉시 `origin/main`에 푸시(CI·Pages 자동 실행)
+- 2026-10-15 — (확인) Apple 한국 계정의 유료 앱 계약은 ‘대한민국 세금 양식’에 사업자등록번호(BRN)+영문 사업자등록증명(90일 이내) 또는 국세청 고유번호+고유번호증이 필수이고 개인 비사업자 옵션이 없다(App Store Connect 도움말 ‘Provide tax information’, 개발자 포럼 829386). 한국 규정 준수 정보도 개인에게 BRN을 요구. → 인앱결제 출시에는 개인사업자 등록이 선행돼야 함(Cozy 진행)
