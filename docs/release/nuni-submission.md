@@ -14,6 +14,8 @@
 |
 ## 2. 빌드·제출 순서 (Claude Code)
 
+현황 2026-10-15: production 빌드 1.0.0(2) 완료 → `eas submit`으로 ASC 업로드 완료(ASC App ID 6821789626, `eas.json` `ascAppId`) → `eas metadata:push`로 en-US·vi·th 텍스트·카테고리·연령 등급 반영 완료. ASC API 키는 EAS에 보관(Admin). 남은 수동 입력: 스크린샷, App Privacy 라벨, 심사 연락처·노트, 가격 Free, 판매 국가, 한국 규정 준수 정보.
+
 1. `docs/release/eas.md`대로 시크릿 등록 확인 → `cd apps/nuni && eas build -p ios --profile production`.
 2. 빌드 산출물로 `docs/RELEASE_CHECKLIST.md` C1(자리표시자 0건)·C3(약관 본문 일치) 확인. C4 결제 검증은 1.0(무료)에 해당 없음.
 3. `eas submit -p ios --profile production` — 게이트 통과 후에만.
@@ -22,7 +24,7 @@
 
 | 칸 | 내용 |
 | --- | --- |
-| 이름·부제·키워드·프로모션·설명 (en·vi·th) | `docs/release/store-nuni.md` 각 언어 절 (URL 치환 완료) |
+| 이름·부제·키워드·프로모션·설명·릴리스 노트 (en·vi·th) | `apps/nuni/store.config.json` → `eas metadata:push` (2026-10-15 반영 완료; 원본은 `docs/release/store-nuni.md`) |
 | 카테고리 | Lifestyle (보조 Health & Fitness) |
 | 연령 등급 | 4+ |
 | 가격 | 무료(Free Tier) — 인앱결제 없음 |

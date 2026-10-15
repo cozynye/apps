@@ -13,7 +13,7 @@ S4 6단계 마무리 + S3·S5 출시 준비 — **1.0은 무료(결제 없음)�
 | S0 준비 | 완료 (개발 차단 항목 없음) | P15·P16 보류 → RevenueCat Test Store로 대체. 미확정 사항은 배포 전 해결 (RELEASE_CHECKLIST) |
 | S1 공통 패키지 | 완료 (2026-10-12) | 아래 완료 조건 표 |
 | S2 Nuni 개발 | 완료 (2026-10-14) | A1–A13·위젯·리마인더·잠금·백업·Firebase. 예외: 콜드 스타트·TestFlight 1주 Cozy 지시로 건너뜀, VoiceOver 실기기 완주 선택(미실시) |
-| S3 Nuni 출시 | 준비 중 — 무료 1.0 | 문서·법률 문구·스크린샷 준비 완료. Cozy: `eas init`, ASC 입력(가격 무료), 한국 규정 준수 정보 확인 |
+| S3 Nuni 출시 | 진행 중 — 무료 1.0 | 2026-10-15 production 빌드 1.0.0(2) → TestFlight 업로드 완료, ASC 텍스트 메타데이터 푸시 완료. 남음: Cozy ASC 수동 입력(스크린샷·라벨·심사 노트·가격·국가), TestFlight 설치 확인, 심사 제출 |
 | S4 Fourpop 개발 | 진행 중 | 1–5단계(뼈대, B3·B4, 촬영 B5·B6, 꾸미기·결과 B7·B8, 갤러리 B9·상점 B10·팩 구매/다운로드) 완료 — 화면 B1–B13 전부 있음. 다음 6단계(완료 기준 점검: 결제 검증·3언어·오프라인·예외 표) |
 | S5 Fourpop 출시 | 준비 중 — 무료 1.0 | Cozy: Firebase plist(P18), 시즌팩 유무(A5), `eas init` |
 
@@ -231,3 +231,4 @@ S4 6단계 마무리 + S3·S5 출시 준비 — **1.0은 무료(결제 없음)�
 - 약관·개인정보처리방침(앱 A13/B13 + 웹 Pages)에서 결제·RevenueCat·StoreKit 문구 제거(`legal-patches.json`), 스토어 문구·심사 노트·개인정보 라벨·릴리스 노트·제출 안내서·EAS 문서 무료 기준으로 수정, RELEASE_CHECKLIST의 결제 항목 [-] 처리
 - 검증: typecheck·lint(경고 2, 기존)·Jest 68·i18n 패리티 통과. 스토어 스크린샷은 무료 UI로 재촬영(`store-shots-all.sh`)
 - 2026-10-15 P22 EAS: 두 앱 프로젝트 연결(`@cco33/nuni`, `@cco33/fourpop`), Nuni plist 파일 시크릿 등록(production·preview). Nuni production 빌드는 Apple 자격 증명 생성이 대화형이라 Cozy 터미널에서 `eas build -p ios --profile production` 실행 필요(`docs/release/eas.md`)
+- 2026-10-15 S3: Cozy가 `eas build`(Apple 인증서·프로파일 2개 생성)와 `eas submit`(ASC API 키 생성, App ID 6821789626) 실행. `eas metadata:push`로 en-US·vi·th 스토어 텍스트·카테고리·연령 등급 4+ 반영. 빌드 번호는 EAS remote(2)
