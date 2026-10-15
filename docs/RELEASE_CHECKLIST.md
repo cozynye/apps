@@ -28,7 +28,7 @@ Cozy가 “배포 / 출시 / 심사 제출 / TestFlight 외부 배포”를 말�
 | B1 | P15 App Store Connect 계정 이슈 해결, 앱 등록, 유료 앱 계약·세금·은행 활성. 2026-10-15: 유료 앱 계약 서명·은행(KB) 처리 중. **대한민국 세금 양식은 사업자등록번호 + 90일 이내 영문 사업자등록증명(또는 국세청 고유번호+고유번호증)만 받음 — 개인 비사업자 옵션 없음** → 개인사업자 등록 필요. **→ 2026-10-15 Cozy 결정: 1.0은 무료 출시, 유료 앱 계약은 보류**(앱 등록은 완료). 남은 확인: ASC ‘한국 규정 준수 정보’가 무료 앱에도 사업자등록번호를 요구하는지(미확인) | 무료 앱 제출에 막히는 항목이 있으면 화면 캡처 | [-] | [-] |
 | B2 | P16 인앱 상품 등록 (PLAN ‘상품 ID와 권한’ 표 그대로, Fourpop은 첫 시즌팩 1개). 2026-10-12 Nuni 구독 2개 생성됨 — **연간 7일 무료체험(Introductory Offer) 미설정**, 사용 가능 국가 VN·TH. — 1.0 무료(Cozy 결정 2026-10-15): 이 버전에 상품을 연결하지 않음 | 등록 완료 확인 | [-] | [-] |
 | B3 | P17 RevenueCat: 앱 2개, Entitlement·Offering, In-App Purchase Key(.p8), Shared Secret, Server Notifications URL — 1.0 무료(Cozy 결정 2026-10-15): `EXPO_PUBLIC_MONETIZATION` 꺼짐, SDK 미초기화 | iOS API 키 2개 (`.env` / EAS Secrets) | [-] | [-] |
-| B4 | P18 Firebase 프로젝트 2개 (Analytics, Crashlytics). 2026-10-13 Nuni plist 수령·연결(프로젝트 nuni-6dc73), EAS 파일 시크릿 `GOOGLE_SERVICES_PLIST_NUNI` production·preview 등록 완료(2026-10-15) | `GoogleService-Info.plist` 2개 | [x] | [ ] |
+| B4 | P18 Firebase 프로젝트 2개 (Analytics, Crashlytics). 2026-10-13 Nuni plist 수령·연결(프로젝트 nuni-6dc73), EAS 파일 시크릿 `GOOGLE_SERVICES_PLIST_NUNI` production·preview 등록 완료(2026-10-15). 2026-10-16 Fourpop plist 수령(프로젝트 fourpop-f3c86) → `GOOGLE_SERVICES_PLIST_FOURPOP` production·preview 등록 완료 | `GoogleService-Info.plist` 2개 | [x] | [x] |
 | B5 | P19 Cloudflare R2 버킷 + 공개 URL — 1.0은 시즌팩을 번들로 넣어 불필요(v1.1 CDN 팩 때) | CDN base URL | — | [-] |
 | B6 | Small Business Program 신청 (수수료 15%) — 1.0 무료(Cozy 결정 2026-10-15), 매출 없음 | 신청 완료 확인 | [-] | [-] |
 | B7 | Sandbox 테스터 계정 1개 이상 — 1.0 무료(Cozy 결정 2026-10-15), 결제 없음 | 계정 이메일 (비밀번호는 문서에 쓰지 않음) | [-] | [-] |
@@ -39,7 +39,7 @@ Cozy가 “배포 / 출시 / 심사 제출 / TestFlight 외부 배포”를 말�
 
 | # | 항목 | N | F |
 | --- | --- | --- | --- |
-| C1 | `scripts/check-placeholders.sh` 결과 0건 (`[DOMAIN]`, `[TERMS URL]`, `[PRIVACY URL]`, `[EFFECTIVE DATE]`, `[FIRST_SEASON_PACK_ID]`, `TODO(release)`) — 2026-10-15 자리표시자 0건; 스크립트의 시크릿 검사는 2026-10-15부터 RC 키를 결제 켠 경우에만 요구, CDN URL은 안내만 → Fourpop은 plist만 남음 | [x] | [ ] |
+| C1 | `scripts/check-placeholders.sh` 결과 0건 (`[DOMAIN]`, `[TERMS URL]`, `[PRIVACY URL]`, `[EFFECTIVE DATE]`, `[FIRST_SEASON_PACK_ID]`, `TODO(release)`) — 2026-10-15 자리표시자 0건; 스크립트의 시크릿 검사는 2026-10-15부터 RC 키를 결제 켠 경우에만 요구, CDN URL은 안내만. 2026-10-16 Fourpop plist까지 갖춰 `Secrets: present` | [x] | [x] |
 | C2 | P21 `web/legal` 개인정보처리방침·이용약관·지원 페이지를 `https://cozynye.github.io/apps/`에 배포(GitHub Pages, Actions), URL 접속 확인 — 2026-10-15 세 URL 모두 200 (시행일은 아직 자리표시자) | [x] | [x] |
 | C3 | 앱 내 A13/B13 약관 본문과 웹 페이지 본문 일치, 시행일 반영 — 같은 `legalMarkdown` 소스에서 생성, 2026-10-15 시행일 반영 | [x] | [x] |
 | C4 | 실제 RevenueCat 키·실제 상품으로 Sandbox 검증: 구독·체험·체험 자격 없음·단품·복원·만료 — 1.0 무료(Cozy 결정 2026-10-15), v1.1 | [-] | [-] |

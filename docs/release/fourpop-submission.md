@@ -6,14 +6,14 @@ Nuni와 같은 순서로 간다(`nuni-submission.md`). 2026-10-15 기준 현황�
 
 | 값 | 쓰이는 곳 | 현재 |
 | --- | --- | --- |
-| Firebase `GoogleService-Info.plist` (Fourpop, `app.fourpop.booth`) | `apps/fourpop/` (gitignore) → EAS 파일 시크릿 `GOOGLE_SERVICES_PLIST_FOURPOP` (production·preview) | **미정 (B4)** — 없으면 Firebase 없이 빌드됨(분석·Crashlytics 없음) |
-| 첫 시즌팩 여부 `[FIRST_SEASON_PACK_ID]` | 상점 CDN 팩 + R2 URL(B5) | **미정 (A5)** — 1.0 무료라 선택. ‘없음’이면 상점은 번들 팩(Basics·Pop·Y2K)만 |
+| Firebase `GoogleService-Info.plist` (Fourpop, `app.fourpop.booth`) | `apps/fourpop/` (gitignore) → EAS 파일 시크릿 `GOOGLE_SERVICES_PLIST_FOURPOP` (production·preview) | **완료 2026-10-16** — Firebase 프로젝트 `fourpop-f3c86`, EAS 파일 시크릿 production·preview 등록 |
+| 첫 시즌팩 여부 `[FIRST_SEASON_PACK_ID]` | 상점 CDN 팩 + R2 URL(B5) | **완료 2026-10-16** — 번들 무료 시즌팩 5개(CDN 불필요) |
 | EAS 프로젝트 ID | `app.json` `extra.eas.projectId` | **완료** (`@cco33/fourpop`, 6a43354f…) |
 | ASC 앱 | App ID 6821789911, 기본 언어 영어(영국) | **완료** (앱 생성 2026-10-12) |
 
 ## 2. 빌드·업로드 순서
 
-1. plist 수령 → `cd apps/fourpop && eas env:create --scope project --name GOOGLE_SERVICES_PLIST_FOURPOP --type file --value ./GoogleService-Info.plist --environment production --visibility secret` (preview도 같게).
+1. ~~plist 수령 → EAS 파일 시크릿 등록~~ 완료(2026-10-16).
 2. **첫 빌드는 Cozy 터미널에서**: `cd apps/fourpop && eas build -p ios --profile production` — Apple 로그인 후 `app.fourpop.booth` 프로비저닝 프로파일 생성(배포 인증서는 Nuni 때 만든 것을 재사용). 이후 빌드는 비대화형으로 가능.
 3. 업로드: `eas submit -p ios --profile production --id <build id>` (ASC App ID는 `eas.json`에 있음). Fourpop EAS 프로젝트에는 ASC API 키가 없으므로 첫 submit도 Cozy 터미널에서(키 생성 질문에 Y) 하거나, `.env`의 `ASC_*` 키를 `EXPO_ASC_*` 환경 변수로 넘긴다(`eas.md`).
 4. TestFlight 내부 그룹에서 Cozy iPhone 설치 확인.
