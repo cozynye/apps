@@ -31,6 +31,29 @@
       "koreaAgeRatingOverride": "NONE"
     },
     "info": {
+      "en-GB": {
+        "title": "Nuni - Mood Diary",
+        "subtitle": "Log your day in 10 seconds",
+        "description": "Nuni is a mood diary that takes 10 seconds a day.\n\nPick a cloud that matches your mood, tap what you did, add a line if you like. That's your entry. Over time, Nuni's calendar fills with little clouds and you start to see your patterns.\n\nHOW IT WORKS\n• Five moods, five clouds — from rainy to sunny\n• 20 activity tags, plus your own\n• A one-line note and a photo, if you want\n• Monthly calendar and streak counter\n• One gentle reminder a day, at the time you choose\n• Face ID lock\n\nGO DEEPER\n• See which activities lift your mood\n• Yearly trends and your \"year in clouds\"\n• iCloud backup and restore\n• Medium home screen widget with your last 7 days\n• Up to 10 photos per entry, longer notes\n\nYOUR DIARY STAYS YOURS\nEntries are stored on your device. No account, no sign-up. We never see your diary.\n\nNuni is free, with no ads and no in-app purchases.\nTerms: https://cozynye.github.io/apps/terms.html · Privacy: https://cozynye.github.io/apps/privacy.html",
+        "keywords": [
+          "mood",
+          "diary",
+          "journal",
+          "tracker",
+          "mental",
+          "wellness",
+          "habit",
+          "calendar",
+          "emotion",
+          "daily",
+          "self care",
+          "cute"
+        ],
+        "promoText": "One cloud a day. Pick how you feel, tap a few tags, done — Nuni shows you what lifts your mood.",
+        "releaseNotes": "Nuni is here — a mood diary that takes 10 seconds a day. Five clouds for five moods, activity tags, a monthly calendar, streaks, gentle reminders, Face ID lock, home screen widget and iCloud backup. Free, no ads.",
+        "privacyPolicyUrl": "https://cozynye.github.io/apps/privacy.html",
+        "supportUrl": "https://cozynye.github.io/apps/"
+      },
       "en-US": {
         "title": "Nuni - Mood Diary",
         "subtitle": "Log your day in 10 seconds",

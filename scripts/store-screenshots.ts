@@ -11,6 +11,7 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 
 import { join } from 'node:path';
 
 import { Resvg } from '@resvg/resvg-js';
+import { PNG } from 'pngjs';
 
 const ROOT = join(import.meta.dirname, '..');
 const RAW = join(ROOT, 'docs/release/screenshots/raw');
@@ -115,9 +116,12 @@ function compose(app: App, device: Device, outDir: string, w: number, h: number,
       defaultFontFamily: family,
     },
   }).render();
+  // App Store Connect rejects screenshots with an alpha channel ("파일 크기가 유효하지 않습니다"): write opaque RGB.
+  const rgb = new PNG({ width: out.width, height: out.height });
+  rgb.data = Buffer.from(out.pixels);
   const dir = join(OUT, app, outDir, locale);
   mkdirSync(dir, { recursive: true });
-  writeFileSync(join(dir, `${index}.png`), out.asPng());
+  writeFileSync(join(dir, `${index}.png`), PNG.sync.write(rgb, { colorType: 2 }));
 }
 
 let made = 0;
