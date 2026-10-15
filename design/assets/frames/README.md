@@ -62,3 +62,9 @@ Cozy 요청(“사진이기 때문에 MZ감성”)으로 추가한 세 번째 �
 
 `scripts/content-gen/season.ts`가 팩별 6종을 생성한다(모티프 라이브러리 `M`: 박쥐·유령·호박·눈꽃·호랑가시·선물·전구·하트·꽃·등롱·봉투·엽전·물방울·거품·사탕·거미·트리·장미·화살·코끼리 등). 매니페스트는 `category: season` + `availableFrom/Until`로 노출 기간을 가지며 앱은 기간 안에서만 보여 준다(B4 Season 탭·B7 트레이·상점·B3 배너). 캡션은 팩에 따라 “FOURPOP” 또는 인사말(“BOO!”, “MERRY XMAS”, “CHÚC MỪNG NĂM MỚI”, “XOXO”, “สุขสันต์วันสงกรานต์”).
 
+## `studio/` — Studio 팩 10종 (무료, 번들, 2026-10-16)
+
+국내 네컷 부스(인생네컷·포토이즘·하루필름·포토그레이·그믐달)의 기본형: 단색 매트 + 우하단 작은 워드마크(“FOURPOP” + 부제 “4 CUTS” 등) + 좌하단은 날짜 스탬프 자리로 비움, 일부는 슬롯 둘레 헤어라인. `scripts/content-gen/studio-frames.ts`.
+
+black · white(헤어라인) · grey · ivory(필름 주황 워드마크) · pink · powder · cocoa · moon(네이비 + 달) · aurora(보라→파랑→민트 그라데이션, ink 매트) · mono-band(상하 검은 띠)
+

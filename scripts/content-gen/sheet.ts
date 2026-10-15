@@ -12,12 +12,14 @@ import { POP_STICKERS } from './stickers';
 import { Y2K_FRAMES } from './y2k-frames';
 import { Y2K_STICKERS } from './y2k-stickers';
 import { SEASON_PACKS } from './season';
+import { STUDIO_FRAMES } from './studio-frames';
 
 const pack = process.argv[2] ?? 'pop';
 type Set = { frames: { id: string }[]; stickers: { id: string }[]; folder: string };
 const sets: Record<string, Set> = {
   pop: { frames: POP_FRAMES, stickers: POP_STICKERS, folder: 'pop' },
   y2k: { frames: Y2K_FRAMES, stickers: Y2K_STICKERS, folder: 'y2k' },
+  studio: { frames: STUDIO_FRAMES, stickers: [], folder: 'studio' },
   ...Object.fromEntries(SEASON_PACKS.map((p) => [p.id, { frames: p.frames, stickers: p.stickers, folder: p.folder }])),
 };
 const set = sets[pack];

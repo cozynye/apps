@@ -13,6 +13,7 @@ import { POP_STICKERS } from './stickers';
 import { Y2K_FRAMES } from './y2k-frames';
 import { Y2K_STICKERS } from './y2k-stickers';
 import { SEASON_PACKS } from './season';
+import { STUDIO_FRAMES } from './studio-frames';
 
 type Pack = { id: string; [k: string]: unknown };
 type Manifest = { schemaVersion: number; version: number; minAppVersion: string; packs: Pack[] };
@@ -56,6 +57,8 @@ const GENERATED: Pack[] = [
   stickerPack('stickers-pop', 'pop', { en: 'Pop', vi: 'Pop', th: 'Pop' }, POP_STICKERS),
   framePack('y2k', { en: 'Y2K', vi: 'Y2K', th: 'Y2K' }, Y2K_FRAMES),
   stickerPack('stickers-y2k', 'y2k', { en: 'Y2K', vi: 'Y2K', th: 'Y2K' }, Y2K_STICKERS),
+  // Booth-brand minimal looks (2026-10-16): solid mats, small wordmark, date-stamp area clear.
+  framePack('studio', { en: 'Studio', vi: 'Studio', th: 'สตูดิโอ' }, STUDIO_FRAMES),
   // Free bundled season packs (Cozy 2026-10-16); shown only inside their window (B4 Season tab, B7 tray, shop, banner).
   ...SEASON_PACKS.flatMap((p) => {
     const season = { category: 'season', availableFrom: p.availableFrom, availableUntil: p.availableUntil };

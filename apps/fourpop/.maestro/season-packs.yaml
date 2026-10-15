@@ -73,9 +73,9 @@ env:
         id: b7.sticker.${PACK}-${STICKER}
     commands:
       - swipe:
-          start: 92%, 84%
-          end: 8%, 84%
-          duration: 400
+          start: 80%, 84%
+          end: 20%, 84%
+          duration: 1000
 - tapOn:
     id: b7.sticker.${PACK}-${STICKER}
 - assertVisible:

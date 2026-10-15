@@ -46,9 +46,14 @@ const PEN_WIDTH = 14;
 const TEXT_SIZE = 120;
 const HANDLE = 32;
 
-/** Formats the date stamp (decorate.dateFormats order: dd/MM/yyyy, dd.MM.yy, medium), Gregorian. */
+/** Formats the date stamp (decorate.dateFormats order: dd/MM/yyyy, dd.MM.yy, medium, yyyy.MM.dd HH:mm), Gregorian. */
 export function formatStamp(format: number, language: Parameters<typeof intlLocale>[0], date = new Date()) {
   if (format === 0) return formatDateNumeric(date);
+  if (format === 3) {
+    // Photo-booth print style (date + time), the stamp Korean booths put next to their logo.
+    const two = (n: number) => String(n).padStart(2, '0');
+    return `${date.getFullYear()}.${two(date.getMonth() + 1)}.${two(date.getDate())} ${two(date.getHours())}:${two(date.getMinutes())}`;
+  }
   if (format === 1) return formatDateNumeric(date).replace(/\//g, '.').replace(/\.(\d{2})(\d{2})$/, '.$2');
   return new Intl.DateTimeFormat(intlLocale(language), { day: 'numeric', month: 'short', year: 'numeric', calendar: 'gregory' }).format(date);
 }
@@ -379,7 +384,7 @@ export default function DecorateScreen() {
         )}
         {tool === 'date' && (
           <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.panelRow}>
-            {[null, 0, 1, 2].map((f) => (
+            {[null, 0, 1, 2, 3].map((f) => (
               <Pressable
                 key={String(f)}
                 testID={`b7.date.${f ?? 'off'}`}

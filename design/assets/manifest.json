@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": 5,
+  "version": 6,
   "minAppVersion": "1.0.0",
   "packs": [
     {
@@ -2082,6 +2082,503 @@
             "w": 512,
             "h": 512
           }
+        }
+      ]
+    },
+    {
+      "id": "studio",
+      "type": "frame",
+      "productId": null,
+      "entitlementId": null,
+      "free": true,
+      "bundled": true,
+      "category": "basic",
+      "minAppVersion": "1.0.0",
+      "title": {
+        "en": "Studio",
+        "vi": "Studio",
+        "th": "สตูดิโอ"
+      },
+      "items": [
+        {
+          "id": "studio-black",
+          "title": {
+            "en": "Black",
+            "vi": "Đen",
+            "th": "ดำ"
+          },
+          "layout": "strip4",
+          "image": "frames/studio/black.png",
+          "thumbnail": "frames/studio/black-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "studio-white",
+          "title": {
+            "en": "White",
+            "vi": "Trắng",
+            "th": "ขาว"
+          },
+          "layout": "strip4",
+          "image": "frames/studio/white.png",
+          "thumbnail": "frames/studio/white-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "studio-grey",
+          "title": {
+            "en": "Grey",
+            "vi": "Xám",
+            "th": "เทา"
+          },
+          "layout": "strip4",
+          "image": "frames/studio/grey.png",
+          "thumbnail": "frames/studio/grey-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "studio-ivory",
+          "title": {
+            "en": "Ivory Film",
+            "vi": "Ngà phim",
+            "th": "งาช้าง"
+          },
+          "layout": "strip4",
+          "image": "frames/studio/ivory.png",
+          "thumbnail": "frames/studio/ivory-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "studio-pink",
+          "title": {
+            "en": "Baby Pink",
+            "vi": "Hồng phấn",
+            "th": "ชมพูอ่อน"
+          },
+          "layout": "strip4",
+          "image": "frames/studio/pink.png",
+          "thumbnail": "frames/studio/pink-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "studio-powder",
+          "title": {
+            "en": "Powder Blue",
+            "vi": "Xanh phấn",
+            "th": "ฟ้าพาวเดอร์"
+          },
+          "layout": "strip4",
+          "image": "frames/studio/powder.png",
+          "thumbnail": "frames/studio/powder-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "studio-cocoa",
+          "title": {
+            "en": "Cocoa",
+            "vi": "Ca cao",
+            "th": "โกโก้"
+          },
+          "layout": "strip4",
+          "image": "frames/studio/cocoa.png",
+          "thumbnail": "frames/studio/cocoa-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "studio-moon",
+          "title": {
+            "en": "Moon",
+            "vi": "Trăng",
+            "th": "จันทร์"
+          },
+          "layout": "strip4",
+          "image": "frames/studio/moon.png",
+          "thumbnail": "frames/studio/moon-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "studio-aurora",
+          "title": {
+            "en": "Aurora",
+            "vi": "Cực quang",
+            "th": "ออโรรา"
+          },
+          "layout": "strip4",
+          "image": "frames/studio/aurora.png",
+          "thumbnail": "frames/studio/aurora-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "studio-mono-band",
+          "title": {
+            "en": "Mono Band",
+            "vi": "Dải đen trắng",
+            "th": "แถบขาวดำ"
+          },
+          "layout": "strip4",
+          "image": "frames/studio/mono-band.png",
+          "thumbnail": "frames/studio/mono-band-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
         }
       ]
     },

@@ -46,6 +46,7 @@ describe('bundled manifest', () => {
       'stickers-pop': 20,
       y2k: 10,
       'stickers-y2k': 18,
+      studio: 10,
       'halloween-2026': 6,
       'stickers-halloween-2026': 8,
       'xmas-2026': 6,

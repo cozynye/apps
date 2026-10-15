@@ -1,5 +1,6 @@
 # Generated bundled packs (Pop, Y2K — 2026-10-15): B4 lists them under Basics, the B7 sticker tray
-# shows their stickers after the base ones, and a Y2K frame renders in B8 with Pop + Y2K stickers.
+# shows their stickers after the base ones, and a Studio frame renders in B8 with Pop + Y2K stickers
+# and the booth-style date + time stamp.
 # Needs Metro started with EXPO_PUBLIC_MOCK_CAMERA=1 (simulators have no camera).
 appId: app.fourpop.booth
 ---
@@ -32,10 +33,12 @@ appId: app.fourpop.booth
 - takeScreenshot: packs-b4-y2k
 - scrollUntilVisible:
     element:
-      id: b4.frame.y2k-holo
+      id: b4.frame.studio-black
     direction: DOWN
+- takeScreenshot: packs-b4-studio
+# Studio Black: a dark mat, so B8 also exercises the edge-colour corner fill.
 - tapOn:
-    id: b4.frame.y2k-holo
+    id: b4.frame.studio-black
 - extendedWaitUntil:
     visible:
       id: b3.startShooting
@@ -78,9 +81,9 @@ appId: app.fourpop.booth
         id: b7.sticker.pop-strawberry
     commands:
       - swipe:
-          start: 92%, 84%
-          end: 8%, 84%
-          duration: 400
+          start: 80%, 84%
+          end: 20%, 84%
+          duration: 1000
 - tapOn:
     id: b7.sticker.pop-strawberry
 - assertVisible:
@@ -93,9 +96,9 @@ appId: app.fourpop.booth
         id: b7.sticker.pop-wow
     commands:
       - swipe:
-          start: 92%, 84%
-          end: 8%, 84%
-          duration: 400
+          start: 80%, 84%
+          end: 20%, 84%
+          duration: 1000
 - tapOn:
     id: b7.sticker.pop-wow
 - repeat:
@@ -105,11 +108,21 @@ appId: app.fourpop.booth
         id: b7.sticker.y2k-y2k
     commands:
       - swipe:
-          start: 92%, 84%
-          end: 8%, 84%
-          duration: 400
+          start: 80%, 84%
+          end: 20%, 84%
+          duration: 1000
 - tapOn:
     id: b7.sticker.y2k-y2k
+# Booth-style date + time stamp (format 3).
+- tapOn:
+    id: b7.tool.date
+# The fourth chip sits past the right edge of the date row.
+- swipe:
+    start: 80%, 84%
+    end: 20%, 84%
+    duration: 1000
+- tapOn:
+    id: b7.date.3
 - takeScreenshot: packs-b7
 - tapOn:
     id: b7.done
