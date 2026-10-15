@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": 2,
+  "version": 3,
   "minAppVersion": "1.0.0",
   "packs": [
     {
@@ -714,6 +714,700 @@
       ],
       "minAppVersion": "1.0.0",
       "category": "basic"
+    },
+    {
+      "id": "pop",
+      "type": "frame",
+      "productId": null,
+      "entitlementId": null,
+      "free": true,
+      "bundled": true,
+      "category": "basic",
+      "minAppVersion": "1.0.0",
+      "title": {
+        "en": "Pop",
+        "vi": "Pop",
+        "th": "Pop"
+      },
+      "items": [
+        {
+          "id": "pop-sunset",
+          "title": {
+            "en": "Sunset",
+            "vi": "Hoàng hôn",
+            "th": "พระอาทิตย์ตก"
+          },
+          "layout": "strip4",
+          "image": "frames/pop/sunset.png",
+          "thumbnail": "frames/pop/sunset-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "pop-stardust",
+          "title": {
+            "en": "Stardust",
+            "vi": "Bụi sao",
+            "th": "ละอองดาว"
+          },
+          "layout": "strip4",
+          "image": "frames/pop/stardust.png",
+          "thumbnail": "frames/pop/stardust-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "pop-gingham",
+          "title": {
+            "en": "Gingham",
+            "vi": "Kẻ caro",
+            "th": "ลายตาราง"
+          },
+          "layout": "strip4",
+          "image": "frames/pop/gingham.png",
+          "thumbnail": "frames/pop/gingham-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "pop-confetti",
+          "title": {
+            "en": "Confetti",
+            "vi": "Confetti",
+            "th": "คอนเฟตติ"
+          },
+          "layout": "strip4",
+          "image": "frames/pop/confetti.png",
+          "thumbnail": "frames/pop/confetti-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "pop-sky",
+          "title": {
+            "en": "Sky",
+            "vi": "Bầu trời",
+            "th": "ท้องฟ้า"
+          },
+          "layout": "strip4",
+          "image": "frames/pop/sky.png",
+          "thumbnail": "frames/pop/sky-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "pop-checker",
+          "title": {
+            "en": "Checker",
+            "vi": "Bàn cờ",
+            "th": "หมากรุก"
+          },
+          "layout": "strip4",
+          "image": "frames/pop/checker.png",
+          "thumbnail": "frames/pop/checker-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "pop-ribbon",
+          "title": {
+            "en": "Ribbon",
+            "vi": "Nơ",
+            "th": "โบว์"
+          },
+          "layout": "strip4",
+          "image": "frames/pop/ribbon.png",
+          "thumbnail": "frames/pop/ribbon-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "pop-daisy",
+          "title": {
+            "en": "Daisy",
+            "vi": "Cúc họa mi",
+            "th": "เดซี่"
+          },
+          "layout": "strip4",
+          "image": "frames/pop/daisy.png",
+          "thumbnail": "frames/pop/daisy-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "pop-notebook",
+          "title": {
+            "en": "Notebook",
+            "vi": "Vở ô li",
+            "th": "สมุดกริด"
+          },
+          "layout": "strip4",
+          "image": "frames/pop/notebook.png",
+          "thumbnail": "frames/pop/notebook-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        },
+        {
+          "id": "pop-waves",
+          "title": {
+            "en": "Waves",
+            "vi": "Sóng",
+            "th": "คลื่น"
+          },
+          "layout": "strip4",
+          "image": "frames/pop/waves.png",
+          "thumbnail": "frames/pop/waves-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "basic"
+        }
+      ]
+    },
+    {
+      "id": "stickers-pop",
+      "type": "sticker",
+      "productId": null,
+      "entitlementId": null,
+      "free": true,
+      "bundled": true,
+      "category": "basic",
+      "minAppVersion": "1.0.0",
+      "title": {
+        "en": "Pop",
+        "vi": "Pop",
+        "th": "Pop"
+      },
+      "items": [
+        {
+          "id": "pop-strawberry",
+          "image": "stickers/pop/strawberry.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "pop-ice-cream",
+          "image": "stickers/pop/ice-cream.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "pop-sakura",
+          "image": "stickers/pop/sakura.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "pop-daisy",
+          "image": "stickers/pop/daisy.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "pop-butterfly",
+          "image": "stickers/pop/butterfly.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "pop-bubble-tea",
+          "image": "stickers/pop/bubble-tea.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "pop-cat",
+          "image": "stickers/pop/cat.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "pop-bear",
+          "image": "stickers/pop/bear.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "pop-bow",
+          "image": "stickers/pop/bow.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "pop-balloon",
+          "image": "stickers/pop/balloon.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "pop-cupcake",
+          "image": "stickers/pop/cupcake.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "pop-clover",
+          "image": "stickers/pop/clover.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "pop-sunglasses",
+          "image": "stickers/pop/sunglasses.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "pop-wow",
+          "image": "stickers/pop/wow.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "pop-yay",
+          "image": "stickers/pop/yay.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "pop-omg",
+          "image": "stickers/pop/omg.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "pop-planet",
+          "image": "stickers/pop/planet.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "pop-sparkle",
+          "image": "stickers/pop/sparkle.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "pop-peach",
+          "image": "stickers/pop/peach.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "pop-watermelon",
+          "image": "stickers/pop/watermelon.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        }
+      ]
     }
   ]
 }

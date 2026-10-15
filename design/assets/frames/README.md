@@ -23,3 +23,21 @@
 | hearts | fourpop-primary | 작은 흰 하트 | ink |
 
 프레임 원본은 `export/frames.py`(이 대화의 작업 폴더)에서 생성했다. 새 프레임은 같은 슬롯 좌표를 지키면 코드 변경 없이 매니페스트에만 추가하면 된다.
+
+## `pop/` — Pop 팩 10종 (무료, 번들, 2026-10-15)
+
+Cozy 요청(“좀더 예쁜 프레임”)으로 추가한 두 번째 기본 팩. 슬롯·캡션 좌표는 base와 동일, `scripts/content-gen/frames.ts`가 SVG → PNG(+썸네일)로 생성하고 `scripts/content-gen/manifest.ts`가 매니페스트 `pop` 팩을 갱신한다. 그라데이션 프레임은 B8이 JPEG 모서리를 가장자리 색으로 채우므로 바깥 30px를 단색 매트로 둔다.
+
+| id | 바탕 | 장식 | 캡션 색 |
+| --- | --- | --- | --- |
+| sunset | fourpop-primary 매트 | 코랄→피치→mood-4 세로 그라데이션 | ink |
+| stardust | 라벤더 #e6def7 | 흰·연보라 반짝임, 달 | #5a4a9c |
+| gingham | 흰 | 분홍 깅엄 체크, 캡션 흰 알약 | fourpop-deep |
+| confetti | #fffdf9 | 5색 색종이 | ink |
+| sky | 하늘 #d9ecff | 흰 구름, 노란 해 | ink |
+| checker | 흰/ink 체커보드 | 캡션 흰 알약(ink 테두리) | ink |
+| ribbon | 크림 #fff8f0 | ink 이중 테두리, 코랄 리본 | fourpop-deep |
+| daisy | 연민트 #d5f3ea | 흰 데이지(mood-4 중심) | ink |
+| notebook | 흰 | 하늘색 모눈·펀치 구멍 | #3b6fb6 |
+| waves | fourpop-soft | 민트·흰 물결 | ink |
+

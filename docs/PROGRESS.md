@@ -235,3 +235,5 @@ Nuni 1.0 심사 대기(2026-10-15 제출) · Fourpop S4 마무리 + S5 준비 �
 - 2026-10-15 S3: Cozy iPhone 12 Pro에 TestFlight(내부, Team (Expo))로 1.0.0(2) 설치·동작 확인(“잘된다”). 남은 것은 ASC 수동 입력과 심사 제출. Fourpop용 `store.config.json`(eas metadata) 준비
 - 2026-10-15 S3: ASC 웹 업로더가 스크린샷을 거절해 API 스크립트로 48장 업로드 완료(en-GB 기본 언어 포함). 남은 Cozy ASC 입력: 빌드 선택·심사 연락처/노트·App Privacy·가격 Free·국가 VN/TH·한국 규정 준수 → 심사 제출
 - 2026-10-15 S3: Cozy가 ASC에서 App Privacy 게시·빌드 선택·심사 정보·가격 무료·국가 VN/TH 입력 후 **심사 제출**(API 확인: 1.0.0 WAITING_FOR_REVIEW, releaseType MANUAL). 한국 규정 준수 정보는 무료 앱 제출을 막지 않았음
+- 2026-10-15 Fourpop 콘텐츠: Pop 프레임 10종·스티커 20종 추가(`scripts/content-gen`), Maestro `pop-content` 통과. Fourpop 스토어 스크린샷(#4 프레임 화면)은 제출 전 재촬영 필요(Pop 섹션 반영)
+

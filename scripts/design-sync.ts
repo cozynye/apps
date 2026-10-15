@@ -188,12 +188,15 @@ type ManifestJson = {
 
 function syncContent() {
   const contentRoot = join(ROOT, 'packages/content');
-  copyDir(join(DESIGN, 'assets/frames/base'), join(contentRoot, 'assets/frames/base'), (f) =>
-    f.endsWith('.png'),
-  );
-  copyDir(join(DESIGN, 'assets/stickers/base'), join(contentRoot, 'assets/stickers/base'), (f) =>
-    f.endsWith('.png'),
-  );
+  // Every bundled pack folder (frames/<pack>, stickers/<pack>): base + pop today.
+  for (const kind of ['frames', 'stickers']) {
+    for (const pack of readdirSync(join(DESIGN, 'assets', kind), { withFileTypes: true })) {
+      if (!pack.isDirectory()) continue;
+      copyDir(join(DESIGN, 'assets', kind, pack.name), join(contentRoot, 'assets', kind, pack.name), (f) =>
+        f.endsWith('.png') && !f.startsWith('_'),
+      );
+    }
+  }
 
   const manifestRaw = readFileSync(join(DESIGN, 'assets/manifest.json'), 'utf8');
   const manifest = JSON.parse(manifestRaw) as ManifestJson;

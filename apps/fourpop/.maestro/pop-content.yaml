@@ -1,0 +1,103 @@
+# Pop packs (2026-10-15): B4 lists the Pop frames under Basics, the B7 sticker tray shows the Pop
+# stickers, and a Pop frame renders in B8 with a Pop sticker on it.
+# Needs Metro started with EXPO_PUBLIC_MOCK_CAMERA=1 (simulators have no camera).
+appId: app.fourpop.booth
+---
+- runFlow: common/launch.yaml
+- extendedWaitUntil:
+    visible:
+      id: b2.skip
+    timeout: 20000
+- tapOn:
+    id: b2.skip
+- extendedWaitUntil:
+    visible:
+      id: b3.title
+    timeout: 10000
+- tapOn:
+    id: b3.allFrames
+- extendedWaitUntil:
+    visible:
+      id: b4.frame.base-classic
+    timeout: 10000
+- scrollUntilVisible:
+    element:
+      id: b4.frame.pop-sunset
+    direction: DOWN
+- takeScreenshot: pop-b4
+- scrollUntilVisible:
+    element:
+      id: b4.frame.pop-gingham
+    direction: DOWN
+- tapOn:
+    id: b4.frame.pop-gingham
+- extendedWaitUntil:
+    visible:
+      id: b3.startShooting
+    timeout: 10000
+- tapOn:
+    id: b3.startShooting
+- extendedWaitUntil:
+    visible:
+      id: b5.shutter
+    timeout: 10000
+- tapOn:
+    id: b5.timer.3
+- tapOn:
+    id: b5.shutter
+- extendedWaitUntil:
+    visible:
+      id: b6.title
+    timeout: 60000
+- tapOn:
+    id: b6.shot.0
+- tapOn:
+    id: b6.shot.2
+- tapOn:
+    id: b6.shot.4
+- tapOn:
+    id: b6.shot.6
+- tapOn:
+    id: b6.next
+- extendedWaitUntil:
+    visible:
+      id: b7.preview
+    timeout: 10000
+- tapOn:
+    id: b7.tool.stickers
+# Horizontal tray at ~84% of the screen height: swipe it until the Pop sticker is on screen.
+- repeat:
+    times: 10
+    while:
+      notVisible:
+        id: b7.sticker.pop-strawberry
+    commands:
+      - swipe:
+          start: 92%, 84%
+          end: 8%, 84%
+          duration: 400
+- tapOn:
+    id: b7.sticker.pop-strawberry
+- assertVisible:
+    id: b7.deleteItem
+# Horizontal tray at ~84% of the screen height: swipe it until the Pop sticker is on screen.
+- repeat:
+    times: 10
+    while:
+      notVisible:
+        id: b7.sticker.pop-wow
+    commands:
+      - swipe:
+          start: 92%, 84%
+          end: 8%, 84%
+          duration: 400
+- tapOn:
+    id: b7.sticker.pop-wow
+- takeScreenshot: pop-b7
+- tapOn:
+    id: b7.done
+- extendedWaitUntil:
+    visible:
+      id: b8.inGallery
+    timeout: 20000
+- takeScreenshot: pop-b8

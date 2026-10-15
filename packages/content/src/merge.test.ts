@@ -32,10 +32,10 @@ function remote(version: number, packs: Pack[], minAppVersion = '1.0.0'): Manife
 }
 
 describe('bundled manifest', () => {
-  it('matches the schema with 10 frames and 22 stickers', () => {
+  it('matches the schema: base 10 frames + 22 stickers, pop 10 frames + 20 stickers', () => {
     expect(bundled).not.toBeNull();
     const counts = Object.fromEntries(bundled.packs.map((p) => [p.id, p.items.length]));
-    expect(counts).toEqual({ base: 10, 'stickers-base': 22 });
+    expect(counts).toEqual({ base: 10, 'stickers-base': 22, pop: 10, 'stickers-pop': 20 });
   });
 
   it('rejects an unknown schemaVersion', () => {
@@ -65,7 +65,7 @@ describe('pickRemoteManifest', () => {
 describe('buildCatalog', () => {
   it('uses bundled packs only when there is no CDN manifest', () => {
     const c = buildCatalog({ bundled, remote: null, installed: [], appVersion: '1.0.0' });
-    expect(c.packs.map((p) => p.id)).toEqual(['base', 'stickers-base']);
+    expect(c.packs.map((p) => p.id)).toEqual(['base', 'stickers-base', 'pop', 'stickers-pop']);
     expect(c.updateRequired).toBe(false);
   });
 
@@ -77,7 +77,7 @@ describe('buildCatalog', () => {
       installed: [],
       appVersion: '1.0.0',
     });
-    expect(c.packs.map((p) => p.id)).toEqual(['base', 'stickers-base', 'tet']);
+    expect(c.packs.map((p) => p.id)).toEqual(['base', 'stickers-base', 'pop', 'stickers-pop', 'tet']);
     expect(c.packs[0]?.bundled).toBe(true);
   });
 
@@ -94,7 +94,7 @@ describe('buildCatalog', () => {
 
   it('ignores the whole CDN manifest below its root minAppVersion', () => {
     const c = buildCatalog({ bundled, remote: remote(2, [seasonPack('tet')], '2.0.0'), installed: [], appVersion: '1.0.0' });
-    expect(c.packs.map((p) => p.id)).toEqual(['base', 'stickers-base']);
+    expect(c.packs.map((p) => p.id)).toEqual(['base', 'stickers-base', 'pop', 'stickers-pop']);
     expect(c.updateRequired).toBe(true);
   });
 
@@ -118,8 +118,8 @@ describe('shop and season banner', () => {
 
   it('lists packs in their window plus installed ones', () => {
     const ids = shopPacks(catalog, '2027-02-05', new Set(['xmas'])).map((p) => p.id);
-    expect(ids).toEqual(['base', 'stickers-base', 'tet', 'valentine', 'xmas']);
-    expect(shopPacks(catalog, '2027-03-01', new Set()).map((p) => p.id)).toEqual(['base', 'stickers-base']);
+    expect(ids).toEqual(['base', 'stickers-base', 'pop', 'stickers-pop', 'tet', 'valentine', 'xmas']);
+    expect(shopPacks(catalog, '2027-03-01', new Set()).map((p) => p.id)).toEqual(['base', 'stickers-base', 'pop', 'stickers-pop']);
   });
 
   it('shows the latest season pack in its window, or none', () => {

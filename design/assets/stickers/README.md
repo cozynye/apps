@@ -8,3 +8,10 @@ star · heart · heart-mint · sparkle · bff · love · lol · smile · wink ·
 - 기본 크기: 긴 변이 canvas 너비의 22% (264px). 최소 10%, 최대 60%.
 - 시즌 스티커팩은 같은 규격으로 CDN `manifest.json`에 `type: "sticker"` 팩을 추가한다.
 - 원본 생성 스크립트: `export/stickers.py`.
+
+## `pop/` — Pop 팩 20종 (무료, 번들, 2026-10-15)
+
+같은 규격(512×512, ink 선 20px)에 파스텔 채움. `scripts/content-gen/stickers.ts`가 생성, 매니페스트 팩 id `stickers-pop`.
+
+strawberry · ice-cream · sakura · daisy · butterfly · bubble-tea · cat · bear · bow · balloon · cupcake · clover · sunglasses · wow · yay · omg · planet · sparkle · peach · watermelon
+

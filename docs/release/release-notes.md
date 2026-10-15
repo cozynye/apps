@@ -10,6 +10,6 @@
 
 ## Fourpop 1.0
 
-- **en**: Fourpop is here — a photo booth in your pocket. Real countdown, 8 shots, keep your best 4, 10 frames, filters, stickers, text and date stamp, HD export without watermark and animated GIFs, then save or share. Free, no ads.
-- **vi**: Fourpop ra mắt — photobooth trong túi bạn. Đếm ngược thật, 8 tấm, giữ 4 tấm đẹp nhất, 10 khung, bộ lọc, sticker, chữ và dấu ngày, xuất HD không watermark và GIF động, rồi lưu hoặc chia sẻ. Miễn phí, không quảng cáo.
-- **th**: Fourpop มาแล้ว — โฟโต้บูธในกระเป๋าคุณ นับถอยหลังจริง ถ่าย 8 ช็อต เก็บ 4 ช็อตที่ดีที่สุด กรอบ 10 แบบ ฟิลเตอร์ สติกเกอร์ ข้อความ ตราวันที่ ส่งออก HD ไม่มีลายน้ำและ GIF เคลื่อนไหว แล้วบันทึกหรือแชร์ ใช้ฟรี ไม่มีโฆษณา
+- **en**: Fourpop is here — a photo booth in your pocket. Real countdown, 8 shots, keep your best 4, 20 frames, filters, stickers, text and date stamp, HD export without watermark and animated GIFs, then save or share. Free, no ads.
+- **vi**: Fourpop ra mắt — photobooth trong túi bạn. Đếm ngược thật, 8 tấm, giữ 4 tấm đẹp nhất, 20 khung, bộ lọc, sticker, chữ và dấu ngày, xuất HD không watermark và GIF động, rồi lưu hoặc chia sẻ. Miễn phí, không quảng cáo.
+- **th**: Fourpop มาแล้ว — โฟโต้บูธในกระเป๋าคุณ นับถอยหลังจริง ถ่าย 8 ช็อต เก็บ 4 ช็อตที่ดีที่สุด กรอบ 20 แบบ ฟิลเตอร์ สติกเกอร์ ข้อความ ตราวันที่ ส่งออก HD ไม่มีลายน้ำและ GIF เคลื่อนไหว แล้วบันทึกหรือแชร์ ใช้ฟรี ไม่มีโฆษณา
