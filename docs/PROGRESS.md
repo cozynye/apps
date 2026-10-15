@@ -237,4 +237,5 @@ Nuni 1.0 심사 대기(2026-10-15 제출) · Fourpop S4 마무리 + S5 준비 �
 - 2026-10-15 S3: Cozy가 ASC에서 App Privacy 게시·빌드 선택·심사 정보·가격 무료·국가 VN/TH 입력 후 **심사 제출**(API 확인: 1.0.0 WAITING_FOR_REVIEW, releaseType MANUAL). 한국 규정 준수 정보는 무료 앱 제출을 막지 않았음
 - 2026-10-15 Fourpop 콘텐츠: Pop 프레임 10종·스티커 20종 추가(`scripts/content-gen`), Maestro `pop-content` 통과. Fourpop 스토어 스크린샷(#4 프레임 화면)은 제출 전 재촬영 필요(Pop 섹션 반영)
 - 2026-10-15 Fourpop 콘텐츠 2차: Y2K 프레임 10종·스티커 18종 추가(총 프레임 30·스티커 60). Maestro `bundled-packs` 통과. Fourpop 스토어 스크린샷 재촬영(#4는 Pop·Y2K 섹션이 보이게 스크롤)
+- 2026-10-15 S5: Fourpop 스토어 텍스트(en-GB·en-US·vi·th, 카테고리, 연령 등급)를 `eas metadata:push`로 ASC(App ID 6821789911, 1.0 Prepare for Submission)에 반영. Fourpop EAS 프로젝트에는 ASC 키가 없어 `EXPO_ASC_API_KEY_PATH/KEY_ID/ISSUER_ID` + `EXPO_APPLE_TEAM_TYPE=INDIVIDUAL`로 전달
 

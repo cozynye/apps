@@ -34,3 +34,16 @@ eas submit -p ios --profile production  # 릴리스 게이트 통과 후에만 (
 - `EXPO_PUBLIC_MOCK_CAMERA`, `EXPO_PUBLIC_FORCE_LOCALE`은 개발·E2E 전용이며 EAS 환경에 넣지 않는다.
 - OTA 업데이트(expo-updates)는 쓰지 않으므로 프로필에 `channel`을 두지 않는다(두면 빌드마다 경고).
 - 모노레포라 EAS는 저장소 루트를 올린다(`pnpm` 워크스페이스 자동 인식). `.easignore`는 아직 없다.
+
+## 스토어 메타데이터 푸시 (eas metadata)
+
+`apps/<app>/store.config.json`(원본은 `docs/release/store-*.md` + `release-notes.md`)을 ASC에 올린다. Nuni는 EAS 자격 증명 서비스에 ASC 키가 있어 `eas metadata:push --profile production`만으로 되고, Fourpop처럼 키가 없는 프로젝트는 `.env`의 `ASC_*` 키를 환경 변수로 넘긴다:
+
+```
+set -a; . ./.env; set +a
+cd apps/fourpop && EXPO_ASC_API_KEY_PATH="$PWD/../../$ASC_KEY_PATH" EXPO_ASC_KEY_ID=$ASC_KEY_ID EXPO_ASC_ISSUER_ID=$ASC_ISSUER_ID \
+  EXPO_APPLE_TEAM_TYPE=INDIVIDUAL EXPO_APPLE_TEAM_ID=TC547C863K eas metadata:push --profile production --non-interactive
+```
+
+(2026-10-15 Fourpop 반영 완료. 두 앱 모두 ASC 기본 언어가 영어(영국)라 `en-GB`도 같은 내용으로 들어 있다.)
+
