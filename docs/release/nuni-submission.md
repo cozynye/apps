@@ -34,7 +34,7 @@
 | 심사 노트 | `docs/release/review-notes.md` › Nuni (Sandbox 계정 치환) |
 | 새로운 기능 | `docs/release/release-notes.md` › Nuni 1.0 |
 | 수출 규정 | `ITSAppUsesNonExemptEncryption = NO` (app.json에 설정, 빌드에 포함) |
-| 판매 국가 | 베트남, 태국 (A2 확정 시) |
+| 판매 국가 | 베트남, 태국 (Cozy 확정 2026-10-15) |
 | 인앱 상품 | 없음 — 1.0 무료. ASC에 이미 만든 `mood_premium_monthly`·`mood_premium_yearly`는 이 버전에 연결하지 않는다(v1.1 결제는 아이템 단위 해금으로 재설계, Cozy 2026-10-15) |
 | 지원 이메일 | nunicozy@gmail.com |
 
