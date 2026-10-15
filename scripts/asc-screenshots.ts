@@ -16,7 +16,7 @@ import { join } from 'node:path';
 
 const ROOT = join(import.meta.dirname, '..');
 const API = 'https://api.appstoreconnect.apple.com/v1';
-const APP_IDS: Record<string, string> = { nuni: '6821789626' };
+const APP_IDS: Record<string, string> = { nuni: '6821789626', fourpop: '6821789911' };
 const LOCALES: Record<string, string[]> = { en: ['en-GB', 'en-US'], vi: ['vi'], th: ['th'] };
 const WELLS: Record<string, string> = { 'iphone-6.3': 'APP_IPHONE_61', ipad: 'APP_IPAD_PRO_3GEN_129' };
 
