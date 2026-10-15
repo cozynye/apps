@@ -51,7 +51,7 @@ Cozy가 “배포 / 출시 / 심사 제출 / TestFlight 외부 배포”를 말�
 | C10 | 스토어 메타데이터 입력용 최종본 정리 (`design/store/*.md`에서 자리표시자 치환) — `docs/release/store-*.md` 2026-10-15 무료 1.0 반영(Premium 절·구독 문구 삭제, 가격 무료, URL 치환 완료). Nuni는 `store.config.json`으로 ASC에 푸시 완료 | [x] | [x] |
 | C11 | 개인정보 라벨 답변표 (`design/legal/README.md` 매핑) 최종본 — `docs/release/privacy-labels.md` | [x] | [x] |
 | C12 | 심사 노트 최종본 (로그인 없음, 무료·결제 없음, 자체 브랜드·현지화 설명) — `docs/release/review-notes.md` 2026-10-15 무료 1.0 반영(Sandbox·상품 항목 삭제) | [x] | [x] |
-| C13 | TestFlight 외부 테스트 1주, Crashlytics 크래시 없는 사용자 99.5% 이상 | [ ] | [ ] |
+| C13 | TestFlight 외부 테스트 1주, Crashlytics 크래시 없는 사용자 99.5% 이상 — Cozy 지시로 건너뜀(아래 표 2026-10-13·14) | [-] | [-] |
 | C14 | 버전·빌드 번호, 릴리스 노트(vi·th·en) — 1.0.0(`app.json`), 빌드 번호는 EAS autoIncrement(`docs/release/eas.md`), `docs/release/release-notes.md` 2026-10-15 무료 문구 반영 | [x] | [x] |
 
 ## D. 알고 가는 것 (차단하지 않음)
