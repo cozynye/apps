@@ -56,7 +56,8 @@ capture() { # app device locale udid port — skipped when the 6 raw files alrea
 }
 
 STATUS=0
-for locale in "${@:-en vi th}"; do
+LOCALES=("$@"); [ ${#LOCALES[@]} -eq 0 ] && LOCALES=(en vi th)
+for locale in "${LOCALES[@]}"; do
   echo "=== locale $locale"
   restart_metro nuni "$NUNI_PORT" "$locale" || STATUS=1
   restart_metro fourpop "$FOURPOP_PORT" "$locale" EXPO_PUBLIC_MOCK_CAMERA=1 ${CDN:+EXPO_PUBLIC_CDN_BASE_URL="$CDN"} || STATUS=1
