@@ -232,3 +232,4 @@ S4 6단계 마무리 + S3·S5 출시 준비 — **1.0은 무료(결제 없음)�
 - 검증: typecheck·lint(경고 2, 기존)·Jest 68·i18n 패리티 통과. 스토어 스크린샷은 무료 UI로 재촬영(`store-shots-all.sh`)
 - 2026-10-15 P22 EAS: 두 앱 프로젝트 연결(`@cco33/nuni`, `@cco33/fourpop`), Nuni plist 파일 시크릿 등록(production·preview). Nuni production 빌드는 Apple 자격 증명 생성이 대화형이라 Cozy 터미널에서 `eas build -p ios --profile production` 실행 필요(`docs/release/eas.md`)
 - 2026-10-15 S3: Cozy가 `eas build`(Apple 인증서·프로파일 2개 생성)와 `eas submit`(ASC API 키 생성, App ID 6821789626) 실행. `eas metadata:push`로 en-US·vi·th 스토어 텍스트·카테고리·연령 등급 4+ 반영. 빌드 번호는 EAS remote(2)
+- 2026-10-15 S3: Cozy iPhone 12 Pro에 TestFlight(내부, Team (Expo))로 1.0.0(2) 설치·동작 확인(“잘된다”). 남은 것은 ASC 수동 입력과 심사 제출. Fourpop용 `store.config.json`(eas metadata) 준비
