@@ -28,6 +28,11 @@ appId: app.fourpop.booth
       id: b4.frame.y2k-chrome
     direction: DOWN
 - takeScreenshot: store-4
+# The close button scrolled off the top with the sheet content; bring it back first.
+- scrollUntilVisible:
+    element:
+      id: b4.close
+    direction: UP
 - tapOn:
     id: b4.close
 - tapOn:
