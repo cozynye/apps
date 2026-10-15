@@ -15,7 +15,7 @@ Cozy가 “배포 / 출시 / 심사 제출 / TestFlight 외부 배포”를 말�
 | A1 | 개발자 계정 종류 (개인 / 법인) | 결정 한 줄 | [ ] | [ ] |
 | A2 | 첫 출시 국가 (기본안: 베트남 + 태국 동시) | 확정 국가 목록 | [ ] | [ ] |
 | A3 | 보유 도메인 주소 → `[DOMAIN]` — 2026-10-15 Cozy: 커스텀 도메인 대신 GitHub Pages `https://cozynye.github.io/apps/` 사용 | — | [x] | [x] |
-| A4 | 약관·개인정보처리방침 시행일 → `[EFFECTIVE DATE]` | 날짜 (보통 1.0 제출일) | [ ] | [ ] |
+| A4 | 약관·개인정보처리방침 시행일 → `[EFFECTIVE DATE]` — 2026-10-15 (Cozy) | — | [x] | [x] |
 | A5 | Fourpop 첫 시즌팩 id·테마 → `[FIRST_SEASON_PACK_ID]` | id + 테마 (예 `tet_2027`, 뗏) | — | [ ] |
 | A6 | 태국 App Store 결제 수단 현지 지원 범위 확인 | 확인 결과 한 줄 | [ ] | [ ] |
 | A7 | 세금·정산 은행 정보 | App Store Connect에 직접 입력 완료 확인 | [ ] | [ ] |
@@ -39,9 +39,9 @@ Cozy가 “배포 / 출시 / 심사 제출 / TestFlight 외부 배포”를 말�
 
 | # | 항목 | N | F |
 | --- | --- | --- | --- |
-| C1 | `scripts/check-placeholders.sh` 결과 0건 (`[DOMAIN]`, `[TERMS URL]`, `[PRIVACY URL]`, `[EFFECTIVE DATE]`, `[FIRST_SEASON_PACK_ID]`, `TODO(release)`) | [ ] | [ ] |
+| C1 | `scripts/check-placeholders.sh` 결과 0건 (`[DOMAIN]`, `[TERMS URL]`, `[PRIVACY URL]`, `[EFFECTIVE DATE]`, `[FIRST_SEASON_PACK_ID]`, `TODO(release)`) — 2026-10-15 자리표시자 0건; 스크립트의 시크릿 검사(RC 실제 키·CDN URL·Fourpop plist)만 남음 | [x] | [ ] |
 | C2 | P21 `web/legal` 개인정보처리방침·이용약관·지원 페이지를 `https://cozynye.github.io/apps/`에 배포(GitHub Pages, Actions), URL 접속 확인 — 2026-10-15 세 URL 모두 200 (시행일은 아직 자리표시자) | [x] | [x] |
-| C3 | 앱 내 A13/B13 약관 본문과 웹 페이지 본문 일치, 시행일 반영 | [ ] | [ ] |
+| C3 | 앱 내 A13/B13 약관 본문과 웹 페이지 본문 일치, 시행일 반영 — 같은 `legalMarkdown` 소스에서 생성, 2026-10-15 시행일 반영 | [x] | [x] |
 | C4 | 실제 RevenueCat 키·실제 상품으로 Sandbox 검증: 구독·체험·체험 자격 없음·단품·복원·만료 | [ ] | [ ] |
 | C5 | Firebase DebugView에서 이벤트 확인, `mood`·본문·태그 이름 미전송 확인 (Nuni 2026-10-14 실기기 DebugView) | [x] | [ ] |
 | C6 | Fourpop: R2에 `manifest.json` + 첫 시즌팩 업로드, 앱에서 상점·구매·다운로드 확인 | — | [ ] |

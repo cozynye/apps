@@ -5,7 +5,18 @@
       "reason": "MVP: Nuni has no one-time purchases (no themes); only Fourpop sells packs (DECISIONS 2026-10-08)",
       "find": "Each App offers an auto-renewing subscription (\"Premium\") and one-time purchases (theme or frame packs).",
       "replace": "Each App offers an auto-renewing subscription (\"Premium\"). Fourpop also offers one-time purchases (frame and sticker packs)."
+    },
+    {
+      "reason": "Effective date = 1.0 submission date (Cozy 2026-10-15)",
+      "find": "Effective: [EFFECTIVE DATE]",
+      "replace": "Effective: October 15, 2026"
     }
   ],
-  "privacy": []
+  "privacy": [
+    {
+      "reason": "Effective date = 1.0 submission date (Cozy 2026-10-15)",
+      "find": "Effective: [EFFECTIVE DATE]",
+      "replace": "Effective: October 15, 2026"
+    }
+  ]
 }
