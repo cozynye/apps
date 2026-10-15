@@ -230,3 +230,4 @@ S4 6단계 마무리 + S3·S5 출시 준비 — **1.0은 무료(결제 없음)�
 - `EXPO_PUBLIC_MONETIZATION` 플래그(기본 꺼짐): 권한 훅 항상 true, RevenueCat 미초기화, 설정 구독 섹션·페이월 진입·시즌 배너 페이월 숨김, 상점 카드 전부 Free. 결제 코드·E2E 플로우는 `=on`으로 보존
 - 약관·개인정보처리방침(앱 A13/B13 + 웹 Pages)에서 결제·RevenueCat·StoreKit 문구 제거(`legal-patches.json`), 스토어 문구·심사 노트·개인정보 라벨·릴리스 노트·제출 안내서·EAS 문서 무료 기준으로 수정, RELEASE_CHECKLIST의 결제 항목 [-] 처리
 - 검증: typecheck·lint(경고 2, 기존)·Jest 68·i18n 패리티 통과. 스토어 스크린샷은 무료 UI로 재촬영(`store-shots-all.sh`)
+- 2026-10-15 P22 EAS: 두 앱 프로젝트 연결(`@cco33/nuni`, `@cco33/fourpop`), Nuni plist 파일 시크릿 등록(production·preview). Nuni production 빌드는 Apple 자격 증명 생성이 대화형이라 Cozy 터미널에서 `eas build -p ios --profile production` 실행 필요(`docs/release/eas.md`)

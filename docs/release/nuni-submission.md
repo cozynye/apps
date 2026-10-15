@@ -9,7 +9,7 @@
 | 도메인 | GitHub Pages `https://cozynye.github.io/apps/` (Cozy 결정 2026-10-15) — 개인정보 `https://cozynye.github.io/apps/privacy.html`, 약관 `https://cozynye.github.io/apps/terms.html`, 지원 `https://cozynye.github.io/apps/` | **완료** |
 | 시행일 `[EFFECTIVE DATE]` | 앱 내 A13 약관·개인정보 + 웹 페이지 | **완료** — 2026-10-15 (Effective: October 15, 2026) |
 |||| 유료 앱 계약·세금·은행 | — | **불필요** — 1.0은 무료(Cozy 결정 2026-10-15). 무료 앱은 개발자 프로그램 사용권 계약만으로 제출 가능. 단 ASC ‘한국 규정 준수 정보’가 무료 앱에도 사업자등록번호를 요구하는지는 미확인 |
-| EAS 프로젝트 ID (`eas init`) | `app.json` `extra.eas.projectId` | 미정 (P22) |
+| EAS 프로젝트 ID (`eas init`) | `app.json` `extra.eas.projectId` | **완료** (2026-10-15, `@cco33/nuni`) |
 || Firebase plist (Nuni) | EAS 파일 시크릿 `GOOGLE_SERVICES_PLIST_NUNI` | **있음** (로컬) — EAS에 등록 필요 |
 |
 ## 2. 빌드·제출 순서 (Claude Code)

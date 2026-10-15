@@ -7,7 +7,6 @@
     "development": {
       "developmentClient": true,
       "distribution": "internal",
-      "channel": "development",
       "ios": { "simulator": true },
       "env": { "EXPO_PUBLIC_ENV": "development" }
     },
@@ -17,13 +16,11 @@
     },
     "preview": {
       "distribution": "store",
-      "channel": "preview",
       "autoIncrement": true,
       "env": { "EXPO_PUBLIC_ENV": "preview" }
     },
     "production": {
       "distribution": "store",
-      "channel": "production",
       "autoIncrement": true,
       "env": { "EXPO_PUBLIC_ENV": "production" }
     }
