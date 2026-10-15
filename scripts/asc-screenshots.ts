@@ -20,10 +20,13 @@ const APP_IDS: Record<string, string> = { nuni: '6821789626' };
 const LOCALES: Record<string, string[]> = { en: ['en-GB', 'en-US'], vi: ['vi'], th: ['th'] };
 const WELLS: Record<string, string> = { 'iphone-6.3': 'APP_IPHONE_61', ipad: 'APP_IPAD_PRO_3GEN_129' };
 
-const app = process.argv[2];
+const app = process.argv[2] ?? '';
+const APP_ID = APP_IDS[app];
 const dryRun = process.argv.includes('--dry-run');
-if (!app || !APP_IDS[app]) throw new Error('usage: asc-screenshots.ts <nuni|fourpop> [--dry-run]');
-const { ASC_KEY_ID, ASC_ISSUER_ID, ASC_KEY_PATH } = process.env;
+if (!APP_ID) throw new Error('usage: asc-screenshots.ts <nuni|fourpop> [--dry-run]');
+const ASC_KEY_ID = process.env.ASC_KEY_ID ?? '';
+const ASC_ISSUER_ID = process.env.ASC_ISSUER_ID ?? '';
+const ASC_KEY_PATH = process.env.ASC_KEY_PATH ?? '';
 if (!ASC_KEY_ID || !ASC_ISSUER_ID || !ASC_KEY_PATH) throw new Error('set ASC_KEY_ID, ASC_ISSUER_ID, ASC_KEY_PATH');
 
 const b64url = (b: Buffer) => b.toString('base64').replace(/=+$/, '').replace(/\+/g, '-').replace(/\//g, '_');
@@ -31,7 +34,7 @@ function token(): string {
   const now = Math.floor(Date.now() / 1000);
   const header = b64url(Buffer.from(JSON.stringify({ alg: 'ES256', kid: ASC_KEY_ID, typ: 'JWT' })));
   const payload = b64url(Buffer.from(JSON.stringify({ iss: ASC_ISSUER_ID, iat: now, exp: now + 15 * 60, aud: 'appstoreconnect-v1' })));
-  const key = createPrivateKey(readFileSync(ASC_KEY_PATH!, 'utf8'));
+  const key = createPrivateKey(readFileSync(ASC_KEY_PATH, 'utf8'));
   const sig = sign('sha256', Buffer.from(`${header}.${payload}`), { key, dsaEncoding: 'ieee-p1363' });
   return `${header}.${payload}.${b64url(sig)}`;
 }
@@ -48,7 +51,7 @@ async function api<T = any>(method: string, path: string, body?: unknown): Promi
 }
 
 async function versionId(): Promise<string> {
-  const r = await api('GET', `/apps/${APP_IDS[app]}/appStoreVersions?filter[platform]=IOS&limit=5`);
+  const r = await api('GET', `/apps/${APP_ID}/appStoreVersions?filter[platform]=IOS&limit=5`);
   const editable = r.data.find((v: any) => ['PREPARE_FOR_SUBMISSION', 'DEVELOPER_REJECTED', 'REJECTED', 'METADATA_REJECTED', 'INVALID_BINARY'].includes(v.attributes.appStoreState));
   if (!editable) throw new Error(`no editable version: ${r.data.map((v: any) => `${v.attributes.versionString}=${v.attributes.appStoreState}`).join(', ')}`);
   console.log(`version ${editable.attributes.versionString} (${editable.attributes.appStoreState})`);
@@ -100,33 +103,40 @@ async function upload(set: string, file: string, fileName: string) {
   console.warn(`  ${fileName}: still processing`);
 }
 
-const version = await versionId();
-const locs = await localizations(version);
-console.log(`localizations: ${[...locs.keys()].join(', ')}`);
-for (const [folder, ascLocales] of Object.entries(LOCALES)) {
-  for (const [well, displayType] of Object.entries(WELLS)) {
-    const dir = join(ROOT, 'docs/release/screenshots', app, well, folder);
-    if (!existsSync(dir)) {
-      console.warn(`skip ${well}/${folder} (no folder)`);
-      continue;
-    }
-    for (const locale of ascLocales) {
-      const loc = locs.get(locale);
-      if (!loc) {
-        console.warn(`skip ${locale}: not on this version`);
+async function main() {
+  const version = await versionId();
+  const locs = await localizations(version);
+  console.log(`localizations: ${[...locs.keys()].join(', ')}`);
+  for (const [folder, ascLocales] of Object.entries(LOCALES)) {
+    for (const [well, displayType] of Object.entries(WELLS)) {
+      const dir = join(ROOT, 'docs/release/screenshots', app, well, folder);
+      if (!existsSync(dir)) {
+        console.warn(`skip ${well}/${folder} (no folder)`);
         continue;
       }
-      console.log(`${locale} ${displayType} ← ${well}/${folder}`);
-      if (dryRun) continue;
-      const set = await screenshotSet(loc, displayType);
-      await clearSet(set);
-      for (let i = 1; i <= 6; i += 1) {
-        const file = join(dir, `${i}.png`);
-        if (!existsSync(file)) continue;
-        await upload(set, file, `${app}-${well}-${folder}-${i}.png`);
-        console.log(`  ${i}.png ok`);
+      for (const locale of ascLocales) {
+        const loc = locs.get(locale);
+        if (!loc) {
+          console.warn(`skip ${locale}: not on this version`);
+          continue;
+        }
+        console.log(`${locale} ${displayType} ← ${well}/${folder}`);
+        if (dryRun) continue;
+        const set = await screenshotSet(loc, displayType);
+        await clearSet(set);
+        for (let i = 1; i <= 6; i += 1) {
+          const file = join(dir, `${i}.png`);
+          if (!existsSync(file)) continue;
+          await upload(set, file, `${app}-${well}-${folder}-${i}.png`);
+          console.log(`  ${i}.png ok`);
+        }
       }
     }
   }
+  console.log('done');
 }
-console.log('done');
+
+main().catch((e) => {
+  console.error(e instanceof Error ? e.message : e);
+  process.exit(1);
+});
