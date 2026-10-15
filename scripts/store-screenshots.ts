@@ -21,8 +21,17 @@ type App = 'nuni' | 'fourpop';
 type Device = 'iphone' | 'ipad';
 type Locale = 'en' | 'vi' | 'th';
 
-/** App Store Connect sizes: iPhone 6.9" portrait, iPad 13" portrait. */
+/** Raw capture sizes: iPhone 17 Pro Max (6.9") and iPad Pro 13" simulators, portrait. */
 const SIZE: Record<Device, { w: number; h: number }> = { iphone: { w: 1320, h: 2868 }, ipad: { w: 2064, h: 2752 } };
+/**
+ * App Store Connect upload sizes. The 2026 ASC version page's primary iPhone slot is "Dynamic Island iPhone
+ * (medium display)" = 6.3" 1206×2622; the 6.9" 1320×2868 set stays for the large-display slot in Media Manager.
+ */
+const OUTPUTS: { device: Device; out: string; w: number; h: number }[] = [
+  { device: 'iphone', out: 'iphone-6.3', w: 1206, h: 2622 },
+  { device: 'iphone', out: 'iphone', w: 1320, h: 2868 },
+  { device: 'ipad', out: 'ipad', w: 2064, h: 2752 },
+];
 
 const tokens = JSON.parse(readFileSync(join(ROOT, 'design/tokens.json'), 'utf8')) as {
   color: { tokens: { name: string; value: { light: string } }[] };
@@ -63,8 +72,7 @@ function wrap(text: string, maxWidth: number, fontSize: number): string[] {
   return lines;
 }
 
-function compose(app: App, device: Device, locale: Locale, index: number, caption: string, png: Buffer) {
-  const { w, h } = SIZE[device];
+function compose(app: App, device: Device, outDir: string, w: number, h: number, locale: Locale, index: number, caption: string, png: Buffer) {
   const accentSoft = color(app === 'nuni' ? 'nuni-soft' : 'fourpop-soft');
   const family = locale === 'th' ? 'Prompt' : 'Be Vietnam Pro';
   const margin = Math.round(w * 0.07);
@@ -107,14 +115,14 @@ function compose(app: App, device: Device, locale: Locale, index: number, captio
       defaultFontFamily: family,
     },
   }).render();
-  const dir = join(OUT, app, device, locale);
+  const dir = join(OUT, app, outDir, locale);
   mkdirSync(dir, { recursive: true });
   writeFileSync(join(dir, `${index}.png`), out.asPng());
 }
 
 let made = 0;
 for (const app of ['nuni', 'fourpop'] as App[]) {
-  for (const device of ['iphone', 'ipad'] as Device[]) {
+  for (const { device, out, w, h } of OUTPUTS) {
     for (const locale of ['en', 'vi', 'th'] as Locale[]) {
       const dir = join(RAW, app, device, locale);
       if (!existsSync(dir)) continue;
@@ -125,7 +133,7 @@ for (const app of ['nuni', 'fourpop'] as App[]) {
           console.warn(`missing ${app}/${device}/${locale}/${i}.png`);
           continue;
         }
-        compose(app, device, locale, i, caps[i - 1]!, readFileSync(file));
+        compose(app, device, out, w, h, locale, i, caps[i - 1]!, readFileSync(file));
         made += 1;
       }
     }

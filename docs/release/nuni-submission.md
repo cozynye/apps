@@ -28,7 +28,7 @@
 | 카테고리 | Lifestyle (보조 Health & Fitness) |
 | 연령 등급 | 4+ |
 | 가격 | 무료(Free Tier) — 인앱결제 없음 |
-| 스크린샷 | `docs/release/screenshots/nuni/iphone/<locale>/1–6.png`(6.9", 1320×2868), `…/ipad/<locale>/1–6.png`(13", 2064×2752). 캡션 순서는 store-nuni.md의 1~6 |
+| 스크린샷 | ASC(2026) 버전 페이지의 iPhone 기본 칸은 ‘Dynamic Island 지원 iPhone (중형 디스플레이)’ = 6.3" → `docs/release/screenshots/nuni/iphone-6.3/<locale>/1–6.png`(1206×2622). 6.9" `…/iphone/<locale>/`(1320×2868)은 미디어 관리의 대형 디스플레이 칸용(선택). iPad 13" `…/ipad/<locale>/1–6.png`(2064×2752). 캡션 순서는 store-nuni.md의 1~6 |
 | 개인정보처리방침 URL · 지원 URL | `https://cozynye.github.io/apps/privacy.html` · `https://cozynye.github.io/apps/` |
 | App Privacy 라벨 | `docs/release/privacy-labels.md` |
 | 심사 노트 | `docs/release/review-notes.md` › Nuni (Sandbox 계정 치환) |
