@@ -35,3 +35,5 @@ Nuni와 같은 순서로 간다(`nuni-submission.md`). 2026-10-15 기준 현황�
 - 카메라·사진 추가 권한 문구(vi·th·en)는 `packages/i18n/permissions/fourpop`에서 빌드에 들어감(C8 확인됨).
 - 번들 콘텐츠: 프레임 30종(Basics 10 + Pop 10 + Y2K 10), 스티커 60종(22 + 20 + 18), 매니페스트 버전 4. CDN 시즌팩은 A5 결정 후.
 - 실기기 확인 대기(Cozy iPhone 12 Pro): 권한 거부, 비행기 모드, 공유, HD 저장 시간 — RELEASE_CHECKLIST C7.
+- Firebase(2026-10-16 연결): 분석 이벤트 `booth_*`·`pack_*`는 Debug 빌드의 `[analytics]` 로그로 확인. **DebugView 확인(C5)은 Cozy가 Firebase 콘솔 › Analytics › DebugView에서** — TestFlight 빌드는 DebugView에 안 잡히므로 dev client를 `-FIRDebugEnabled` 인자로 실행해야 한다(`xcrun simctl launch <UDID> app.fourpop.booth -FIRDebugEnabled` 후 dev client URL 열기, 또는 Xcode 스킴 인자). 이벤트에 `mood`·본문·태그 같은 금지 키가 없는 것은 `buildEventParams` 유닛 테스트로 보장.
+
