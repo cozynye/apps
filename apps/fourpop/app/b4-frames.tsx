@@ -14,7 +14,7 @@ import {
   useToast,
   XIcon,
 } from '@nf/ui';
-import { router } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Image, ScrollView, StyleSheet, View } from 'react-native';
@@ -35,7 +35,8 @@ export default function FramesScreen() {
   const packs = framePacks(useCatalog((s) => s.packs));
   const snapshot = useEntitlementStore();
   const { frameId, setFrame } = useFrameChoice();
-  const [tab, setTab] = useState<Tab>('basics');
+  const params = useLocalSearchParams<{ tab?: string }>();
+  const [tab, setTab] = useState<Tab>(params.tab === 'season' || params.tab === 'owned' ? params.tab : 'basics');
   const language = isLanguage(i18n.language) ? i18n.language : 'en';
   const today = toLocalDateString(new Date());
 
@@ -45,7 +46,8 @@ export default function FramesScreen() {
     tab === 'basics'
       ? packs.filter((p) => p.category === 'basic')
       : tab === 'season'
-        ? packs.filter((p) => p.category !== 'basic' && (isAvailableOn(p, today) || usable(p)))
+        ? // Free 1.0: season packs show only inside their window; with purchases on, owned ones stay (PLAN 예외).
+          packs.filter((p) => p.category !== 'basic' && (isAvailableOn(p, today) || (MONETIZATION && usable(p))))
         : packs.filter((p) => !p.free && usable(p));
 
   async function select(item: FrameItem, locked: boolean) {

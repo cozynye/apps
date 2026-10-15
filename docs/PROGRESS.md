@@ -239,4 +239,5 @@ Nuni 1.0 심사 대기(2026-10-15 제출) · Fourpop S4 마무리 + S5 준비 �
 - 2026-10-15 Fourpop 콘텐츠 2차: Y2K 프레임 10종·스티커 18종 추가(총 프레임 30·스티커 60). Maestro `bundled-packs` 통과. Fourpop 스토어 스크린샷 재촬영(#4는 Pop·Y2K 섹션이 보이게 스크롤)
 - 2026-10-15 S5: Fourpop 스토어 텍스트(en-GB·en-US·vi·th, 카테고리, 연령 등급)를 `eas metadata:push`로 ASC(App ID 6821789911, 1.0 Prepare for Submission)에 반영. Fourpop EAS 프로젝트에는 ASC 키가 없어 `EXPO_ASC_API_KEY_PATH/KEY_ID/ISSUER_ID` + `EXPO_APPLE_TEAM_TYPE=INDIVIDUAL`로 전달
 - 2026-10-15 S5: Fourpop 스토어 스크린샷 재촬영(Pop·Y2K 반영, 4번은 프레임 시트를 스크롤해 새 팩이 보이게) → ASC에 48장 API 업로드 완료. 이제 Fourpop은 plist(P18)·시즌팩 여부(A5)·Cozy 터미널의 첫 `eas build`만 남음
+- 2026-10-16 Fourpop 콘텐츠 3차: 무료 번들 시즌팩 5개(할로윈·크리스마스·뗏·발렌타인·쏭끄란, 프레임 30 + 스티커 40, 매니페스트 v5) + 기간 필터 연결. Maestro `season-packs`(배너 → Season 탭 → 촬영 → 시즌 스티커 → 상점 Free) 통과. 총 프레임 60종·스티커 100종
 

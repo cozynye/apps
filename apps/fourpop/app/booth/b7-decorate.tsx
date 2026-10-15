@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/refs -- PanResponder callbacks read refs during gestures only; the compiler cannot see that. */
-import { formatDateNumeric, intlLocale, isLanguage } from '@nf/i18n';
+import { formatDateNumeric, intlLocale, isLanguage, toLocalDateString } from '@nf/i18n';
 import { useEntitlement } from '@nf/purchases';
 import {
   ArrowCounterClockwiseIcon,
@@ -29,6 +29,7 @@ import { Alert, Image, PanResponder, Pressable, ScrollView, StyleSheet, View, ty
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { useFrameChoice } from '../../src/booth';
+import { isAvailableOn } from '@nf/content';
 import { findFrame, imageSource, stickerPacks, useCanUse, useCatalog, PREMIUM } from '../../src/catalog';
 import { measure, StripScene, textParagraph } from '../../src/components/StripScene';
 import { newKey, useDecorate, type Decoration, type Placed } from '../../src/decorate';
@@ -481,7 +482,9 @@ function FilterChip({
 
 /** Stickers from usable sticker packs (base 22 free; locked packs open the pack paywall). */
 function StickerTray({ onPick }: { onPick: (image: string) => void }) {
-  const packs = stickerPacks(useCatalog((s) => s.packs));
+  const today = toLocalDateString(new Date());
+  // Season sticker packs follow their availability window like the frame sheet's Season tab.
+  const packs = stickerPacks(useCatalog((s) => s.packs)).filter((p) => p.category === 'basic' || isAvailableOn(p, today));
   return (
     <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.panelRow}>
       {packs.map((pack) => (

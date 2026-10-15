@@ -16,7 +16,7 @@ Cozy가 “배포 / 출시 / 심사 제출 / TestFlight 외부 배포”를 말�
 | A2 | 첫 출시 국가 (기본안: 베트남 + 태국 동시) — 2026-10-15 Cozy 확정: 베트남·태국 | — | [x] | [x] |
 | A3 | 보유 도메인 주소 → `[DOMAIN]` — 2026-10-15 Cozy: 커스텀 도메인 대신 GitHub Pages `https://cozynye.github.io/apps/` 사용 | — | [x] | [x] |
 | A4 | 약관·개인정보처리방침 시행일 → `[EFFECTIVE DATE]` — 2026-10-15 (Cozy) | — | [x] | [x] |
-| A5 | Fourpop 첫 시즌팩 id·테마 → `[FIRST_SEASON_PACK_ID]` — 1.0 무료라 **선택**: 무료 다운로드 팩으로 올릴 때만(없으면 상점은 번들 팩만 표시) | id + 테마 (예 `tet_2027`, 뗏) 또는 ‘1.0은 없음’ | — | [ ] |
+| A5 | Fourpop 첫 시즌팩 — 2026-10-16 Cozy “시즌팩 일단 무료로 풀자” → 번들 무료 시즌팩 5개(halloween-2026·xmas-2026·tet-2027·valentine-2027·songkran-2027), CDN 불필요 | — | — | [x] |
 | A6 | 태국 App Store 결제 수단 현지 지원 범위 확인 — 1.0 무료(Cozy 결정 2026-10-15), 결제 추가 시(v1.1) | 확인 결과 한 줄 | [-] | [-] |
 | A7 | 세금·정산 은행 정보 — 1.0 무료(Cozy 결정 2026-10-15), 유료 앱 계약 자체를 보류 | App Store Connect에 직접 입력 완료 확인 | [-] | [-] |
 | A8 | 가격 최종 확인 (PLAN ‘수익 모델과 가격’ 표) — 1.0 무료(Cozy 결정 2026-10-15). v1.1 결제는 월·연 구독 대신 아이템 단위 일회성 해금으로 재설계(Cozy) | 그대로 / 변경값 | [-] | [-] |
@@ -29,7 +29,7 @@ Cozy가 “배포 / 출시 / 심사 제출 / TestFlight 외부 배포”를 말�
 | B2 | P16 인앱 상품 등록 (PLAN ‘상품 ID와 권한’ 표 그대로, Fourpop은 첫 시즌팩 1개). 2026-10-12 Nuni 구독 2개 생성됨 — **연간 7일 무료체험(Introductory Offer) 미설정**, 사용 가능 국가 VN·TH. — 1.0 무료(Cozy 결정 2026-10-15): 이 버전에 상품을 연결하지 않음 | 등록 완료 확인 | [-] | [-] |
 | B3 | P17 RevenueCat: 앱 2개, Entitlement·Offering, In-App Purchase Key(.p8), Shared Secret, Server Notifications URL — 1.0 무료(Cozy 결정 2026-10-15): `EXPO_PUBLIC_MONETIZATION` 꺼짐, SDK 미초기화 | iOS API 키 2개 (`.env` / EAS Secrets) | [-] | [-] |
 | B4 | P18 Firebase 프로젝트 2개 (Analytics, Crashlytics). 2026-10-13 Nuni plist 수령·연결(프로젝트 nuni-6dc73), EAS 파일 시크릿 `GOOGLE_SERVICES_PLIST_NUNI` production·preview 등록 완료(2026-10-15) | `GoogleService-Info.plist` 2개 | [x] | [ ] |
-| B5 | P19 Cloudflare R2 버킷 + 공개 URL | CDN base URL | — | [ ] |
+| B5 | P19 Cloudflare R2 버킷 + 공개 URL — 1.0은 시즌팩을 번들로 넣어 불필요(v1.1 CDN 팩 때) | CDN base URL | — | [-] |
 | B6 | Small Business Program 신청 (수수료 15%) — 1.0 무료(Cozy 결정 2026-10-15), 매출 없음 | 신청 완료 확인 | [-] | [-] |
 | B7 | Sandbox 테스터 계정 1개 이상 — 1.0 무료(Cozy 결정 2026-10-15), 결제 없음 | 계정 이메일 (비밀번호는 문서에 쓰지 않음) | [-] | [-] |
 | B8 | TestFlight 외부 테스터 현지 사용자 3명 이상 섭외 — C13(외부 테스트 1주)과 함께 Cozy 지시로 건너뜀 | 이메일 목록 | [-] | [-] |
@@ -44,7 +44,7 @@ Cozy가 “배포 / 출시 / 심사 제출 / TestFlight 외부 배포”를 말�
 | C3 | 앱 내 A13/B13 약관 본문과 웹 페이지 본문 일치, 시행일 반영 — 같은 `legalMarkdown` 소스에서 생성, 2026-10-15 시행일 반영 | [x] | [x] |
 | C4 | 실제 RevenueCat 키·실제 상품으로 Sandbox 검증: 구독·체험·체험 자격 없음·단품·복원·만료 — 1.0 무료(Cozy 결정 2026-10-15), v1.1 | [-] | [-] |
 | C5 | Firebase DebugView에서 이벤트 확인, `mood`·본문·태그 이름 미전송 확인 (Nuni 2026-10-14 실기기 DebugView) | [x] | [ ] |
-| C6 | Fourpop: R2에 `manifest.json` + 첫 시즌팩 업로드, 앱에서 상점·다운로드 확인 — A5가 ‘1.0은 없음’이면 [-] (구매 단계는 1.0에 없음) | — | [ ] |
+| C6 | Fourpop: R2에 `manifest.json` + 첫 시즌팩 업로드 — 1.0은 번들 시즌팩(A5)이라 해당 없음; 번들 시즌팩은 Maestro `season-packs`로 확인(2026-10-16) | — | [-] |
 | C7 | PLAN ‘완료 기준’ 전 항목 충족 (Maestro iPhone·iPad, 3개 언어, 비행기 모드, 콜드 스타트, 합성 성능, 접근성) — Nuni: S2 완료, 건너뛴 항목은 아래 표 | [x] | [ ] |
 | C8 | Info.plist 권한 문구 vi·th·en, `ITSAppUsesNonExemptEncryption = NO`, `supportsTablet: true` (2026-10-14 ios/ 생성물에서 확인) | [x] | [x] |
 | C9 | 스토어 스크린샷: iPhone 6.9인치 + iPad 13인치 × vi·th·en × 6장 (`design/store/*.md`의 캡션) — 2026-10-14 생성 `docs/release/screenshots/<app>/<device>/<locale>/1–6.png` (시뮬레이터 dev 빌드, Fourpop 사진은 도형 샘플). 2026-10-15 무료 UI(잠금·워터마크 없음)로 재촬영. ASC 2026 기본 iPhone 칸(6.3", 1206×2622)용 `iphone-6.3/` 세트 추가 생성, 알파 채널 제거(RGB) — ASC는 RGBA PNG도 ‘파일 크기가 유효하지 않음’으로 거절. 두 앱 모두 API로 ASC 업로드 완료(Nuni 48장, Fourpop 48장 — Fourpop은 Pop·Y2K 반영 재촬영) | [x] | [x] |
@@ -75,3 +75,4 @@ Cozy가 “배포 / 출시 / 심사 제출 / TestFlight 외부 배포”를 말�
 | 2026-10-15 | A6·A7·A8·B1(유료 앱 계약)·B2·B3·B6·B7·C4 | Nuni·Fourpop | Cozy: 한국 계정 유료 앱 계약에 사업자등록번호가 필요 → “일단 수익화보다 사용자 확보를 먼저” — 1.0은 구독·단품·광고 없이 전부 무료, 수익화는 추후 아이템 단위 인앱 해금으로 |
 | 2026-10-15 | B8 외부 테스터 섭외 (C13과 한 묶음) | Nuni·Fourpop | Cozy 2026-10-13/14 “테스트플라이트도 안해도 된다” |
 | 2026-10-15 | B9 법률 검토 | Nuni·Fourpop | Cozy: “법률검토 생략해라” |
+| 2026-10-16 | B5 R2·C6 CDN 시즌팩 | Fourpop | Cozy: “시즌팩 일단 무료로 풀자” → 1.0은 번들 무료 시즌팩, CDN은 v1.1 |

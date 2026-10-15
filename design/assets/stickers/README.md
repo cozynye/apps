@@ -21,3 +21,7 @@ strawberry · ice-cream · sakura · daisy · butterfly · bubble-tea · cat · 
 
 butterfly · star-chrome · heart-chrome · bolt-chrome · dizzy · cd · cassette · flip-phone · pixel-heart · pixel-star · barcode · y2k · ootd · slay · 4ever · spiral · yin-yang · flame
 
+## 시즌 스티커 (무료, 번들, 2026-10-16) — 팩당 8종, 매니페스트 id `stickers-<season pack id>`
+
+같은 규격, `scripts/content-gen/season.ts`에서 프레임 모티프를 큰 크기 + ink 외곽선으로 재사용. 텍스트 스티커(BOO!·HO HO HO·2027·LOVE U·สงกรานต์)는 알약 배경에 글자 폭을 맞춰 넣는다.
+

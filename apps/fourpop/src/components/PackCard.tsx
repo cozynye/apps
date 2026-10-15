@@ -77,7 +77,7 @@ export function PackCard({ pack, price, onOpen }: PackCardProps) {
     action = <Button testID={`b10.unlock.${pack.id}`} variant="secondary" label={t('shop.unlock', { price })} disabled={offline} onPress={onOpen} />;
   }
 
-  const onPress = !entitled ? onOpen : pack.type === 'frame' ? () => router.push('/b4-frames') : undefined;
+  const onPress = !entitled ? onOpen : pack.type === 'frame' ? () => router.push(pack.category === 'basic' ? '/b4-frames' : '/b4-frames?tab=season') : undefined;
 
   return (
     <PressableSurface

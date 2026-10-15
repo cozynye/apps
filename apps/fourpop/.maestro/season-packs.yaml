@@ -1,0 +1,104 @@
+# Free bundled season packs (2026-10-16): the home banner points at the Season tab, the in-window pack
+# lists there, its frame shoots, and its stickers are in the B7 tray. Time-bound: passes only while a
+# season window is open (Halloween 2026-10-16..11-02, Christmas 11-20..12-31, Tết 2027-01-16..02-21, …);
+# set PACK/FRAME/STICKER below to the current season.
+# Needs Metro started with EXPO_PUBLIC_MOCK_CAMERA=1.
+appId: app.fourpop.booth
+env:
+  PACK: halloween-2026
+  FRAME: pumpkin
+  STICKER: ghost
+---
+- runFlow: common/launch.yaml
+- extendedWaitUntil:
+    visible:
+      id: b2.skip
+    timeout: 20000
+- tapOn:
+    id: b2.skip
+- extendedWaitUntil:
+    visible:
+      id: b3.title
+    timeout: 10000
+- assertVisible:
+    id: b3.seasonBanner
+- takeScreenshot: season-b3
+- tapOn:
+    id: b3.seasonBanner
+- extendedWaitUntil:
+    visible:
+      id: b4.frame.${PACK}-${FRAME}
+    timeout: 10000
+- takeScreenshot: season-b4
+- tapOn:
+    id: b4.frame.${PACK}-${FRAME}
+- extendedWaitUntil:
+    visible:
+      id: b3.startShooting
+    timeout: 10000
+- tapOn:
+    id: b3.startShooting
+- extendedWaitUntil:
+    visible:
+      id: b5.shutter
+    timeout: 10000
+- tapOn:
+    id: b5.timer.3
+- tapOn:
+    id: b5.shutter
+- extendedWaitUntil:
+    visible:
+      id: b6.title
+    timeout: 60000
+- tapOn:
+    id: b6.shot.0
+- tapOn:
+    id: b6.shot.2
+- tapOn:
+    id: b6.shot.4
+- tapOn:
+    id: b6.shot.6
+- tapOn:
+    id: b6.next
+- extendedWaitUntil:
+    visible:
+      id: b7.preview
+    timeout: 10000
+- tapOn:
+    id: b7.tool.stickers
+- repeat:
+    times: 14
+    while:
+      notVisible:
+        id: b7.sticker.${PACK}-${STICKER}
+    commands:
+      - swipe:
+          start: 92%, 84%
+          end: 8%, 84%
+          duration: 400
+- tapOn:
+    id: b7.sticker.${PACK}-${STICKER}
+- assertVisible:
+    id: b7.deleteItem
+- takeScreenshot: season-b7
+- tapOn:
+    id: b7.done
+- extendedWaitUntil:
+    visible:
+      id: b8.inGallery
+    timeout: 20000
+- takeScreenshot: season-b8
+# The shop lists the season pack as free.
+- tapOn:
+    id: b8.close
+- extendedWaitUntil:
+    visible:
+      id: b3.title
+    timeout: 10000
+- tapOn:
+    id: tabs.shop
+- extendedWaitUntil:
+    visible:
+      id: b10.pack.${PACK}
+    timeout: 10000
+- takeScreenshot: season-b10

@@ -2,6 +2,7 @@ import bundledJson from './generated/manifest.json';
 import {
   buildCatalog,
   compareVersions,
+  isAvailableOn,
   pickRemoteManifest,
   seasonBannerPack,
   shopPacks,
@@ -9,6 +10,9 @@ import {
 import { parseManifest, type Manifest, type Pack } from './schema';
 
 const bundled = parseManifest(bundledJson)!;
+const BUNDLED_IDS = bundled.packs.map((p) => p.id);
+/** Bundled packs visible on `today`: basics always, season packs only inside their window. */
+const bundledOn = (today: string) => bundled.packs.filter((p) => isAvailableOn(p, today)).map((p) => p.id);
 
 function seasonPack(id: string, extra: Partial<Pack> = {}): Pack {
   return {
@@ -32,10 +36,30 @@ function remote(version: number, packs: Pack[], minAppVersion = '1.0.0'): Manife
 }
 
 describe('bundled manifest', () => {
-  it('matches the schema: base 10+22, pop 10+20, y2k 10+18', () => {
+  it('matches the schema: base, pop, y2k and the five free season packs', () => {
     expect(bundled).not.toBeNull();
     const counts = Object.fromEntries(bundled.packs.map((p) => [p.id, p.items.length]));
-    expect(counts).toEqual({ base: 10, 'stickers-base': 22, pop: 10, 'stickers-pop': 20, y2k: 10, 'stickers-y2k': 18 });
+    expect(counts).toEqual({
+      base: 10,
+      'stickers-base': 22,
+      pop: 10,
+      'stickers-pop': 20,
+      y2k: 10,
+      'stickers-y2k': 18,
+      'halloween-2026': 6,
+      'stickers-halloween-2026': 8,
+      'xmas-2026': 6,
+      'stickers-xmas-2026': 8,
+      'tet-2027': 6,
+      'stickers-tet-2027': 8,
+      'valentine-2027': 6,
+      'stickers-valentine-2027': 8,
+      'songkran-2027': 6,
+      'stickers-songkran-2027': 8,
+    });
+    for (const p of bundled.packs.filter((x) => x.category === 'season')) {
+      expect(p.bundled && p.free && p.availableFrom && p.availableUntil).toBeTruthy();
+    }
   });
 
   it('rejects an unknown schemaVersion', () => {
@@ -65,7 +89,7 @@ describe('pickRemoteManifest', () => {
 describe('buildCatalog', () => {
   it('uses bundled packs only when there is no CDN manifest', () => {
     const c = buildCatalog({ bundled, remote: null, installed: [], appVersion: '1.0.0' });
-    expect(c.packs.map((p) => p.id)).toEqual(['base', 'stickers-base', 'pop', 'stickers-pop', 'y2k', 'stickers-y2k']);
+    expect(c.packs.map((p) => p.id)).toEqual(BUNDLED_IDS);
     expect(c.updateRequired).toBe(false);
   });
 
@@ -77,7 +101,7 @@ describe('buildCatalog', () => {
       installed: [],
       appVersion: '1.0.0',
     });
-    expect(c.packs.map((p) => p.id)).toEqual(['base', 'stickers-base', 'pop', 'stickers-pop', 'y2k', 'stickers-y2k', 'tet']);
+    expect(c.packs.map((p) => p.id)).toEqual([...BUNDLED_IDS, 'tet']);
     expect(c.packs[0]?.bundled).toBe(true);
   });
 
@@ -94,7 +118,7 @@ describe('buildCatalog', () => {
 
   it('ignores the whole CDN manifest below its root minAppVersion', () => {
     const c = buildCatalog({ bundled, remote: remote(2, [seasonPack('tet')], '2.0.0'), installed: [], appVersion: '1.0.0' });
-    expect(c.packs.map((p) => p.id)).toEqual(['base', 'stickers-base', 'pop', 'stickers-pop', 'y2k', 'stickers-y2k']);
+    expect(c.packs.map((p) => p.id)).toEqual(BUNDLED_IDS);
     expect(c.updateRequired).toBe(true);
   });
 
@@ -118,13 +142,15 @@ describe('shop and season banner', () => {
 
   it('lists packs in their window plus installed ones', () => {
     const ids = shopPacks(catalog, '2027-02-05', new Set(['xmas'])).map((p) => p.id);
-    expect(ids).toEqual(['base', 'stickers-base', 'pop', 'stickers-pop', 'y2k', 'stickers-y2k', 'tet', 'valentine', 'xmas']);
-    expect(shopPacks(catalog, '2027-03-01', new Set()).map((p) => p.id)).toEqual(['base', 'stickers-base', 'pop', 'stickers-pop', 'y2k', 'stickers-y2k']);
+    expect(ids).toEqual([...bundledOn('2027-02-05'), 'tet', 'valentine', 'xmas']);
+    expect(shopPacks(catalog, '2027-03-01', new Set()).map((p) => p.id)).toEqual(bundledOn('2027-03-01'));
   });
 
   it('shows the latest season pack in its window, or none', () => {
-    expect(seasonBannerPack(catalog, '2027-02-05')?.id).toBe('valentine');
-    expect(seasonBannerPack(catalog, '2027-01-15')?.id).toBe('tet');
+    // Bundled Valentine 2027 opens on the same day as the remote one and comes first in catalogue order.
+    expect(seasonBannerPack(catalog, '2027-02-05')?.id).toBe('valentine-2027');
+    expect(seasonBannerPack(catalog, '2027-01-15')?.id).toBe('tet'); // bundled Tết opens 2027-01-16
     expect(seasonBannerPack(catalog, '2027-03-01')).toBeNull();
+    expect(seasonBannerPack(catalog, '2026-10-20')?.id).toBe('halloween-2026');
   });
 });

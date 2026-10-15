@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": 4,
+  "version": 5,
   "minAppVersion": "1.0.0",
   "packs": [
     {
@@ -2077,6 +2077,1996 @@
         {
           "id": "y2k-flame",
           "image": "stickers/y2k/flame.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        }
+      ]
+    },
+    {
+      "id": "halloween-2026",
+      "type": "frame",
+      "productId": null,
+      "entitlementId": null,
+      "free": true,
+      "bundled": true,
+      "category": "season",
+      "minAppVersion": "1.0.0",
+      "availableFrom": "2026-10-16",
+      "availableUntil": "2026-11-02",
+      "title": {
+        "en": "Halloween",
+        "vi": "Halloween",
+        "th": "ฮาโลวีน"
+      },
+      "items": [
+        {
+          "id": "halloween-2026-pumpkin",
+          "title": {
+            "en": "Pumpkin",
+            "vi": "Bí ngô",
+            "th": "ฟักทอง"
+          },
+          "layout": "strip4",
+          "image": "frames/halloween-2026/pumpkin.png",
+          "thumbnail": "frames/halloween-2026/pumpkin-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        },
+        {
+          "id": "halloween-2026-midnight",
+          "title": {
+            "en": "Midnight",
+            "vi": "Nửa đêm",
+            "th": "เที่ยงคืน"
+          },
+          "layout": "strip4",
+          "image": "frames/halloween-2026/midnight.png",
+          "thumbnail": "frames/halloween-2026/midnight-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        },
+        {
+          "id": "halloween-2026-boo",
+          "title": {
+            "en": "Boo",
+            "vi": "Hù",
+            "th": "บู้"
+          },
+          "layout": "strip4",
+          "image": "frames/halloween-2026/boo.png",
+          "thumbnail": "frames/halloween-2026/boo-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        },
+        {
+          "id": "halloween-2026-candy",
+          "title": {
+            "en": "Candy",
+            "vi": "Kẹo",
+            "th": "ลูกกวาด"
+          },
+          "layout": "strip4",
+          "image": "frames/halloween-2026/candy.png",
+          "thumbnail": "frames/halloween-2026/candy-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        },
+        {
+          "id": "halloween-2026-web",
+          "title": {
+            "en": "Web",
+            "vi": "Mạng nhện",
+            "th": "ใยแมงมุม"
+          },
+          "layout": "strip4",
+          "image": "frames/halloween-2026/web.png",
+          "thumbnail": "frames/halloween-2026/web-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        },
+        {
+          "id": "halloween-2026-slime",
+          "title": {
+            "en": "Slime",
+            "vi": "Nhớt xanh",
+            "th": "สไลม์"
+          },
+          "layout": "strip4",
+          "image": "frames/halloween-2026/slime.png",
+          "thumbnail": "frames/halloween-2026/slime-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        }
+      ]
+    },
+    {
+      "id": "stickers-halloween-2026",
+      "type": "sticker",
+      "productId": null,
+      "entitlementId": null,
+      "free": true,
+      "bundled": true,
+      "category": "season",
+      "minAppVersion": "1.0.0",
+      "availableFrom": "2026-10-16",
+      "availableUntil": "2026-11-02",
+      "title": {
+        "en": "Halloween",
+        "vi": "Halloween",
+        "th": "ฮาโลวีน"
+      },
+      "items": [
+        {
+          "id": "halloween-2026-pumpkin",
+          "image": "stickers/halloween-2026/pumpkin.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "halloween-2026-ghost",
+          "image": "stickers/halloween-2026/ghost.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "halloween-2026-bat",
+          "image": "stickers/halloween-2026/bat.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "halloween-2026-candy",
+          "image": "stickers/halloween-2026/candy.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "halloween-2026-spider",
+          "image": "stickers/halloween-2026/spider.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "halloween-2026-witch-hat",
+          "image": "stickers/halloween-2026/witch-hat.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "halloween-2026-skull",
+          "image": "stickers/halloween-2026/skull.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "halloween-2026-boo",
+          "image": "stickers/halloween-2026/boo.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        }
+      ]
+    },
+    {
+      "id": "xmas-2026",
+      "type": "frame",
+      "productId": null,
+      "entitlementId": null,
+      "free": true,
+      "bundled": true,
+      "category": "season",
+      "minAppVersion": "1.0.0",
+      "availableFrom": "2026-11-20",
+      "availableUntil": "2026-12-31",
+      "title": {
+        "en": "Christmas",
+        "vi": "Giáng sinh",
+        "th": "คริสต์มาส"
+      },
+      "items": [
+        {
+          "id": "xmas-2026-holly",
+          "title": {
+            "en": "Holly",
+            "vi": "Nhựa ruồi",
+            "th": "ฮอลลี่"
+          },
+          "layout": "strip4",
+          "image": "frames/xmas-2026/holly.png",
+          "thumbnail": "frames/xmas-2026/holly-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        },
+        {
+          "id": "xmas-2026-snow",
+          "title": {
+            "en": "Snow",
+            "vi": "Tuyết",
+            "th": "หิมะ"
+          },
+          "layout": "strip4",
+          "image": "frames/xmas-2026/snow.png",
+          "thumbnail": "frames/xmas-2026/snow-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        },
+        {
+          "id": "xmas-2026-gift",
+          "title": {
+            "en": "Gift",
+            "vi": "Quà",
+            "th": "ของขวัญ"
+          },
+          "layout": "strip4",
+          "image": "frames/xmas-2026/gift.png",
+          "thumbnail": "frames/xmas-2026/gift-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        },
+        {
+          "id": "xmas-2026-lights",
+          "title": {
+            "en": "Lights",
+            "vi": "Đèn",
+            "th": "ไฟประดับ"
+          },
+          "layout": "strip4",
+          "image": "frames/xmas-2026/lights.png",
+          "thumbnail": "frames/xmas-2026/lights-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        },
+        {
+          "id": "xmas-2026-candy-cane",
+          "title": {
+            "en": "Candy Cane",
+            "vi": "Kẹo gậy",
+            "th": "ลูกกวาดไม้เท้า"
+          },
+          "layout": "strip4",
+          "image": "frames/xmas-2026/candy-cane.png",
+          "thumbnail": "frames/xmas-2026/candy-cane-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        },
+        {
+          "id": "xmas-2026-tree",
+          "title": {
+            "en": "Tree",
+            "vi": "Cây thông",
+            "th": "ต้นคริสต์มาส"
+          },
+          "layout": "strip4",
+          "image": "frames/xmas-2026/tree.png",
+          "thumbnail": "frames/xmas-2026/tree-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        }
+      ]
+    },
+    {
+      "id": "stickers-xmas-2026",
+      "type": "sticker",
+      "productId": null,
+      "entitlementId": null,
+      "free": true,
+      "bundled": true,
+      "category": "season",
+      "minAppVersion": "1.0.0",
+      "availableFrom": "2026-11-20",
+      "availableUntil": "2026-12-31",
+      "title": {
+        "en": "Christmas",
+        "vi": "Giáng sinh",
+        "th": "คริสต์มาส"
+      },
+      "items": [
+        {
+          "id": "xmas-2026-tree",
+          "image": "stickers/xmas-2026/tree.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "xmas-2026-gift",
+          "image": "stickers/xmas-2026/gift.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "xmas-2026-candy-cane",
+          "image": "stickers/xmas-2026/candy-cane.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "xmas-2026-snowman",
+          "image": "stickers/xmas-2026/snowman.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "xmas-2026-bell",
+          "image": "stickers/xmas-2026/bell.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "xmas-2026-santa-hat",
+          "image": "stickers/xmas-2026/santa-hat.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "xmas-2026-snowflake",
+          "image": "stickers/xmas-2026/snowflake.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "xmas-2026-hohoho",
+          "image": "stickers/xmas-2026/hohoho.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        }
+      ]
+    },
+    {
+      "id": "tet-2027",
+      "type": "frame",
+      "productId": null,
+      "entitlementId": null,
+      "free": true,
+      "bundled": true,
+      "category": "season",
+      "minAppVersion": "1.0.0",
+      "availableFrom": "2027-01-16",
+      "availableUntil": "2027-02-21",
+      "title": {
+        "en": "Tết 2027",
+        "vi": "Tết 2027",
+        "th": "เต๊ต 2027"
+      },
+      "items": [
+        {
+          "id": "tet-2027-lixi",
+          "title": {
+            "en": "Lì xì",
+            "vi": "Lì xì",
+            "th": "ซองอั่งเปา"
+          },
+          "layout": "strip4",
+          "image": "frames/tet-2027/lixi.png",
+          "thumbnail": "frames/tet-2027/lixi-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        },
+        {
+          "id": "tet-2027-hoa-mai",
+          "title": {
+            "en": "Hoa mai",
+            "vi": "Hoa mai",
+            "th": "ดอกเหมย"
+          },
+          "layout": "strip4",
+          "image": "frames/tet-2027/hoa-mai.png",
+          "thumbnail": "frames/tet-2027/hoa-mai-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        },
+        {
+          "id": "tet-2027-hoa-dao",
+          "title": {
+            "en": "Hoa đào",
+            "vi": "Hoa đào",
+            "th": "ดอกท้อ"
+          },
+          "layout": "strip4",
+          "image": "frames/tet-2027/hoa-dao.png",
+          "thumbnail": "frames/tet-2027/hoa-dao-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        },
+        {
+          "id": "tet-2027-lantern",
+          "title": {
+            "en": "Lantern",
+            "vi": "Đèn lồng",
+            "th": "โคมแดง"
+          },
+          "layout": "strip4",
+          "image": "frames/tet-2027/lantern.png",
+          "thumbnail": "frames/tet-2027/lantern-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        },
+        {
+          "id": "tet-2027-gold",
+          "title": {
+            "en": "Gold",
+            "vi": "Vàng",
+            "th": "ทอง"
+          },
+          "layout": "strip4",
+          "image": "frames/tet-2027/gold.png",
+          "thumbnail": "frames/tet-2027/gold-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        },
+        {
+          "id": "tet-2027-tet-2027",
+          "title": {
+            "en": "Tết 2027",
+            "vi": "Tết 2027",
+            "th": "เต๊ต 2027"
+          },
+          "layout": "strip4",
+          "image": "frames/tet-2027/tet-2027.png",
+          "thumbnail": "frames/tet-2027/tet-2027-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        }
+      ]
+    },
+    {
+      "id": "stickers-tet-2027",
+      "type": "sticker",
+      "productId": null,
+      "entitlementId": null,
+      "free": true,
+      "bundled": true,
+      "category": "season",
+      "minAppVersion": "1.0.0",
+      "availableFrom": "2027-01-16",
+      "availableUntil": "2027-02-21",
+      "title": {
+        "en": "Tết 2027",
+        "vi": "Tết 2027",
+        "th": "เต๊ต 2027"
+      },
+      "items": [
+        {
+          "id": "tet-2027-lixi",
+          "image": "stickers/tet-2027/lixi.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "tet-2027-hoa-mai",
+          "image": "stickers/tet-2027/hoa-mai.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "tet-2027-hoa-dao",
+          "image": "stickers/tet-2027/hoa-dao.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "tet-2027-lantern",
+          "image": "stickers/tet-2027/lantern.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "tet-2027-firecracker",
+          "image": "stickers/tet-2027/firecracker.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "tet-2027-banh-chung",
+          "image": "stickers/tet-2027/banh-chung.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "tet-2027-coin",
+          "image": "stickers/tet-2027/coin.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "tet-2027-2027",
+          "image": "stickers/tet-2027/2027.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        }
+      ]
+    },
+    {
+      "id": "valentine-2027",
+      "type": "frame",
+      "productId": null,
+      "entitlementId": null,
+      "free": true,
+      "bundled": true,
+      "category": "season",
+      "minAppVersion": "1.0.0",
+      "availableFrom": "2027-02-01",
+      "availableUntil": "2027-02-15",
+      "title": {
+        "en": "Valentine",
+        "vi": "Valentine",
+        "th": "วาเลนไทน์"
+      },
+      "items": [
+        {
+          "id": "valentine-2027-hearts",
+          "title": {
+            "en": "Hearts",
+            "vi": "Trái tim",
+            "th": "หัวใจ"
+          },
+          "layout": "strip4",
+          "image": "frames/valentine-2027/hearts.png",
+          "thumbnail": "frames/valentine-2027/hearts-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        },
+        {
+          "id": "valentine-2027-letter",
+          "title": {
+            "en": "Love Letter",
+            "vi": "Thư tình",
+            "th": "จดหมายรัก"
+          },
+          "layout": "strip4",
+          "image": "frames/valentine-2027/letter.png",
+          "thumbnail": "frames/valentine-2027/letter-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        },
+        {
+          "id": "valentine-2027-choco",
+          "title": {
+            "en": "Choco",
+            "vi": "Sô-cô-la",
+            "th": "ช็อกโกแลต"
+          },
+          "layout": "strip4",
+          "image": "frames/valentine-2027/choco.png",
+          "thumbnail": "frames/valentine-2027/choco-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        },
+        {
+          "id": "valentine-2027-xoxo",
+          "title": {
+            "en": "XOXO",
+            "vi": "XOXO",
+            "th": "XOXO"
+          },
+          "layout": "strip4",
+          "image": "frames/valentine-2027/xoxo.png",
+          "thumbnail": "frames/valentine-2027/xoxo-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        },
+        {
+          "id": "valentine-2027-cupid",
+          "title": {
+            "en": "Cupid",
+            "vi": "Thần tình yêu",
+            "th": "กามเทพ"
+          },
+          "layout": "strip4",
+          "image": "frames/valentine-2027/cupid.png",
+          "thumbnail": "frames/valentine-2027/cupid-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        },
+        {
+          "id": "valentine-2027-rose",
+          "title": {
+            "en": "Rose",
+            "vi": "Hoa hồng",
+            "th": "กุหลาบ"
+          },
+          "layout": "strip4",
+          "image": "frames/valentine-2027/rose.png",
+          "thumbnail": "frames/valentine-2027/rose-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        }
+      ]
+    },
+    {
+      "id": "stickers-valentine-2027",
+      "type": "sticker",
+      "productId": null,
+      "entitlementId": null,
+      "free": true,
+      "bundled": true,
+      "category": "season",
+      "minAppVersion": "1.0.0",
+      "availableFrom": "2027-02-01",
+      "availableUntil": "2027-02-15",
+      "title": {
+        "en": "Valentine",
+        "vi": "Valentine",
+        "th": "วาเลนไทน์"
+      },
+      "items": [
+        {
+          "id": "valentine-2027-heart-arrow",
+          "image": "stickers/valentine-2027/heart-arrow.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "valentine-2027-rose",
+          "image": "stickers/valentine-2027/rose.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "valentine-2027-chocolate",
+          "image": "stickers/valentine-2027/chocolate.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "valentine-2027-love-letter",
+          "image": "stickers/valentine-2027/love-letter.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "valentine-2027-lips",
+          "image": "stickers/valentine-2027/lips.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "valentine-2027-ring",
+          "image": "stickers/valentine-2027/ring.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "valentine-2027-teddy",
+          "image": "stickers/valentine-2027/teddy.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "valentine-2027-love-u",
+          "image": "stickers/valentine-2027/love-u.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        }
+      ]
+    },
+    {
+      "id": "songkran-2027",
+      "type": "frame",
+      "productId": null,
+      "entitlementId": null,
+      "free": true,
+      "bundled": true,
+      "category": "season",
+      "minAppVersion": "1.0.0",
+      "availableFrom": "2027-04-01",
+      "availableUntil": "2027-04-20",
+      "title": {
+        "en": "Songkran",
+        "vi": "Songkran",
+        "th": "สงกรานต์"
+      },
+      "items": [
+        {
+          "id": "songkran-2027-splash",
+          "title": {
+            "en": "Splash",
+            "vi": "Té nước",
+            "th": "สาดน้ำ"
+          },
+          "layout": "strip4",
+          "image": "frames/songkran-2027/splash.png",
+          "thumbnail": "frames/songkran-2027/splash-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        },
+        {
+          "id": "songkran-2027-dok-khun",
+          "title": {
+            "en": "Dok Khun",
+            "vi": "Hoa muồng",
+            "th": "ดอกคูน"
+          },
+          "layout": "strip4",
+          "image": "frames/songkran-2027/dok-khun.png",
+          "thumbnail": "frames/songkran-2027/dok-khun-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        },
+        {
+          "id": "songkran-2027-bubbles",
+          "title": {
+            "en": "Bubbles",
+            "vi": "Bong bóng",
+            "th": "ฟองน้ำ"
+          },
+          "layout": "strip4",
+          "image": "frames/songkran-2027/bubbles.png",
+          "thumbnail": "frames/songkran-2027/bubbles-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        },
+        {
+          "id": "songkran-2027-waves",
+          "title": {
+            "en": "Waves",
+            "vi": "Sóng",
+            "th": "คลื่น"
+          },
+          "layout": "strip4",
+          "image": "frames/songkran-2027/waves.png",
+          "thumbnail": "frames/songkran-2027/waves-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        },
+        {
+          "id": "songkran-2027-malai",
+          "title": {
+            "en": "Malai",
+            "vi": "Vòng hoa",
+            "th": "พวงมาลัย"
+          },
+          "layout": "strip4",
+          "image": "frames/songkran-2027/malai.png",
+          "thumbnail": "frames/songkran-2027/malai-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        },
+        {
+          "id": "songkran-2027-sawasdee",
+          "title": {
+            "en": "Sawasdee Pi Mai",
+            "vi": "Sawasdee Pi Mai",
+            "th": "สวัสดีปีใหม่ไทย"
+          },
+          "layout": "strip4",
+          "image": "frames/songkran-2027/sawasdee.png",
+          "thumbnail": "frames/songkran-2027/sawasdee-thumb.png",
+          "slots": [
+            {
+              "x": 60,
+              "y": 80,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 860,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 1640,
+              "w": 1080,
+              "h": 720
+            },
+            {
+              "x": 60,
+              "y": 2420,
+              "w": 1080,
+              "h": 720
+            }
+          ],
+          "canvas": {
+            "w": 1200,
+            "h": 3600
+          },
+          "captionSlot": {
+            "x": 60,
+            "y": 3260,
+            "w": 1080,
+            "h": 220
+          },
+          "category": "season"
+        }
+      ]
+    },
+    {
+      "id": "stickers-songkran-2027",
+      "type": "sticker",
+      "productId": null,
+      "entitlementId": null,
+      "free": true,
+      "bundled": true,
+      "category": "season",
+      "minAppVersion": "1.0.0",
+      "availableFrom": "2027-04-01",
+      "availableUntil": "2027-04-20",
+      "title": {
+        "en": "Songkran",
+        "vi": "Songkran",
+        "th": "สงกรานต์"
+      },
+      "items": [
+        {
+          "id": "songkran-2027-water-gun",
+          "image": "stickers/songkran-2027/water-gun.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "songkran-2027-drop",
+          "image": "stickers/songkran-2027/drop.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "songkran-2027-bucket",
+          "image": "stickers/songkran-2027/bucket.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "songkran-2027-dok-khun",
+          "image": "stickers/songkran-2027/dok-khun.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "songkran-2027-garland",
+          "image": "stickers/songkran-2027/garland.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "songkran-2027-elephant",
+          "image": "stickers/songkran-2027/elephant.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "songkran-2027-splash",
+          "image": "stickers/songkran-2027/splash.png",
+          "size": 512,
+          "canvas": {
+            "w": 512,
+            "h": 512
+          }
+        },
+        {
+          "id": "songkran-2027-songkran",
+          "image": "stickers/songkran-2027/songkran.png",
           "size": 512,
           "canvas": {
             "w": 512,

@@ -112,7 +112,7 @@ function SeasonBanner() {
       onPress={() =>
         MONETIZATION
           ? router.push({ pathname: '/b11-paywall', params: { source: 'banner', packId: pack.id } })
-          : router.navigate('/b10-shop')
+          : router.push('/b4-frames?tab=season')
       }
       style={[styles.banner, { backgroundColor: accent.soft }]}
     >
