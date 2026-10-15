@@ -220,5 +220,6 @@ S4 Fourpop 개발 — 진행 중 (S2 완료 2026-10-14)
 - 2026-10-12 P16(Nuni): 구독 그룹 `Nuni Premium`에 `mood_premium_monthly`(1개월), `mood_premium_yearly`(1년) 생성(스크린샷 확인). **연간 7일 무료체험(Introductory Offer)은 아직 미설정** — 출시 전 설정 필요(PLAN 가격표). 미설정 동안 페이월은 체험 없는 문구(`subscribe`/`noTrial`)로 표시됨
 - (출시 전) P17: RevenueCat에 App Store 앱 연결(.p8) → `appl_` 키. 실제 StoreKit 검증은 TestFlight로(Sandbox 테스터는 필요 시 — Cozy 2026-10-12)
 
+- 2026-10-15 P20·P21 완료: 커스텀 도메인 대신 GitHub Pages `https://cozynye.github.io/apps/`(privacy.html·terms.html·지원 index) 배포, 세 URL 200 확인. `[EFFECTIVE DATE]`만 남음
 - 2026-10-14 P17(Fourpop, 개발용) 완료: Cozy가 RevenueCat Fourpop 프로젝트 + Test Store(상품 `booth_premium_monthly`·`booth_premium_yearly`·`booth_pack_dev_sample`·`booth_stickers_dev_sample`, 권한 `booth_premium` + 단품 2개, Offering `default` Monthly/Annual)를 설정, `.env`에 `EXPO_PUBLIC_RC_IOS_KEY_FOURPOP`(test_). 출시 전 실제 `appl_` 키와 실제 시즌팩 상품은 P17에서
 - P18 Firebase plist(Fourpop), P19 R2 URL, 도메인 — 배포 전까지. P22 GitHub 리포는 2026-10-14 `github.com/cozynye/apps`(public, main)로 연결·푸시 완료
