@@ -165,3 +165,4 @@
 - 2026-10-14 — Nuni 개발 메뉴 `dev/data`에 ‘Seed sample month’(지난 30일 중 24일에 결정적 패턴으로 기록 생성) — 스크린샷용 캘린더·통계 데이터. production 빌드에서는 dev 라우트 자체가 막힘
 - 2026-10-14 — Release 구성 스모크(`scripts/release-smoke.sh`, 시뮬레이터 Release 빌드 + 내장 번들): Nuni·Fourpop 모두 온보딩 → 홈 기동 확인. EAS 빌드 전 릴리스 전용 오류(dev 라우트 차단, `__DEV__` 분기, Test Store 키 무시)를 잡는 용도. 스모크 후 그 시뮬레이터에는 dev client를 다시 설치해야 함
 - 2026-10-14 — 스토어 스크린샷의 iPad 상태 바 날짜가 시뮬레이터 시스템 언어(ko)로 찍혀, `store-shots-all.sh`가 부팅 전에 `.GlobalPreferences.plist`의 `AppleLanguages`/`AppleLocale`을 캡처 로케일(en_US·vi_VN·th_TH)로 바꾼다. 캡처 뒤 E2E용으로는 ko-KR로 되돌려 둔다(플로우의 시스템 알림 매처가 ko·en 기준)
+- 2026-10-15 — (Cozy 결정) 약관·개인정보·지원 페이지는 커스텀 도메인 없이 GitHub Pages 프로젝트 사이트 `https://cozynye.github.io/apps/`로 배포(`pages.yml`, Actions 소스; Pages 설정은 `gh api`로 켬). App Store Connect 개인정보처리방침 URL `https://cozynye.github.io/apps/privacy.html`, 지원 URL `https://cozynye.github.io/apps/`. PLAN 미확정 6번(도메인)·P20 해소. 남은 자리표시자는 `[EFFECTIVE DATE]`

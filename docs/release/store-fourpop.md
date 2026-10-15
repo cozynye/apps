@@ -1,6 +1,6 @@
 # Fourpop — App Store Connect 입력용 최종본
 
-원문: `design/store/fourpop.md` (읽기 전용). 아래는 MVP 범위에 맞게 고친 본문이며, 남은 자리표시자는 `[TERMS URL]`·`[PRIVACY URL]`뿐이다(도메인 확정 후 치환).
+원문: `design/store/fourpop.md` (읽기 전용). 아래는 MVP 범위에 맞게 고친 본문이며, 남은 자리표시자는 `https://cozynye.github.io/apps/terms.html`·`https://cozynye.github.io/apps/privacy.html`뿐이다(도메인 확정 후 치환).
 
 고친 곳 (원문 → 최종):
 
@@ -57,7 +57,7 @@ FOURPOP PREMIUM
 Frames and sticker packs are also available as one-time purchases.
 
 Premium is a monthly or yearly subscription. Payment is charged to your Apple ID at confirmation of purchase. Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. Manage or cancel in your App Store account settings.
-Terms: [TERMS URL] · Privacy: [PRIVACY URL]
+Terms: https://cozynye.github.io/apps/terms.html · Privacy: https://cozynye.github.io/apps/privacy.html
 
 - **Screenshot captions** (6): 1 "A photo booth in your pocket" · 2 "Real countdown, real booth feeling" · 3 "Shoot 8, keep your best 4" · 4 "Frames for every season" · 5 "Stickers, text, date stamp" · 6 "Share in a tap"
 
@@ -94,7 +94,7 @@ FOURPOP PREMIUM
 Các bộ khung và sticker cũng có thể mua lẻ một lần.
 
 Premium có gói tháng hoặc năm. Thanh toán được tính vào tài khoản Apple ID khi xác nhận mua. Gói đăng ký tự động gia hạn trừ khi hủy ít nhất 24 giờ trước khi kỳ hiện tại kết thúc. Quản lý hoặc hủy trong cài đặt tài khoản App Store.
-Điều khoản: [TERMS URL] · Quyền riêng tư: [PRIVACY URL]
+Điều khoản: https://cozynye.github.io/apps/terms.html · Quyền riêng tư: https://cozynye.github.io/apps/privacy.html
 
 - **Screenshot captions**: 1 "Photobooth trong túi bạn" · 2 "Đếm ngược thật, cảm giác booth thật" · 3 "Chụp 8, giữ 4 tấm đẹp nhất" · 4 "Khung ảnh cho mọi mùa" · 5 "Sticker, chữ, dấu ngày" · 6 "Chia sẻ chỉ một chạm"
 
@@ -131,7 +131,7 @@ FOURPOP PREMIUM
 ชุดกรอบและสติกเกอร์ซื้อแยกครั้งเดียวได้เช่นกัน
 
 Premium มีแบบรายเดือนและรายปี ระบบจะเรียกเก็บเงินจากบัญชี Apple ID เมื่อยืนยันการซื้อ การสมัครสมาชิกต่ออายุอัตโนมัติ เว้นแต่ยกเลิกอย่างน้อย 24 ชั่วโมงก่อนสิ้นสุดรอบปัจจุบัน จัดการหรือยกเลิกได้ในการตั้งค่าบัญชี App Store
-ข้อกำหนด: [TERMS URL] · ความเป็นส่วนตัว: [PRIVACY URL]
+ข้อกำหนด: https://cozynye.github.io/apps/terms.html · ความเป็นส่วนตัว: https://cozynye.github.io/apps/privacy.html
 
 - **Screenshot captions**: 1 "โฟโต้บูธในกระเป๋าคุณ" · 2 "นับถอยหลังจริง ฟีลบูธจริง" · 3 "ถ่าย 8 เก็บ 4 ที่ดีที่สุด" · 4 "กรอบสำหรับทุกเทศกาล" · 5 "สติกเกอร์ ข้อความ ตราวันที่" · 6 "แชร์ในแตะเดียว"
 

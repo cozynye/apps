@@ -1,6 +1,6 @@
 # Nuni — App Store Connect 입력용 최종본
 
-원문: `design/store/nuni.md` (읽기 전용). 아래는 MVP 범위에 맞게 고친 본문이며, 남은 자리표시자는 `[TERMS URL]`·`[PRIVACY URL]`뿐이다(도메인 확정 후 치환).
+원문: `design/store/nuni.md` (읽기 전용). 아래는 MVP 범위에 맞게 고친 본문이며, 남은 자리표시자는 `https://cozynye.github.io/apps/terms.html`·`https://cozynye.github.io/apps/privacy.html`뿐이다(도메인 확정 후 치환).
 
 고친 곳 (원문 → 최종):
 
@@ -52,7 +52,7 @@ YOUR DIARY STAYS YOURS
 Entries are stored on your device. No account, no sign-up. We never see your diary.
 
 Premium is available as a monthly or yearly subscription. Payment is charged to your Apple ID at confirmation of purchase. Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. Manage or cancel in your App Store account settings.
-Terms: [TERMS URL] · Privacy: [PRIVACY URL]
+Terms: https://cozynye.github.io/apps/terms.html · Privacy: https://cozynye.github.io/apps/privacy.html
 
 - **Screenshot captions** (6): 1 "Log your day in 10 seconds" · 2 "Five clouds, one for every mood" · 3 "Your month at a glance" · 4 "See what lifts you" · 5 "A gentle reminder, never a nag" · 6 "Widgets and iCloud backup"
 
@@ -87,7 +87,7 @@ NHẬT KÝ LÀ CỦA RIÊNG BẠN
 Mọi ghi chép được lưu trên thiết bị của bạn. Không tài khoản, không đăng ký. Chúng tôi không bao giờ đọc nhật ký của bạn.
 
 Premium có gói tháng hoặc năm. Thanh toán được tính vào tài khoản Apple ID khi xác nhận mua. Gói đăng ký tự động gia hạn trừ khi hủy ít nhất 24 giờ trước khi kỳ hiện tại kết thúc. Quản lý hoặc hủy trong cài đặt tài khoản App Store.
-Điều khoản: [TERMS URL] · Quyền riêng tư: [PRIVACY URL]
+Điều khoản: https://cozynye.github.io/apps/terms.html · Quyền riêng tư: https://cozynye.github.io/apps/privacy.html
 
 - **Screenshot captions**: 1 "Ghi lại một ngày trong 10 giây" · 2 "Năm đám mây cho năm cảm xúc" · 3 "Cả tháng trong một cái nhìn" · 4 "Xem điều gì làm bạn vui" · 5 "Nhắc nhẹ nhàng, không làm phiền" · 6 "Widget và sao lưu iCloud"
 
@@ -122,7 +122,7 @@ NUNI PREMIUM
 บันทึกทั้งหมดเก็บไว้ในเครื่องของคุณ ไม่มีบัญชี ไม่ต้องสมัคร เราไม่เคยเห็นไดอารี่ของคุณ
 
 Premium มีแบบรายเดือนและรายปี ระบบจะเรียกเก็บเงินจากบัญชี Apple ID เมื่อยืนยันการซื้อ การสมัครสมาชิกต่ออายุอัตโนมัติ เว้นแต่ยกเลิกอย่างน้อย 24 ชั่วโมงก่อนสิ้นสุดรอบปัจจุบัน จัดการหรือยกเลิกได้ในการตั้งค่าบัญชี App Store
-ข้อกำหนด: [TERMS URL] · ความเป็นส่วนตัว: [PRIVACY URL]
+ข้อกำหนด: https://cozynye.github.io/apps/terms.html · ความเป็นส่วนตัว: https://cozynye.github.io/apps/privacy.html
 
 - **Screenshot captions**: 1 "บันทึกวันนี้ใน 10 วินาที" · 2 "ห้าก้อนเมฆ ห้าอารมณ์" · 3 "เห็นทั้งเดือนในแวบเดียว" · 4 "ดูว่าอะไรทำให้คุณใจฟู" · 5 "เตือนเบา ๆ ไม่จุกจิก" · 6 "วิดเจ็ตและสำรอง iCloud"
 

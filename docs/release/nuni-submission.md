@@ -6,7 +6,7 @@
 
 | 값 | 쓰이는 곳 | 현재 |
 | --- | --- | --- |
-| 도메인 `[DOMAIN]` | 개인정보처리방침 URL `https://[DOMAIN]/privacy.html`, 지원 URL `https://[DOMAIN]/`, 약관 링크, 앱 설명의 `[TERMS URL]`·`[PRIVACY URL]` | 미정 (A3) |
+| 도메인 | GitHub Pages `https://cozynye.github.io/apps/` (Cozy 결정 2026-10-15) — 개인정보 `https://cozynye.github.io/apps/privacy.html`, 약관 `https://cozynye.github.io/apps/terms.html`, 지원 `https://cozynye.github.io/apps/` | **완료** |
 | 시행일 `[EFFECTIVE DATE]` | 앱 내 A13 약관·개인정보 + 웹 페이지 | 미정 (A4) |
 | RevenueCat 실제 iOS 키 `appl_…` (Nuni) | EAS 시크릿 `EXPO_PUBLIC_RC_IOS_KEY_NUNI` (production·preview) | 미정 (B3) — Test Store 키는 릴리스 빌드에서 비활성 처리됨 |
 | RevenueCat ↔ App Store 연결 (.p8, Shared Secret) | 영수증 검증 | 미정 (B3) |
@@ -27,11 +27,11 @@
 
 | 칸 | 내용 |
 | --- | --- |
-| 이름·부제·키워드·프로모션·설명 (en·vi·th) | `docs/release/store-nuni.md` 각 언어 절 (URL 자리표시자만 치환) |
+| 이름·부제·키워드·프로모션·설명 (en·vi·th) | `docs/release/store-nuni.md` 각 언어 절 (URL 치환 완료) |
 | 카테고리 | Lifestyle (보조 Health & Fitness) |
 | 연령 등급 | 4+ |
 | 스크린샷 | `docs/release/screenshots/nuni/iphone/<locale>/1–6.png`(6.9", 1320×2868), `…/ipad/<locale>/1–6.png`(13", 2064×2752). 캡션 순서는 store-nuni.md의 1~6 |
-| 개인정보처리방침 URL · 지원 URL | `https://[DOMAIN]/privacy.html` · `https://[DOMAIN]/` |
+| 개인정보처리방침 URL · 지원 URL | `https://cozynye.github.io/apps/privacy.html` · `https://cozynye.github.io/apps/` |
 | App Privacy 라벨 | `docs/release/privacy-labels.md` |
 | 심사 노트 | `docs/release/review-notes.md` › Nuni (Sandbox 계정 치환) |
 | 새로운 기능 | `docs/release/release-notes.md` › Nuni 1.0 |
