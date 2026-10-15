@@ -28,13 +28,16 @@ appId: app.fourpop.booth
       id: b4.frame.y2k-chrome
     direction: DOWN
 - takeScreenshot: store-4
-# The close button scrolled off the top with the sheet content; bring it back first.
-- scrollUntilVisible:
-    element:
-      id: b4.close
-    direction: UP
+# After scrolling, Maestro no longer resolves b4.close on iPhone; picking a frame closes the sheet
+# (router.back), then re-pick coral on B3 so the shoot keeps the brand frame.
 - tapOn:
-    id: b4.close
+    id: b4.frame.y2k-chrome
+- extendedWaitUntil:
+    visible:
+      id: b3.frame.base-coral
+    timeout: 10000
+- tapOn:
+    id: b3.frame.base-coral
 - tapOn:
     id: b3.startShooting
 - extendedWaitUntil:
