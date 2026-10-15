@@ -80,26 +80,7 @@
       "typedRoutes": true
     },
     "extra": {
-      "firebase": true,
-      "router": {},
       "eas": {
-        "build": {
-          "experimental": {
-            "ios": {
-              "appExtensions": [
-                {
-                  "bundleIdentifier": "app.nuni.mood.widget",
-                  "targetName": "NuniWidget",
-                  "entitlements": {
-                    "com.apple.security.application-groups": [
-                      "group.app.nuni.mood"
-                    ]
-                  }
-                }
-              ]
-            }
-          }
-        },
         "projectId": "a8367f7a-a38b-46e2-a73f-59ebb1e1480f"
       }
     },
