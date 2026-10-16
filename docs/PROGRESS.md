@@ -15,7 +15,7 @@ Nuni 1.0 심사 대기(2026-10-15 제출) · Fourpop S4 마무리 + S5 준비 �
 | S2 Nuni 개발 | 완료 (2026-10-14) | A1–A13·위젯·리마인더·잠금·백업·Firebase. 예외: 콜드 스타트·TestFlight 1주 Cozy 지시로 건너뜀, VoiceOver 실기기 완주 선택(미실시) |
 | S3 Nuni 출시 | **심사 대기** (2026-10-15 제출, WAITING_FOR_REVIEW, 수동 출시) | 1.0.0(2). 승인 후 Cozy가 ASC에서 출시(또는 API). 거절되면 사유 보고 대응 |
 | S4 Fourpop 개발 | 진행 중 | 1–5단계(뼈대, B3·B4, 촬영 B5·B6, 꾸미기·결과 B7·B8, 갤러리 B9·상점 B10·팩 구매/다운로드) 완료 — 화면 B1–B13 전부 있음. 다음 6단계(완료 기준 점검: 결제 검증·3언어·오프라인·예외 표) |
-| S5 Fourpop 출시 | 준비 중 — 무료 1.0 | ASC 텍스트·스크린샷 반영 완료(2026-10-15). Cozy: Firebase plist(P18), 시즌팩 유무(A5), 첫 `eas build`(터미널) → 업로드·심사 입력 |
+| S5 Fourpop 출시 | 진행 중 — 무료 1.0 | 2026-10-16 1.0.0 (1) TestFlight 업로드 완료, ASC 텍스트·스크린샷 반영 완료. 남음: Cozy ASC 입력 → 심사 제출 |
 
 ## S1 완료 조건 확인 (2026-10-07)
 
@@ -244,4 +244,5 @@ Nuni 1.0 심사 대기(2026-10-15 제출) · Fourpop S4 마무리 + S5 준비 �
 - 2026-10-16 P18 Fourpop: Firebase plist 수령(`fourpop-f3c86`, 번들 ID 확인) → `apps/fourpop/`(gitignore) + EAS 파일 시크릿 `GOOGLE_SERVICES_PLIST_FOURPOP`(production·preview). `check-placeholders.sh` 전 항목 통과
 - 2026-10-16 P18 Fourpop 코드: Firebase Analytics·Crashlytics 연결(Nuni와 동일 구성), B12 Copy ID. 시뮬레이터 dev client 재빌드로 네이티브 검증(Skia + dynamic frameworks + RNFB)
 - 2026-10-16 P18 Fourpop 네이티브 검증: `prebuild --clean` 후 시뮬레이터 Debug 빌드 성공(dynamic frameworks + Skia + RNFB), `bundled-packs` 플로우 통과, `[analytics]` 이벤트가 Firebase transport로 전송. 세 시뮬레이터 dev client 재빌드. 남은 것: Cozy 터미널 `eas build`(production) → 업로드 → ASC 입력 → 제출
+- 2026-10-16 S5: Cozy가 production 빌드 실행(1.0.0 (1)), `eas submit`으로 ASC 업로드 완료(제출 cdbc07ae). 남음: Cozy ASC 입력(TestFlight 확인·빌드 선택·심사 정보·App Privacy·가격·국가) → 심사 제출
 

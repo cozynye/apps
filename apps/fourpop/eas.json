@@ -40,7 +40,10 @@
       "ios": {
         "appleTeamId": "TC547C863K",
         "metadataPath": "./store.config.json",
-        "ascAppId": "6821789911"
+        "ascAppId": "6821789911",
+        "ascApiKeyPath": "../nuni/AuthKey_Z3256B5QP4.p8",
+        "ascApiKeyId": "Z3256B5QP4",
+        "ascApiKeyIssuerId": "ac23b078-5da3-4649-9841-199114b59e2e"
       }
     }
   }

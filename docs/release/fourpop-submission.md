@@ -14,8 +14,8 @@ Nuni와 같은 순서로 간다(`nuni-submission.md`). 2026-10-15 기준 현황�
 ## 2. 빌드·업로드 순서
 
 1. ~~plist 수령 → EAS 파일 시크릿 등록~~ 완료(2026-10-16).
-2. **첫 빌드는 Cozy 터미널에서**: `cd apps/fourpop && eas build -p ios --profile production` — Apple 로그인 후 `app.fourpop.booth` 프로비저닝 프로파일 생성(배포 인증서는 Nuni 때 만든 것을 재사용). 이후 빌드는 비대화형으로 가능.
-3. 업로드: `eas submit -p ios --profile production --id <build id>` (ASC App ID는 `eas.json`에 있음). Fourpop EAS 프로젝트에는 ASC API 키가 없으므로 첫 submit도 Cozy 터미널에서(키 생성 질문에 Y) 하거나, `.env`의 `ASC_*` 키를 `EXPO_ASC_*` 환경 변수로 넘긴다(`eas.md`).
+2. ~~첫 빌드는 Cozy 터미널에서~~ 완료(2026-10-16, 1.0.0 (1), build df6a8c36). 이후 빌드는 비대화형으로 가능.
+3. ~~업로드~~ 완료(2026-10-16): `eas.json` submit 프로필의 `ascApiKeyPath/Id/IssuerId`(Cozy 팀 키, .p8는 `apps/nuni/`에 gitignore)로 비대화형 `eas submit` 성공. 비대화형 submit에는 `EXPO_ASC_*` 환경 변수가 아니라 프로필 필드가 필요했음.
 4. TestFlight 내부 그룹에서 Cozy iPhone 설치 확인.
 
 ## 3. App Store Connect 입력
@@ -24,7 +24,7 @@ Nuni와 같은 순서로 간다(`nuni-submission.md`). 2026-10-15 기준 현황�
 | --- | --- | --- |
 | 이름·부제·키워드·프로모션·설명·릴리스 노트 (en-GB·en-US·vi·th), 카테고리, 연령 등급 | `apps/fourpop/store.config.json` → `eas metadata:push` | **완료 2026-10-15** |
 | 스크린샷 | `docs/release/screenshots/fourpop/{iphone-6.3,ipad}/<locale>/1–6.png` → `env $(grep '^ASC_' .env \| xargs) pnpm tsx scripts/asc-screenshots.ts fourpop` | **완료 2026-10-15** — Pop·Y2K 반영해 재촬영, API로 48장 업로드(en-GB·en-US·vi·th × iPhone 6.3"·iPad 13") |
-| 빌드 선택 | 1.0 버전 페이지 | Cozy (빌드 후) |
+| 빌드 선택 | 1.0 버전 페이지 → 1.0.0 (1) | Cozy (처리 완료 후) |
 | 앱 심사 정보 | 연락처 + `docs/release/review-notes.md` › Fourpop (en) | Cozy |
 | App Privacy | `docs/release/privacy-labels.md` (Nuni와 동일) | Cozy |
 | 가격·국가 | 무료, 베트남·태국 | Cozy |

@@ -47,3 +47,7 @@ cd apps/fourpop && EXPO_ASC_API_KEY_PATH="$PWD/../../$ASC_KEY_PATH" EXPO_ASC_KEY
 
 (2026-10-15 Fourpop 반영 완료. 두 앱 모두 ASC 기본 언어가 영어(영국)라 `en-GB`도 같은 내용으로 들어 있다.)
 
+## 비대화형 `eas submit`
+
+EAS 자격 증명 서비스에 ASC 키가 없는 프로젝트(Fourpop)는 `eas.json` submit 프로필에 `ascApiKeyPath`(gitignore된 .p8 경로)·`ascApiKeyId`·`ascApiKeyIssuerId`를 적어 두면 `--non-interactive`로 업로드된다(2026-10-16 확인). `EXPO_ASC_*` 환경 변수는 `metadata:push`에는 통하지만 `submit`은 ‘API Keys cannot be set up in --non-interactive mode’로 거절한다.
+
