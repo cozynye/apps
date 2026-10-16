@@ -245,4 +245,5 @@ Nuni 1.0 심사 대기(2026-10-15 제출) · Fourpop S4 마무리 + S5 준비 �
 - 2026-10-16 P18 Fourpop 코드: Firebase Analytics·Crashlytics 연결(Nuni와 동일 구성), B12 Copy ID. 시뮬레이터 dev client 재빌드로 네이티브 검증(Skia + dynamic frameworks + RNFB)
 - 2026-10-16 P18 Fourpop 네이티브 검증: `prebuild --clean` 후 시뮬레이터 Debug 빌드 성공(dynamic frameworks + Skia + RNFB), `bundled-packs` 플로우 통과, `[analytics]` 이벤트가 Firebase transport로 전송. 세 시뮬레이터 dev client 재빌드. 남은 것: Cozy 터미널 `eas build`(production) → 업로드 → ASC 입력 → 제출
 - 2026-10-16 S5: Cozy가 production 빌드 실행(1.0.0 (1)), `eas submit`으로 ASC 업로드 완료(제출 cdbc07ae). 남음: Cozy ASC 입력(TestFlight 확인·빌드 선택·심사 정보·App Privacy·가격·국가) → 심사 제출
+- 2026-10-16 S5: Fourpop ASC를 API로 채움 — 빌드 1.0.0 (1) 연결, 심사 연락처(Nuni 복사)+메모, 가격 무료, 국가 VN·TH, 수동 출시. 남음: Cozy의 App Privacy 게시 → 심사 제출(+ TestFlight 실기기 확인, DebugView)
 

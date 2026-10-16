@@ -24,11 +24,11 @@ Nuni와 같은 순서로 간다(`nuni-submission.md`). 2026-10-15 기준 현황�
 | --- | --- | --- |
 | 이름·부제·키워드·프로모션·설명·릴리스 노트 (en-GB·en-US·vi·th), 카테고리, 연령 등급 | `apps/fourpop/store.config.json` → `eas metadata:push` | **완료 2026-10-15** |
 | 스크린샷 | `docs/release/screenshots/fourpop/{iphone-6.3,ipad}/<locale>/1–6.png` → `env $(grep '^ASC_' .env \| xargs) pnpm tsx scripts/asc-screenshots.ts fourpop` | **완료 2026-10-15** — Pop·Y2K 반영해 재촬영, API로 48장 업로드(en-GB·en-US·vi·th × iPhone 6.3"·iPad 13") |
-| 빌드 선택 | 1.0 버전 페이지 → 1.0.0 (1) | Cozy (처리 완료 후) |
-| 앱 심사 정보 | 연락처 + `docs/release/review-notes.md` › Fourpop (en) | Cozy |
-| App Privacy | `docs/release/privacy-labels.md` (Nuni와 동일) | Cozy |
-| 가격·국가 | 무료, 베트남·태국 | Cozy |
-| 버전 출시 | 수동 출시 권장 | Cozy |
+| 빌드 선택 | 1.0.0 (1) | **완료 2026-10-16** (API로 연결) |
+| 앱 심사 정보 | Nuni의 연락처를 복사 + `review-notes.md` › Fourpop (en) 메모, 로그인 불필요 | **완료 2026-10-16** (API) |
+| App Privacy | `docs/release/privacy-labels.md` (Nuni와 동일) — 공개 API 없음 | **Cozy** |
+| 가격·국가 | 무료(미국 기준 0 가격대), 베트남·태국만, 신규 국가 자동 추가 안 함 | **완료 2026-10-16** (API) |
+| 버전 출시 | 수동 출시 | **완료** (releaseType MANUAL) |
 
 ## 4. Fourpop만의 확인 항목
 
@@ -36,4 +36,8 @@ Nuni와 같은 순서로 간다(`nuni-submission.md`). 2026-10-15 기준 현황�
 - 번들 콘텐츠: 프레임 30종(Basics 10 + Pop 10 + Y2K 10), 스티커 60종(22 + 20 + 18), 매니페스트 버전 4. CDN 시즌팩은 A5 결정 후.
 - 실기기 확인 대기(Cozy iPhone 12 Pro): 권한 거부, 비행기 모드, 공유, HD 저장 시간 — RELEASE_CHECKLIST C7.
 - Firebase(2026-10-16 연결): 분석 이벤트 `booth_*`·`pack_*`는 Debug 빌드의 `[analytics]` 로그로 확인. **DebugView 확인(C5)은 Cozy가 Firebase 콘솔 › Analytics › DebugView에서** — TestFlight 빌드는 DebugView에 안 잡히므로 dev client를 `-FIRDebugEnabled` 인자로 실행해야 한다(`xcrun simctl launch <UDID> app.fourpop.booth -FIRDebugEnabled` 후 dev client URL 열기, 또는 Xcode 스킴 인자). 이벤트에 `mood`·본문·태그 같은 금지 키가 없는 것은 `buildEventParams` 유닛 테스트로 보장.
+
+## 5. API로 채운 항목 (2026-10-16)
+
+스크린샷(48장)·텍스트 메타데이터 외에 빌드 연결(`PATCH appStoreVersions`), 심사 연락처·메모(`POST appStoreReviewDetails`, 연락처는 Nuni 것을 복사), 가격 무료(`POST appPriceSchedules`, 기준 국가 USA의 0 가격대), 판매 국가(`POST /v2/appAvailabilities` — 175개 국가를 전부 나열해야 하며 VNM·THA만 `available: true`)를 Cozy의 팀 키로 넣었다. 남은 수동 항목은 App Privacy 라벨(API 없음)과 ‘심사에 추가’ 버튼. 일회성이라 스크립트는 저장소에 두지 않음(명령 기록은 세션 로그).
 
