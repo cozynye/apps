@@ -4,7 +4,13 @@ Claude Code가 작업 단위가 끝날 때마다 갱신한다. 새 세션은 이
 
 ## 현재 단계
 
-Nuni 1.0 심사 대기(2026-10-15 제출) · Fourpop S4 마무리 + S5 준비 — **1.0은 무료(결제 없음)로 출시**(Cozy 결정 2026-10-15). 결제 코드는 `EXPO_PUBLIC_MONETIZATION=on` 뒤에 보존
+**2026-10-16 세션 종료 시점 요약** — 다음 세션은 이 절과 아래 ‘다음 할 일’부터 읽는다.
+
+- **Nuni 1.0.0 (2)**: 2026-10-15 **심사 제출됨**(Waiting for Review, 수동 출시). 승인되면 Cozy가 ASC에서 ‘이 버전 출시’를 누르거나 Claude Code가 API로 출시.
+- **Fourpop 1.0.0 (1)**: 2026-10-16 TestFlight 업로드 + ASC 1.0 버전 거의 완성(스크린샷 48장·텍스트 4개 언어·빌드 연결·심사 연락처/메모·가격 무료·국가 VN/TH·수동 출시 — 전부 API로 입력). **남은 것: Cozy가 App Privacy 라벨 게시(공개 API 없음) → ‘심사에 추가’.** 권장: 제출 전 TestFlight로 실기기 확인(카메라·저장·공유·비행기 모드).
+- **1.0은 전부 무료**(Cozy 결정 2026-10-15): 구독·단품·광고 없음, `EXPO_PUBLIC_MONETIZATION=on`일 때만 결제 경로. 이유: 한국 Apple 계정의 유료 앱 계약에 사업자등록번호 필요. 추후 수익화는 월·연 구독 대신 아이템 단위 인앱 해금(DECISIONS 2026-10-15).
+- **Fourpop 콘텐츠**(2026-10-15~16): 번들 무료 팩 — Pop(10)·Y2K(10)·Studio(10, 국내 네컷 부스 기본형) 프레임 + Pop(20)·Y2K(18) 스티커, 시즌팩 5개(할로윈·크리스마스·뗏·발렌타인·쏭끄란, 각 프레임 6 + 스티커 8, 기간 한정 노출). 총 프레임 70·스티커 100, 매니페스트 v6. 생성기 `scripts/content-gen/`. 날짜 스탬프에 `yyyy.MM.dd HH:mm` 추가. Firebase 연결(P18) 완료.
+- **계정·키 위치**: ASC 팀 키(App Manager) `apps/nuni/AuthKey_Z3256B5QP4.p8`(gitignore) + `.env`의 `ASC_*`; Firebase plist 2개 `apps/<app>/`(gitignore) + EAS 파일 시크릿; EAS 프로젝트 `@cco33/nuni`·`@cco33/fourpop`; ASC App ID Nuni 6821789626 · Fourpop 6821789911(기본 언어 en-GB). 자세한 절차는 `docs/release/nuni-submission.md`·`fourpop-submission.md`·`eas.md`.
 
 ## 단계 현황
 
@@ -13,9 +19,9 @@ Nuni 1.0 심사 대기(2026-10-15 제출) · Fourpop S4 마무리 + S5 준비 �
 | S0 준비 | 완료 (개발 차단 항목 없음) | P15·P16 보류 → RevenueCat Test Store로 대체. 미확정 사항은 배포 전 해결 (RELEASE_CHECKLIST) |
 | S1 공통 패키지 | 완료 (2026-10-12) | 아래 완료 조건 표 |
 | S2 Nuni 개발 | 완료 (2026-10-14) | A1–A13·위젯·리마인더·잠금·백업·Firebase. 예외: 콜드 스타트·TestFlight 1주 Cozy 지시로 건너뜀, VoiceOver 실기기 완주 선택(미실시) |
-| S3 Nuni 출시 | **심사 대기** (2026-10-15 제출, WAITING_FOR_REVIEW, 수동 출시) | 1.0.0(2). 승인 후 Cozy가 ASC에서 출시(또는 API). 거절되면 사유 보고 대응 |
-| S4 Fourpop 개발 | 진행 중 | 1–5단계(뼈대, B3·B4, 촬영 B5·B6, 꾸미기·결과 B7·B8, 갤러리 B9·상점 B10·팩 구매/다운로드) 완료 — 화면 B1–B13 전부 있음. 다음 6단계(완료 기준 점검: 결제 검증·3언어·오프라인·예외 표) |
-| S5 Fourpop 출시 | 진행 중 — 무료 1.0 | 2026-10-16 1.0.0 (1) TestFlight 업로드 완료, ASC 텍스트·스크린샷 반영 완료. 남음: Cozy ASC 입력 → 심사 제출 |
+| S3 Nuni 출시 | **심사 대기** (2026-10-15 제출, WAITING_FOR_REVIEW, 수동 출시) | 1.0.0 (2). 승인 후 Cozy가 ASC에서 출시(또는 API). 거절되면 사유 보고 대응 |
+| S4 Fourpop 개발 | 완료 (2026-10-16) | B1–B13 전부, 완료 기준 점검(Maestro iPhone·iPad·3언어·AX1·오프라인) 통과, 콘텐츠 팩·Firebase까지. 건너뜀: 콜드 스타트·메모리·TestFlight 1주(Cozy). 실기기 항목은 TestFlight 빌드에서 Cozy 확인 |
+| S5 Fourpop 출시 | **제출 직전** — 무료 1.0 | 2026-10-16 1.0.0 (1) 업로드, ASC 버전 API로 완성(App Privacy만 남음). Cozy: App Privacy 게시 → 심사 제출 |
 
 ## S1 완료 조건 확인 (2026-10-07)
 
@@ -202,11 +208,11 @@ Nuni 1.0 심사 대기(2026-10-15 제출) · Fourpop S4 마무리 + S5 준비 �
 
 ## 다음 할 일
 
-0. S4 6단계 2차: Fourpop Firebase plist(P18) 후 Copy ID·DebugView 이벤트(`booth_*`, `pack_*`); 실기기(Cozy iPhone 12 Pro): 실제 카메라·셔터음·플래시, 권한 거부, 비행기 모드, 공유 앱, HD 저장 시간; QA 에이전트 회귀(무료 UI 기준). 구독 만료 전환 관찰은 결제를 켜는 v1.1로
-
-1. Firebase DebugView 파라미터 최종 확인(Cozy): `share_card` 등에 `mood`·본문·태그 이름 미포함
-   - 2026-10-14 실기기 DebugView에 자동 이벤트 + 앱 이벤트(`share_card`) 도착 확인. 이벤트 파라미터는 `buildEventParams`가 금지 키를 막음(유닛 테스트)
-2. 남은 S2 완료 기준: VoiceOver 실기기 완주(선택). 콜드 스타트·TestFlight 1주는 Cozy 지시로 건너뜀(RELEASE_CHECKLIST)
+1. **Fourpop 제출(Cozy)**: ASC › 앱 정보 › 앱 개인정보 보호 게시(`docs/release/privacy-labels.md`) → 1.0 버전 ‘심사에 추가’. 그 전 TestFlight 1.0.0 (1) 실기기 확인(실제 카메라 8컷·저장 화질·권한 문구·비행기 모드 상점·공유·시즌 탭 할로윈). Firebase DebugView/실시간에 `booth_*` 이벤트 확인(RELEASE_CHECKLIST C5 F).
+2. **Nuni 심사 대응**: 거절 시 사유 보고 수정 → `eas build`(이제 비대화형 가능) → `eas submit`(EAS에 ASC 키 있음). 승인 시 수동 출시. Fourpop도 같은 흐름(submit은 `eas.json`의 `ascApiKeyPath` 사용).
+3. **출시 직후**: Nuni·Fourpop 스토어 링크 확인, 크래시(Crashlytics) 모니터링, vi·th 문구 피드백 수집(S6).
+4. **v1.1 후보**(PLAN 범위 밖·보류 항목): (a) 수익화 — 개인사업자 등록 후 아이템 단위 인앱 해금(`MONETIZATION=on` 경로 재검토, ASC `mood_premium_*` 구독 상품 정리), 광고(AdMob)는 보류·준비물 DECISIONS 2026-10-15; (b) CDN 시즌팩(R2, `scripts/mock-cdn.ts` 경로 이미 검증); (c) 2×2 레이아웃·라이브 GIF(DECISIONS 2026-10-14); (d) Fourpop 스토어 스크린샷을 도형 샘플 대신 실제 사진으로; (e) 시즌팩 창 갱신(2027 이후 팩은 `scripts/content-gen/season.ts`에 추가 후 `manifest.ts` → `design:sync`).
+5. **운영 메모**: 네이티브 플러그인을 바꾸면 로컬은 `npx expo prebuild -p ios --clean` 후 빌드; 시뮬레이터 dev client 3대는 2026-10-16 Firebase 포함으로 재빌드됨; 스토어 스크린샷 재생성은 `bash scripts/store-shots-all.sh` → `scripts/asc-screenshots.ts <app>`(ASC 웹 업로더는 거절함); ASC 팀 키는 두 앱 출시 후 폐기해도 됨(재발급 가능).
 
 ## 완료한 일 (2026-10-13, Firebase)
 
