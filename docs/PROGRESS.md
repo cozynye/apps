@@ -12,6 +12,8 @@ Claude Code가 작업 단위가 끝날 때마다 갱신한다. 새 세션은 이
 - **Fourpop 콘텐츠**(2026-10-15~16): 번들 무료 팩 — Pop(10)·Y2K(10)·Studio(10, 국내 네컷 부스 기본형) 프레임 + Pop(20)·Y2K(18) 스티커, 시즌팩 5개(할로윈·크리스마스·뗏·발렌타인·쏭끄란, 각 프레임 6 + 스티커 8, 기간 한정 노출). 총 프레임 70·스티커 100, 매니페스트 v6. 생성기 `scripts/content-gen/`. 날짜 스탬프에 `yyyy.MM.dd HH:mm` 추가. Firebase 연결(P18) 완료.
 - **계정·키 위치**: ASC 팀 키(App Manager) `apps/nuni/AuthKey_Z3256B5QP4.p8`(gitignore) + `.env`의 `ASC_*`; Firebase plist 2개 `apps/<app>/`(gitignore) + EAS 파일 시크릿; EAS 프로젝트 `@cco33/nuni`·`@cco33/fourpop`; ASC App ID Nuni 6821789626 · Fourpop 6821789911(기본 언어 en-GB). 자세한 절차는 `docs/release/nuni-submission.md`·`fourpop-submission.md`·`eas.md`.
 
+- **마케팅 트랙**(2026-10-19 시작, 앱 개발 일시 정지): 분석 보고서 `docs/marketing/STRATEGY.md`, Cozy 셋업 체크리스트 `docs/marketing/CHECKLIST.md`, 자동 게시 파이프라인(`marketing/` 데이터 · `packages/marketing` 순수 로직 · `scripts/marketing/` · 워크플로 3개 · 생성 스킬 `/marketing-weekly`) 구축 완료. 로컬 검증: 예시 큐 렌더(1080×1350·1080×1920 JPEG, 실제 프레임 합성·태국어 렌더 확인), 게시 드라이런(Threads 텍스트/이미지·Buffer 페이로드·36시간 skip), 사이트 빌드(랜딩 2개·에셋 경로 일치), 리포트(토큰 없을 때 저하 동작). **미검증**: 실제 API 게시(토큰 없음), Buffer의 TikTok 이미지 캐러셀 지원, ASC 분석 리포트(App Manager 키 403 → Admin 키 필요). **다음은 Cozy의 계정·키 준비**(CHECKLIST A–G).
+
 ## 단계 현황
 
 | 단계 | 상태 | 메모 |
@@ -208,6 +210,7 @@ Claude Code가 작업 단위가 끝날 때마다 갱신한다. 새 세션은 이
 
 ## 다음 할 일
 
+0. **마케팅(현재 트랙)**: Cozy가 `docs/marketing/CHECKLIST.md`의 계정·키를 만들어 GitHub Secrets에 등록 → Claude Code가 `Marketing publish` 드라이런 → 채널별 테스트 게시 1건(확인 후 삭제) → `/marketing-weekly`로 첫 주 큐(할로윈 팩 마감 11/02 전) PR → Cozy 머지 → cron 가동 → 2주 뒤 리포트 보고 슬롯·필러 조정. 앱 내 성장 훅(공유 이미지 브랜드 마크, 공유 캡션·링크, Fourpop 평가 요청 행, 스토어 ‘40 frames’ 문구)은 STRATEGY 10장 — Cozy 결정 대기.
 1. **Fourpop 제출(Cozy)**: ASC › 앱 정보 › 앱 개인정보 보호 게시(`docs/release/privacy-labels.md`) → 1.0 버전 ‘심사에 추가’. 그 전 TestFlight 1.0.0 (1) 실기기 확인(실제 카메라 8컷·저장 화질·권한 문구·비행기 모드 상점·공유·시즌 탭 할로윈). Firebase DebugView/실시간에 `booth_*` 이벤트 확인(RELEASE_CHECKLIST C5 F).
 2. **Nuni 심사 대응**: 거절 시 사유 보고 수정 → `eas build`(이제 비대화형 가능) → `eas submit`(EAS에 ASC 키 있음). 승인 시 수동 출시. Fourpop도 같은 흐름(submit은 `eas.json`의 `ascApiKeyPath` 사용).
 3. **출시 직후**: Nuni·Fourpop 스토어 링크 확인, 크래시(Crashlytics) 모니터링, vi·th 문구 피드백 수집(S6).

@@ -1,0 +1,173 @@
+{
+  "week": "2026-W44",
+  "posts": [
+    {
+      "id": "2026-W44-fourpop-vi-threads-01",
+      "brand": "fourpop-vi",
+      "channel": "threads",
+      "pillar": "frame-of-the-day",
+      "publishAt": "2026-10-26T13:00:00.000Z",
+      "text": "Photobooth tại nhà, không cần xếp hàng. Đếm ngược, 8 tấm, chọn 4 tấm đẹp nhất, thêm khung Sunset rồi lưu. Bạn hay chụp với ai nhất?\n\nMiễn phí, không quảng cáo. Có trên iPhone và iPad.",
+      "hashtags": [
+        "photobooth",
+        "chụpảnh",
+        "sốngảo",
+        "Fourpop"
+      ],
+      "link": true,
+      "media": [
+        {
+          "kind": "strip",
+          "frame": "pop-sunset",
+          "photos": [
+            {
+              "query": "friends selfie laughing"
+            },
+            {
+              "query": "young asian woman smiling portrait"
+            },
+            {
+              "query": "two friends taking selfie"
+            },
+            {
+              "query": "friends peace sign selfie"
+            }
+          ],
+          "caption": "Khung Sunset",
+          "format": "feed"
+        }
+      ],
+      "status": "scheduled"
+    },
+    {
+      "id": "2026-W44-fourpop-th-tiktok-01",
+      "brand": "fourpop-th",
+      "channel": "tiktok",
+      "pillar": "pose",
+      "publishAt": "2026-10-27T13:00:00.000Z",
+      "text": "โฟโต้บูธ 4 ช่องถ่ายที่บ้านได้ นับถอยหลัง ถ่าย 8 ช็อต เลือก 4 ช็อตที่ชอบ ใส่กรอบแล้วเซฟเลย ท่าไหนที่คุณกับเพื่อนต้องมี?\n\nฟรี ไม่มีโฆษณา มีบน iPhone และ iPad ลิงก์ในไบโอ",
+      "hashtags": [
+        "โฟโต้บูธ",
+        "ถ่ายรูป",
+        "photobooth",
+        "Fourpop"
+      ],
+      "link": false,
+      "media": [
+        {
+          "kind": "strip",
+          "frame": "pop-sunset",
+          "photos": [
+            {
+              "query": "friends selfie laughing"
+            },
+            {
+              "query": "two friends taking selfie"
+            },
+            {
+              "query": "college friends having fun"
+            },
+            {
+              "query": "friends peace sign selfie"
+            }
+          ],
+          "caption": "ท่าคู่ซี้",
+          "format": "vertical"
+        },
+        {
+          "kind": "strip",
+          "frame": "base-noir",
+          "photos": [
+            {
+              "query": "young man smiling portrait natural light"
+            },
+            {
+              "query": "young woman winking portrait"
+            },
+            {
+              "query": "asian couple selfie casual"
+            },
+            {
+              "query": "friends selfie laughing"
+            }
+          ],
+          "caption": "ท่าโซโล่",
+          "format": "vertical"
+        }
+      ],
+      "status": "scheduled"
+    },
+    {
+      "id": "2026-W44-nuni-vi-threads-01",
+      "brand": "nuni-vi",
+      "channel": "threads",
+      "pillar": "checkin",
+      "publishAt": "2026-10-26T00:30:00.000Z",
+      "text": "Hôm nay bạn là đám mây nào? Mưa, âm u, có nắng, trong xanh hay hoàng hôn?\n\nNuni ghi lại một ngày trong 10 giây. Không cần tài khoản, nhật ký ở lại trong máy bạn. Có trên iPhone và iPad.",
+      "hashtags": [
+        "nhậtkýcảmxúc",
+        "chữalành",
+        "Nuni"
+      ],
+      "link": true,
+      "media": [],
+      "status": "scheduled"
+    },
+    {
+      "id": "2026-W44-nuni-th-instagram-01",
+      "brand": "nuni-th",
+      "channel": "instagram",
+      "pillar": "meme",
+      "publishAt": "2026-10-28T05:30:00.000Z",
+      "text": "วันนี้คุณเป็นเมฆก้อนไหน? ฝน ครึ้ม มีแสง แจ่มใส หรืออาทิตย์ตก\n\nNuni บันทึกวันนี้ใน 10 วินาที ไม่ต้องสมัคร ไดอารี่อยู่ในเครื่องคุณ มีบน iPhone และ iPad ลิงก์ในไบโอ",
+      "hashtags": [
+        "ไดอารี่",
+        "ฮีลใจ",
+        "moodtracker",
+        "Nuni"
+      ],
+      "link": false,
+      "media": [
+        {
+          "kind": "card",
+          "headline": "วันนี้คุณเป็นเมฆก้อนไหน?",
+          "lines": [
+            "ฝน · ครึ้ม · มีแสง · แจ่มใส · อาทิตย์ตก",
+            "10 วินาที ไม่ต้องสมัคร"
+          ],
+          "mood": 4,
+          "format": "feed"
+        }
+      ],
+      "status": "scheduled"
+    },
+    {
+      "id": "2026-W44-fourpop-vi-instagram-01",
+      "brand": "fourpop-vi",
+      "channel": "instagram",
+      "pillar": "season",
+      "publishAt": "2026-10-29T13:00:00.000Z",
+      "text": "Khung Halloween miễn phí đến 2/11. Chọn khung, đếm ngược, chụp 8 tấm, giữ 4 tấm.\n\nFourpop có trên iPhone và iPad. Link trong bio.",
+      "hashtags": [
+        "photobooth",
+        "Halloween",
+        "chụpảnh",
+        "Fourpop"
+      ],
+      "link": false,
+      "media": [
+        {
+          "kind": "frames",
+          "frames": [
+            "halloween-2026-pumpkin",
+            "halloween-2026-boo",
+            "halloween-2026-midnight"
+          ],
+          "headline": "Khung Halloween",
+          "format": "feed"
+        }
+      ],
+      "status": "scheduled"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+[
+  { "id": "halloween-2026", "label": "Halloween", "from": "2026-10-16", "until": "2026-11-02", "markets": ["vi", "th"], "pack": "halloween-2026" },
+  { "id": "vn-teachers-day-2026", "label": "Ngày Nhà giáo Việt Nam (20/11)", "from": "2026-11-18", "until": "2026-11-20", "markets": ["vi"], "pack": null },
+  { "id": "xmas-2026", "label": "Christmas · year end", "from": "2026-11-20", "until": "2026-12-31", "markets": ["vi", "th"], "pack": "xmas-2026" },
+  { "id": "loy-krathong-2026", "label": "Loy Krathong (ลอยกระทง)", "from": "2026-11-22", "until": "2026-11-24", "markets": ["th"], "pack": null },
+  { "id": "tet-2027", "label": "Tết Nguyên Đán 2027 (06/02)", "from": "2027-01-16", "until": "2027-02-21", "markets": ["vi"], "pack": "tet-2027" },
+  { "id": "valentine-2027", "label": "Valentine", "from": "2027-02-01", "until": "2027-02-15", "markets": ["vi", "th"], "pack": "valentine-2027" },
+  { "id": "vn-womens-day-2027", "label": "Quốc tế Phụ nữ (08/03)", "from": "2027-03-06", "until": "2027-03-08", "markets": ["vi"], "pack": null },
+  { "id": "songkran-2027", "label": "Songkran (สงกรานต์ 13-15/04)", "from": "2027-04-01", "until": "2027-04-20", "markets": ["th"], "pack": "songkran-2027" }
+]

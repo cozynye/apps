@@ -1,11 +1,11 @@
 name: Legal pages
 
-# P21: publishes web/legal/public (support, privacy, terms) to GitHub Pages.
+# P21: publishes web/legal/public (support, privacy, terms, app landing pages, marketing assets under /m/) to GitHub Pages.
 # Enable Pages (Settings › Pages › Source: GitHub Actions) and set the custom domain there.
 on:
   push:
     branches: [main]
-    paths: ['web/legal/**', 'design/legal/**', 'scripts/legal*', '.github/workflows/pages.yml']
+    paths: ['web/legal/**', 'design/legal/**', 'scripts/legal*', 'marketing/queue/**', 'marketing/links.json', 'docs/release/store-*.md', '.github/workflows/pages.yml']
   workflow_dispatch:
 
 permissions:

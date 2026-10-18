@@ -5,23 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Terms of Use · Nuni & Fourpop</title>
 <style>
-  :root { --surface-0: #ffffff; --surface-1: #f7f6f3; --ink: #1f1f24; --ink-muted: #66656e; --line: #d6d3cb; --nuni-deep: #3b6fa3; color-scheme: light dark; }
-  @media (prefers-color-scheme: dark) { :root { --surface-0: #141416; --surface-1: #1c1c1f; --ink: #f2f1ee; --ink-muted: #a8a7af; --line: #34343a; --nuni-deep: #9fc7f2; } }
+  :root { --surface-0: #ffffff; --surface-1: #f7f6f3; --ink: #1f1f24; --ink-muted: #66656e; --line: #d6d3cb; --nuni-deep: #3b6fa3; --nuni-primary: #8fbff0; --nuni-soft: #e3f0fc; --fourpop-deep: #b8413a; --fourpop-primary: #ff8a80; --fourpop-soft: #ffe6e3; color-scheme: light dark; }
+  @media (prefers-color-scheme: dark) { :root { --surface-0: #141416; --surface-1: #1c1c1f; --ink: #f2f1ee; --ink-muted: #a8a7af; --line: #34343a; --nuni-deep: #9fc7f2; --nuni-primary: #7fb3e6; --nuni-soft: #1e2a38; --fourpop-deep: #ffb3ac; --fourpop-primary: #ff9a91; --fourpop-soft: #3a2422; } }
   body { margin: 0; background: var(--surface-1); color: var(--ink);
-    font: 16px/1.6 "Be Vietnam Pro", system-ui, -apple-system, sans-serif; }
+    font: 16px/1.6 "Be Vietnam Pro", "Prompt", system-ui, -apple-system, sans-serif; }
   main { max-width: 680px; margin: 0 auto; padding: 32px 16px 64px; }
-  nav { display: flex; gap: 16px; margin-bottom: 24px; font-size: 14px; }
+  nav { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; font-size: 14px; }
   a { color: var(--nuni-deep); }
   h1 { font-size: 28px; line-height: 1.25; }
   h2 { font-size: 20px; margin-top: 32px; }
   table { border-collapse: collapse; width: 100%; font-size: 14px; }
   th, td { border: 1px solid var(--line); padding: 8px; text-align: left; vertical-align: top; }
   footer { margin-top: 48px; color: var(--ink-muted); font-size: 14px; }
+  .hero { padding: 28px 24px; border-radius: 20px; margin: 0 0 24px; }
+  .hero.nuni { background: var(--nuni-soft); }
+  .hero.fourpop { background: var(--fourpop-soft); }
+  .hero h1 { margin: 0 0 4px; }
+  .hero .sub { font-weight: 600; margin: 0 0 12px; }
+  .hero p { margin: 0 0 12px; }
+  .hero ul { margin: 0 0 16px; padding-left: 20px; }
+  .badge { display: inline-block; background: #1f1f24; color: #fff; text-decoration: none; padding: 12px 20px; border-radius: 12px; font-weight: 600; }
+  .meta { color: var(--ink-muted); font-size: 14px; margin-top: 12px; }
+  .apps { display: grid; gap: 16px; grid-template-columns: 1fr; }
+  @media (min-width: 560px) { .apps { grid-template-columns: 1fr 1fr; } }
+  .card { border: 1px solid var(--line); background: var(--surface-0); border-radius: 16px; padding: 16px; }
+  .card h3 { margin: 0 0 6px; }
 </style>
 </head>
 <body>
 <main>
-<nav><a href="./">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></nav>
+<nav><a href="./">Support</a><a href="nuni.html">Nuni</a><a href="fourpop.html">Fourpop</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></nav>
 <h1>Terms of Use</h1>
 <p>Effective: October 15, 2026</p>
 <p>These Terms of Use (&quot;Terms&quot;) govern your use of the Nuni and Fourpop apps (each an &quot;App&quot;) published by Chagyung (&quot;we&quot;, &quot;us&quot;). By downloading or using an App you agree to these Terms. If you do not agree, do not use the App.</p>

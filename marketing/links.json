@@ -1,0 +1,9 @@
+{
+  "$comment": "App Store campaign links: https://apps.apple.com/app/apple-store/id<APP>?pt=<providerToken>&ct=<channel>_<locale>&mt=8. providerToken comes from App Store Connect › Analytics › Acquisition › Campaigns (CHECKLIST E1); empty = links work but are not attributed.",
+  "providerToken": "",
+  "androidWaitlist": "",
+  "landing": {
+    "nuni": "https://cozynye.github.io/apps/nuni.html",
+    "fourpop": "https://cozynye.github.io/apps/fourpop.html"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "$comment": "Brand → channel → where the credentials live (GitHub Secrets / .env). No secret values here. User ids are looked up from the tokens at run time.",
+  "assetBaseUrl": "https://cozynye.github.io/apps/m/",
+  "brands": {
+    "fourpop-vi": {
+      "app": "fourpop",
+      "locale": "vi",
+      "handle": "",
+      "channels": {
+        "threads": { "tokenEnv": "THREADS_TOKEN_FOURPOP_VI" },
+        "instagram": { "tokenEnv": "IG_TOKEN_FOURPOP_VI" },
+        "tiktok": { "via": "buffer", "channelIdEnv": "BUFFER_CHANNEL_TIKTOK_FOURPOP_VI" },
+        "facebook": { "manual": true }
+      }
+    },
+    "fourpop-th": {
+      "app": "fourpop",
+      "locale": "th",
+      "handle": "",
+      "channels": {
+        "threads": { "tokenEnv": "THREADS_TOKEN_FOURPOP_TH" },
+        "instagram": { "tokenEnv": "IG_TOKEN_FOURPOP_TH" },
+        "tiktok": { "via": "buffer", "channelIdEnv": "BUFFER_CHANNEL_TIKTOK_FOURPOP_TH" },
+        "x": { "via": "buffer", "channelIdEnv": "BUFFER_CHANNEL_X_FOURPOP_TH" }
+      }
+    },
+    "nuni-vi": {
+      "app": "nuni",
+      "locale": "vi",
+      "handle": "",
+      "channels": {
+        "threads": { "tokenEnv": "THREADS_TOKEN_NUNI_VI" },
+        "instagram": { "tokenEnv": "IG_TOKEN_NUNI_VI" }
+      }
+    },
+    "nuni-th": {
+      "app": "nuni",
+      "locale": "th",
+      "handle": "",
+      "channels": {
+        "threads": { "tokenEnv": "THREADS_TOKEN_NUNI_TH" },
+        "instagram": { "tokenEnv": "IG_TOKEN_NUNI_TH" }
+      }
+    }
+  },
+  "buffer": { "apiKeyEnv": "BUFFER_API_KEY" },
+  "pexels": { "apiKeyEnv": "PEXELS_API_KEY" }
+}

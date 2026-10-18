@@ -31,3 +31,10 @@ packages/db/drizzle/*/migrations.js
 # store screenshots (generated, large)
 docs/release/screenshots/
 *.p8
+
+# marketing pipeline: downloaded stock photos and Cozy's own sample photos
+marketing/.cache/
+marketing/photos/
+
+# built from marketing/queue by pnpm legal:build (pages.yml rebuilds it in CI)
+web/legal/public/m/

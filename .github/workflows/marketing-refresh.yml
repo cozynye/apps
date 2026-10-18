@@ -1,0 +1,35 @@
+name: Marketing token refresh
+
+# Meta long-lived tokens expire after 60 days. Refresh monthly; with GH_ADMIN_TOKEN the secrets are rewritten,
+# otherwise the log says which ones to update by hand (docs/marketing/CHECKLIST.md B6).
+on:
+  schedule:
+    - cron: '0 3 1 * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Refresh tokens
+        env:
+          THREADS_TOKEN_FOURPOP_VI: ${{ secrets.THREADS_TOKEN_FOURPOP_VI }}
+          THREADS_TOKEN_FOURPOP_TH: ${{ secrets.THREADS_TOKEN_FOURPOP_TH }}
+          THREADS_TOKEN_NUNI_VI: ${{ secrets.THREADS_TOKEN_NUNI_VI }}
+          THREADS_TOKEN_NUNI_TH: ${{ secrets.THREADS_TOKEN_NUNI_TH }}
+          IG_TOKEN_FOURPOP_VI: ${{ secrets.IG_TOKEN_FOURPOP_VI }}
+          IG_TOKEN_FOURPOP_TH: ${{ secrets.IG_TOKEN_FOURPOP_TH }}
+          IG_TOKEN_NUNI_VI: ${{ secrets.IG_TOKEN_NUNI_VI }}
+          IG_TOKEN_NUNI_TH: ${{ secrets.IG_TOKEN_NUNI_TH }}
+          GH_ADMIN_TOKEN: ${{ secrets.GH_ADMIN_TOKEN }}
+        run: pnpm marketing:refresh-tokens

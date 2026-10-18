@@ -2,8 +2,10 @@ name: CI
 
 on:
   pull_request:
+    paths-ignore: ['marketing/queue/**', 'docs/marketing/reports/**']
   push:
     branches: [main]
+    paths-ignore: ['marketing/queue/**', 'docs/marketing/reports/**']
 
 jobs:
   check:

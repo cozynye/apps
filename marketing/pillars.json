@@ -1,0 +1,77 @@
+{
+  "$comment": "Content pillars, hashtags and tone for the weekly generator (.claude/skills/marketing-weekly). Edit freely; the generator reads this every week.",
+  "slots": {
+    "timezone": "Asia/Bangkok (UTC+7; Vietnam is the same offset)",
+    "morning": "07:30",
+    "noon": "12:30",
+    "evening": "20:00",
+    "note": "Baseline from published posting-time studies for VN/TH. After two weeks, move slots toward the hours Threads/Instagram insights show."
+  },
+  "weeklyMix": {
+    "fourpop-vi": { "threads": 7, "instagram": 4, "tiktok": 4, "facebook": 2 },
+    "fourpop-th": { "threads": 7, "instagram": 4, "tiktok": 4, "x": 5 },
+    "nuni-vi": { "threads": 5, "instagram": 2 },
+    "nuni-th": { "threads": 5, "instagram": 2 }
+  },
+  "tone": {
+    "rules": [
+      "Short sentences, sentence case, never ALL CAPS (tone marks break, Thai has no case).",
+      "Sound like a friend showing an app, not a brand announcing one. No superlatives ('best', 'perfect').",
+      "Only claim what the app does today (free, no ads, no account, data stays on the device, 70 frames, 100 stickers, 8 shots pick 4, countdown).",
+      "Say iPhone/iPad or App Store once per post or in the bio: 60-67% of readers are on Android.",
+      "Reuse vocabulary from design/i18n/{common,nuni,fourpop}/{vi,th}.json and docs/release/store-*.md so the app and the posts speak the same words.",
+      "Threads: ask a question or invite a reply (replies drive reach). Instagram/TikTok: 'link in bio' instead of a URL.",
+      "One emoji at most. No prices, no countdown-to-launch hype, no fake user quotes."
+    ],
+    "vi": "Thân thiện, hơi vui, dùng 'bạn'. Từ khóa văn hóa: sống ảo, chữa lành, bạn thân, hội bạn.",
+    "th": "เป็นกันเอง สบาย ๆ ใช้ 'คุณ' หรือไม่ใส่สรรพนาม คำวัฒนธรรม: ฮีลใจ, เพื่อนสนิท, ถ่ายรูปเล่น"
+  },
+  "iosLine": {
+    "vi": "Có trên iPhone và iPad.",
+    "th": "มีบน iPhone และ iPad",
+    "en": "On iPhone and iPad."
+  },
+  "linkInBio": { "vi": "Link trong bio.", "th": "ลิงก์ในไบโอ" },
+  "hashtags": {
+    "fourpop": {
+      "vi": ["photobooth", "chụpảnh", "sốngảo", "4tấm", "Fourpop"],
+      "th": ["โฟโต้บูธ", "ถ่ายรูป", "photobooth", "4ช่อง", "Fourpop"]
+    },
+    "nuni": {
+      "vi": ["nhậtkýcảmxúc", "chữalành", "moodtracker", "Nuni"],
+      "th": ["ไดอารี่", "ฮีลใจ", "moodtracker", "Nuni"]
+    },
+    "note": "3-5 tags per post. Rotate; add one trend tag only when it is genuinely relevant."
+  },
+  "pillars": {
+    "fourpop": [
+      { "id": "pose", "weight": 3, "title": "Pose ideas", "brief": "One strip, four poses with a theme (bff, couple, solo, silly). Caption names the theme and asks which pose they'd try.", "media": "strip" },
+      { "id": "frame-of-the-day", "weight": 3, "title": "Frame of the day", "brief": "One frame from the manifest, its vibe in one line, where it fits (date, trip, exam week). Rotate packs: base, pop, y2k, studio, season.", "media": "strip" },
+      { "id": "season", "weight": 2, "title": "Season pack", "brief": "Only while a pack is live (marketing/seasons.json). Show 2-4 frames of the pack.", "media": "frames" },
+      { "id": "howto", "weight": 2, "title": "Booth at home", "brief": "Tiny tutorial: prop the phone, countdown, 8 shots, pick 4, add stickers, save. One step per post.", "media": "card" },
+      { "id": "culture", "weight": 1, "title": "Four-cut culture", "brief": "Korean photo booth culture (why 4 cuts, the date stamp, the black studio frame). Educational, no brand names.", "media": "card" },
+      { "id": "trend", "weight": 1, "title": "Join a trend", "brief": "Only when a real TikTok/Threads trend fits; otherwise skip this pillar for the week.", "media": "strip" }
+    ],
+    "nuni": [
+      { "id": "checkin", "weight": 3, "title": "Today's cloud", "brief": "Ask which of the five clouds today is (rain, low, okay, good, great). Threads text post; replies are the point.", "media": "none" },
+      { "id": "meme", "weight": 2, "title": "Mascot mood", "brief": "Relatable Gen Z moment with the cloud mascot at the matching mood (exam week, Monday, payday).", "media": "card" },
+      { "id": "insight", "weight": 2, "title": "What lifts you", "brief": "How the month view and tags show what actually lifts your mood. Feature-true, no medical claims.", "media": "card" },
+      { "id": "healing", "weight": 2, "title": "One healing line", "brief": "A short, warm sentence (chữa lành / ฮีลใจ). No toxic positivity, no advice.", "media": "card" },
+      { "id": "streak", "weight": 1, "title": "Gentle streak", "brief": "Celebrate 7/30-day streaks as 'you showed up', never guilt.", "media": "card" },
+      { "id": "luckycolor", "weight": 1, "title": "Lucky colour (TH only)", "brief": "Thai colour-of-the-day culture meets the five mood colours. Light, playful.", "media": "card" }
+    ]
+  },
+  "photoQueries": {
+    "note": "Pexels search terms for strip photos. Prefer candid, natural light, friends; avoid studio stock looks. Southeast Asian faces when available.",
+    "candid": [
+      "friends selfie laughing",
+      "young asian woman smiling portrait",
+      "two friends taking selfie",
+      "college friends having fun",
+      "asian couple selfie casual",
+      "young man smiling portrait natural light",
+      "friends peace sign selfie",
+      "young woman winking portrait"
+    ]
+  }
+}
