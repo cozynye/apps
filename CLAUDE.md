@@ -13,6 +13,7 @@ Talk to Cozy in **Korean**. Write code, comments, commit messages and file names
 
 At the start of every session, read these in order (do not skim the plan):
 
+0. `docs/PROGRESS.md` → section "세션 시작 브리핑". **Your first reply in a new session reports it to Cozy** (check App Store review state via the ASC API, then list what Cozy still owes and what you will do next), before anything else.
 1. `docs/PLAN.md` — the full spec. **Single source of truth.** Section "개발자: Claude Code" lists 10 rules you must follow.
 2. `docs/PROGRESS.md` — where we are (current stage, done/next).
 3. `docs/DECISIONS.md` — decisions you already made.

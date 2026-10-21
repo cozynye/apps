@@ -2,12 +2,25 @@
 
 Claude Code가 작업 단위가 끝날 때마다 갱신한다. 새 세션은 이 파일부터 읽고 이어서 진행한다.
 
+## 세션 시작 브리핑 (Claude Code가 새 세션 첫 응답에서 Cozy에게 먼저 알린다)
+
+**2026-10-21 기준.** 앱 개발은 멈춤, 두 앱 심사 대기 중, 마케팅 자동화는 코드 완료 + Cozy 계정·키 대기.
+
+1. **심사 상태 먼저 확인해서 보고**: ASC API로 두 앱 버전 상태 조회(2026-10-21: Nuni 1.0.0 · Fourpop 1.0.0 모두 `WAITING_FOR_REVIEW`). 승인(`PENDING_DEVELOPER_RELEASE`)이면 수동 출시 여부를 Cozy에게 묻고, 거절이면 사유를 읽고 대응(`docs/release/*-submission.md`).
+2. **마케팅 — Cozy가 줘야 할 것** (`docs/marketing/ASIDE_PROMPTS.md`의 통합 프롬프트를 Aside에 붙여 진행; 상세는 `CHECKLIST.md`):
+   - 채팅으로: 확정 핸들(IG/Threads 4 · TikTok 2 · X 1), ASC 캠페인 provider token(`pt=` 숫자), 멈춘 단계
+   - GitHub Secrets로(채팅 금지): `THREADS_TOKEN_{FOURPOP_VI,FOURPOP_TH,NUNI_VI,NUNI_TH}`, `IG_TOKEN_`(같은 4개), `BUFFER_API_KEY`, `PEXELS_API_KEY`, `ASC_KEY_ID`·`ASC_ISSUER_ID`·`ASC_KEY_P8`(**Admin** 키 — 기존 App Manager 키는 분석 리포트 403)
+   - 로컬 `.env`에: `PEXELS_API_KEY`, `BUFFER_API_KEY`
+   - 이메일은 `nunicozy@gmail.com`의 플러스 별칭(`nunicozy+fourpopvn@gmail.com` 등, 같은 받은편지함) — Cozy에게 설명 완료
+3. **값이 들어오면 Claude Code가 할 일**: `marketing/accounts.json` 핸들·`marketing/links.json` providerToken 기록 → `pnpm marketing:publish --list-channels`로 Buffer 채널 ID 3개 조회 → `BUFFER_CHANNEL_*` Secret 등록 안내 → Actions "Marketing publish" 드라이런 → 채널별 테스트 게시 1건(확인 후 삭제) → `/marketing-weekly`로 첫 주 큐 PR. 할로윈 팩은 11/02 종료 — 그 뒤면 크리스마스(11/20~)·로이끄라통(11/24, TH)으로 시작.
+4. **Cozy 결정 대기**: 앱 내 성장 훅(공유 이미지 브랜드 마크, 공유 캡션·링크, Fourpop 평가 요청 행, 스토어 ‘40 frames’→70 수정) — `docs/marketing/STRATEGY.md` 10장.
+
 ## 현재 단계
 
 **2026-10-16 세션 종료 시점 요약** — 다음 세션은 이 절과 아래 ‘다음 할 일’부터 읽는다.
 
 - **Nuni 1.0.0 (2)**: 2026-10-15 **심사 제출됨**(Waiting for Review, 수동 출시). 승인되면 Cozy가 ASC에서 ‘이 버전 출시’를 누르거나 Claude Code가 API로 출시.
-- **Fourpop 1.0.0 (1)**: 2026-10-16 TestFlight 업로드 + ASC 1.0 버전 거의 완성(스크린샷 48장·텍스트 4개 언어·빌드 연결·심사 연락처/메모·가격 무료·국가 VN/TH·수동 출시 — 전부 API로 입력). **남은 것: Cozy가 App Privacy 라벨 게시(공개 API 없음) → ‘심사에 추가’.** 권장: 제출 전 TestFlight로 실기기 확인(카메라·저장·공유·비행기 모드).
+- **Fourpop 1.0.0 (1)**: 2026-10-21 확인 시 **심사 대기(WAITING_FOR_REVIEW)** — Cozy가 App Privacy 게시·제출 완료. (이전 기록) 2026-10-16 TestFlight 업로드 + ASC 1.0 버전 거의 완성(스크린샷 48장·텍스트 4개 언어·빌드 연결·심사 연락처/메모·가격 무료·국가 VN/TH·수동 출시 — 전부 API로 입력). **남은 것: Cozy가 App Privacy 라벨 게시(공개 API 없음) → ‘심사에 추가’.** 권장: 제출 전 TestFlight로 실기기 확인(카메라·저장·공유·비행기 모드).
 - **1.0은 전부 무료**(Cozy 결정 2026-10-15): 구독·단품·광고 없음, `EXPO_PUBLIC_MONETIZATION=on`일 때만 결제 경로. 이유: 한국 Apple 계정의 유료 앱 계약에 사업자등록번호 필요. 추후 수익화는 월·연 구독 대신 아이템 단위 인앱 해금(DECISIONS 2026-10-15).
 - **Fourpop 콘텐츠**(2026-10-15~16): 번들 무료 팩 — Pop(10)·Y2K(10)·Studio(10, 국내 네컷 부스 기본형) 프레임 + Pop(20)·Y2K(18) 스티커, 시즌팩 5개(할로윈·크리스마스·뗏·발렌타인·쏭끄란, 각 프레임 6 + 스티커 8, 기간 한정 노출). 총 프레임 70·스티커 100, 매니페스트 v6. 생성기 `scripts/content-gen/`. 날짜 스탬프에 `yyyy.MM.dd HH:mm` 추가. Firebase 연결(P18) 완료.
 - **계정·키 위치**: ASC 팀 키(App Manager) `apps/nuni/AuthKey_Z3256B5QP4.p8`(gitignore) + `.env`의 `ASC_*`; Firebase plist 2개 `apps/<app>/`(gitignore) + EAS 파일 시크릿; EAS 프로젝트 `@cco33/nuni`·`@cco33/fourpop`; ASC App ID Nuni 6821789626 · Fourpop 6821789911(기본 언어 en-GB). 자세한 절차는 `docs/release/nuni-submission.md`·`fourpop-submission.md`·`eas.md`.
